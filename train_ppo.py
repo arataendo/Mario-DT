@@ -15,6 +15,7 @@ import gymnasium as gym
 import numpy as np
 from datetime import datetime
 from pathlib import Path
+import cv2
 
 from stable_baselines3 import PPO
 from stable_baselines3.common.vec_env import SubprocVecEnv, VecMonitor
@@ -26,35 +27,35 @@ from classes.MarioGymEnv import MarioEnv
 
 
 class DictToImageWrapper(gym.ObservationWrapper):
-    """Dict 観測から画像のみを抽出するラッパー"""
+    """Dict 観測から画像のみを抽出し、リサイズするラッパー"""
     def __init__(self, env):
         super().__init__(env)
-        original_obs_space = env.observation_space
         
-        # Dict から 'image' キーを取得
-        if isinstance(original_obs_space, gym.spaces.Dict):
-            image_space = original_obs_space['image']
-        else:
-            raise ValueError("Environment must have Dict observation space")
+        # リサイズ後のサイズ（標準的な 84x84 にする）
+        self.new_size = (84, 84)
         
-        # 観測空間を画像のみに変更（正規化済みなので 0-1 に）
+        # 観測空間を uint8（0-255の整数）に変更
         self.observation_space = gym.spaces.Box(
-            low=0.0,
-            high=1.0,
-            shape=(image_space.shape[0], image_space.shape[1], image_space.shape[2]),
-            dtype=np.float32
+            low=0,
+            high=255,
+            shape=(3, self.new_size[1], self.new_size[0]),
+            dtype=np.uint8
         )
     
     def observation(self, obs):
-        """Dict 観測から画像を抽出し、正規化"""
-        # obs は Dict{'image': ..., 'state': ...}
+        """Dict 観測から画像を抽出し、リサイズ"""
         if isinstance(obs, dict):
-            image = obs['image'].astype(np.float32)
+            image = obs['image']
         else:
-            image = obs.astype(np.float32)
+            image = obs
+            
+        # 画像の形を (C, H, W) から (H, W, C) に変換してリサイズ
+        image = np.transpose(image, (1, 2, 0))
+        image = cv2.resize(image, self.new_size, interpolation=cv2.INTER_AREA)
+        # 再び (C, H, W) に戻す
+        image = np.transpose(image, (2, 0, 1))
         
-        # 画像を 0-1 に正規化
-        image = image / 255.0
+        # float32での正規化（/255.0）はここでは行わず、uint8のまま返す
         return image
 
 
@@ -161,7 +162,7 @@ def train_ppo(
         verbose=1,
         device=device,
         tensorboard_log=log_path,
-        policy_kwargs=dict(normalize_images=False)  # 既に正規化済みの画像を使用
+    #    policy_kwargs=dict(normalize_images=False)  # unit8なら正規化不要
     )
     
     print("✅ 環境とモデルの初期化完了")
