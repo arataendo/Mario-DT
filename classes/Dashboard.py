@@ -15,17 +15,18 @@ class Dashboard(Font):
         self.time = 0
 
     def update(self):
-        self.drawText("MARIO", 50, 20, 15)
-        self.drawText(self.pointString(), 50, 37, 15)
+        if self.screen is not None:  # headless mode のスキップ
+            self.drawText("MARIO", 50, 20, 15)
+            self.drawText(self.pointString(), 50, 37, 15)
 
-        self.drawText("@x{}".format(self.coinString()), 225, 37, 15)
+            self.drawText("@x{}".format(self.coinString()), 225, 37, 15)
 
-        self.drawText("WORLD", 380, 20, 15)
-        self.drawText(str(self.levelName), 395, 37, 15)
+            self.drawText("WORLD", 380, 20, 15)
+            self.drawText(str(self.levelName), 395, 37, 15)
 
-        self.drawText("TIME", 520, 20, 15)
-        if self.state != "menu":
-            self.drawText(self.timeString(), 535, 37, 15)
+            self.drawText("TIME", 520, 20, 15)
+            if self.state != "menu":
+                self.drawText(self.timeString(), 535, 37, 15)
 
         # update Time
         self.ticks += 1
@@ -34,6 +35,8 @@ class Dashboard(Font):
             self.time += 1
 
     def drawText(self, text, x, y, size):
+        if self.screen is None:  # headless mode のスキップ
+            return
         for char in text:
             charSprite = pygame.transform.scale(self.charSprites[char], (size, size))
             self.screen.blit(charSprite, (x, y))

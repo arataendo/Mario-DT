@@ -10,22 +10,28 @@ class Pause:
         self.entity = entity
         self.dashboard = dashboard
         self.state = 0
-        self.spritesheet = Spritesheet("./img/title_screen.png")
-        self.pause_srfc = GaussianBlur().filter(self.screen, 0, 0, 640, 480)
-        self.dot = self.spritesheet.image_at(
-            0, 150, 2, colorkey=[255, 0, 220], ignoreTileSize=True
-        )
-        self.gray_dot = self.spritesheet.image_at(
-            20, 150, 2, colorkey=[255, 0, 220], ignoreTileSize=True
-        )
+        self.spritesheet = Spritesheet("./img/title_screen.png") if screen is not None else None
+        self.pause_srfc = None
+        self.dot = None
+        self.gray_dot = None
+        
+        if screen is not None:
+            self.pause_srfc = GaussianBlur().filter(self.screen, 0, 0, 640, 480)
+            self.dot = self.spritesheet.image_at(
+                0, 150, 2, colorkey=[255, 0, 220], ignoreTileSize=True
+            )
+            self.gray_dot = self.spritesheet.image_at(
+                20, 150, 2, colorkey=[255, 0, 220], ignoreTileSize=True
+            )
 
     def update(self):
-        self.screen.blit(self.pause_srfc, (0, 0))
-        self.dashboard.drawText("PAUSED", 120, 160, 68)
-        self.dashboard.drawText("CONTINUE", 150, 280, 32)
-        self.dashboard.drawText("BACK TO MENU", 150, 320, 32)
-        self.drawDot()
-        pygame.display.update()
+        if self.screen is not None:
+            self.screen.blit(self.pause_srfc, (0, 0))
+            self.dashboard.drawText("PAUSED", 120, 160, 68)
+            self.dashboard.drawText("CONTINUE", 150, 280, 32)
+            self.dashboard.drawText("BACK TO MENU", 150, 320, 32)
+            self.drawDot()
+            pygame.display.update()
         self.checkInput()
 
     def drawDot(self):

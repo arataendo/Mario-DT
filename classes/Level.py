@@ -85,17 +85,19 @@ class Level:
 
     def drawLevel(self, camera):
         try:
-            for y in range(0, 15):
-                for x in range(0 - int(camera.pos.x + 1), 20 - int(camera.pos.x - 1)):
-                    if self.level[y][x].sprite is not None:
-                        if self.level[y][x].sprite.redrawBackground:
-                            self.screen.blit(
-                                self.sprites.spriteCollection.get("sky").image,
-                                ((x + camera.pos.x) * 32, y * 32),
+            # headless mode (screen=None) の場合はスキップ
+            if self.screen is not None:
+                for y in range(0, 15):
+                    for x in range(0 - int(camera.pos.x + 1), 20 - int(camera.pos.x - 1)):
+                        if self.level[y][x].sprite is not None:
+                            if self.level[y][x].sprite.redrawBackground:
+                                self.screen.blit(
+                                    self.sprites.spriteCollection.get("sky").image,
+                                    ((x + camera.pos.x) * 32, y * 32),
+                                )
+                            self.level[y][x].sprite.drawSprite(
+                                x + camera.pos.x, y, self.screen
                             )
-                        self.level[y][x].sprite.drawSprite(
-                            x + camera.pos.x, y, self.screen
-                        )
             self.updateEntities(camera)
         except IndexError:
             return

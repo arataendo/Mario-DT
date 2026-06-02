@@ -35,11 +35,12 @@ bigAnimation = Animation(
 
 
 class Mario(EntityBase):
-    def __init__(self, x, y, level, screen, dashboard, sound, gravity=0.8):
+    def __init__(self, x, y, level, screen, dashboard, sound, gravity=0.8, input_source='human'):
         super(Mario, self).__init__(x, y, gravity)
         self.camera = Camera(self.rect, self)
         self.sound = sound
         self.input = Input(self)
+        self.input_source = input_source  # 'human', 'agent', or 'disabled'
         self.inAir = False
         self.inJump = False
         self.powerUpState = 0
@@ -67,7 +68,12 @@ class Mario(EntityBase):
         self.camera.move()
         self.applyGravity()
         self.checkEntityCollision()
-        self.input.checkForInput()
+        # 入力源に応じて適切なハンドラーを呼び出す
+        if self.input_source in ('human', 'disabled'):
+            self.input.checkForInput()
+        elif self.input_source == 'agent':
+            # エージェント入力の場合は setAction が既に呼ばれているので checkForInput は呼ばない
+            pass
 
     def moveMario(self):
         self.rect.y += self.vel.y
