@@ -156,6 +156,13 @@ class Mario(EntityBase):
         self.dashboard.points += 100
 
     def gameOver(self):
+        self.restart = True  # Gym環境にゲーム終了を伝達するため、即座にTrueにする
+        
+        # エージェント（AI）が操作している場合は、描画や音楽の待機をスキップする
+        if self.input_source == 'agent':
+            return
+            
+        # 人間がプレイしている場合のみ、ゲームオーバー演出を行う
         srf = pygame.Surface((640, 480))
         srf.set_colorkey((255, 255, 255), pygame.RLEACCEL)
         srf.set_alpha(128)
@@ -176,8 +183,6 @@ class Mario(EntityBase):
         while self.sound.music_channel.get_busy():
             pygame.display.update()
             self.input.checkForInput()
-        self.restart = True
-
     def getPos(self):
         return self.camera.x + self.rect.x, self.rect.y
 
