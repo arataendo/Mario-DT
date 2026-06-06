@@ -10,44 +10,40 @@ import argparse
 import numpy as np
 import gymnasium as gym
 from pathlib import Path
-
+import cv2
 from stable_baselines3 import PPO
 
 from classes.MarioGymEnv import MarioEnv
 
 
 class DictToImageWrapper(gym.ObservationWrapper):
-    """Dict 観測から画像のみを抽出するラッパー"""
+    """Dict 観測から画像を抽出し、モデルが期待する 84x84 に変換するラッパー"""
     def __init__(self, env):
         super().__init__(env)
-        original_obs_space = env.observation_space
         
-        # Dict から 'image' キーを取得
-        if isinstance(original_obs_space, gym.spaces.Dict):
-            image_space = original_obs_space['image']
-        else:
-            raise ValueError("Environment must have Dict observation space")
-        
-        # 観測空間を画像のみに変更（正規化済みなので 0-1 に）
+        # モデルが期待する観測空間 (3チャンネル, 84x84, uint8(0-255)) に合わせる
         self.observation_space = gym.spaces.Box(
-            low=0.0,
-            high=1.0,
-            shape=(image_space.shape[0], image_space.shape[1], image_space.shape[2]),
-            dtype=np.float32
+            low=0,
+            high=255,
+            shape=(3, 84, 84),
+            dtype=np.uint8
         )
     
     def observation(self, obs):
-        """Dict 観測から画像を抽出し、正規化"""
-        # obs は Dict{'image': ..., 'state': ...}
-        if isinstance(obs, dict):
-            image = obs['image'].astype(np.float32)
-        else:
-            image = obs.astype(np.float32)
+        # 1. Dict から画像を取得 (C, H, W) = (3, 480, 640)
+        img = obs['image']
         
-        # 画像を 0-1 に正規化
-        image = image / 255.0
-        return image
-
+        # 2. OpenCVでリサイズするために (H, W, C) に次元を入れ替え
+        img_hwc = np.transpose(img, (1, 2, 0))
+        
+        # 3. 84x84 にリサイズ
+        img_resized = cv2.resize(img_hwc, (84, 84), interpolation=cv2.INTER_AREA)
+        
+        # 4. モデルの入力形式 (C, H, W) = (3, 84, 84) に戻す
+        img_chw = np.transpose(img_resized, (2, 0, 1))
+        
+        # 5. 正規化(0.0-1.0)はせず、0-255 の uint8 のまま返す
+        return img_chw.astype(np.uint8)
 
 def run_inference(
     model_path: str,

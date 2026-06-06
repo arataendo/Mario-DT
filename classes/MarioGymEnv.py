@@ -9,7 +9,7 @@ import gymnasium as gym
 from gymnasium import spaces
 import numpy as np
 import os
-
+import pygame
 from classes.Dashboard import Dashboard
 from classes.Level import Level
 from classes.Sound import Sound
@@ -194,30 +194,8 @@ class MarioEnv(gym.Env):
         return observation, info
     
     def step(self, action):
-        """
-        1ステップ進める
-        
-        Parameters:
-        -----------
-        action : int
-            Gym アクション (0-7)
-        
-        Returns:
-        --------
-        observation : Dict
-        reward : float
-        terminated : bool
-            エピソード終了（ゲームオーバーやステージクリア）
-        truncated : bool
-            時間切れ（max_episode_steps 到達）
-        info : Dict
-            追加情報
-        """
-        
-        # エージェント入力を設定
+        # --- 前半はそのまま ---
         self.mario.input.setAction(action)
-        
-        # ゲームを1フレーム進める
         self.level.drawLevel(self.mario.camera)
         self.dashboard.update()
         self.mario.update()
@@ -248,11 +226,17 @@ class MarioEnv(gym.Env):
             'powerup_state': self.mario.powerUpState,
         }
         
+        # --- ここから修正 ---
         if terminated:
-            info['reason'] = 'game_over' if self.mario.powerUpState == 0 and self.episode_step < self.max_episode_steps else 'level_complete'
+            # goalReached フラグでクリアかどうかを確実に判定する
+            if hasattr(self.mario, 'goalReached') and self.mario.goalReached:
+                info['reason'] = 'level_complete'
+            else:
+                info['reason'] = 'game_over'
         
         if truncated:
             info['reason'] = 'timeout'
+        # --------------------
         
         return observation, reward, terminated, truncated, info
     
@@ -281,11 +265,17 @@ class MarioEnv(gym.Env):
             reward += points_delta / 100.0  # 100ポイント = 1.0 報酬
             self.prev_points = current_points
         
-        # ゲームオーバーペナルティ
-        if self.mario.restart and self.mario.powerUpState == 0:
-            reward -= 10.0
+        # --- ここから修正 ---
+        if self.mario.restart:
+            # goalReached フラグが True ならゴール到達！
+            if hasattr(self.mario, 'goalReached') and self.mario.goalReached:
+                reward += 100.0  # ★ ゴール報酬（必要に応じて大きくしてください）
+            # それ以外（敵に当たった、穴に落ちた等）はゲームオーバーペナルティ
+            else:
+                reward -= 10.0
+        # --------------------
         
-        return reward
+        return reward    
     
     def _get_observation(self):
         """現在の観測を取得"""

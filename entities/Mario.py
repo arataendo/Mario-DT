@@ -57,6 +57,7 @@ class Mario(EntityBase):
         self.EntityCollider = EntityCollider(self)
         self.dashboard = dashboard
         self.restart = False
+        self.goalReached = False  # ★ ここにゴール到達フラグを追加
         self.pause = False
         self.pauseObj = Pause(screen, self, dashboard)
 
@@ -68,6 +69,7 @@ class Mario(EntityBase):
         self.camera.move()
         self.applyGravity()
         self.checkEntityCollision()
+        self.checkLevelEnd()
         # 入力源に応じて適切なハンドラーを呼び出す
         if self.input_source in ('human', 'disabled'):
             self.input.checkForInput()
@@ -154,6 +156,13 @@ class Mario(EntityBase):
             ent.active = False
             ent.bouncing = False
         self.dashboard.points += 100
+    def checkLevelEnd(self):
+        # ゴールのX座標 (少し手前で判定する場合は - 32 などの微調整をしてください)
+        goal_x = (self.levelObj.levelLength - 1) * 32
+        
+        if self.rect.x >= goal_x:
+            self.goalReached = True  # ゴール到達フラグを立てる
+            self.restart = True      # メインループを終了（リセット）させるため
 
     def gameOver(self):
         self.restart = True  # Gym環境にゲーム終了を伝達するため、即座にTrueにする
