@@ -149,10 +149,11 @@ class MarioEnv(gym.Env):
         self.mario.input_source = 'agent'
         
         self.initial_mario_x = self.mario.rect.x
+        self.prev_mario_x = self.mario.rect.x  # ★ここを追加: 前回のX座標を保持
         self.prev_coins = self.dashboard.coins
         self.prev_points = self.dashboard.points
         self.prev_enemies_killed = 0
-    
+        
     def reset(self, seed=None, options=None):
         """
         環境をリセット
@@ -244,20 +245,22 @@ class MarioEnv(gym.Env):
         """報酬を計算"""
         reward = 0.0
         
-        # 進行度報酬 (右への移動距離 * 0.1)
-        current_progress = self.mario.rect.x - self.initial_mario_x
-        progress_reward = current_progress * 0.1 - self.prev_coins * 0.1
-        reward += progress_reward / 32.0  # ピクセル単位を正規化
+        # ★修正: 進行度報酬 (1ステップでの右への移動距離に基づく)
+        delta_x = self.mario.rect.x - getattr(self, 'prev_mario_x', self.initial_mario_x)
+        
+        # 1ブロック(32ピクセル)進むごとに報酬を与えるよう正規化
+        # 左に戻った場合はペナルティ（マイナス報酬）になる
+        reward += delta_x / 32.0  
+        
+        # 次のステップの計算のために現在のX座標を保存
+        self.prev_mario_x = self.mario.rect.x
         
         # 時間ペナルティ
         reward -= 0.01
         
         # コイン収集ボーナス
         current_coins = self.dashboard.coins
-        if current_coins > self.prev_coins:
-            reward += 1.0
-            self.prev_coins = current_coins
-        
+                
         # ポイント増加ボーナス（敵撃破など）
         current_points = self.dashboard.points
         if current_points > self.prev_points:
