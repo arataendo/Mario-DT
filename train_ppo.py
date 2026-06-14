@@ -63,12 +63,11 @@ def make_env(level: str, rank: int, seed: int = 0):
     """並列化用の環境生成関数"""
     def _init():
         env = MarioEnv(
-            level=level,
-            render_mode=None,  # headless mode
+            level=None,          # 指定レベルをNoneにする
+            render_mode=None,  
             max_episode_steps=1000,
-            random_level=False
-        )
-        # Dict 観測から画像を抽出
+            random_level=True    # ランダムフラグをTrueにする
+        )    # Dict 観測から画像を抽出
         env = DictToImageWrapper(env)
         # 各プロセスにシードをずらして設定
         env.reset(seed=seed + rank)
@@ -135,10 +134,12 @@ def train_ppo(
     )
     
     # 評価用環境（シングル）
+    # 評価用環境（シングル）
     eval_env = MarioEnv(
-        level=level,
+        level=None,              # 指定レベルをNoneにする
         render_mode=None,
-        max_episode_steps=1000
+        max_episode_steps=1000,
+        random_level=True        # ランダムフラグを追加
     )
     eval_env = DictToImageWrapper(eval_env)
     
@@ -180,15 +181,12 @@ def train_ppo(
         )
         
         # プログレスバーコールバック
-        progress_callback = ProgressBarCallback()
-        
         # モデルを学習
         model.learn(
             total_timesteps=total_steps,
-            callback=[checkpoint_callback, progress_callback],
+            callback=[checkpoint_callback], # progress_callback を削除
             progress_bar=True
         )
-        
         print("-" * 60)
         print("✅ 学習完了！")
         print()
