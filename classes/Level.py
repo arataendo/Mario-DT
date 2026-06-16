@@ -10,7 +10,7 @@ from entities.Mushroom import RedMushroom
 from entities.Koopa import Koopa
 from entities.CoinBox import CoinBox
 from entities.RandomBox import RandomBox
-
+from entities.Firebar import Firebar
 
 class Level:
     def __init__(self, screen, sound, dashboard):
@@ -38,10 +38,18 @@ class Level:
             [self.addCoin(x, y) for x, y in data["level"]["entities"]["coin"]]
             [self.addCoinBrick(x, y) for x, y in data["level"]["entities"]["coinBrick"]]
             [self.addRandomBox(x, y, item) for x, y, item in data["level"]["entities"]["RandomBox"]]
+            # ↓追加部分: JSONからFirebarを読み込む
+            if "Firebar" in data["level"]["entities"]:
+                [self.addFirebar(x, y) for x, y in data["level"]["entities"]["Firebar"]]
         except:
             # if no entities in Level
             pass
 
+    # ↓追加部分: Firebarを生成してリストに加えるメソッド
+    def addFirebar(self, x, y):
+        self.entityList.append(
+            Firebar(self.screen, self.sprites.spriteCollection, x, y, self)
+        )
     def loadLayers(self, data):
         layers = []
         for x in range(*data["level"]["layers"]["sky"]["x"]):

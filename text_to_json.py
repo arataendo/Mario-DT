@@ -36,7 +36,8 @@ def convert_text_to_json(txt_filepath, json_filepath):
                 "hardblock": [],
                 "Goomba": [],
                 "Koopa": [],
-                "RandomBox": []
+                "RandomBox": [],
+                "Firebar": []
             }
         }
     }
@@ -71,6 +72,10 @@ def convert_text_to_json(txt_filepath, json_filepath):
             elif char == 'M':
                 # 元の仕様に合わせて [x, y, item名] の形式にする
                 data["level"]["entities"]["RandomBox"].append([x, y, "RedMushroom"])
+            elif char == 's':
+                data["level"]["entities"]["RandomBox"].append([x, y, "SuperStar"])
+            elif char == 'F':
+                data["level"]["entities"]["Firebar"].append([x, y])
 
     # JSONファイルとして出力
     with open(json_filepath, 'w') as f:
