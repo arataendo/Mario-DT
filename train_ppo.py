@@ -21,11 +21,35 @@ from stable_baselines3 import PPO
 from stable_baselines3.common.vec_env import SubprocVecEnv, VecMonitor
 from stable_baselines3.common.callbacks import CheckpointCallback, ProgressBarCallback
 from stable_baselines3.common.evaluation import evaluate_policy
-
+from stable_baselines3.common.monitor import Monitor
 # カスタム環境をインポート
 from classes.MarioGymEnv import MarioEnv
 
+class SkipFrame(gym.Wrapper):
+    """
+    指定したフレーム数だけ同じアクションを繰り返し、計算負荷を減らすラッパー。
+    4フレームスキップなら、AIの推論回数が1/4になり学習が約4倍速くなります。
+    """
+    def __init__(self, env, skip=4):
+        super().__init__(env)
+        self._skip = skip
 
+    def step(self, action):
+        total_reward = 0.0
+        terminated = False
+        truncated = False
+        info = {}
+        
+        # skip回数分、同じアクションを実行して環境を進める
+        for _ in range(self._skip):
+            obs, reward, terminated, truncated, info = self.env.step(action)
+            total_reward += reward
+            # 途中でゲームオーバーやクリアになったらループを抜ける
+            if terminated or truncated:
+                break
+                
+        # 最終的な画面(obs)と、スキップ中に得た合計報酬を返す
+        return obs, total_reward, terminated, truncated, info
 class DictToImageWrapper(gym.ObservationWrapper):
     """Dict 観測から画像のみを抽出し、リサイズするラッパー"""
     def __init__(self, env):
@@ -58,22 +82,23 @@ class DictToImageWrapper(gym.ObservationWrapper):
         # float32での正規化（/255.0）はここでは行わず、uint8のまま返す
         return image
 
-
 def make_env(level: str, rank: int, seed: int = 0):
     """並列化用の環境生成関数"""
     def _init():
         env = MarioEnv(
-            level=None,          # 指定レベルをNoneにする
+            level=None,          
             render_mode=None,  
             max_episode_steps=1000,
-            random_level=True    # ランダムフラグをTrueにする
-        )    # Dict 観測から画像を抽出
+            random_level=True    
+        )
+        # ★ ここにフレームスキップを追加 (4フレームごとに推論)
+        env = SkipFrame(env, skip=4)
+        
+        # Dict 観測から画像を抽出
         env = DictToImageWrapper(env)
-        # 各プロセスにシードをずらして設定
         env.reset(seed=seed + rank)
         return env
     return _init
-
 
 def train_ppo(
     level: str = "Level1-1",
@@ -135,14 +160,18 @@ def train_ppo(
     
     # 評価用環境（シングル）
     # 評価用環境（シングル）
+    # 評価用環境（シングル）
     eval_env = MarioEnv(
-        level=None,              # 指定レベルをNoneにする
+        level=None,              
         render_mode=None,
         max_episode_steps=1000,
-        random_level=True        # ランダムフラグを追加
+        random_level=True        
     )
-    eval_env = DictToImageWrapper(eval_env)
+    # ★ 評価環境にも同じくフレームスキップを追加
+    eval_env = SkipFrame(eval_env, skip=4)
     
+    eval_env = DictToImageWrapper(eval_env)
+    eval_env = Monitor(eval_env)
     # PPO エージェントを作成
     print("🤖 PPO エージェントを初期化中...")
     
