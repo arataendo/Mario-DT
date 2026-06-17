@@ -16,7 +16,7 @@ import numpy as np
 from datetime import datetime
 from pathlib import Path
 import cv2
-
+from typing import Callable # これを上部の import 郡に追加
 from stable_baselines3 import PPO
 from stable_baselines3.common.vec_env import SubprocVecEnv, VecMonitor
 from stable_baselines3.common.callbacks import CheckpointCallback, ProgressBarCallback
@@ -25,6 +25,13 @@ from stable_baselines3.common.monitor import Monitor
 # カスタム環境をインポート
 from classes.MarioGymEnv import MarioEnv
 
+def linear_schedule(initial_value: float) -> Callable[[float], float]:
+    """
+    学習の進行度(1.0 -> 0.0)に合わせて、学習率を線形に減衰させる関数
+    """
+    def func(progress_remaining: float) -> float:
+        return progress_remaining * initial_value
+    return func
 class SkipFrame(gym.Wrapper):
     """
     指定したフレーム数だけ同じアクションを繰り返し、計算負荷を減らすラッパー。
@@ -176,12 +183,15 @@ def train_ppo(
     print("🤖 PPO エージェントを初期化中...")
     
     # PPO ハイパーパラメータ
+    # PPO ハイパーパラメータ
     model = PPO(
-        policy="CnnPolicy",  # CNN ポリシー（画像入力用）
+        policy="CnnPolicy",
         env=envs,
-        learning_rate=3e-4,
-        n_steps=2048,  # バッチサイズ = n_steps * num_envs
-        batch_size=64,
+        # 固定値 3e-4 から、徐々に小さくなるように変更
+        learning_rate=linear_schedule(2.5e-4), 
+        n_steps=2048,
+        # バッチサイズを 64 から 256（または512）に増やす
+        batch_size=256, 
         n_epochs=10,
         gamma=0.99,  # 割引率
         gae_lambda=0.95,  # GAE パラメータ
@@ -189,10 +199,11 @@ def train_ppo(
         ent_coef=0.01,  # エントロピー係数
         vf_coef=0.5,  # 価値関数損失係数
         max_grad_norm=0.5,
+        # 追加: approx_kl が上がりすぎた時に更新をストップする安全装置
+        target_kl=0.02, 
         verbose=1,
         device=device,
         tensorboard_log=log_path,
-    #    policy_kwargs=dict(normalize_images=False)  # unit8なら正規化不要
     )
     
     print("✅ 環境とモデルの初期化完了")
