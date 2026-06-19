@@ -93,6 +93,19 @@ class Mario(EntityBase):
                     self._onCollisionWithBlock(ent)
                 elif ent.type == "Mob":
                     self._onCollisionWithMob(ent, collisionState)
+                # Mario.py内の衝突判定のイメージ
+                if ent.type == "obstacle" and collisionState.isColliding:
+                    self._onCollisionWithobstacle(ent) # またはダメージを受ける処理
+    def _onCollisionWithobstacle(self, obstacle):
+        if self.powerUpState == 0:
+            self.gameOver()
+        elif self.powerUpState == 1:
+            self.powerUpState = 0
+            self.traits['goTrait'].updateAnimation(smallAnimation)
+            x, y = self.rect.x, self.rect.y
+            self.rect = pygame.Rect(x, y + 32, 32, 32)
+            self.invincibilityFrames = 60
+            self.sound.play_sfx(self.sound.pipe)
 
     def _onCollisionWithItem(self, item):
         self.levelObj.entityList.remove(item)
