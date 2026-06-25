@@ -113,7 +113,8 @@ def train_ppo(
     num_envs: int = 4,
     log_dir: str = "./logs",
     model_dir: str = "./models",
-    device: str = "auto"
+    device: str = "auto",
+    load_model_path: str = None
 ):
     """
     PPO で Mario ゲームを学習
@@ -179,33 +180,41 @@ def train_ppo(
     
     eval_env = DictToImageWrapper(eval_env)
     eval_env = Monitor(eval_env)
-    # PPO エージェントを作成
-    print("🤖 PPO エージェントを初期化中...")
-    
-    # PPO ハイパーパラメータ
-    # PPO ハイパーパラメータ
-    model = PPO(
-        policy="CnnPolicy",
-        env=envs,
-        # 固定値 3e-4 から、徐々に小さくなるように変更
-        learning_rate=linear_schedule(2.5e-4), 
-        n_steps=2048,
-        # バッチサイズを 64 から 256（または512）に増やす
-        batch_size=256, 
-        n_epochs=10,
-        gamma=0.99,  # 割引率
-        gae_lambda=0.95,  # GAE パラメータ
-        clip_range=0.2,  # PPO クリップ範囲
-        ent_coef=0.01,  # エントロピー係数
-        vf_coef=0.5,  # 価値関数損失係数
-        max_grad_norm=0.5,
-        # 追加: approx_kl が上がりすぎた時に更新をストップする安全装置
-        target_kl=0.02, 
-        verbose=1,
-        device=device,
-        tensorboard_log=log_path,
-    )
-    
+
+    # PPO エージェントを作成 / 読み込み
+    if load_model_path and os.path.exists(load_model_path):
+        print(f"🔄 既存のモデルを読み込んで学習を再開します: {load_model_path}")
+        # 保存されたモデルを読み込み、現在の環境(envs)をセットする
+        model = PPO.load(
+            load_model_path,
+            env=envs,
+            device=device,
+            # 学習率のスケジュールを引き継ぐか、再設定するかは要件次第ですが、
+            # 基本的にはロード時に新しいスケジュールを上書き可能です。
+            custom_objects={"learning_rate": linear_schedule(2.5e-4)} 
+        )
+        # TensorBoard のログ出力先を今回の新しいパスに設定し直す
+        model.tensorboard_log = log_path
+    else:
+        print("🤖 新しい PPO エージェントを初期化中...")
+        model = PPO(
+            policy="CnnPolicy",
+            env=envs,
+            learning_rate=linear_schedule(2.5e-4), 
+            n_steps=2048,
+            batch_size=256, 
+            n_epochs=10,
+            gamma=0.99,
+            gae_lambda=0.95,
+            clip_range=0.2,
+            ent_coef=0.01,
+            vf_coef=0.5,
+            max_grad_norm=0.5,
+            target_kl=0.02, 
+            verbose=1,
+            device=device,
+            tensorboard_log=log_path,
+        )
     print("✅ 環境とモデルの初期化完了")
     print()
     print("🚀 学習を開始します...")
@@ -335,6 +344,14 @@ def main():
         default="./models",
         help="モデル保存ディレクトリ (デフォルト: ./models)"
     )
+    # ... 既存の add_argument の下に追加 ...
+    
+    parser.add_argument(
+        "--load-model",
+        type=str,
+        default=None,
+        help="学習を再開するモデルのパス (例: ./models/mario_ppo_level1-1_100k.zip)"
+    )
     
     args = parser.parse_args()
     
@@ -345,7 +362,8 @@ def main():
         num_envs=args.num_envs,
         device=args.device,
         log_dir=args.log_dir,
-        model_dir=args.model_dir
+        model_dir=args.model_dir,
+        load_model_path=args.load_model  # ← これを追加
     )
 
 
