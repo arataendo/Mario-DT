@@ -87,9 +87,18 @@ def process_episode_for_dt(folder_path):
         metadata = parse_png_metadata(filepath)
         ram = metadata.get('RAM', b'')
         
+        # --- GitHub Issue #4 のバグ回避処理 ---
+        if len(ram) > 2048:
+            # Windowsのテキストモード追記による改行コード(\n -> \r\n)の増殖を元に戻す
+            ram = ram.replace(b'\r\n', b'\n')
+            # Issue投稿者の環境に合わせた念しぼり
+            if len(ram) > 2048:
+                ram = ram.replace(b'\r\n', b'\r')
+        # --------------------------------------
+
+        # バグ回避後も2048バイトに満たない破損フレームはスキップ
         if len(ram) < 2048:
-            continue
-            
+            continue        
         current_x = get_mario_x(ram)
         current_score = get_mario_score(ram)
         action = metadata.get('BP1', b'\x00')[0]
