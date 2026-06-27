@@ -1,262 +1,199 @@
 import os
+import glob
+import struct
 import pickle
-import random
+import logging
+import time
 import numpy as np
-import torch
-import torch.nn as nn
-from torch.utils.data import Dataset, DataLoader
-from torch.nn import functional as F
-from PIL import Image
-from transformers import GPT2Config, GPT2Model
 
-# ==========================================
-# 1. データセットの定義
-# ==========================================
-class MarioDTDataset(Dataset):
-    def __init__(self, pkl_path, context_len=30, image_size=(84, 84)):
-        """
-        context_len: K（Transformerに入力する系列長）
-        """
-        print(f"Loading metadata from {pkl_path}...")
-        with open(pkl_path, 'rb') as f:
-            self.episodes = pickle.load(f)
+# ロギングの設定
+logging.basicConfig(
+    level=logging.INFO,
+    format='[%(asctime)s] %(levelname)s: %(message)s',
+    handlers=[
+        logging.FileHandler("dt_preprocessing.log", mode="w", encoding="utf-8"),
+        logging.StreamHandler()
+    ]
+)
+
+def parse_png_metadata(filepath):
+    """PNGからカスタムメタデータ (RAM, BP1, OUTCOME) を抽出"""
+    metadata = {}
+    try:
+        with open(filepath, 'rb') as f:
+            data = f.read()
+    except Exception as e:
+        logging.error(f"Failed to read file {filepath}: {e}")
+        return metadata
+        
+    if data[:8] != b'\x89PNG\r\n\x1a\n':
+        return metadata
+        
+    offset = 8
+    while offset < len(data):
+        if offset + 4 > len(data): break
+        length = struct.unpack('>I', data[offset:offset+4])[0]
+        offset += 4
+        
+        if offset + 4 > len(data): break
+        chunk_type = data[offset:offset+4]
+        offset += 4
+        
+        if offset + length > len(data): break
+        chunk_data = data[offset:offset+length]
+        offset += length
+        
+        offset += 4  # Fake CRCをスキップ
+        
+        if chunk_type == b'tEXt':
+            null_idx = chunk_data.find(b'\x00')
+            if null_idx != -1:
+                key = chunk_data[:null_idx].decode('ascii', errors='ignore')
+                value = chunk_data[null_idx+1:]
+                metadata[key] = value
+                
+    return metadata
+
+def get_mario_x(ram):
+    if len(ram) <= 0x0086: return 0
+    return ram[0x006D] * 256 + ram[0x0086]
+
+def get_mario_score(ram):
+    if len(ram) <= 0x07E2: return 0
+    score_str = "".join(str(ram[i]) for i in range(0x07DD, 0x07DD + 6))
+    try:
+        return int(score_str) * 10
+    except ValueError:
+        return 0
+
+def extract_frame_num(filename):
+    parts = os.path.basename(filename).split('_')
+    for p in parts:
+        if p.startswith('f') and p[1:].isdigit():
+            return int(p[1:])
+    return 0
+
+def process_episode_for_dt(folder_path):
+    png_files = glob.glob(os.path.join(folder_path, "*.png"))
+    png_files.sort(key=extract_frame_num)
+    
+    if not png_files:
+        return None
+        
+    prev_x = None
+    prev_score = None
+    
+    image_paths = []
+    actions = []
+    rewards = []
+    states_scalar = []
+    dones = []
+    
+    for i, filepath in enumerate(png_files):
+        metadata = parse_png_metadata(filepath)
+        ram = metadata.get('RAM', b'')
+        
+        # ====== GitHub Issue #4 バグ回避処理 ======
+        if len(ram) > 2048:
+            # Windowsのテキストモード追記による改行コード(\n -> \r\n)の増殖を元に戻す
+            ram = ram.replace(b'\r\n', b'\n')
+            if len(ram) > 2048:
+                ram = ram.replace(b'\r\n', b'\r')
+        # ==========================================
+        
+        if len(ram) < 2048:
+            continue
             
-        self.context_len = context_len
-        self.image_size = image_size
+        current_x = get_mario_x(ram)
+        current_score = get_mario_score(ram)
+        action = metadata.get('BP1', b'\x00')[0]
+        reward = 0.0
+        done = False
         
-        # エピソードごとの長さを計算
-        self.lengths = [len(ep['rewards']) for ep in self.episodes]
-        self.num_episodes = len(self.episodes)
+        if prev_x is not None:
+            # 進行度報酬 (NES版は1ブロック16px)
+            reward += (current_x - prev_x) / 16.0
+            # 時間ペナルティ
+            reward -= 0.01
+            # スコアボーナス
+            if current_score > prev_score:
+                reward += (current_score - prev_score) / 100.0
+                
+        if i == len(png_files) - 1:
+            done = True
+            outcome = metadata.get('OUTCOME', b'\x00')[0]
+            if filepath.endswith('.win.png') or outcome == 2:
+                reward += 100.0
+            elif filepath.endswith('.fail.png') or outcome == 1:
+                reward -= 10.0
+                
+        image_paths.append(filepath)
+        actions.append(action)
+        rewards.append(reward)
+        dones.append(done)
+        states_scalar.append([current_x, current_score])
         
-        # 状態（RTGなど）の最大・最小値（正規化用）
-        all_rtg = np.concatenate([ep['returns_to_go'] for ep in self.episodes])
-        self.rtg_max, self.rtg_min = np.max(all_rtg), np.min(all_rtg)
-        print(f"Dataset Loaded: {self.num_episodes} episodes. RTG range: {self.rtg_min:.2f} to {self.rtg_max:.2f}")
+        prev_x = current_x
+        prev_score = current_score
 
-    def __len__(self):
-        # 任意のエピソードをランダムサンプリングするため、仮想的なデータセット長を定義
-        return 50000
+    if not rewards:
+        return None
 
-    def __getitem__(self, idx):
-        # ランダムにエピソードを選択
-        ep_idx = random.randint(0, self.num_episodes - 1)
-        episode = self.episodes[ep_idx]
-        ep_len = self.lengths[ep_idx]
-        
-        # サンプリングする開始ステップをランダムに決定
-        start_t = random.randint(0, ep_len - 1)
-        end_t = min(start_t + self.context_len, ep_len)
-        seq_len = end_t - start_t
-        
-        # データの切り出し
-        image_paths = episode['image_paths'][start_t:end_t]
-        actions = episode['actions'][start_t:end_t]
-        rtg = episode['returns_to_go'][start_t:end_t]
-        # 正規化: 0 ~ 1の範囲にスケール
-        rtg = (rtg - self.rtg_min) / (self.rtg_max - self.rtg_min + 1e-5)
-        
-        timesteps = np.arange(start_t, end_t)
+    returns_to_go = np.zeros_like(rewards, dtype=np.float32)
+    current_rtg = 0.0
+    for t in reversed(range(len(rewards))):
+        current_rtg = rewards[t] + current_rtg
+        returns_to_go[t] = current_rtg
 
-        # 画像の遅延読み込みと前処理 (C, H, W)
-        images = []
-        for img_path in image_paths:
-            try:
-                img = Image.open(img_path).convert('RGB')
-                img = img.resize(self.image_size, Image.BILINEAR)
-                img_arr = np.array(img, dtype=np.float32) / 255.0
-                images.append(img_arr.transpose(2, 0, 1)) # HWC -> CHW
-            except Exception as e:
-                # 読み込み失敗時はゼロ埋め画像
-                images.append(np.zeros((3, self.image_size[1], self.image_size[0]), dtype=np.float32))
-        
-        images = np.array(images)
+    episode_data = {
+        'image_paths': image_paths,
+        'actions': np.array(actions, dtype=np.int32),
+        'rewards': np.array(rewards, dtype=np.float32),
+        'returns_to_go': returns_to_go,
+        'states_scalar': np.array(states_scalar, dtype=np.float32),
+        'dones': np.array(dones, dtype=bool)
+    }
+    
+    return episode_data
 
-        # Padding (系列長が K に満たない場合、先頭を0で埋める)
-        pad_len = self.context_len - seq_len
-        
-        # パディング処理
-        images = np.concatenate([np.zeros((pad_len, 3, *self.image_size), dtype=np.float32), images], axis=0)
-        actions = np.concatenate([np.zeros(pad_len, dtype=np.int32), actions], axis=0)
-        rtg = np.concatenate([np.zeros(pad_len, dtype=np.float32), rtg], axis=0)
-        timesteps = np.concatenate([np.zeros(pad_len, dtype=np.int32), timesteps], axis=0)
-        
-        # アテンションマスク (パディング部分は 0, 実際のデータ部分は 1)
-        attention_mask = np.concatenate([np.zeros(pad_len, dtype=np.float32), np.ones(seq_len, dtype=np.float32)], axis=0)
+def main():
+    dataset_root = "data"  # 環境に応じて書き換えてください
+    all_episodes_data = []
+    
+    logging.info(f"Starting DT dataset preprocessing. Root directory: {dataset_root}")
+    start_time = time.time()
+    
+    if not os.path.exists(dataset_root):
+        logging.error(f"Root directory '{dataset_root}' does not exist.")
+        return
 
-        return {
-            'states': torch.tensor(images),
-            'actions': torch.tensor(actions, dtype=torch.long), # 離散アクション
-            'returns_to_go': torch.tensor(rtg, dtype=torch.float32).unsqueeze(-1),
-            'timesteps': torch.tensor(timesteps, dtype=torch.long),
-            'attention_mask': torch.tensor(attention_mask, dtype=torch.float32)
-        }
+    folders = [f for f in os.listdir(dataset_root) if os.path.isdir(os.path.join(dataset_root, f))]
+    total_folders = len(folders)
+    logging.info(f"Found {total_folders} episode folders to process.")
 
-
-# ==========================================
-# 2. モデルの定義 (Decision Transformer)
-# ==========================================
-class DecisionTransformer(nn.Module):
-    def __init__(self, action_vocab_size=256, hidden_size=128, max_ep_len=10000):
-        super().__init__()
-        self.hidden_size = hidden_size
-        self.context_len = 30 # K
+    for idx, folder_name in enumerate(folders, 1):
+        folder_path = os.path.join(dataset_root, folder_name)
+        ep_data = process_episode_for_dt(folder_path)
         
-        # GPT2 の設定 (軽量化設定)
-        config = GPT2Config(
-            vocab_size=1,  # 使用しないが必須
-            n_embd=hidden_size,
-            n_layer=3,
-            n_head=4,
-            n_inner=4 * hidden_size,
-            activation_function='relu',
-            resid_pdrop=0.1,
-            embd_pdrop=0.1,
-            attn_pdrop=0.1,
-        )
-        self.transformer = GPT2Model(config)
-        
-        # 画像エンコーダ (Nature CNN)
-        # 入力: (B, 3, 84, 84) -> 出力: (B, hidden_size)
-        self.state_encoder = nn.Sequential(
-            nn.Conv2d(3, 32, 8, stride=4), nn.ReLU(),
-            nn.Conv2d(32, 64, 4, stride=2), nn.ReLU(),
-            nn.Conv2d(64, 64, 3, stride=1), nn.ReLU(),
-            nn.Flatten(),
-            nn.Linear(3136, hidden_size),
-            nn.Tanh()
-        )
-        
-        # 各モダリティのエンベディング
-        self.embed_rtg = nn.Linear(1, hidden_size)
-        self.embed_action = nn.Embedding(action_vocab_size, hidden_size)
-        self.embed_timestep = nn.Embedding(max_ep_len, hidden_size)
-        self.embed_ln = nn.LayerNorm(hidden_size)
-
-        # アクション予測用ヘッド (離散アクションクラス分類)
-        self.predict_action = nn.Sequential(
-            nn.Linear(hidden_size, action_vocab_size)
-        )
-
-    def forward(self, states, actions, returns_to_go, timesteps, attention_mask=None):
-        batch_size, seq_length = states.shape[0], states.shape[1]
-        
-        # 画像状態のエンコード (B*T, C, H, W) -> (B, T, hidden_size)
-        states = states.view(-1, 3, 84, 84)
-        state_embeddings = self.state_encoder(states).view(batch_size, seq_length, self.hidden_size)
-        
-        # 他のエンベディング
-        action_embeddings = self.embed_action(actions)
-        rtg_embeddings = self.embed_rtg(returns_to_go)
-        time_embeddings = self.embed_timestep(timesteps)
-        
-        # タイムステップの情報を加算
-        state_embeddings = state_embeddings + time_embeddings
-        action_embeddings = action_embeddings + time_embeddings
-        rtg_embeddings = rtg_embeddings + time_embeddings
-        
-        # (RTG, State, Action) の順に系列を並べる
-        # 形状: (B, T, 3, hidden_size)
-        stacked_inputs = torch.stack(
-            (rtg_embeddings, state_embeddings, action_embeddings), dim=2
-        )
-        # 形状: (B, T*3, hidden_size)
-        inputs_embeds = stacked_inputs.view(batch_size, seq_length * 3, self.hidden_size)
-        inputs_embeds = self.embed_ln(inputs_embeds)
-        
-        # Attention Maskの拡張 (RTG, State, Action 全てに適用するため3倍にする)
-        if attention_mask is not None:
-            stacked_mask = torch.stack(
-                (attention_mask, attention_mask, attention_mask), dim=2
-            ).view(batch_size, seq_length * 3)
+        if ep_data and len(ep_data['rewards']) > 0:
+            # ★ 追加: そのエピソードの合計報酬を計算
+            total_reward = sum(ep_data['rewards'])
+            
+            # ログに合計報酬(Total Reward)を含めて出力
+            logging.info(f"[{idx}/{total_folders}] {folder_name} -> OK ({len(ep_data['rewards'])} frames) | Total Reward: {total_reward:.2f}")
+            all_episodes_data.append(ep_data)
         else:
-            stacked_mask = None
-
-        # Transformer の順伝播
-        transformer_outputs = self.transformer(
-            inputs_embeds=inputs_embeds,
-            attention_mask=stacked_mask,
-        )
-        x = transformer_outputs['last_hidden_state']
-        
-        # x の形状: (B, T*3, hidden_size)
-        # 予測ヘッドの入力は State エンベディングの位置の出力（Stateの次に来るActionを予測）
-        # RTG_0, State_0, Action_0, RTG_1, State_1, Action_1 ...
-        # Actionの予測に使いたいのは State_t の表現なので、インデックスは 1, 4, 7...
-        states_preds_idx = torch.arange(1, seq_length * 3, 3, device=x.device)
-        state_representations = x[:, states_preds_idx, :]
-        
-        action_logits = self.predict_action(state_representations)
-        
-        return action_logits
-
-
-# ==========================================
-# 3. 学習ループ
-# ==========================================
-def train():
-    device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-    print(f"Using device: {device}")
-
-    # ハイパーパラメータ
-    batch_size = 64
-    epochs = 10
-    learning_rate = 1e-4
-    context_len = 30
-    
-    # データローダー
-    dataset = MarioDTDataset("smbdataset-main/dt_mario_dataset_metadata.pkl", context_len=context_len)
-    dataloader = DataLoader(dataset, batch_size=batch_size, shuffle=True, num_workers=4)
-    
-    # モデルの初期化 (Action空間は 0~255 の 256クラス)
-    model = DecisionTransformer(action_vocab_size=256, hidden_size=128).to(device)
-    optimizer = torch.optim.AdamW(model.parameters(), lr=learning_rate, weight_decay=1e-4)
-    
-    # 学習ループ
-    model.train()
-    for epoch in range(epochs):
-        total_loss = 0
-        
-        # 1エポックあたり 1000ステップ回す（データセットサイズが仮想的なため）
-        for step, batch in enumerate(dataloader):
-            if step >= 1000:
-                break
-                
-            states = batch['states'].to(device)
-            actions = batch['actions'].to(device)
-            rtg = batch['returns_to_go'].to(device)
-            timesteps = batch['timesteps'].to(device)
-            attention_mask = batch['attention_mask'].to(device)
+            logging.warning(f"[{idx}/{total_folders}] {folder_name} -> Skipped (No valid frames)")
             
-            # フォワードパス
-            action_logits = model(states, actions, rtg, timesteps, attention_mask=attention_mask)
-            
-            # ロスの計算 (CrossEntropyLoss)
-            # action_logits: (B, T, vocab_size)
-            # actions: (B, T)
-            # マスクされている部分（パディング）はロスに含めない
-            logits_flat = action_logits.view(-1, 256)
-            actions_flat = actions.view(-1)
-            mask_flat = attention_mask.view(-1)
-            
-            loss = F.cross_entropy(logits_flat, actions_flat, reduction='none')
-            loss = (loss * mask_flat).sum() / mask_flat.sum()
-            
-            # バックプロパゲーション
-            optimizer.zero_grad()
-            loss.backward()
-            torch.nn.utils.clip_grad_norm_(model.parameters(), 0.25)
-            optimizer.step()
-            
-            total_loss += loss.item()
-            
-            if step % 100 == 0:
-                print(f"Epoch {epoch+1}/{epochs} | Step {step} | Loss: {loss.item():.4f}")
-                
-        avg_loss = total_loss / 1000
-        print(f"=== Epoch {epoch+1} Complete | Average Loss: {avg_loss:.4f} ===")
-        
-        # モデルの保存
-        torch.save(model.state_dict(), f"mario_dt_epoch_{epoch+1}.pth")
+    output_file = "dt_mario_dataset_metadata.pkl"
+    try:
+        with open(output_file, 'wb') as f:
+            pickle.dump(all_episodes_data, f)
+        elapsed_time = time.time() - start_time
+        logging.info(f"Successfully saved metadata for {len(all_episodes_data)} episodes to {output_file}.")
+        logging.info(f"Preprocessing completed in {elapsed_time:.2f} seconds.")
+    except Exception as e:
+        logging.error(f"Failed to save pickle file: {e}")
 
 if __name__ == "__main__":
-    train()
+    main()
