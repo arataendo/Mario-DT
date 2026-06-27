@@ -204,7 +204,7 @@ def train():
     context_len = 30
     
     # データローダー
-    dataset = MarioDTDataset("dt_mario_dataset_metadata.pkl", context_len=context_len)
+    dataset = MarioDTDataset("smbdataset-main/dt_mario_dataset_metadata.pkl", context_len=context_len)
     dataloader = DataLoader(dataset, batch_size=batch_size, shuffle=True, num_workers=4)
     
     # モデルの初期化 (Action空間は 0~255 の 256クラス)
