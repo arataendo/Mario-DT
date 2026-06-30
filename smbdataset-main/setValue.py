@@ -171,7 +171,7 @@ def process_episode_for_dt(folder_path):
     }
 
 def main():
-    dataset_root = "data"
+    dataset_root = "data-smb"
     all_episodes_data = []
     
     folders = [f for f in os.listdir(dataset_root) if os.path.isdir(os.path.join(dataset_root, f))]
