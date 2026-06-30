@@ -199,7 +199,7 @@ def train():
 
     # ハイパーパラメータ
     batch_size = 64
-    epochs = 10
+    epochs = 100
     learning_rate = 1e-4
     context_len = 30
     
@@ -256,7 +256,10 @@ def train():
         print(f"=== Epoch {epoch+1} Complete | Average Loss: {avg_loss:.4f} ===")
         
         # モデルの保存
-        torch.save(model.state_dict(), f"mario_dt_epoch_{epoch+1}.pth")
-
+        if epoch % 10 == 0 or epoch == epochs - 1:
+            os.makedirs("checkpoints", exist_ok=True)
+            torch.save(model.state_dict(), f"checkpoints/mario_dt_epoch_{epoch+1}.pth")
+            print(f"Model saved at checkpoints/mario_dt_epoch_{epoch+1}.pth")
+        
 if __name__ == "__main__":
     train()
