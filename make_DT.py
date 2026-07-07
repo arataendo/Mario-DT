@@ -35,7 +35,7 @@ class MarioDTDataset(Dataset):
 
     def __len__(self):
         # 任意のエピソードをランダムサンプリングするため、仮想的なデータセット長を定義
-        return 50000
+        return 40000
 
     def __getitem__(self, idx):
         # ランダムにエピソードを選択
@@ -197,29 +197,31 @@ def train():
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     print(f"Using device: {device}")
 
-    # ハイパーパラメータ
     batch_size = 64
-    epochs = 100
+    epochs = 101 # 1エポックのサイズを4倍にしたので、20〜30エポックで十分なstep数になります
     learning_rate = 1e-4
     context_len = 30
     
-    # データローダー
     dataset = MarioDTDataset("smbdataset-main/dt_mario_dataset_metadata.pkl", context_len=context_len)
     dataloader = DataLoader(dataset, batch_size=batch_size, shuffle=True, num_workers=4)
     
-    # モデルの初期化 (Action空間は 0~255 の 256クラス)
     model = DecisionTransformer(action_vocab_size=256, hidden_size=128).to(device)
     optimizer = torch.optim.AdamW(model.parameters(), lr=learning_rate, weight_decay=1e-4)
     
-    # 学習ループ
+    # ----------------------------------------------------
+    # ★追加: ジャンプ(128, 132, 148など)を間違えたら厳しくする設定
+    # ----------------------------------------------------
+    class_weights = torch.ones(256).to(device)
+    class_weights[128] = 20.0  # A (ジャンプ)
+    class_weights[132] = 20.0  # 右 + A
+    class_weights[148] = 20.0  # 右 + B + A
+    
     model.train()
     for epoch in range(epochs):
         total_loss = 0
         
-        # 1エポックあたり 1000ステップ回す（データセットサイズが仮想的なため）
         for step, batch in enumerate(dataloader):
-            if step >= 1000:
-                break
+            # ※ if step >= 1000: break は削除して、全データ回し切る！
                 
             states = batch['states'].to(device)
             actions = batch['actions'].to(device)
@@ -227,21 +229,16 @@ def train():
             timesteps = batch['timesteps'].to(device)
             attention_mask = batch['attention_mask'].to(device)
             
-            # フォワードパス
             action_logits = model(states, actions, rtg, timesteps, attention_mask=attention_mask)
             
-            # ロスの計算 (CrossEntropyLoss)
-            # action_logits: (B, T, vocab_size)
-            # actions: (B, T)
-            # マスクされている部分（パディング）はロスに含めない
             logits_flat = action_logits.view(-1, 256)
             actions_flat = actions.view(-1)
             mask_flat = attention_mask.view(-1)
             
-            loss = F.cross_entropy(logits_flat, actions_flat, reduction='none')
+            # ★修正: 損失関数に重み(weight)を適用する
+            loss = F.cross_entropy(logits_flat, actions_flat, weight=class_weights, reduction='none')
             loss = (loss * mask_flat).sum() / mask_flat.sum()
             
-            # バックプロパゲーション
             optimizer.zero_grad()
             loss.backward()
             torch.nn.utils.clip_grad_norm_(model.parameters(), 0.25)
@@ -249,17 +246,14 @@ def train():
             
             total_loss += loss.item()
             
-            if step % 100 == 0:
+            if step % 500 == 0:  # 表示頻度を調整
                 print(f"Epoch {epoch+1}/{epochs} | Step {step} | Loss: {loss.item():.4f}")
                 
-        avg_loss = total_loss / 1000
+        # 1エポックあたりのstep数で割る
+        avg_loss = total_loss / len(dataloader)
         print(f"=== Epoch {epoch+1} Complete | Average Loss: {avg_loss:.4f} ===")
-        
-        # モデルの保存
-        if epoch % 10 == 0 or epoch == epochs - 1:
-            os.makedirs("checkpoints", exist_ok=True)
-            torch.save(model.state_dict(), f"checkpoints/mario_dt_epoch_{epoch+1}.pth")
-            print(f"Model saved at checkpoints/mario_dt_epoch_{epoch+1}.pth")
-        
+        if epoch % 10 == 0:  # 10エポックごとにモデルを保存
+            torch.save(model.state_dict(), f"mario_dt_epoch_{epoch+1}.pth")
+            print(f"Model saved at epoch {epoch+1}")
 if __name__ == "__main__":
     train()
