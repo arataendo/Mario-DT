@@ -140,13 +140,23 @@ def train_ppo(
     os.makedirs(model_dir, exist_ok=True)
     
     # ログファイル名生成
+    # ログファイル名生成
     level_name = level.replace("-", "").lower()
-    steps_k = total_steps // 1000
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     
-    model_name = f"mario_ppo_{level_name}_{steps_k}k"
-    log_path = os.path.join(log_dir, f"{model_name}_{timestamp}")
+    # 追加学習時と新規学習時で分岐
+    if load_model_path and os.path.exists(load_model_path):
+        # 既存モデルを読み込む場合、ファイル名に "_continued" を付与
+        base_name = os.path.basename(load_model_path).replace(".zip", "")
+        model_name = f"{base_name}_continued_{timestamp}"
+    else:
+        # 新規学習の場合のみステップ数を使用
+        steps_k = total_steps // 1000
+        model_name = f"mario_ppo_{level_name}_{steps_k}k_{timestamp}"
+    
+    log_path = os.path.join(log_dir, model_name)
     model_path = os.path.join(model_dir, model_name)
+    
     
     print("=" * 60)
     print("🎮 Mario PPO 学習を開始します")
