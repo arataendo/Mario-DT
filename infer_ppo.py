@@ -49,7 +49,7 @@ def run_inference(
     model_path: str,
     level: str = "Level1-1",
     num_episodes: int = 5,
-    max_steps: int = 1000,
+    max_steps: int = 3000,
     render: bool = False,
     deterministic: bool = True
 ):

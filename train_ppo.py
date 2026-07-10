@@ -22,6 +22,7 @@ from stable_baselines3.common.vec_env import SubprocVecEnv, VecMonitor
 from stable_baselines3.common.callbacks import CheckpointCallback, ProgressBarCallback
 from stable_baselines3.common.evaluation import evaluate_policy
 from stable_baselines3.common.monitor import Monitor
+import re
 # カスタム環境をインポート
 from classes.MarioGymEnv import MarioEnv
 
@@ -140,23 +141,33 @@ def train_ppo(
     os.makedirs(model_dir, exist_ok=True)
     
     # ログファイル名生成
-    # ログファイル名生成
     level_name = level.replace("-", "").lower()
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     
     # 追加学習時と新規学習時で分岐
     if load_model_path and os.path.exists(load_model_path):
-        # 既存モデルを読み込む場合、ファイル名に "_continued" を付与
         base_name = os.path.basename(load_model_path).replace(".zip", "")
-        model_name = f"{base_name}_continued_{timestamp}"
+        
+        # ★ 正規表現で元のファイル名から「〇〇k」の数字部分を抽出
+        match = re.search(r'_(\d+)k_', base_name)
+        
+        if match:
+            # 過去のステップ数を取得し、今回のステップ数を足す
+            prev_steps_k = int(match.group(1))
+            added_steps_k = total_steps // 1000
+            total_steps_k = prev_steps_k + added_steps_k
+            model_name = f"mario_ppo_{level_name}_{total_steps_k}k_{timestamp}"
+        else:
+            # ファイル名が予期せぬ形式だった場合の保険
+            added_steps_k = total_steps // 1000
+            model_name = f"{base_name}_plus_{added_steps_k}k_{timestamp}"
     else:
-        # 新規学習の場合のみステップ数を使用
+        # 新規学習の場合
         steps_k = total_steps // 1000
         model_name = f"mario_ppo_{level_name}_{steps_k}k_{timestamp}"
     
     log_path = os.path.join(log_dir, model_name)
     model_path = os.path.join(model_dir, model_name)
-    
     
     print("=" * 60)
     print("🎮 Mario PPO 学習を開始します")
@@ -231,20 +242,21 @@ def train_ppo(
     print("-" * 60)
     
     try:
-        # チェックポイントコールバック（10万ステップごとにモデルを保存）
+        # チェックポイントコールバック（全体の10%ごとにモデルを保存）
         checkpoint_callback = CheckpointCallback(
-            save_freq=max(10000, total_steps // 10),
+            save_freq=max(10000 // num_envs, (total_steps // 10) // num_envs),
             save_path=model_dir,
             name_prefix=f"mario_ppo_{level_name}_checkpoint",
             save_replay_buffer=False,
         )
-        
         # プログレスバーコールバック
         # モデルを学習
         model.learn(
             total_timesteps=total_steps,
-            callback=[checkpoint_callback], # progress_callback を削除
-            progress_bar=True
+            callback=[checkpoint_callback],
+            progress_bar=True,
+            # ★ 既存モデル読み込み時はステップ数をリセットしない
+            reset_num_timesteps=False if load_model_path else True 
         )
         print("-" * 60)
         print("✅ 学習完了！")
