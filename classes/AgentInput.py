@@ -30,32 +30,38 @@ class AgentInput:
         """アクションを Mario のトレイトに適用"""
         action = self.current_action
         
-        # 移動方向とジャンプ、ダッシュをリセット
+        # 移動方向とジャンプ、ダッシュを一旦リセット
         self.entity.traits["goTrait"].direction = 0
         self.entity.traits["goTrait"].boost = False
         self.entity.traits['jumpTrait'].jump(False)
         
-        # アクションをデコード
-        if action == 0:  # NOP
-            pass
-        elif action == 1:  # Left
+        # --- データセット仕様(0~255のビットマップ)に基づくボタン判定 ---
+        btn_A     = bool(action & 128)  # ジャンプ
+        btn_up    = bool(action & 64)   # 上 (今回は使用しない)
+        btn_left  = bool(action & 32)   # 左
+        btn_B     = bool(action & 16)   # ダッシュ
+        btn_start = bool(action & 8)    # スタート
+        btn_right = bool(action & 4)    # 右
+        btn_down  = bool(action & 2)    # 下 (土管など)
+        btn_select= bool(action & 1)    # セレクト
+        
+        # 1. 左右の移動 (左右同時押しの場合は相殺して動かないようにする)
+        if btn_left and not btn_right:
             self.entity.traits["goTrait"].direction = -1
-        elif action == 2:  # Right
+        elif btn_right and not btn_left:
             self.entity.traits["goTrait"].direction = 1
-        elif action == 3:  # Jump
-            self.entity.traits['jumpTrait'].jump(True)
-        elif action == 4:  # Left + Jump
-            self.entity.traits["goTrait"].direction = -1
-            self.entity.traits['jumpTrait'].jump(True)
-        elif action == 5:  # Right + Jump
-            self.entity.traits["goTrait"].direction = 1
-            self.entity.traits['jumpTrait'].jump(True)
-        elif action == 6:  # Dash
+            
+        # 2. ダッシュ (Bボタン)
+        if btn_B:
             self.entity.traits["goTrait"].boost = True
-        elif action == 7:  # Right + Dash
-            self.entity.traits["goTrait"].direction = 1
-            self.entity.traits["goTrait"].boost = True
-    
+            
+        # 3. ジャンプ (Aボタン)
+        if btn_A:
+            self.entity.traits['jumpTrait'].jump(True)
+            
+        # ※ もし自作マリオ側に「しゃがむ」や「土管に入る」機能があれば
+        # if btn_down:
+        #     ... のように追加可能です
     def checkForInput(self):
         """checkForInput インターフェースの互換性のため（何もしない）"""
         pass

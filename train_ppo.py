@@ -307,6 +307,100 @@ def train_ppo(
         eval_env.close()
 
 
+def play_trained_agent(
+    model_path: str,
+    level: str = "Level1-1",
+    num_episodes: int = 1,
+    max_steps: int = 1000,
+    render: bool = True,
+    deterministic: bool = True,
+    device: str = "auto"
+):
+    """
+    学習済み PPO モデルを読み込み、人間が見られるようにゲームを再生する。
+
+    Parameters
+    ----------
+    model_path : str
+        モデルファイルパス (.zip)
+    level : str
+        プレイするレベル名
+    num_episodes : int
+        再生するエピソード数
+    max_steps : int
+        1エピソードの最大ステップ数
+    render : bool
+        画面表示を行うか
+    deterministic : bool
+        決定論的な行動を取り、最大確率の行動を選ぶか
+    device : str
+        モデル読み込みに使用するデバイス
+    """
+    if not os.path.exists(model_path):
+        raise FileNotFoundError(f"モデルが見つかりません: {model_path}")
+
+    print("=" * 60)
+    print("🎮 学習済み PPO エージェントの再生を開始します")
+    print("=" * 60)
+    print(f"📦 モデル: {model_path}")
+    print(f"🗺️  レベル: {level}")
+    print(f"🔁 エピソード数: {num_episodes}")
+    print(f"🖥️  表示: {'あり' if render else 'なし'}")
+    print()
+
+    env = MarioEnv(
+        level=level,
+        render_mode="human" if render else None,
+        max_episode_steps=max_steps,
+    )
+    env = SkipFrame(env, skip=4)
+    env = DictToImageWrapper(env)
+
+    print("🤖 モデルを読み込み中...")
+    model = PPO.load(model_path, env=env, device=device)
+    print("✅ モデル読み込み完了")
+    print()
+
+    episode_rewards = []
+    episode_lengths = []
+
+    for ep in range(num_episodes):
+        obs, info = env.reset()
+        episode_reward = 0.0
+        episode_length = 0
+        done = False
+
+        print(f"エピソード {ep + 1}/{num_episodes} を開始します...")
+        while not done and episode_length < max_steps:
+            action, _ = model.predict(obs, deterministic=deterministic)
+            obs, reward, terminated, truncated, info = env.step(action)
+            episode_reward += reward
+            episode_length += 1
+            done = terminated or truncated
+
+            if render:
+                env.render()
+
+        episode_rewards.append(episode_reward)
+        episode_lengths.append(episode_length)
+        mario_x = info.get("mario_x", 0)
+        status = "✅ クリア" if terminated and mario_x > 100 else "🔄 タイムアップ"
+        print(
+            f"  報酬={episode_reward:7.2f}, "
+            f"ステップ={episode_length}, "
+            f"X={mario_x:3d}, "
+            f"{status}"
+        )
+
+    env.close()
+
+    if episode_rewards:
+        print("-" * 60)
+        print("📊 再生結果")
+        print(f"  平均報酬: {np.mean(episode_rewards):.2f}")
+        print(f"  平均ステップ: {np.mean(episode_lengths):.1f}")
+
+
 def main():
     parser = argparse.ArgumentParser(
         description="PPO を使用してカスタム Mario ゲームで学習を行う",
@@ -376,7 +470,7 @@ def main():
     )
     
     args = parser.parse_args()
-    
+
     # 学習を実行
     train_ppo(
         level=args.level,
@@ -385,7 +479,7 @@ def main():
         device=args.device,
         log_dir=args.log_dir,
         model_dir=args.model_dir,
-        load_model_path=args.load_model  # ← これを追加
+        load_model_path=args.load_model
     )
 
 

@@ -51,24 +51,17 @@ class Level:
             Firebar(self.screen, self.sprites.spriteCollection, x, y, self)
         )
     def loadLayers(self, data):
-        layers = []
-        for x in range(*data["level"]["layers"]["sky"]["x"]):
-            layers.append(
-                (
-                        [
-                            Tile(self.sprites.spriteCollection.get("sky"), None)
-                            for y in range(*data["level"]["layers"]["sky"]["y"])
-                        ]
-                        + [
-                            Tile(
-                                self.sprites.spriteCollection.get("ground"),
-                                pygame.Rect(x * 32, (y - 1) * 32, 32, 32),
-                            )
-                            for y in range(*data["level"]["layers"]["ground"]["y"])
-                        ]
-                )
-            )
-        self.level = list(map(list, zip(*layers)))
+        sky_x_range = data["level"]["layers"]["sky"]["x"]
+        sky_y_range = data["level"]["layers"]["sky"]["y"]
+        ground_y_range = data["level"]["layers"]["ground"]["y"]
+
+        width = sky_x_range[1] - sky_x_range[0]
+        height = (sky_y_range[1] - sky_y_range[0]) + (ground_y_range[1] - ground_y_range[0])
+
+        self.level = [
+            [Tile(self.sprites.spriteCollection.get("sky"), None) for _ in range(width)]
+            for _ in range(height)
+        ]
 
     def loadObjects(self, data):
         for x, y in data["level"]["objects"]["bush"]:

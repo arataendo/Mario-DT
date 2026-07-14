@@ -101,7 +101,6 @@ class MarioEnv(gym.Env):
         # アクション空間の定義
         # 0: NOP, 1: Left, 2: Right, 3: Jump, 4: Left+Jump, 5: Right+Jump, 6: Dash, 7: Right+Dash
         self.action_space = spaces.Discrete(8)
-        
         # pygame 初期化
         if self.render_mode is not None or self.render_mode == 'human':
             self._init_pygame()

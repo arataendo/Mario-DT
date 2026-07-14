@@ -22,11 +22,11 @@ def convert_text_to_json(txt_filepath, json_filepath):
             "layers": {
                 "sky": {
                     "x": [0, length],
-                    "y": [0, height - 3] # 下から3行目より上を空と仮定
+                    "y": [0, height - 2] # 変更: height(15) - 2 = 13 (空を13マス分作る)
                 },
                 "ground": {
                     "x": [0, length],
-                    "y": [height - 2, height] # 下から2行を地面と仮定
+                    "y": [height - 1, height + 1] # 変更: 14から16未満 (地面を2マス分作る)
                 }
             },
             "entities": {
@@ -53,10 +53,22 @@ def convert_text_to_json(txt_filepath, json_filepath):
                 data["level"]["objects"]["bush"].append([x, y])
             elif char == 'C':
                 data["level"]["objects"]["cloud"].append([x, y])
-            elif char == 'p':
-                # 元の仕様に合わせて [x, y, length] の形式にする（ここでは長さを2で固定）
-                # 上のブロックを優先して登録し、下のpは無視するなどの工夫も可能ですが、簡易的に登録します。
-                data["level"]["objects"]["pipe"].append([x, y, 2])
+            elif char == 'P':
+                # 左隣や上が 'P' なら無視する（左上の1箇所だけで綺麗な土管を1つ生成するため）
+                is_top_left = True
+                if x > 0 and lines[y][x-1] == 'P':
+                    is_top_left = False
+                if y > 0 and lines[y-1][x] == 'P':
+                    is_top_left = False
+                
+                if is_top_left:
+                    # 下に何ブロック連続しているか数えて、土管の正しい高さを測る
+                    pipe_height = 0
+                    ty = y
+                    while ty < height and len(lines[ty]) > x and lines[ty][x] == 'P':
+                        pipe_height += 1
+                        ty += 1
+                    data["level"]["objects"]["pipe"].append([x, y, pipe_height])
             elif char == '?':
                 data["level"]["entities"]["CoinBox"].append([x, y])
             elif char == 'b':
@@ -86,4 +98,4 @@ def convert_text_to_json(txt_filepath, json_filepath):
 # 実行
 if __name__ == "__main__":
     # 読み込むテキストファイル名と、出力するJSONファイル名を指定
-    convert_text_to_json("level.txt", "levels/Level_custom.json")
+    convert_text_to_json("level.txt", "levels/Level_custom2.json")

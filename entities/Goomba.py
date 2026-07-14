@@ -8,7 +8,7 @@ from traits.leftrightwalk import LeftRightWalkTrait
 
 class Goomba(EntityBase):
     def __init__(self, screen, spriteColl, x, y, level, sound):
-        super(Goomba, self).__init__(y, x - 1, 1.25)
+        super(Goomba, self).__init__(x, y, 1.25)
         self.spriteCollection = spriteColl
         self.animation = Animation(
             [

@@ -10,7 +10,13 @@ class Camera:
 
     def move(self):
         xPosFloat = self.entity.getPosIndexAsFloat().x
-        if 10 < xPosFloat < 50:
+        
+        # マリオがいるステージの全マス目（長さ）を取得
+        level_length = self.entity.levelObj.levelLength
+        
+        # ステージの長さから10マス引いた場所までカメラが追従するようにする
+        if 10 < xPosFloat < (level_length - 10):
             self.pos.x = -xPosFloat + 10
+            
         self.x = self.pos.x * 32
         self.y = self.pos.y * 32
