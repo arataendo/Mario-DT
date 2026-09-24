@@ -1,2 +1,6 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+
+# シェルスクリプトは Linux (研究室PC) で実行するので、どこで checkout しても LF に固定する。
+# CRLF のままだと "bad interpreter: /bin/bash^M" で起動できない。
+*.sh text eol=lf

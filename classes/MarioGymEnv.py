@@ -9,6 +9,12 @@ import gymnasium as gym
 from gymnasium import spaces
 import numpy as np
 import os
+
+# 音声デバイスの無い Linux サーバーで pygame が ALSA を探して警告・待機しないようにする。
+# 効果音は classes/Sound.py で常に無効化しているので、ここで止めても挙動は変わらない。
+# （映像側は render で窓を出したい場合があるので、各実行スクリプトで個別に設定している）
+os.environ.setdefault("SDL_AUDIODRIVER", "dummy")
+
 import pygame
 from classes.Dashboard import Dashboard
 from classes.Level import Level
@@ -25,15 +31,19 @@ class MarioEnv(gym.Env):
     - Dict({'image': Box(3, 640, 480), 'state': Box(9,)})
     
     アクション空間:
-    - Discrete(8): [NOP, Left, Right, Jump, Left+Jump, Right+Jump, Dash, Right+Dash]
-    
-    報酬関数:
-    - 基本: 進行度 * 0.1
-    - 時間ペナルティ: -0.01 per step
-    - コイン: +1.0
-    - 敵撃破: +5.0
-    - ゲームオーバー: -10.0
+    - Discrete(10): [NOP, Left, Right, Jump, Left+Jump, Right+Jump,
+                     Dash, Right+Dash, Right+Dash+Jump, Left+Dash]
+
+    報酬関数（1 ゲームフレームあたり）:
+    - 最高到達点(max_x)の更新分のみ: +Δタイル数  ← 往復稼ぎができない形にする
+    - 時間ペナルティ: -0.01 / frame        ← 立ち止まりを不利にする
+    - コイン: +1.0 / 枚
+    - スコア増加(敵撃破など): +0.5 / 100pt
+    - ゲームオーバー: -25.0
     - ステージクリア: +100.0
+
+    ステージ全長 194 タイルを 4000 フレームで走破した場合の合計は概ね
+    194 + 100 - 40 = +254、途中で死ぬと大きく下回る、という設計。
     """
     
     metadata = {
@@ -41,7 +51,8 @@ class MarioEnv(gym.Env):
         "render_fps": 60,
     }
     
-    def __init__(self, level=None, random_level=True, render_mode=None, max_episode_steps=10800):
+    def __init__(self, level=None, random_level=True, render_mode=None, max_episode_steps=8000,
+                 levels=None):
         """
         Parameters:
         -----------
@@ -58,13 +69,23 @@ class MarioEnv(gym.Env):
             - None: 描画しない（最速訓練用）
         
         max_episode_steps : int
-            エピソードの最大ステップ数（timeout で終了）
+            エピソードの最大**ゲームフレーム**数（timeout で終了）。
+
+            ⚠️ このカウンタは SkipFrame ラッパーの内側で加算されるため、
+            SkipFrame(skip=4) を被せると
+                エージェントの意思決定回数 = max_episode_steps / 4
+            になる。人間が 4000 フレーム必要なステージで 1000 を指定すると
+            ステージの 1/4 で必ず打ち切られ、ゴール報酬が学習データに
+            一度も現れない（＝原理的にクリアを学習できない）ので注意。
         """
         
         self.render_mode = render_mode
         self.max_episode_steps = max_episode_steps
         self.level_name = level
         self.random_level = random_level
+        # levels: ランダム選択の候補をこの集合に限定する（None なら全レベル）。
+        # 特定の難易度だけを重点的に学習させたいときに使う。
+        self.allowed_levels = set(levels) if levels else None
         self.available_levels = self._get_available_levels()
         self.current_level_name = level if level else (self.available_levels[0] if self.available_levels else 'Level1-1')
         
@@ -99,22 +120,48 @@ class MarioEnv(gym.Env):
         })
         
         # アクション空間の定義
-        # 0: NOP, 1: Left, 2: Right, 3: Jump, 4: Left+Jump, 5: Right+Jump, 6: Dash, 7: Right+Dash
-        self.action_space = spaces.Discrete(8)
+        # 0: NOP, 1: Left, 2: Right, 3: Jump, 4: Left+Jump, 5: Right+Jump,
+        # 6: Dash, 7: Right+Dash, 8: Right+Dash+Jump, 9: Left+Dash
+        self.action_space = spaces.Discrete(AgentInput.N_ACTIONS)
         # pygame 初期化
         if self.render_mode is not None or self.render_mode == 'human':
             self._init_pygame()
     
+    # Level1-2 は x=0〜39 に地面タイルが存在せず、スポーン地点(0,0)から
+    # 行動に関係なく即座に穴に落下してゲームオーバーになる（レベルデータ側の不具合）。
+    # レベルを修正するまでランダム選択の対象から除外する。
+    _BROKEN_LEVELS = {'Level1-2'}
+
+    # DT の汎化性能を測るための「未知ステージ」。学習で一度も見せてはいけないので
+    # ランダム選択の対象から常に外す。評価時は level= で明示指定すれば読み込める。
+    _HELDOUT_PREFIX = 'Level_test_'
+
+    @classmethod
+    def is_heldout(cls, level_name):
+        return level_name.startswith(cls._HELDOUT_PREFIX)
+
     def _get_available_levels(self):
-        """利用可能なレベルのリストを取得"""
+        """ランダム選択の対象になるレベルのリストを取得"""
         levels_dir = "./levels"
         levels = []
         if os.path.exists(levels_dir):
             for file in os.listdir(levels_dir):
                 if file.endswith('.json'):
                     level_name = file.replace('.json', '')
+                    if level_name in self._BROKEN_LEVELS:
+                        continue
+                    if self.is_heldout(level_name):
+                        continue
+                    # levels= で明示的に絞られている場合はそれ以外を除く
+                    if self.allowed_levels is not None and level_name not in self.allowed_levels:
+                        continue
                     levels.append(level_name)
-        return sorted(levels) if levels else ['Level1-1']
+        if not levels:
+            raise ValueError(
+                f"選択可能なレベルがありません (levels={self.allowed_levels})。"
+                f"レベル名の綴りと levels/ の中身を確認してください。"
+            )
+        return sorted(levels)
     
     def _init_pygame(self):
         """pygame の初期化"""
@@ -149,6 +196,7 @@ class MarioEnv(gym.Env):
         
         self.initial_mario_x = self.mario.rect.x
         self.prev_mario_x = self.mario.rect.x  # ★ここを追加: 前回のX座標を保持
+        self.max_mario_x = self.mario.rect.x   # そのエピソードでの最高到達点
         self.prev_coins = self.dashboard.coins
         self.prev_points = self.dashboard.points
         self.prev_enemies_killed = 0
@@ -221,6 +269,8 @@ class MarioEnv(gym.Env):
             'cumulative_reward': self.episode_reward,
             'mario_x': self.mario.rect.x,
             'mario_y': self.mario.rect.y,
+            'max_x': self.max_mario_x,
+            'progress': self.max_mario_x / max(1, self.level.levelLength * 32),
             'coins': self.dashboard.coins,
             'points': self.dashboard.points,
             'powerup_state': self.mario.powerUpState,
@@ -241,43 +291,54 @@ class MarioEnv(gym.Env):
         return observation, reward, terminated, truncated, info
     
     def _calculate_reward(self):
-        """報酬を計算"""
+        """報酬を計算
+
+        設計方針:
+          * 前進報酬は「最高到達点(max_x)の更新分」だけに与える。
+            毎フレームの delta_x に報酬を与えると左右に往復して稼げてしまい、
+            逆に後退へ強いペナルティを課すと穴の前での助走ができなくなる。
+          * 位置に依存する定常報酬（旧: progress_ratio * 0.25）は入れない。
+            時間ペナルティを上回る定常プラス報酬があると
+            「そこそこ進んだ地点でひたすら待つ」のが最適解になってしまう。
+          * 高さボーナス（旧: y < 200 で +0.01）も入れない。無意味な
+            ジャンプ連打を助長するだけだった。
+        """
         reward = 0.0
-        
-        # ★修正: 進行度報酬 (1ステップでの右への移動距離に基づく)
-        delta_x = self.mario.rect.x - getattr(self, 'prev_mario_x', self.initial_mario_x)
-        
-        # 1ブロック(32ピクセル)進むごとに報酬を与えるよう正規化
-        # 左に戻った場合はペナルティ（マイナス報酬）になる
-        reward += delta_x / 32.0  
-        
-        # 次のステップの計算のために現在のX座標を保存
-        self.prev_mario_x = self.mario.rect.x
-        
-        # 時間ペナルティ
-        reward -= 0.01
-        
-        # コイン収集ボーナス
+
+        current_x = self.mario.rect.x
         current_coins = self.dashboard.coins
-                
-        # ポイント増加ボーナス（敵撃破など）
         current_points = self.dashboard.points
+
+        # 1. 最高到達点の更新分だけを前進報酬にする（単位: タイル）
+        if current_x > self.max_mario_x:
+            reward += (current_x - self.max_mario_x) / 32.0
+            self.max_mario_x = current_x
+
+        # 2. 時間ペナルティ（立ち止まり・引き返しを不利にする唯一の項）
+        reward -= 0.01
+
+        # 3. コイン取得
+        coins_delta = current_coins - self.prev_coins
+        if coins_delta > 0:
+            reward += coins_delta * 1.0
+
+        # 4. スコア増加（敵撃破・アイテム等）
         if current_points > self.prev_points:
-            points_delta = current_points - self.prev_points
-            reward += points_delta / 100.0  # 100ポイント = 1.0 報酬
-            self.prev_points = current_points
-        
-        # --- ここから修正 ---
+            reward += (current_points - self.prev_points) / 100.0 * 0.5
+
+        # 5. エピソード終了時の報酬/ペナルティ
         if self.mario.restart:
-            # goalReached フラグが True ならゴール到達！
-            if hasattr(self.mario, 'goalReached') and self.mario.goalReached:
-                reward += 100.0  # ★ ゴール報酬（必要に応じて大きくしてください）
-            # それ以外（敵に当たった、穴に落ちた等）はゲームオーバーペナルティ
+            if getattr(self.mario, 'goalReached', False):
+                reward += 100.0
             else:
-                reward -= 10.0
-        # --------------------
-        
-        return reward    
+                reward -= 25.0
+
+        # 次ステップ計算のために保存
+        self.prev_mario_x = current_x
+        self.prev_points = current_points
+        self.prev_coins = current_coins
+
+        return reward
     
     def _get_observation(self):
         """現在の観測を取得"""

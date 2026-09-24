@@ -15,7 +15,11 @@ class AgentInput:
     5: Right + Jump
     6: Dash (ダッシュ/スプリント)
     7: Right + Dash
+    8: Right + Dash + Jump (走りジャンプ。幅の広い穴はこれでないと越えられない)
+    9: Left + Dash
     """
+
+    N_ACTIONS = 10
     
     def __init__(self, entity):
         self.entity = entity
@@ -28,40 +32,41 @@ class AgentInput:
     
     def _apply_action(self):
         """アクションを Mario のトレイトに適用"""
-        action = self.current_action
-        
+        action = int(self.current_action)
+
         # 移動方向とジャンプ、ダッシュを一旦リセット
         self.entity.traits["goTrait"].direction = 0
         self.entity.traits["goTrait"].boost = False
         self.entity.traits['jumpTrait'].jump(False)
-        
-        # --- データセット仕様(0~255のビットマップ)に基づくボタン判定 ---
-        btn_A     = bool(action & 128)  # ジャンプ
-        btn_up    = bool(action & 64)   # 上 (今回は使用しない)
-        btn_left  = bool(action & 32)   # 左
-        btn_B     = bool(action & 16)   # ダッシュ
-        btn_start = bool(action & 8)    # スタート
-        btn_right = bool(action & 4)    # 右
-        btn_down  = bool(action & 2)    # 下 (土管など)
-        btn_select= bool(action & 1)    # セレクト
-        
-        # 1. 左右の移動 (左右同時押しの場合は相殺して動かないようにする)
-        if btn_left and not btn_right:
+
+        # PPO のアクション空間は Discrete(10) なので、0〜9 の整数として解釈する
+        if action == 1:
             self.entity.traits["goTrait"].direction = -1
-        elif btn_right and not btn_left:
+        elif action == 2:
             self.entity.traits["goTrait"].direction = 1
-            
-        # 2. ダッシュ (Bボタン)
-        if btn_B:
-            self.entity.traits["goTrait"].boost = True
-            
-        # 3. ジャンプ (Aボタン)
-        if btn_A:
+        elif action == 3:
             self.entity.traits['jumpTrait'].jump(True)
-            
-        # ※ もし自作マリオ側に「しゃがむ」や「土管に入る」機能があれば
-        # if btn_down:
-        #     ... のように追加可能です
+        elif action == 4:
+            self.entity.traits["goTrait"].direction = -1
+            self.entity.traits['jumpTrait'].jump(True)
+        elif action == 5:
+            self.entity.traits["goTrait"].direction = 1
+            self.entity.traits['jumpTrait'].jump(True)
+        elif action == 6:
+            self.entity.traits["goTrait"].boost = True
+        elif action == 7:
+            self.entity.traits["goTrait"].direction = 1
+            self.entity.traits["goTrait"].boost = True
+        elif action == 8:
+            # 走りジャンプ: 幅の広い穴を越えるために必須
+            self.entity.traits["goTrait"].direction = 1
+            self.entity.traits["goTrait"].boost = True
+            self.entity.traits['jumpTrait'].jump(True)
+        elif action == 9:
+            self.entity.traits["goTrait"].direction = -1
+            self.entity.traits["goTrait"].boost = True
+
+        # 0: NOP (何もしない)
     def checkForInput(self):
         """checkForInput インターフェースの互換性のため（何もしない）"""
         pass

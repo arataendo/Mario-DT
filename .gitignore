@@ -152,3 +152,14 @@ cython_debug/
 #.idea/
 
 smbdataset-main/data-smb/
+
+# ---- Mario-DT の生成物（大容量。研究室PCへは pack_for_transfer.py で別途転送する）----
+models/
+dt_dataset*/
+logs/
+dt_eval*/
+dt_eval*.json
+*.log
+*_DONE
+_to_delete/
+transfer/

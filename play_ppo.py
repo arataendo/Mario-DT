@@ -119,7 +119,13 @@ def play_trained_agent(
         episode_rewards.append(episode_reward)
         episode_lengths.append(episode_length)
         mario_x = info.get("mario_x", 0)
-        status = "✅ クリア" if terminated and mario_x > 100 else "🔄 タイムアップ"
+        reason = info.get("reason", "unknown")
+        if terminated and reason == "level_complete":
+            status = "✅ クリア"
+        elif terminated:
+            status = f"💀 {reason}"
+        else:
+            status = "🔄 タイムアップ"
         print(
             f"  報酬={episode_reward:7.2f}, "
             f"ステップ={episode_length}, "

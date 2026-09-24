@@ -6,18 +6,26 @@ from classes.Spritesheet import Spritesheet
 
 
 class Sprites:
+    # プロセス内で一度読み込んだスプライト集合をキャッシュする。
+    # Level は reset() のたびに Sprites() を新規生成するため、キャッシュが無いと
+    # エピソードごとにディスクI/O・画像デコード・Surface生成が繰り返され、
+    # 長時間学習で顕著な速度低下（メモリ/GC負荷の蓄積）を引き起こす。
+    _cached_collection = None
+
     def __init__(self):
-        self.spriteCollection = self.loadSprites(
-            [
-                "./sprites/Mario.json",
-                "./sprites/Goomba.json",
-                "./sprites/Koopa.json",
-                "./sprites/Animations.json",
-                "./sprites/BackgroundSprites.json",
-                "./sprites/ItemAnimations.json",
-                "./sprites/RedMushroom.json"
-            ]
-        )
+        if Sprites._cached_collection is None:
+            Sprites._cached_collection = self.loadSprites(
+                [
+                    "./sprites/Mario.json",
+                    "./sprites/Goomba.json",
+                    "./sprites/Koopa.json",
+                    "./sprites/Animations.json",
+                    "./sprites/BackgroundSprites.json",
+                    "./sprites/ItemAnimations.json",
+                    "./sprites/RedMushroom.json"
+                ]
+            )
+        self.spriteCollection = Sprites._cached_collection
 
     def loadSprites(self, urlList):
         resDict = {}

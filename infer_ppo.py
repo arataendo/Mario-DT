@@ -8,48 +8,20 @@
 import os
 import argparse
 import numpy as np
-import gymnasium as gym
-from pathlib import Path
-import cv2
+
+os.environ.setdefault("SDL_VIDEODRIVER", "dummy")
+
 from stable_baselines3 import PPO
 
-from classes.MarioGymEnv import MarioEnv
+# ★ 学習時とまったく同じラッパーを使う（定義を重複させないこと）
+from classes.wrappers import make_mario_env, StallGuard
 
-
-class DictToImageWrapper(gym.ObservationWrapper):
-    """Dict 観測から画像を抽出し、モデルが期待する 84x84 に変換するラッパー"""
-    def __init__(self, env):
-        super().__init__(env)
-        
-        # モデルが期待する観測空間 (3チャンネル, 84x84, uint8(0-255)) に合わせる
-        self.observation_space = gym.spaces.Box(
-            low=0,
-            high=255,
-            shape=(3, 84, 84),
-            dtype=np.uint8
-        )
-    
-    def observation(self, obs):
-        # 1. Dict から画像を取得 (C, H, W) = (3, 480, 640)
-        img = obs['image']
-        
-        # 2. OpenCVでリサイズするために (H, W, C) に次元を入れ替え
-        img_hwc = np.transpose(img, (1, 2, 0))
-        
-        # 3. 84x84 にリサイズ
-        img_resized = cv2.resize(img_hwc, (84, 84), interpolation=cv2.INTER_AREA)
-        
-        # 4. モデルの入力形式 (C, H, W) = (3, 84, 84) に戻す
-        img_chw = np.transpose(img_resized, (2, 0, 1))
-        
-        # 5. 正規化(0.0-1.0)はせず、0-255 の uint8 のまま返す
-        return img_chw.astype(np.uint8)
 
 def run_inference(
     model_path: str,
     level: str = "Level1-1",
     num_episodes: int = 5,
-    max_steps: int = 3000,
+    max_frames: int = 8000,
     render: bool = False,
     deterministic: bool = True
 ):
@@ -64,8 +36,8 @@ def run_inference(
         プレイするレベル
     num_episodes : int
         実行するエピソード数
-    max_steps : int
-        エピソードあたりの最大ステップ
+    max_frames : int
+        エピソードあたりの最大ゲームフレーム数 (SkipFrame の内側で数える)
     render : bool
         画面に表示するか
     deterministic : bool
@@ -85,20 +57,19 @@ def run_inference(
     print(f"   - モデル: {model_path}")
     print(f"   - レベル: {level}")
     print(f"   - エピソード数: {num_episodes}")
-    print(f"   - 最大ステップ: {max_steps}")
+    print(f"   - 最大フレーム: {max_frames} (= 意思決定 {max_frames // 4} 回)")
     print(f"   - 表示: {'はい' if render else 'いいえ'}")
     print(f"   - 決定論的: {'はい' if deterministic else 'いいえ'}")
     print()
     
     # 環境を作成
     print("🔧 環境を初期化中...")
-    env = MarioEnv(
+    env = make_mario_env(
         level=level,
+        max_episode_steps=max_frames,
         render_mode="human" if render else None,
-        max_episode_steps=max_steps
+        random_level=False,
     )
-    # Dict 観測から画像を抽出
-    env = DictToImageWrapper(env)
     print("✅ 環境初期化完了")
     print()
     
@@ -120,23 +91,28 @@ def run_inference(
         episode_reward = 0.0
         episode_length = 0
         done = False
-        
+        mario_x = 0
+        guard = StallGuard()
+
         print(f"エピソード {ep + 1}/{num_episodes}: ", end="", flush=True)
-        
-        while not done and episode_length < max_steps:
+
+        while not done:
             # obs は既に DictToImageWrapper で画像に変換されている
             # モデルで行動を予測
             action, _ = model.predict(
                 obs,
                 deterministic=deterministic
             )
-            
+            # 障害物前での argmax 固着（同一観測の自己ループ）を防ぐ安全弁
+            action = guard.choose(int(action), mario_x)
+
             # 環境で行動を実行
             obs, reward, terminated, truncated, info = env.step(action)
             episode_reward += reward
             episode_length += 1
+            mario_x = info.get('mario_x', mario_x)
             done = terminated or truncated
-            
+
             if render:
                 env.render()
         
@@ -145,7 +121,13 @@ def run_inference(
         
         mario_x = info.get('mario_x', 0)
         coins = info.get('coins', 0)
-        status = "✅ クリア" if terminated and mario_x > 100 else "🔄 タイムアップ"
+        reason = info.get('reason', 'unknown')
+        if terminated and reason == 'level_complete':
+            status = '✅ クリア'
+        elif terminated:
+            status = f'💀 {reason}'
+        else:
+            status = '🔄 タイムアップ'
         
         print(f"報酬={episode_reward:7.2f}, ステップ={episode_length}, X={mario_x:3d}, コイン={coins}, {status}")
     
@@ -216,10 +198,10 @@ def main():
     )
     
     parser.add_argument(
-        "--max-steps",
+        "--max-frames",
         type=int,
-        default=1000,
-        help="エピソードあたりの最大ステップ (デフォルト: 1000)"
+        default=8000,
+        help="エピソードあたりの最大ゲームフレーム数 (デフォルト: 8000)"
     )
     
     parser.add_argument(
@@ -242,7 +224,7 @@ def main():
         model_path=args.model,
         level=args.level,
         num_episodes=args.episodes,
-        max_steps=args.max_steps,
+        max_frames=args.max_frames,
         render=args.render,
         deterministic=args.deterministic
     )
