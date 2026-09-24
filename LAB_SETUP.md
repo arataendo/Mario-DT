@@ -25,7 +25,7 @@ cd Mario-DT
 scp transfer/mario_dt_data.tar transfer/mario_dt_data.tar.sha256 <ユーザー名>@<研究室PC>:~/Mario-DT/
 ```
 
-tar は約1GB。作り直すときは `python pack_for_transfer.py`（数十分）。
+tar は約1.4GB（sha256: `5a748d13…`）。作り直すときは `python pack_for_transfer.py`（数十分）。
 
 ## 3. 研究室PCでセットアップ
 
