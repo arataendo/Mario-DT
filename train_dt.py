@@ -182,11 +182,23 @@ class DecisionTransformer(nn.Module):
 
         self.predict_action = nn.Sequential(nn.Linear(hidden_size, action_vocab_size))
 
-    def forward(self, states, actions, returns_to_go, timesteps, attention_mask=None):
-        batch_size, seq_length = states.shape[0], states.shape[1]
+    def encode_states(self, states):
+        """(B, T, 3k, 84, 84) の画像列を (B, T, hidden) の埋め込みにする。
 
-        states = states.view(-1, 3 * self.frame_stack, 84, 84)
-        state_embeddings = self.state_encoder(states).view(batch_size, seq_length, self.hidden_size)
+        CNN はフレームごとに独立に掛かるので、この結果は時刻ごとにキャッシュできる。
+        推論で毎ステップ過去 context_len 枚すべてを通し直すと、計算の大半がここで
+        無駄になる（新しいのは最新の1枚だけ）。difficulty.py はこれを使って高速化している。
+        """
+        batch_size, seq_length = states.shape[0], states.shape[1]
+        flat = states.reshape(-1, 3 * self.frame_stack, 84, 84)
+        return self.state_encoder(flat).view(batch_size, seq_length, self.hidden_size)
+
+    def forward(self, states, actions, returns_to_go, timesteps, attention_mask=None,
+                state_embeddings=None):
+        # state_embeddings を渡した場合は states を使わない（encode_states 済みのキャッシュ）
+        if state_embeddings is None:
+            state_embeddings = self.encode_states(states)
+        batch_size, seq_length = state_embeddings.shape[0], state_embeddings.shape[1]
 
         timesteps = timesteps.clamp(max=self.embed_timestep.num_embeddings - 1)
         action_embeddings = self.embed_action(actions)

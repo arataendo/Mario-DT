@@ -23,7 +23,11 @@ class Level:
         self.entityList = []
 
     def loadLevel(self, levelname):
-        with open("./levels/{}.json".format(levelname)) as jsonData:
+        # "Level1-1" のような名前なら levels/ から、".json" で終わるパスならそのファイルを読む。
+        # ステージ生成の探索中の候補は levels/ に置くと PPO 学習の抽選に混ざってしまうので、
+        # 別ディレクトリに書き出してパスで渡す。
+        path = levelname if levelname.endswith(".json") else "./levels/{}.json".format(levelname)
+        with open(path) as jsonData:
             data = json.load(jsonData)
             self.loadLayers(data)
             self.loadObjects(data)

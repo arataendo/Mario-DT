@@ -9,6 +9,7 @@ import gymnasium as gym
 from gymnasium import spaces
 import numpy as np
 import os
+import random
 
 # 音声デバイスの無い Linux サーバーで pygame が ALSA を探して警告・待機しないようにする。
 # 効果音は classes/Sound.py で常に無効化しているので、ここで止めても挙動は変わらない。
@@ -187,6 +188,10 @@ class MarioEnv(gym.Env):
         self.sound = Sound(enabled=(self.render_mode == 'human'))
         
         self.level = Level(self.screen, self.sound, self.dashboard)
+        # 敵の初期の向き（traits/leftrightwalk.py）に使う、この環境専用の乱数。
+        # gymnasium の np_random から引くので reset(seed=...) で再現でき、
+        # 同じプロセスの他の環境とも干渉しない。loadLevel で敵が作られる前に設定すること。
+        self.level.rng = random.Random(int(self.np_random.integers(2**31 - 1)))
         self.level.loadLevel(level_name)
         
         # Mario をエージェント入力モードで作成

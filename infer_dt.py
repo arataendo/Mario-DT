@@ -42,7 +42,7 @@ def load_model(model_path, device):
 
 
 def run_episode(model, rtg_min, rtg_max, context_len, level, target_return,
-                 max_steps, device, render, sample=False, temperature=1.0):
+                 max_steps, device, render, sample=False, temperature=1.0, seed=None):
     # MarioEnv の max_episode_steps は生フレーム単位。SkipFrame(skip=4) を通すと
     # 1マクロステップ=4フレームになるため、意図したマクロステップ数になるよう skip 倍する。
     skip = 4
@@ -50,7 +50,8 @@ def run_episode(model, rtg_min, rtg_max, context_len, level, target_return,
     env = SkipFrame(env, skip=skip)
     env = MarioImageWrapper(env)
 
-    obs, info = env.reset()
+    # seed を渡すと敵の初期の向きなどが固定され、同じ条件で再現できる
+    obs, info = env.reset(seed=seed)
     guard = StallGuard()
     mario_x = 0
 

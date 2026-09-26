@@ -25,7 +25,26 @@ class Sprites:
                     "./sprites/RedMushroom.json"
                 ]
             )
-        self.spriteCollection = Sprites._cached_collection
+        # 画像 (Surface) は重いのでキャッシュを共有するが、Animation は再生位置
+        # (timer / index) を持つ可変オブジェクトなので Sprites() ごとに作り直す。
+        # 共有したままだと「？」ブロック等の点滅のコマ位置が前のエピソードや
+        # 同じプロセスの別環境から引き継がれ、同じステージ・同じシードでも
+        # 観測画像が毎回変わってしまう（難易度評価の再現性が崩れる）。
+        self.spriteCollection = {
+            name: self._fresh(sprite) for name, sprite in Sprites._cached_collection.items()
+        }
+
+    @staticmethod
+    def _fresh(sprite):
+        anim = sprite.animation
+        if anim is None:
+            return sprite  # 状態を持たないので共有してよい
+        return Sprite(
+            sprite.image,
+            sprite.colliding,
+            animation=Animation(anim.images, anim.idleSprite, anim.airSprite, anim.deltaTime),
+            redrawBackground=sprite.redrawBackground,
+        )
 
     def loadSprites(self, urlList):
         resDict = {}
