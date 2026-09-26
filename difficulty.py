@@ -166,6 +166,9 @@ class EnvPool:
 class DTDifficultyEvaluator:
     def __init__(self, model_path, device=None, workers=0, max_steps=500,
                  sample=True, temperature=1.0, batch_size=256):
+        # 環境用のプロセスは、モデルを GPU に載せる「前」に fork しておく。
+        # CUDA を初期化した後に fork すると、子プロセスが固まることがあるため。
+        self.pool = EnvPool(workers)
         self.device = torch.device(device or ("cuda" if torch.cuda.is_available() else "cpu"))
         self.model, self.rtg_min, self.rtg_max, self.ctx = load_model(model_path, self.device)
         self.k = getattr(self.model, "frame_stack", 1)
@@ -173,7 +176,6 @@ class DTDifficultyEvaluator:
         self.sample = sample
         self.temperature = temperature
         self.batch_size = batch_size
-        self.pool = EnvPool(workers)
         with torch.no_grad():
             # 推論ループ (infer_dt.py) は足りない過去をゼロ画像で埋めるので、その埋め込みを用意しておく
             zero = torch.zeros(1, 1, 3 * self.k, 84, 84, device=self.device)
