@@ -163,3 +163,9 @@ dt_eval*.json
 *_DONE
 _to_delete/
 transfer/
+data/
+# モデル・データの拡張子は場所によらず Git に入れない（GitHub は 100MB 超を拒否する）
+*.pkl
+*.pth
+*.zip
+*.tar

@@ -87,11 +87,13 @@ python summarize_eval.py eval_out/v10_sample eval_out/v11_fs2
 
 ## 6. 結果を持ち帰る
 
-評価結果（`eval_out/`）は小さいので Git で運ぶ:
+評価結果（`eval_out/`, `validity_out/`）は小さいので Git で運ぶ。**追加するディレクトリを必ず明示する**:
 
 ```bash
-git add eval_out/ && git commit -m "評価結果: v11_fs2" && git push
+git add eval_out/ validity_out/ && git commit -m "評価結果: v11_fs2" && git push
 ```
+
+`git add .` や `git add -A` は使わない。研究室PCの作業フォルダには Git に載せない大きなファイル（`data/` の数GBのデータなど）があり、混ざると GitHub に拒否される（100MB 超は不可）。
 
 モデルが必要なら scp で取ってくる（`models/` は .gitignore 済み）。
 
