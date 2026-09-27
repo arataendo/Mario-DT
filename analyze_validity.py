@@ -115,16 +115,22 @@ def main():
     ap.add_argument("--manifest", required=True)
     ap.add_argument("--dt", required=True)
     ap.add_argument("--dt-retest", default=None)
-    ap.add_argument("--panel", required=True)
+    ap.add_argument("--panel", required=True, help="PPO パネル (panel_difficulty.py の出力)")
+    ap.add_argument("--rule-panel", default=None,
+                    help="ルールベースのパネル (rule_panel.py の出力)。PPO と系統が独立な基準")
     ap.add_argument("--panel-retest", default=None)
     ap.add_argument("--csv", default=None, help="ステージごとの値を CSV に書き出す（図を描く用）")
     args = ap.parse_args()
 
     man = load(args.manifest)
-    dt, panel = load(args.dt), load(args.panel)
-    paths = [m["path"] for m in man if m["path"] in dt and m["path"] in panel]
+    dt = load(args.dt)
+    panels = {"PPO": load(args.panel)}
+    if args.rule_panel:
+        panels["ルール"] = load(args.rule_panel)
+    panel = panels["PPO"]
+    paths = [m["path"] for m in man if m["path"] in dt and all(m["path"] in pn for pn in panels.values())]
     if len(paths) < len(man):
-        print(f"⚠️  DT とパネルの両方に結果があるのは {len(paths)}/{len(man)} ステージ")
+        print(f"⚠️  DT と全パネルに結果があるのは {len(paths)}/{len(man)} ステージ")
     mm = {m["path"]: m for m in man}
     n = len(paths)
 
@@ -140,22 +146,40 @@ def main():
     measures["構造の合成 (z和)"] = list(z(measures["敵の数"]) + z(measures["穴のタイル数"]) + z(measures["パイプ数"]))
     dt_keys = [k for k in measures if k.startswith("DT:")]
     base_keys = [k for k in measures if not k.startswith("DT:")]
-    refs = {
-        "パネル D_clear": [panel[p]["D_panel_clear"] for p in paths],
-        "パネル D_progress": [panel[p]["D_panel_progress"] for p in paths],
-    }
+    refs = {}
+    for name, pn in panels.items():
+        refs[f"{name} D_clear"] = [pn[p]["D_panel_clear"] for p in paths]
+        refs[f"{name} D_progress"] = [pn[p]["D_panel_progress"] for p in paths]
+    if len(panels) > 1:
+        # 系統の違うパネルの平均。どちらか一方の癖に引きずられにくい基準
+        for key in ("D_clear", "D_progress"):
+            refs[f"全パネル平均 {key}"] = list(np.mean(
+                [refs[f"{name} {key}"] for name in panels], axis=0))
 
     print("=" * 78)
     print(f"対象: {n} ステージ")
     print("=" * 78)
 
     # ---- パネルの腕前のばらつき（パネルが物差しとして機能しているか）----
-    agents = panel[paths[0]]["agents"]
-    print("\n[パネル] エージェント別の平均クリア率（腕前にばらつきが無いと物差しにならない）")
-    for a_i, a in enumerate(agents):
-        cr = np.mean([panel[p]["agents"][a_i]["clear_rate"] for p in paths])
-        pg = np.mean([panel[p]["agents"][a_i]["progress"] for p in paths])
-        print(f"  {a['model']:48s} クリア {cr * 100:5.1f}%  到達 {pg * 100:5.1f}%")
+    for name, pn in panels.items():
+        print(f"\n[{name}パネル] エージェント別の平均クリア率（腕前にばらつきが無いと物差しにならない）")
+        for a_i, a in enumerate(pn[paths[0]]["agents"]):
+            cr = np.mean([pn[p]["agents"][a_i]["clear_rate"] for p in paths])
+            pg = np.mean([pn[p]["agents"][a_i]["progress"] for p in paths])
+            print(f"  {a['model']:48s} クリア {cr * 100:5.1f}%  到達 {pg * 100:5.1f}%")
+
+    # ---- パネル同士の一致（独立な系統どうしが同じ難しさを見ているか）----
+    struct_keys = ["生成器の難易度つまみ", "敵の数", "穴のタイル数", "パイプ数"]
+    S = np.column_stack([rankdata(measures[k]) for k in struct_keys])
+    if len(panels) > 1:
+        print("\n[パネル間の一致] PPO と ルール（学習の有無が違う、独立な系統どうし）")
+        for key in ("D_clear", "D_progress"):
+            a, b = refs[f"PPO {key}"], refs[f"ルール {key}"]
+            r, lo, hi = spearman_boot(a, b)
+            pr, plo, phi = partial_boot(rankdata(a), rankdata(b), S)
+            print(f"  {key:11s} 単純 rho={r:+.2f} [{lo:+.2f}, {hi:+.2f}]   "
+                  f"構造を除いた偏相関 rho={pr:+.2f} [{plo:+.2f}, {phi:+.2f}]")
+        print("  （構造を除いても一致するなら、「量では分からない難しさ」がエージェントの種類によらず実在する）")
 
     # ---- 信頼性 ----
     print("\n[信頼性] 別シードで測り直したときの順位の一致 (Spearman)")
@@ -195,8 +219,6 @@ def main():
     # ---- 増分妥当性: 構造で説明できる分を取り除いても、DT はパネルと一致するか ----
     # 生成器のつまみが敵・穴・パイプの量を直接決めるので、単純相関では「量を数える」指標が強い。
     # DT の価値は量では分からない難しさ（配置の悪さ等）にあるので、それを直接測る。
-    struct_keys = ["生成器の難易度つまみ", "敵の数", "穴のタイル数", "パイプ数"]
-    S = np.column_stack([rankdata(measures[k]) for k in struct_keys])
     for ref_name, ref in refs.items():
         y = rankdata(ref)
         print(f"\n[増分妥当性] 基準 = {ref_name}  (構造: {', '.join(struct_keys)})")

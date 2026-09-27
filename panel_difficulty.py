@@ -30,7 +30,8 @@ import numpy as np
 import torch
 
 from classes.wrappers import StallGuard
-from difficulty import EnvPool, read_levels
+from difficulty import EnvPool
+from eval_common import read_levels, summarize_panel
 
 # 旧系統（最終 DT の教師ではない）。2.57M 以降は --random-level で学習したもの
 DEFAULT_PANEL = [f"models/mario_ppo_level11_checkpoint_{s}_steps.zip"
@@ -112,26 +113,6 @@ class PanelEvaluator:
                      sample_seed=(seed + e) * 1000 + 500 + a)
                 for lv in levels for a in range(len(self.models)) for e in range(episodes)]
         return summarize_panel(self.run(jobs), self.paths)
-
-
-def summarize_panel(results, paths):
-    by = {}
-    for r in results:
-        by.setdefault(r["level"], {}).setdefault(r["agent"], []).append(r)
-    out = {}
-    for lv, per_a in by.items():
-        agents = []
-        for a, p in enumerate(paths):
-            rs = per_a.get(a, [])
-            agents.append(dict(model=os.path.basename(p), n=len(rs),
-                               clear_rate=float(np.mean([r["cleared"] for r in rs])),
-                               progress=float(np.mean([r["progress"] for r in rs]))))
-        out[lv] = dict(
-            D_panel_clear=float(1 - np.mean([x["clear_rate"] for x in agents])),
-            D_panel_progress=float(1 - np.mean([x["progress"] for x in agents])),
-            agents=agents,
-        )
-    return out
 
 
 def main():

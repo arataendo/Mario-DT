@@ -4,7 +4,8 @@
 #   2. DT で難易度を測る（シード0）
 #   3. DT で別シードでもう一度測る（再測定の一致 = 信頼性）
 #   4. PPO パネルで難易度を測る（妥当性の基準）
-#   5. 分析
+#   5. ルールベースのパネルで難易度を測る（PPO と系統が独立で、腕前の幅も広い基準）
+#   6. 分析
 #
 # 使い方:
 #   ./run_validity.sh                     # 既定: 60 ステージ
@@ -39,21 +40,26 @@ if [ -n "$missing" ]; then
   exit 1
 fi
 
-step "1/5 コーパス生成"
+step "1/6 コーパス生成"
 [ -f "$MAN" ] && echo "既存: $MAN" || python make_corpus.py --name "$NAME" --count "$COUNT"
 
-step "2/5 DT で難易度を測る (seed=0)"
+step "2/6 DT で難易度を測る (seed=0)"
 [ -f "$OUT/dt.json" ] && echo "既存" || python difficulty.py --model "$DT_MODEL" --levels-from "$MAN" \
   --episodes "$DT_EPISODES" --workers "$WORKERS" --seed 0 --output "$OUT/dt.json" | tail -3
 
-step "3/5 DT で別シードでもう一度 (seed=1000)"
+step "3/6 DT で別シードでもう一度 (seed=1000)"
 [ -f "$OUT/dt_retest.json" ] && echo "既存" || python difficulty.py --model "$DT_MODEL" --levels-from "$MAN" \
   --episodes "$DT_EPISODES" --workers "$WORKERS" --seed 1000 --output "$OUT/dt_retest.json" | tail -3
 
-step "4/5 PPO パネルで難易度を測る"
+step "4/6 PPO パネルで難易度を測る"
 [ -f "$OUT/panel.json" ] && echo "既存" || python panel_difficulty.py --levels-from "$MAN" \
   --episodes "$PANEL_EPISODES" --workers "$WORKERS" --seed 0 --output "$OUT/panel.json" | tail -3
 
-step "5/5 分析"
+step "5/6 ルールベースのパネルで難易度を測る"
+[ -f "$OUT/rule_panel.json" ] && echo "既存" || python rule_panel.py --levels-from "$MAN" \
+  --episodes "$PANEL_EPISODES" --workers "$WORKERS" --seed 0 --output "$OUT/rule_panel.json" | tail -3
+
+step "6/6 分析"
 python analyze_validity.py --manifest "$MAN" --dt "$OUT/dt.json" --dt-retest "$OUT/dt_retest.json" \
-  --panel "$OUT/panel.json" --csv "$OUT/per_level.csv" | tee "$OUT/report.txt"
+  --panel "$OUT/panel.json" --rule-panel "$OUT/rule_panel.json" \
+  --csv "$OUT/per_level.csv" | tee "$OUT/report.txt"

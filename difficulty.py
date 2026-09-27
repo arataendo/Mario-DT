@@ -40,6 +40,7 @@ import numpy as np
 import torch
 
 from classes.wrappers import StallGuard
+from eval_common import read_levels  # noqa: F401  (他スクリプトからの互換用にも公開)
 from infer_dt import load_model
 
 SKIP = 4
@@ -321,14 +322,6 @@ def summarize(results, targets):
             curve=curve,
         )
     return out
-
-
-def read_levels(levels_arg, manifest_arg):
-    """--levels（カンマ区切り）か --levels-from（make_corpus.py の manifest.json）からステージ一覧を得る"""
-    if manifest_arg:
-        with open(manifest_arg, encoding="utf-8") as f:
-            return [m["path"] for m in json.load(f)]
-    return [s.strip() for s in levels_arg.split(",") if s.strip()]
 
 
 def main():
