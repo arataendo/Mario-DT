@@ -46,6 +46,9 @@ DEFAULT_MODELS = [
     # 追加データ収集に使う単一系統の PPO チェックポイント群 (6.5M〜8.0M)
     *[f"models/mario_ppo_level11_checkpoint_{s}_steps.zip"
       for s in (6500000, 6800000, 7100000, 7400000, 7700000, 8000000)],
+    # 難易度の妥当性検証に使う PPO パネル（旧系統。最終 DT の教師ではない）
+    *[f"models/mario_ppo_level11_checkpoint_{s}_steps.zip"
+      for s in (2570000, 3110000, 3650000, 4190000, 4730000, 5000000)],
 ]
 
 

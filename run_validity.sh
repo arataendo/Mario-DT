@@ -11,7 +11,8 @@
 #   COUNT=100 WORKERS=12 ./run_validity.sh
 #
 # 各段の結果ファイルが既にあれば飛ばすので、途中で止まっても再実行で続きから走る。
-set -eu
+# pipefail: "python ... | tail" で python が失敗したら止まる（無いと tail の成功で握りつぶされる）
+set -euo pipefail
 cd "$(dirname "$0")"
 
 NAME=${NAME:-v1}
@@ -27,6 +28,16 @@ mkdir -p "$OUT"
 MAN=corpus/$NAME/manifest.json
 
 step() { echo; echo "======== $* ========"; }
+
+# 何時間も回してから「モデルが無い」で落ちないよう、使うモデルが揃っているか最初に確かめる
+PANEL=$(python -c "from panel_difficulty import DEFAULT_PANEL; print(' '.join(DEFAULT_PANEL))")
+missing=""
+for f in "$DT_MODEL" $PANEL; do [ -f "$f" ] || missing="$missing $f"; done
+if [ -n "$missing" ]; then
+  echo "❌ 次のモデルがありません（元のPCから転送してください）:"
+  for f in $missing; do echo "   $f"; done
+  exit 1
+fi
 
 step "1/5 コーパス生成"
 [ -f "$MAN" ] && echo "既存: $MAN" || python make_corpus.py --name "$NAME" --count "$COUNT"
