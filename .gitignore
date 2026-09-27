@@ -169,3 +169,5 @@ data/
 *.pth
 *.zip
 *.tar
+# make_corpus.py の引数（シード）から完全に再現できるので入れない
+corpus/

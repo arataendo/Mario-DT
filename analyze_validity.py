@@ -23,7 +23,7 @@ import csv
 import json
 
 import numpy as np
-from scipy.stats import spearmanr
+from scipy.stats import rankdata, spearmanr
 
 
 def load(path):
@@ -64,6 +64,45 @@ def diff_boot(a, b, y, n_boot=2000, seed=1):
     obs = spearmanr(a, y).statistic - spearmanr(b, y).statistic
     lo, hi = np.percentile(d, [2.5, 97.5]) if d else (float("nan"), float("nan"))
     return obs, lo, hi
+
+
+def _resid(y, X):
+    X1 = np.column_stack([np.ones(len(y)), X])
+    b, *_ = np.linalg.lstsq(X1, y, rcond=None)
+    return y - X1 @ b
+
+
+def partial_boot(x, y, X, n_boot=2000, seed=2):
+    """X（構造特徴）で説明できる分を x・y の順位から取り除いたあとの順位相関（偏相関）"""
+    pr = spearmanr(_resid(x, X), _resid(y, X)).statistic
+    rng = np.random.default_rng(seed)
+    bs = []
+    for _ in range(n_boot):
+        i = rng.integers(0, len(y), len(y))
+        if not (_const(x[i]) or _const(y[i])):
+            bs.append(spearmanr(_resid(x[i], X[i]), _resid(y[i], X[i])).statistic)
+    lo, hi = np.percentile(bs, [2.5, 97.5])
+    return pr, lo, hi
+
+
+def loo_r2(y, X):
+    """1つ抜き交差検証の決定係数。説明変数を足すと見かけ上 R² が上がる（過学習）のを避ける"""
+    n = len(y)
+    X1 = np.column_stack([np.ones(n), X])
+    pred = np.empty(n)
+    for i in range(n):
+        m = np.arange(n) != i
+        b, *_ = np.linalg.lstsq(X1[m], y[m], rcond=None)
+        pred[i] = X1[i] @ b
+    return 1 - ((y - pred) ** 2).sum() / ((y - y.mean()) ** 2).sum()
+
+
+def perm_p(x, y, X, observed_gain, n_perm=500, seed=3):
+    """DT の列だけを並べ替えたとき、観測以上の R² 上乗せが偶然出る確率"""
+    rng = np.random.default_rng(seed)
+    base = loo_r2(y, X)
+    null = [loo_r2(y, np.column_stack([X, rng.permutation(x)])) - base for _ in range(n_perm)]
+    return (np.sum(np.array(null) >= observed_gain) + 1) / (n_perm + 1)
 
 
 def z(v):
@@ -152,6 +191,25 @@ def main():
                    "ベースラインの方が有意に良い" if hi < 0 else "有意差なし")
         print(f"  → DT 最良「{best_dt}」 − ベースライン最良「{best_base}」 = {d:+.2f}  "
               f"[{lo:+.2f}, {hi:+.2f}]  ({verdict})")
+
+    # ---- 増分妥当性: 構造で説明できる分を取り除いても、DT はパネルと一致するか ----
+    # 生成器のつまみが敵・穴・パイプの量を直接決めるので、単純相関では「量を数える」指標が強い。
+    # DT の価値は量では分からない難しさ（配置の悪さ等）にあるので、それを直接測る。
+    struct_keys = ["生成器の難易度つまみ", "敵の数", "穴のタイル数", "パイプ数"]
+    S = np.column_stack([rankdata(measures[k]) for k in struct_keys])
+    for ref_name, ref in refs.items():
+        y = rankdata(ref)
+        print(f"\n[増分妥当性] 基準 = {ref_name}  (構造: {', '.join(struct_keys)})")
+        for k in dt_keys:
+            x = rankdata(measures[k])
+            if _const(x):
+                print(f"  {k:22s} 計算不可（値が一定）")
+                continue
+            pr, lo, hi = partial_boot(x, y, S)
+            base, full = loo_r2(y, S), loo_r2(y, np.column_stack([S, x]))
+            p = perm_p(x, y, S, full - base)
+            print(f"  {k:22s} 構造を除いた偏相関 rho={pr:+.2f} [{lo:+.2f}, {hi:+.2f}]   "
+                  f"交差検証 R²: 構造のみ {base:.2f} → +DT {full:.2f} ({full - base:+.2f}, 並べ替え p={p:.3f})")
 
     if args.csv:
         with open(args.csv, "w", newline="", encoding="utf-8") as f:
