@@ -50,7 +50,13 @@ DEFAULT_TARGETS = (0, 60, 120, 180, 235)
 # 環境の実行（同一プロセス内 / 複数プロセス）
 # ---------------------------------------------------------------------------
 
-def _make_env(level, max_steps):
+def _make_env(level, max_steps, n_stack=1):
+    """n_stack=1 は DT 用（単一フレーム、重ねるのは DT 側）。
+    n_stack>1 は PPO 用で、学習時と同じ make_mario_env（FrameStack 込み）を使う。"""
+    if n_stack > 1:
+        from classes.wrappers import make_mario_env
+        return make_mario_env(level=level, max_episode_steps=max_steps * SKIP,
+                              render_mode=None, random_level=False, n_stack=n_stack)
     from classes.MarioGymEnv import MarioEnv
     from classes.wrappers import SkipFrame, MarioImageWrapper
     env = MarioEnv(level=level, render_mode=None, max_episode_steps=max_steps * SKIP)
@@ -60,15 +66,16 @@ def _make_env(level, max_steps):
 class _Slots:
     """スロット番号 → 環境。reset / step の結果を必要な項目だけに絞って返す"""
 
-    def __init__(self):
+    def __init__(self, n_stack=1):
         self.envs = {}
+        self.n_stack = n_stack
 
     def reset(self, items):
         out = []
         for slot, level, seed, max_steps in items:
             if slot in self.envs:
                 self.envs.pop(slot).close()
-            env = _make_env(level, max_steps)
+            env = _make_env(level, max_steps, self.n_stack)
             obs, _ = env.reset(seed=seed)
             self.envs[slot] = env
             out.append((slot, obs))
@@ -93,8 +100,8 @@ class _Slots:
         self.envs.clear()
 
 
-def _worker(conn):
-    slots = _Slots()
+def _worker(conn, n_stack):
+    slots = _Slots(n_stack)
     while True:
         cmd, payload = conn.recv()
         if cmd == "reset":
@@ -114,16 +121,16 @@ class EnvPool:
     確認済みなので、どちらで動かしても同じ結果になる。
     """
 
-    def __init__(self, workers=0):
+    def __init__(self, workers=0, n_stack=1):
         self.workers = workers
         if workers <= 0:
-            self.local = _Slots()
+            self.local = _Slots(n_stack)
             return
         ctx = mp.get_context("fork" if hasattr(os, "fork") else "spawn")
         self.conns, self.procs = [], []
         for _ in range(workers):
             parent, child = ctx.Pipe()
-            p = ctx.Process(target=_worker, args=(child,), daemon=True)
+            p = ctx.Process(target=_worker, args=(child, n_stack), daemon=True)
             p.start()
             self.conns.append(parent)
             self.procs.append(p)
@@ -316,11 +323,21 @@ def summarize(results, targets):
     return out
 
 
+def read_levels(levels_arg, manifest_arg):
+    """--levels（カンマ区切り）か --levels-from（make_corpus.py の manifest.json）からステージ一覧を得る"""
+    if manifest_arg:
+        with open(manifest_arg, encoding="utf-8") as f:
+            return [m["path"] for m in json.load(f)]
+    return [s.strip() for s in levels_arg.split(",") if s.strip()]
+
+
 def main():
     ap = argparse.ArgumentParser(description="DT でステージの難易度を測る")
     ap.add_argument("--model", required=True)
-    ap.add_argument("--levels", required=True,
+    ap.add_argument("--levels", default="",
                     help="カンマ区切り。levels/ のステージ名か .json のパス")
+    ap.add_argument("--levels-from", default=None,
+                    help="make_corpus.py の manifest.json。--levels の代わりに使う")
     ap.add_argument("--targets", default=",".join(str(t) for t in DEFAULT_TARGETS))
     ap.add_argument("--episodes", type=int, default=10)
     ap.add_argument("--workers", type=int, default=0,
@@ -336,7 +353,7 @@ def main():
     ev = DTDifficultyEvaluator(args.model, device=args.device, workers=args.workers,
                                max_steps=args.max_steps, sample=not args.argmax,
                                batch_size=args.batch_size)
-    levels = [s.strip() for s in args.levels.split(",") if s.strip()]
+    levels = read_levels(args.levels, args.levels_from)
     targets = [float(t) for t in args.targets.split(",")]
     t0 = time.time()
     try:
