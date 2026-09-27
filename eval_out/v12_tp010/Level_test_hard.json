@@ -1,0 +1,32 @@
+{
+  "Level_test_hard|0.0": {
+    "clear_rate": 0.0,
+    "mean_reward": 26.754249999999917,
+    "mean_x": 1713.7
+  },
+  "Level_test_hard|60.0": {
+    "clear_rate": 0.0,
+    "mean_reward": 69.39074999999906,
+    "mean_x": 3040.4
+  },
+  "Level_test_hard|120.0": {
+    "clear_rate": 0.0,
+    "mean_reward": 82.02287499999977,
+    "mean_x": 3350.6
+  },
+  "Level_test_hard|150.0": {
+    "clear_rate": 0.1,
+    "mean_reward": 77.73512499999984,
+    "mean_x": 2754.5
+  },
+  "Level_test_hard|175.0": {
+    "clear_rate": 0.4,
+    "mean_reward": 148.57812499999994,
+    "mean_x": 4080.1
+  },
+  "Level_test_hard|190.0": {
+    "clear_rate": 0.4,
+    "mean_reward": 145.24274999999986,
+    "mean_x": 3737.4
+  }
+}

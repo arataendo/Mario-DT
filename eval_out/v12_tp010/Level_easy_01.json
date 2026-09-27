@@ -1,0 +1,32 @@
+{
+  "Level_easy_01|0.0": {
+    "clear_rate": 0.0,
+    "mean_reward": 51.72712500000009,
+    "mean_x": 2319.4
+  },
+  "Level_easy_01|60.0": {
+    "clear_rate": 0.0,
+    "mean_reward": 106.88437499999782,
+    "mean_x": 4135.1
+  },
+  "Level_easy_01|120.0": {
+    "clear_rate": 0.0,
+    "mean_reward": 141.21537500000088,
+    "mean_x": 5239.5
+  },
+  "Level_easy_01|150.0": {
+    "clear_rate": 0.8,
+    "mean_reward": 253.93087500000075,
+    "mean_x": 6062.9
+  },
+  "Level_easy_01|175.0": {
+    "clear_rate": 0.9,
+    "mean_reward": 266.9307500000001,
+    "mean_x": 6113.4
+  },
+  "Level_easy_01|190.0": {
+    "clear_rate": 1.0,
+    "mean_reward": 281.7720000000001,
+    "mean_x": 6176.0
+  }
+}

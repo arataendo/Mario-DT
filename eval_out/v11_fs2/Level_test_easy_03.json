@@ -1,0 +1,27 @@
+{
+  "Level_test_easy_03|0.0": {
+    "clear_rate": 0.0,
+    "mean_reward": 55.86024999999936,
+    "mean_x": 2542.4
+  },
+  "Level_test_easy_03|60.0": {
+    "clear_rate": 0.0,
+    "mean_reward": 105.27549999999856,
+    "mean_x": 4044.5
+  },
+  "Level_test_easy_03|120.0": {
+    "clear_rate": 0.2,
+    "mean_reward": 130.58262500000075,
+    "mean_x": 4208.1
+  },
+  "Level_test_easy_03|180.0": {
+    "clear_rate": 0.3,
+    "mean_reward": 102.3865,
+    "mean_x": 3027.6
+  },
+  "Level_test_easy_03|235.0": {
+    "clear_rate": 0.5,
+    "mean_reward": 159.0955,
+    "mean_x": 4095.6
+  }
+}

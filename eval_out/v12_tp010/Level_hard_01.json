@@ -1,0 +1,32 @@
+{
+  "Level_hard_01|0.0": {
+    "clear_rate": 0.0,
+    "mean_reward": 11.193000000000119,
+    "mean_x": 1287.7
+  },
+  "Level_hard_01|60.0": {
+    "clear_rate": 0.0,
+    "mean_reward": 28.55874999999991,
+    "mean_x": 1777.5
+  },
+  "Level_hard_01|120.0": {
+    "clear_rate": 0.0,
+    "mean_reward": 81.42925000000005,
+    "mean_x": 3477.2
+  },
+  "Level_hard_01|150.0": {
+    "clear_rate": 0.0,
+    "mean_reward": 91.49412500000032,
+    "mean_x": 3656.2
+  },
+  "Level_hard_01|175.0": {
+    "clear_rate": 0.3,
+    "mean_reward": 135.32024999999985,
+    "mean_x": 4123.2
+  },
+  "Level_hard_01|190.0": {
+    "clear_rate": 0.6,
+    "mean_reward": 199.31275000000002,
+    "mean_x": 5011.8
+  }
+}

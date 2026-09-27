@@ -1,0 +1,32 @@
+{
+  "Level_test_medium_02|0.0": {
+    "clear_rate": 0.0,
+    "mean_reward": 7.855625000000138,
+    "mean_x": 1212.6
+  },
+  "Level_test_medium_02|60.0": {
+    "clear_rate": 0.0,
+    "mean_reward": 42.31787499999958,
+    "mean_x": 2262.4
+  },
+  "Level_test_medium_02|120.0": {
+    "clear_rate": 0.0,
+    "mean_reward": 82.55362500000025,
+    "mean_x": 3435.1
+  },
+  "Level_test_medium_02|150.0": {
+    "clear_rate": 0.0,
+    "mean_reward": 69.40962499999988,
+    "mean_x": 3212.7
+  },
+  "Level_test_medium_02|175.0": {
+    "clear_rate": 0.5,
+    "mean_reward": 168.154875,
+    "mean_x": 4414.3
+  },
+  "Level_test_medium_02|190.0": {
+    "clear_rate": 0.5,
+    "mean_reward": 175.26687499999994,
+    "mean_x": 4677.5
+  }
+}
