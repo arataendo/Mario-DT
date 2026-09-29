@@ -171,3 +171,6 @@ data/
 *.tar
 # make_corpus.py の引数（シード）から完全に再現できるので入れない
 corpus/
+# 段階3: 探索途中の候補ステージ（数百個）は入れない。ベースライン（第0世代）だけ残す
+gen_out/*/levels/*
+!gen_out/*/levels/*_g000_*.json
