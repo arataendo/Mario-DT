@@ -1,0 +1,17 @@
+{
+  "objective": "combo",
+  "dt_targets": [
+    120.0,
+    180.0,
+    235.0
+  ],
+  "targets": [
+    0.25,
+    0.45,
+    0.65
+  ],
+  "rule_episodes": 4,
+  "panels_used_in_search": [
+    "ルール"
+  ]
+}
