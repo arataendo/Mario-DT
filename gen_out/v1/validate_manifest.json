@@ -1,0 +1,290 @@
+[
+  {
+    "path": "gen_out/v1/levels/t0_g000_01.json",
+    "method": "baseline",
+    "target": 0.25,
+    "D_search": 0.26145833333333335,
+    "ceiling": 0.6666666666666666,
+    "origin": "knob=0.050,seed=500001"
+  },
+  {
+    "path": "gen_out/v1/levels/t0_g000_04.json",
+    "method": "baseline",
+    "target": 0.25,
+    "D_search": 0.23519115120274914,
+    "ceiling": 0.6666666666666666,
+    "origin": "knob=0.050,seed=500004"
+  },
+  {
+    "path": "gen_out/v1/levels/t0_g000_02.json",
+    "method": "baseline",
+    "target": 0.25,
+    "D_search": 0.22950493986254306,
+    "ceiling": 0.6666666666666666,
+    "origin": "knob=0.050,seed=500002"
+  },
+  {
+    "path": "gen_out/v1/levels/t0_g000_03.json",
+    "method": "baseline",
+    "target": 0.25,
+    "D_search": 0.19110287800687298,
+    "ceiling": 0.6666666666666666,
+    "origin": "knob=0.050,seed=500003"
+  },
+  {
+    "path": "gen_out/v1/levels/t0_g000_00.json",
+    "method": "baseline",
+    "target": 0.25,
+    "D_search": 0.18630262027491418,
+    "ceiling": 0.6666666666666666,
+    "origin": "knob=0.050,seed=500000"
+  },
+  {
+    "path": "gen_out/v1/levels/t0_g000_05.json",
+    "method": "baseline",
+    "target": 0.25,
+    "D_search": 0.18169029209622,
+    "ceiling": 0.8333333333333334,
+    "origin": "knob=0.050,seed=500005"
+  },
+  {
+    "path": "gen_out/v1/levels/t1_g000_02.json",
+    "method": "baseline",
+    "target": 0.45,
+    "D_search": 0.42532216494845354,
+    "ceiling": 0.5,
+    "origin": "knob=0.507,seed=501002"
+  },
+  {
+    "path": "gen_out/v1/levels/t1_g000_04.json",
+    "method": "baseline",
+    "target": 0.45,
+    "D_search": 0.4097508591065292,
+    "ceiling": 0.6666666666666666,
+    "origin": "knob=0.507,seed=501004"
+  },
+  {
+    "path": "gen_out/v1/levels/t1_g000_05.json",
+    "method": "baseline",
+    "target": 0.45,
+    "D_search": 0.5219555412371133,
+    "ceiling": 0.16666666666666666,
+    "origin": "knob=0.507,seed=501005"
+  },
+  {
+    "path": "gen_out/v1/levels/t1_g000_00.json",
+    "method": "baseline",
+    "target": 0.45,
+    "D_search": 0.3534740120274914,
+    "ceiling": 0.8333333333333334,
+    "origin": "knob=0.507,seed=501000"
+  },
+  {
+    "path": "gen_out/v1/levels/t1_g000_03.json",
+    "method": "baseline",
+    "target": 0.45,
+    "D_search": 0.34458225945017174,
+    "ceiling": 0.5,
+    "origin": "knob=0.507,seed=501003"
+  },
+  {
+    "path": "gen_out/v1/levels/t1_g000_01.json",
+    "method": "baseline",
+    "target": 0.45,
+    "D_search": 0.3203715635738831,
+    "ceiling": 0.5,
+    "origin": "knob=0.507,seed=501001"
+  },
+  {
+    "path": "gen_out/v1/levels/t2_g000_02.json",
+    "method": "baseline",
+    "target": 0.65,
+    "D_search": 0.5466172680412371,
+    "ceiling": 0.3333333333333333,
+    "origin": "knob=0.950,seed=502002"
+  },
+  {
+    "path": "gen_out/v1/levels/t2_g000_05.json",
+    "method": "baseline",
+    "target": 0.65,
+    "D_search": 0.4977072594501719,
+    "ceiling": 0.16666666666666666,
+    "origin": "knob=0.950,seed=502005"
+  },
+  {
+    "path": "gen_out/v1/levels/t2_g000_03.json",
+    "method": "baseline",
+    "target": 0.65,
+    "D_search": 0.4921284364261169,
+    "ceiling": 0.3333333333333333,
+    "origin": "knob=0.950,seed=502003"
+  },
+  {
+    "path": "gen_out/v1/levels/t2_g000_04.json",
+    "method": "baseline",
+    "target": 0.65,
+    "D_search": 0.46889497422680404,
+    "ceiling": 0.16666666666666666,
+    "origin": "knob=0.950,seed=502004"
+  },
+  {
+    "path": "gen_out/v1/levels/t2_g000_00.json",
+    "method": "baseline",
+    "target": 0.65,
+    "D_search": 0.40167525773195867,
+    "ceiling": 0.6666666666666666,
+    "origin": "knob=0.950,seed=502000"
+  },
+  {
+    "path": "gen_out/v1/levels/t2_g000_01.json",
+    "method": "baseline",
+    "target": 0.65,
+    "D_search": 0.6719394329896907,
+    "ceiling": 0.0,
+    "origin": "knob=0.950,seed=502001"
+  },
+  {
+    "path": "gen_out/v1/final/t0_rank0.json",
+    "method": "search",
+    "target": 0.25,
+    "D_search": 0.25017719072164957,
+    "ceiling": 0.8333333333333334,
+    "origin": "mutate(t0_g007_02)"
+  },
+  {
+    "path": "gen_out/v1/final/t0_rank1.json",
+    "method": "search",
+    "target": 0.25,
+    "D_search": 0.25017719072164957,
+    "ceiling": 0.8333333333333334,
+    "origin": "mutate(t0_g008_01)"
+  },
+  {
+    "path": "gen_out/v1/final/t0_rank2.json",
+    "method": "search",
+    "target": 0.25,
+    "D_search": 0.25017719072164957,
+    "ceiling": 0.8333333333333334,
+    "origin": "mutate(t0_g008_01)"
+  },
+  {
+    "path": "gen_out/v1/final/t0_rank3.json",
+    "method": "search",
+    "target": 0.25,
+    "D_search": 0.2502899484536083,
+    "ceiling": 0.8333333333333334,
+    "origin": "mutate(t0_g002_06)"
+  },
+  {
+    "path": "gen_out/v1/final/t0_rank4.json",
+    "method": "search",
+    "target": 0.25,
+    "D_search": 0.2502899484536083,
+    "ceiling": 0.8333333333333334,
+    "origin": "mutate(t0_g004_00)"
+  },
+  {
+    "path": "gen_out/v1/final/t0_rank5.json",
+    "method": "search",
+    "target": 0.25,
+    "D_search": 0.2502899484536083,
+    "ceiling": 0.8333333333333334,
+    "origin": "mutate(t0_g004_00)"
+  },
+  {
+    "path": "gen_out/v1/final/t1_rank0.json",
+    "method": "search",
+    "target": 0.45,
+    "D_search": 0.449865764604811,
+    "ceiling": 0.5,
+    "origin": "mutate(t1_g003_04)"
+  },
+  {
+    "path": "gen_out/v1/final/t1_rank1.json",
+    "method": "search",
+    "target": 0.45,
+    "D_search": 0.449865764604811,
+    "ceiling": 0.5,
+    "origin": "mutate(t1_g005_03)"
+  },
+  {
+    "path": "gen_out/v1/final/t1_rank2.json",
+    "method": "search",
+    "target": 0.45,
+    "D_search": 0.449865764604811,
+    "ceiling": 0.5,
+    "origin": "mutate(t1_g005_03)"
+  },
+  {
+    "path": "gen_out/v1/final/t1_rank3.json",
+    "method": "search",
+    "target": 0.45,
+    "D_search": 0.4501879295532645,
+    "ceiling": 0.6666666666666666,
+    "origin": "mutate(t1_g013_02)"
+  },
+  {
+    "path": "gen_out/v1/final/t1_rank4.json",
+    "method": "search",
+    "target": 0.45,
+    "D_search": 0.4496724656357388,
+    "ceiling": 0.16666666666666666,
+    "origin": "mutate(t1_g002_04)"
+  },
+  {
+    "path": "gen_out/v1/final/t1_rank5.json",
+    "method": "search",
+    "target": 0.45,
+    "D_search": 0.4507356099656358,
+    "ceiling": 0.6666666666666666,
+    "origin": "mutate(t1_g012_07)"
+  },
+  {
+    "path": "gen_out/v1/final/t2_rank0.json",
+    "method": "search",
+    "target": 0.65,
+    "D_search": 0.649108676975945,
+    "ceiling": 0.3333333333333333,
+    "origin": "mutate(t2_g006_02)"
+  },
+  {
+    "path": "gen_out/v1/final/t2_rank1.json",
+    "method": "search",
+    "target": 0.65,
+    "D_search": 0.6521477663230241,
+    "ceiling": 0.16666666666666666,
+    "origin": "mutate(t2_g010_00)"
+  },
+  {
+    "path": "gen_out/v1/final/t2_rank2.json",
+    "method": "search",
+    "target": 0.65,
+    "D_search": 0.6526578608247422,
+    "ceiling": 0.16666666666666666,
+    "origin": "mutate(t2_g014_04)"
+  },
+  {
+    "path": "gen_out/v1/final/t2_rank3.json",
+    "method": "search",
+    "target": 0.65,
+    "D_search": 0.645801116838488,
+    "ceiling": 0.16666666666666666,
+    "origin": "mutate(t2_g002_05)"
+  },
+  {
+    "path": "gen_out/v1/final/t2_rank4.json",
+    "method": "search",
+    "target": 0.65,
+    "D_search": 0.645801116838488,
+    "ceiling": 0.16666666666666666,
+    "origin": "mutate(t2_g004_01)"
+  },
+  {
+    "path": "gen_out/v1/final/t2_rank5.json",
+    "method": "search",
+    "target": 0.65,
+    "D_search": 0.6554177405498282,
+    "ceiling": 0.16666666666666666,
+    "origin": "mutate(t2_g009_01)"
+  }
+]

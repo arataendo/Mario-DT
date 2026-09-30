@@ -1,0 +1,146 @@
+[
+  {
+    "path": "gen_out/v1/levels/t0_g000_01.json",
+    "method": "baseline",
+    "target": 0.25,
+    "D_search": 0.26145833333333335,
+    "ceiling": 0.6666666666666666,
+    "origin": "knob=0.050,seed=500001"
+  },
+  {
+    "path": "gen_out/v1/levels/t0_g000_04.json",
+    "method": "baseline",
+    "target": 0.25,
+    "D_search": 0.23519115120274914,
+    "ceiling": 0.6666666666666666,
+    "origin": "knob=0.050,seed=500004"
+  },
+  {
+    "path": "gen_out/v1/levels/t0_g000_02.json",
+    "method": "baseline",
+    "target": 0.25,
+    "D_search": 0.22950493986254306,
+    "ceiling": 0.6666666666666666,
+    "origin": "knob=0.050,seed=500002"
+  },
+  {
+    "path": "gen_out/v1/levels/t0_g000_03.json",
+    "method": "baseline",
+    "target": 0.25,
+    "D_search": 0.19110287800687298,
+    "ceiling": 0.6666666666666666,
+    "origin": "knob=0.050,seed=500003"
+  },
+  {
+    "path": "gen_out/v1/levels/t0_g000_00.json",
+    "method": "baseline",
+    "target": 0.25,
+    "D_search": 0.18630262027491418,
+    "ceiling": 0.6666666666666666,
+    "origin": "knob=0.050,seed=500000"
+  },
+  {
+    "path": "gen_out/v1/levels/t0_g000_05.json",
+    "method": "baseline",
+    "target": 0.25,
+    "D_search": 0.18169029209622,
+    "ceiling": 0.8333333333333334,
+    "origin": "knob=0.050,seed=500005"
+  },
+  {
+    "path": "gen_out/v1/levels/t1_g000_02.json",
+    "method": "baseline",
+    "target": 0.45,
+    "D_search": 0.42532216494845354,
+    "ceiling": 0.5,
+    "origin": "knob=0.507,seed=501002"
+  },
+  {
+    "path": "gen_out/v1/levels/t1_g000_04.json",
+    "method": "baseline",
+    "target": 0.45,
+    "D_search": 0.4097508591065292,
+    "ceiling": 0.6666666666666666,
+    "origin": "knob=0.507,seed=501004"
+  },
+  {
+    "path": "gen_out/v1/levels/t1_g000_05.json",
+    "method": "baseline",
+    "target": 0.45,
+    "D_search": 0.5219555412371133,
+    "ceiling": 0.16666666666666666,
+    "origin": "knob=0.507,seed=501005"
+  },
+  {
+    "path": "gen_out/v1/levels/t1_g000_00.json",
+    "method": "baseline",
+    "target": 0.45,
+    "D_search": 0.3534740120274914,
+    "ceiling": 0.8333333333333334,
+    "origin": "knob=0.507,seed=501000"
+  },
+  {
+    "path": "gen_out/v1/levels/t1_g000_03.json",
+    "method": "baseline",
+    "target": 0.45,
+    "D_search": 0.34458225945017174,
+    "ceiling": 0.5,
+    "origin": "knob=0.507,seed=501003"
+  },
+  {
+    "path": "gen_out/v1/levels/t1_g000_01.json",
+    "method": "baseline",
+    "target": 0.45,
+    "D_search": 0.3203715635738831,
+    "ceiling": 0.5,
+    "origin": "knob=0.507,seed=501001"
+  },
+  {
+    "path": "gen_out/v1/levels/t2_g000_02.json",
+    "method": "baseline",
+    "target": 0.65,
+    "D_search": 0.5466172680412371,
+    "ceiling": 0.3333333333333333,
+    "origin": "knob=0.950,seed=502002"
+  },
+  {
+    "path": "gen_out/v1/levels/t2_g000_05.json",
+    "method": "baseline",
+    "target": 0.65,
+    "D_search": 0.4977072594501719,
+    "ceiling": 0.16666666666666666,
+    "origin": "knob=0.950,seed=502005"
+  },
+  {
+    "path": "gen_out/v1/levels/t2_g000_03.json",
+    "method": "baseline",
+    "target": 0.65,
+    "D_search": 0.4921284364261169,
+    "ceiling": 0.3333333333333333,
+    "origin": "knob=0.950,seed=502003"
+  },
+  {
+    "path": "gen_out/v1/levels/t2_g000_04.json",
+    "method": "baseline",
+    "target": 0.65,
+    "D_search": 0.46889497422680404,
+    "ceiling": 0.16666666666666666,
+    "origin": "knob=0.950,seed=502004"
+  },
+  {
+    "path": "gen_out/v1/levels/t2_g000_00.json",
+    "method": "baseline",
+    "target": 0.65,
+    "D_search": 0.40167525773195867,
+    "ceiling": 0.6666666666666666,
+    "origin": "knob=0.950,seed=502000"
+  },
+  {
+    "path": "gen_out/v1/levels/t2_g000_01.json",
+    "method": "baseline",
+    "target": 0.65,
+    "D_search": 0.6719394329896907,
+    "ceiling": 0.0,
+    "origin": "knob=0.950,seed=502001"
+  }
+]
