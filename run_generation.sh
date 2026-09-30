@@ -1,10 +1,12 @@
 #!/bin/bash
 # 段階3: 指定難易度のステージを編集探索で作り、独立な基準で検証する一式（研究室PC用）。
 #   1. 探索（generate_by_difficulty.py）。初期集団 = 難易度つまみで狙ったステージ（ベースライン）
+#      目的関数: OBJECTIVE=combo（既定。DT の高い target + ルールパネル）/ OBJECTIVE=dt（v1 と同じ DT だけ）
+#      combo では PPO パネルを探索に使わず、最終検証の独立な審判として取っておく
 #   2. DT で別シード (seed=1000) で測り直す（探索時のシードへの過適合を見る）
 #   3. PPO パネルで測る
 #   4. ルールベースのパネルで測る
-#   5. 分析 → gen_out/<NAME>/report.txt
+#   5. 分析 → gen_out/<NAME>/report.txt（gen_out/v1 があれば比較表も出す）
 #
 # 使い方:
 #   ./run_generation.sh
@@ -14,12 +16,15 @@
 set -euo pipefail
 cd "$(dirname "$0")"
 
-NAME=${NAME:-v1}
+OBJECTIVE=${OBJECTIVE:-combo}
+if [ "$OBJECTIVE" = "combo" ]; then NAME=${NAME:-v2}; else NAME=${NAME:-v1}; fi
 TARGETS=${TARGETS:-0.25,0.45,0.65}
 MU=${MU:-6}
 LAM=${LAM:-8}
 GENERATIONS=${GENERATIONS:-15}
 EPISODES=${EPISODES:-6}
+RULE_EPISODES=${RULE_EPISODES:-4}
+COMPARE=${COMPARE:-gen_out/v1}
 WORKERS=${WORKERS:-8}
 DT_MODEL=${DT_MODEL:-models/mario_dt_20260924_111016_epoch20.pth}
 OUT=${OUT:-gen_out/$NAME}
@@ -40,10 +45,12 @@ if [ -n "$missing" ]; then
   exit 1
 fi
 
-step "1/5 探索（目標 $TARGETS, μ=$MU λ=$LAM, $GENERATIONS 世代）"
+step "1/5 探索（目的関数 $OBJECTIVE, 目標 $TARGETS, μ=$MU λ=$LAM, $GENERATIONS 世代）"
 python generate_by_difficulty.py --model "$DT_MODEL" --targets "$TARGETS" --out "$OUT" \
   --mu "$MU" --lam "$LAM" --generations "$GENERATIONS" --episodes "$EPISODES" --workers "$WORKERS" \
-  --corpus-manifest "corpus/$CORPUS/manifest.json" --corpus-dt "validity_out/$CORPUS/dt.json"
+  --objective "$OBJECTIVE" --rule-episodes "$RULE_EPISODES" \
+  --corpus-manifest "corpus/$CORPUS/manifest.json" --corpus-dt "validity_out/$CORPUS/dt.json" \
+  --corpus-rule "validity_out/$CORPUS/rule_panel.json"
 
 M="$OUT/validate_manifest.json"
 step "2/5 DT で別シードで測り直す (seed=1000)"
@@ -59,6 +66,9 @@ step "4/5 ルールベースのパネル"
   --episodes 8 --workers "$WORKERS" --seed 1000 --output "$OUT/val_rule.json" | tail -2
 
 step "5/5 分析"
-python analyze_generation.py --gen-dir "$OUT" --corpus-manifest "corpus/$CORPUS/manifest.json" \
+CMP=""
+# 別の探索結果（v1 = DT だけ）の検証が揃っていれば、並べて比べる
+if [ "$COMPARE" != "$OUT" ] && [ -f "$COMPARE/val_rule.json" ]; then CMP="--compare $COMPARE"; fi
+python analyze_generation.py --gen-dir "$OUT" $CMP --corpus-manifest "corpus/$CORPUS/manifest.json" \
   --corpus-dt "validity_out/$CORPUS/dt.json" --corpus-ppo "validity_out/$CORPUS/panel.json" \
   --corpus-rule "validity_out/$CORPUS/rule_panel.json" | tee "$OUT/report.txt"

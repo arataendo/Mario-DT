@@ -32,11 +32,15 @@ CALIB_LEVELS = ["Level_easy_01", "Level_easy_02", "Level_medium_01", "Level_medi
                 "Level_hard_01", "Level_hard_02", "Level_hard_03"]
 
 
-def evaluate(levels, agent_names, episodes=8, seed=0, workers=0, max_steps=500):
+def evaluate(levels, agent_names, episodes=8, seed=0, workers=0, max_steps=500, pool=None):
+    """pool を渡すとそれを使う（探索のように何度も呼ぶ場合、プロセス群を作り直さずに済む。
+    また、呼び出し側で CUDA を初期化する前に作っておけば、CUDA 初期化後の fork を避けられる）"""
     jobs = [dict(level=lv, agent=a, agent_name=name, episode=e, env_seed=seed + e,
                  sample_seed=(seed + e) * 1000 + 700 + a, max_steps=max_steps)
             for lv in levels for a, name in enumerate(agent_names) for e in range(episodes)]
-    if workers > 0:
+    if pool is not None:
+        results = pool.map(run_episode, jobs, chunksize=4)
+    elif workers > 0:
         ctx = mp.get_context("fork" if hasattr(os, "fork") else "spawn")
         with ctx.Pool(workers) as pool:
             results = pool.map(run_episode, jobs, chunksize=4)

@@ -12,6 +12,16 @@
   4. 親と子から |D - D*| の小さい μ 個を残す
      「最高 target の DT でも一度もクリアできない」ステージは不合格（遊べないステージの排除）
 
+目的関数 (--objective):
+  dt    : DT の D_progress だけ（v1）。検証で、探索が DT の弱点を突くことが分かった:
+          ・スタート直後に障害物を置き、わざと下手にプレイする低い target の DT だけを止める
+          ・パネルが難しがる敵を減らし、DT が苦手な穴・パイプを増やす
+  combo : DT（低い target 0・60 を外したもの）とルールパネルの平均。
+          DT だけが苦手な要素を増やしても、ルールパネルが難しがらなければ適応度が上がらない。
+          PPO パネルは探索に使わず、最終検証の審判として取っておく。
+          各成分はコーパス上の分布の対応（同じ順位の値どうし）で D* の尺度（DT の全 target 版）にそろえる。
+          回帰で写すと値が平均に縮み、目標値の意味がずれるため。
+
 各ステージは決まったシードで測る（同じステージには常に同じ値がつく）。
 探索がそのシード固有の偶然に合わせ込む可能性があるので、最後に
 validate_generated.py で別のシードと独立なエージェント群で測り直す。
@@ -48,7 +58,26 @@ def knob_mapping(corpus_manifest, corpus_dt):
 
 
 def fitness(r, target):
-    return abs(r["D_progress"] - target) + (UNCLEARABLE_PENALTY if r["ceiling"] <= 0 else 0.0)
+    return abs(r["D"] - target) + (UNCLEARABLE_PENALTY if r["ceiling"] <= 0 else 0.0)
+
+
+class Linker:
+    """コーパス上の分布の対応で、ある指標の値を基準の尺度（DT の全 target 版 D_progress）に写す。
+    x がその指標の分布の何 % 点にあたるかを求め、基準の分布の同じ % 点の値を返す"""
+
+    def __init__(self, values, ref):
+        self.src = np.sort(np.asarray(values, float))
+        self.ref = np.sort(np.asarray(ref, float))
+        self.q = np.linspace(0, 1, len(self.src))
+
+    def __call__(self, x):
+        return float(np.interp(np.interp(x, self.src, self.q), self.q, self.ref))
+
+
+def dt_progress_over(res_entry, targets):
+    """difficulty.py の結果から、指定した target だけで D_progress を計算し直す"""
+    pg = [c["progress"] for c in res_entry["curve"] if c["target"] in targets]
+    return 1 - float(np.mean(pg))
 
 
 class Search:
@@ -58,6 +87,18 @@ class Search:
         self.targets = [float(t) for t in args.targets.split(",")]
         self.state_path = f"{self.out}/state.json"
         self.ev = None
+        self.rule_pool = None
+        self.dt_targets = [float(t) for t in args.dt_targets.split(",")]
+        if args.objective == "combo":
+            # コーパスで各成分を D* の尺度にそろえる写像を作る
+            man = json.load(open(args.corpus_manifest, encoding="utf-8"))
+            cdt = json.load(open(args.corpus_dt, encoding="utf-8"))
+            crule = json.load(open(args.corpus_rule, encoding="utf-8"))
+            ref = [cdt[m["path"]]["D_progress"] for m in man]
+            self.link_dt = Linker([dt_progress_over(cdt[m["path"]], self.dt_targets) for m in man], ref)
+            self.link_rule = Linker([crule[m["path"]]["D_panel_progress"] for m in man], ref)
+            from rule_agent import PRESETS
+            self.rule_agents = list(PRESETS)
 
     # ---- 評価 ----
     def evaluator(self):
@@ -74,8 +115,22 @@ class Search:
             path = f"{self.out}/levels/{label}.json"
             lvl.save(path)
             paths[label] = path
-        res = self.evaluator().evaluate(list(paths.values()), episodes=self.args.episodes, seed=self.args.seed)
-        return {label: res[p] for label, p in paths.items()}
+        a = self.args
+        res = self.evaluator().evaluate(list(paths.values()), targets=self.dt_targets,
+                                        episodes=a.episodes, seed=a.seed)
+        out = {}
+        if a.objective == "dt":
+            for label, p in paths.items():
+                out[label] = dict(D=res[p]["D_progress"], ceiling=res[p]["ceiling"])
+            return out
+        from rule_panel import evaluate as rule_evaluate
+        rres = rule_evaluate(list(paths.values()), self.rule_agents, episodes=a.rule_episodes,
+                             seed=a.seed, max_steps=a.max_steps, pool=self.rule_pool)
+        for label, p in paths.items():
+            d_dt = self.link_dt(res[p]["D_progress"])
+            d_rule = self.link_rule(rres[p]["D_panel_progress"])
+            out[label] = dict(D=(d_dt + d_rule) / 2, D_dt=d_dt, D_rule=d_rule, ceiling=res[p]["ceiling"])
+        return out
 
     # ---- 状態の保存・再開 ----
     def save_state(self, gen, pops, rng, history):
@@ -83,8 +138,8 @@ class Search:
         with open(tmp, "w", encoding="utf-8") as f:
             json.dump(dict(generation=gen, targets=self.targets, history=history,
                            rng=rng.bit_generator.state,
-                           pops={str(t): [dict(label=p["label"], D=p["D"], ceiling=p["ceiling"],
-                                               fit=p["fit"], level=p["lvl"].to_json(), origin=p["origin"])
+                           pops={str(t): [dict({k: v for k, v in p.items() if k != "lvl"},
+                                               level=p["lvl"].to_json())
                                           for p in pop] for t, pop in pops.items()}), f)
         os.replace(tmp, self.state_path)
 
@@ -101,6 +156,21 @@ class Search:
     def run(self):
         a = self.args
         os.makedirs(f"{self.out}/levels", exist_ok=True)
+        meta = dict(objective=a.objective, dt_targets=self.dt_targets, targets=self.targets,
+                    rule_episodes=a.rule_episodes if a.objective == "combo" else None,
+                    panels_used_in_search=["ルール"] if a.objective == "combo" else [])
+        meta_path = f"{self.out}/meta.json"
+        if os.path.exists(meta_path):
+            old = json.load(open(meta_path, encoding="utf-8"))
+            if old != meta:
+                raise SystemExit(f"❌ {self.out} は別の設定で探索した結果です（{old}）。--out を変えてください")
+        else:
+            with open(meta_path, "w", encoding="utf-8") as f:
+                json.dump(meta, f, ensure_ascii=False, indent=2)
+        if a.objective == "combo" and a.workers > 0:
+            # ルールパネル用のプロセス群は DT を GPU に載せる前に作る（CUDA 初期化後の fork を避ける）
+            import multiprocessing as mp
+            self.rule_pool = mp.get_context("fork" if hasattr(os, "fork") else "spawn").Pool(a.workers)
         if os.path.exists(self.state_path):
             gen, pops, rng, history = self.load_state()
             print(f"🔄 {self.state_path} から再開（第 {gen} 世代まで完了）")
@@ -123,8 +193,7 @@ class Search:
             pops = {t: [] for t in self.targets}
             for label, (t, lvl, origin) in meta.items():
                 r = res[label]
-                pops[t].append(dict(label=label, lvl=lvl, D=r["D_progress"], ceiling=r["ceiling"],
-                                    fit=fitness(r, t), origin=origin))
+                pops[t].append(dict(r, label=label, lvl=lvl, fit=fitness(r, t), origin=origin))
             for t in pops:
                 pops[t].sort(key=lambda p: p["fit"])
             # 初期集団 = ベースライン（つまみで狙っただけのステージ）。検証で探索結果と比べる
@@ -149,8 +218,7 @@ class Search:
             for label, lvl in items:
                 t, plabel = parent_of[label]
                 r = res[label]
-                pops[t].append(dict(label=label, lvl=lvl, D=r["D_progress"], ceiling=r["ceiling"],
-                                    fit=fitness(r, t), origin=f"mutate({plabel})"))
+                pops[t].append(dict(r, label=label, lvl=lvl, fit=fitness(r, t), origin=f"mutate({plabel})"))
             for t in pops:
                 pops[t] = sorted(pops[t], key=lambda p: p["fit"])[:a.mu]
             history += self.log(gen, pops, time.time() - t0)
@@ -159,6 +227,8 @@ class Search:
         self.write_results(pops, history)
         if self.ev is not None:
             self.ev.close()
+        if self.rule_pool is not None:
+            self.rule_pool.close()
 
     def log(self, gen, pops, elapsed=None):
         rows = []
@@ -168,7 +238,8 @@ class Search:
             rows.append(dict(generation=gen, target=t, best_D=best["D"], best_err=abs(best["D"] - t),
                              mean_err=float(np.mean([abs(p["D"] - t) for p in pop])),
                              best_label=best["label"]))
-            msg.append(f"D*={t:.2f}: 最良 D={best['D']:.3f} (誤差 {abs(best['D'] - t):.3f}) "
+            comp = (f" [DT {best['D_dt']:.3f} / ルール {best['D_rule']:.3f}]" if "D_dt" in best else "")
+            msg.append(f"D*={t:.2f}: 最良 D={best['D']:.3f}{comp} (誤差 {abs(best['D'] - t):.3f}) "
                        f"集団平均誤差 {rows[-1]['mean_err']:.3f}")
         print("  ".join(msg), flush=True)
         return rows
@@ -213,7 +284,19 @@ def main():
     ap.add_argument("--seed", type=int, default=0, help="評価のシード（検証では別の値を使う）")
     ap.add_argument("--corpus-manifest", default="corpus/v1/manifest.json")
     ap.add_argument("--corpus-dt", default="validity_out/v1/dt.json")
-    Search(ap.parse_args()).run()
+    ap.add_argument("--corpus-rule", default="validity_out/v1/rule_panel.json",
+                    help="combo の尺度合わせに使うコーパスのルールパネル結果")
+    ap.add_argument("--objective", choices=["dt", "combo"], default="dt",
+                    help="dt: DT だけ（v1） / combo: DT（高い target）とルールパネルの平均")
+    ap.add_argument("--dt-targets", default=None,
+                    help="DT を遊ばせる target。既定は dt なら 0,60,120,180,235、combo なら 120,180,235"
+                         "（わざと下手な低い target の到達率を操作する抜け道を塞ぐ）")
+    ap.add_argument("--rule-episodes", type=int, default=4,
+                    help="combo で、ルールの各エージェントに遊ばせるエピソード数")
+    args = ap.parse_args()
+    if args.dt_targets is None:
+        args.dt_targets = "0,60,120,180,235" if args.objective == "dt" else "120,180,235"
+    Search(args).run()
 
 
 if __name__ == "__main__":
