@@ -80,12 +80,13 @@ def dt_progress_over(res_entry, targets):
     return 1 - float(np.mean(pg))
 
 
-class Search:
-    def __init__(self, args):
+class Objective:
+    """ステージ群をまとめて評価し、目的関数の値を返す。
+    generate_by_difficulty.py（1本の探索）と generate_replicates.py（独立な探索を複数本）で共有する"""
+
+    def __init__(self, args, out_dir):
         self.args = args
-        self.out = args.out.rstrip("/")
-        self.targets = [float(t) for t in args.targets.split(",")]
-        self.state_path = f"{self.out}/state.json"
+        self.out = out_dir
         self.ev = None
         self.rule_pool = None
         self.dt_targets = [float(t) for t in args.dt_targets.split(",")]
@@ -100,7 +101,12 @@ class Search:
             from rule_agent import PRESETS
             self.rule_agents = list(PRESETS)
 
-    # ---- 評価 ----
+    def start_pool(self):
+        """ルールパネル用のプロセス群は DT を GPU に載せる前に作る（CUDA 初期化後の fork を避ける）"""
+        if self.args.objective == "combo" and self.args.workers > 0 and self.rule_pool is None:
+            import multiprocessing as mp
+            self.rule_pool = mp.get_context("fork" if hasattr(os, "fork") else "spawn").Pool(self.args.workers)
+
     def evaluator(self):
         if self.ev is None:
             from difficulty import DTDifficultyEvaluator
@@ -109,7 +115,7 @@ class Search:
         return self.ev
 
     def evaluate(self, items):
-        """items: [(ラベル, EditableLevel)] → {ラベル: {"D_progress", "ceiling", ...}}"""
+        """items: [(ラベル, EditableLevel)] → {ラベル: {"D", "ceiling", (combo なら "D_dt", "D_rule")}}"""
         paths = {}
         for label, lvl in items:
             path = f"{self.out}/levels/{label}.json"
@@ -131,6 +137,25 @@ class Search:
             d_rule = self.link_rule(rres[p]["D_panel_progress"])
             out[label] = dict(D=(d_dt + d_rule) / 2, D_dt=d_dt, D_rule=d_rule, ceiling=res[p]["ceiling"])
         return out
+
+    def close(self):
+        if self.ev is not None:
+            self.ev.close()
+        if self.rule_pool is not None:
+            self.rule_pool.close()
+
+
+class Search:
+    def __init__(self, args):
+        self.args = args
+        self.out = args.out.rstrip("/")
+        self.targets = [float(t) for t in args.targets.split(",")]
+        self.state_path = f"{self.out}/state.json"
+        self.obj = Objective(args, self.out)
+        self.dt_targets = self.obj.dt_targets
+
+    def evaluate(self, items):
+        return self.obj.evaluate(items)
 
     # ---- 状態の保存・再開 ----
     def save_state(self, gen, pops, rng, history):
@@ -167,10 +192,7 @@ class Search:
         else:
             with open(meta_path, "w", encoding="utf-8") as f:
                 json.dump(meta, f, ensure_ascii=False, indent=2)
-        if a.objective == "combo" and a.workers > 0:
-            # ルールパネル用のプロセス群は DT を GPU に載せる前に作る（CUDA 初期化後の fork を避ける）
-            import multiprocessing as mp
-            self.rule_pool = mp.get_context("fork" if hasattr(os, "fork") else "spawn").Pool(a.workers)
+        self.obj.start_pool()
         if os.path.exists(self.state_path):
             gen, pops, rng, history = self.load_state()
             print(f"🔄 {self.state_path} から再開（第 {gen} 世代まで完了）")
@@ -225,10 +247,7 @@ class Search:
             self.save_state(gen, pops, rng, history)
 
         self.write_results(pops, history)
-        if self.ev is not None:
-            self.ev.close()
-        if self.rule_pool is not None:
-            self.rule_pool.close()
+        self.obj.close()
 
     def log(self, gen, pops, elapsed=None):
         rows = []
