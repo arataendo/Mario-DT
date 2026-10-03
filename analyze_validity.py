@@ -118,6 +118,8 @@ def main():
     ap.add_argument("--panel", required=True, help="PPO パネル (panel_difficulty.py の出力)")
     ap.add_argument("--rule-panel", default=None,
                     help="ルールベースのパネル (rule_panel.py の出力)。PPO と系統が独立な基準")
+    ap.add_argument("--planner-panel", default=None,
+                    help="先読みプランナーのパネル (planner_panel.py の出力)。学習もルールの手書きもしない第4の系統")
     ap.add_argument("--panel-retest", default=None)
     ap.add_argument("--csv", default=None, help="ステージごとの値を CSV に書き出す（図を描く用）")
     args = ap.parse_args()
@@ -127,6 +129,8 @@ def main():
     panels = {"PPO": load(args.panel)}
     if args.rule_panel:
         panels["ルール"] = load(args.rule_panel)
+    if args.planner_panel:
+        panels["プランナー"] = load(args.planner_panel)
     panel = panels["PPO"]
     paths = [m["path"] for m in man if m["path"] in dt and all(m["path"] in pn for pn in panels.values())]
     if len(paths) < len(man):
@@ -172,13 +176,15 @@ def main():
     struct_keys = ["生成器の難易度つまみ", "敵の数", "穴のタイル数", "パイプ数"]
     S = np.column_stack([rankdata(measures[k]) for k in struct_keys])
     if len(panels) > 1:
-        print("\n[パネル間の一致] PPO と ルール（学習の有無が違う、独立な系統どうし）")
-        for key in ("D_clear", "D_progress"):
-            a, b = refs[f"PPO {key}"], refs[f"ルール {key}"]
-            r, lo, hi = spearman_boot(a, b)
-            pr, plo, phi = partial_boot(rankdata(a), rankdata(b), S)
-            print(f"  {key:11s} 単純 rho={r:+.2f} [{lo:+.2f}, {hi:+.2f}]   "
-                  f"構造を除いた偏相関 rho={pr:+.2f} [{plo:+.2f}, {phi:+.2f}]")
+        import itertools
+        print("\n[パネル間の一致] 系統の違うパネルどうし")
+        for x, y in itertools.combinations(panels, 2):
+            for key in ("D_clear", "D_progress"):
+                a, b = refs[f"{x} {key}"], refs[f"{y} {key}"]
+                r, lo, hi = spearman_boot(a, b)
+                pr, plo, phi = partial_boot(rankdata(a), rankdata(b), S)
+                print(f"  {x}↔{y} {key:11s} 単純 rho={r:+.2f} [{lo:+.2f}, {hi:+.2f}]   "
+                      f"構造を除いた偏相関 rho={pr:+.2f} [{plo:+.2f}, {phi:+.2f}]")
         print("  （構造を除いても一致するなら、「量では分からない難しさ」がエージェントの種類によらず実在する）")
 
     # ---- 信頼性 ----

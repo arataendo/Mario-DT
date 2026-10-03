@@ -82,30 +82,54 @@ def dt_progress_over(res_entry, targets):
 
 class Objective:
     """ステージ群をまとめて評価し、目的関数の値を返す。
-    generate_by_difficulty.py（1本の探索）と generate_replicates.py（独立な探索を複数本）で共有する"""
+    generate_by_difficulty.py（1本の探索）と generate_replicates.py（独立な探索を複数本）で共有する。
+
+      dt     : DT だけ
+      combo  : DT（高い target）+ ルールパネル
+      combo3 : DT（高い target）+ ルールパネル + PPO パネル
+               評価器の種類を増やすと、どの目的関数にも含まれない審判（先読みプランナー）への
+               伝わり方が上がるかを確かめるため
+    各成分はコーパス上の分布の対応で D* の尺度（DT の全 target 版）にそろえて平均する。
+    """
 
     def __init__(self, args, out_dir):
         self.args = args
         self.out = out_dir
         self.ev = None
         self.rule_pool = None
+        self.ppo = None
         self.dt_targets = [float(t) for t in args.dt_targets.split(",")]
-        if args.objective == "combo":
+        self.use_rule = args.objective in ("combo", "combo3")
+        self.use_ppo = args.objective == "combo3"
+        if self.use_rule or self.use_ppo:
             # コーパスで各成分を D* の尺度にそろえる写像を作る
             man = json.load(open(args.corpus_manifest, encoding="utf-8"))
             cdt = json.load(open(args.corpus_dt, encoding="utf-8"))
-            crule = json.load(open(args.corpus_rule, encoding="utf-8"))
             ref = [cdt[m["path"]]["D_progress"] for m in man]
             self.link_dt = Linker([dt_progress_over(cdt[m["path"]], self.dt_targets) for m in man], ref)
+        if self.use_rule:
+            crule = json.load(open(args.corpus_rule, encoding="utf-8"))
             self.link_rule = Linker([crule[m["path"]]["D_panel_progress"] for m in man], ref)
             from rule_agent import PRESETS
             self.rule_agents = list(PRESETS)
+        if self.use_ppo:
+            cppo = json.load(open(args.corpus_ppo, encoding="utf-8"))
+            self.link_ppo = Linker([cppo[m["path"]]["D_panel_progress"] for m in man], ref)
+
+    def panels_used(self):
+        return (["ルール"] if self.use_rule else []) + (["PPO"] if self.use_ppo else [])
 
     def start_pool(self):
-        """ルールパネル用のプロセス群は DT を GPU に載せる前に作る（CUDA 初期化後の fork を避ける）"""
-        if self.args.objective == "combo" and self.args.workers > 0 and self.rule_pool is None:
+        """パネル用のプロセス群は、DT を GPU に載せる前に作る（CUDA 初期化後の fork を避ける）。
+        PPO パネルは目的関数の中では CPU で推論する（GPU を初期化させないため）"""
+        a = self.args
+        if self.use_rule and a.workers > 0 and self.rule_pool is None:
             import multiprocessing as mp
-            self.rule_pool = mp.get_context("fork" if hasattr(os, "fork") else "spawn").Pool(self.args.workers)
+            self.rule_pool = mp.get_context("fork" if hasattr(os, "fork") else "spawn").Pool(a.workers)
+        if self.use_ppo and self.ppo is None:
+            from panel_difficulty import DEFAULT_PANEL, PanelEvaluator
+            self.ppo = PanelEvaluator(DEFAULT_PANEL, device="cpu", workers=a.workers,
+                                      max_steps=a.max_steps, batch_size=a.batch_size)
 
     def evaluator(self):
         if self.ev is None:
@@ -115,27 +139,36 @@ class Objective:
         return self.ev
 
     def evaluate(self, items):
-        """items: [(ラベル, EditableLevel)] → {ラベル: {"D", "ceiling", (combo なら "D_dt", "D_rule")}}"""
+        """items: [(ラベル, EditableLevel)] → {ラベル: {"D", "ceiling", 成分 "D_dt"/"D_rule"/"D_ppo"}}"""
         paths = {}
         for label, lvl in items:
             path = f"{self.out}/levels/{label}.json"
             lvl.save(path)
             paths[label] = path
         a = self.args
-        res = self.evaluator().evaluate(list(paths.values()), targets=self.dt_targets,
-                                        episodes=a.episodes, seed=a.seed)
+        plist = list(paths.values())
+        res = self.evaluator().evaluate(plist, targets=self.dt_targets, episodes=a.episodes, seed=a.seed)
         out = {}
-        if a.objective == "dt":
+        if not (self.use_rule or self.use_ppo):
             for label, p in paths.items():
                 out[label] = dict(D=res[p]["D_progress"], ceiling=res[p]["ceiling"])
             return out
-        from rule_panel import evaluate as rule_evaluate
-        rres = rule_evaluate(list(paths.values()), self.rule_agents, episodes=a.rule_episodes,
-                             seed=a.seed, max_steps=a.max_steps, pool=self.rule_pool)
+        rres = pres = None
+        if self.use_rule:
+            from rule_panel import evaluate as rule_evaluate
+            rres = rule_evaluate(plist, self.rule_agents, episodes=a.rule_episodes,
+                                 seed=a.seed, max_steps=a.max_steps, pool=self.rule_pool)
+        if self.use_ppo:
+            if self.ppo is None:
+                self.start_pool()
+            pres = self.ppo.evaluate(plist, episodes=a.ppo_episodes, seed=a.seed)
         for label, p in paths.items():
-            d_dt = self.link_dt(res[p]["D_progress"])
-            d_rule = self.link_rule(rres[p]["D_panel_progress"])
-            out[label] = dict(D=(d_dt + d_rule) / 2, D_dt=d_dt, D_rule=d_rule, ceiling=res[p]["ceiling"])
+            comp = dict(D_dt=self.link_dt(res[p]["D_progress"]))
+            if rres is not None:
+                comp["D_rule"] = self.link_rule(rres[p]["D_panel_progress"])
+            if pres is not None:
+                comp["D_ppo"] = self.link_ppo(pres[p]["D_panel_progress"])
+            out[label] = dict(comp, D=float(np.mean(list(comp.values()))), ceiling=res[p]["ceiling"])
         return out
 
     def close(self):
@@ -143,6 +176,8 @@ class Objective:
             self.ev.close()
         if self.rule_pool is not None:
             self.rule_pool.close()
+        if self.ppo is not None:
+            self.ppo.close()
 
 
 class Search:
@@ -183,7 +218,7 @@ class Search:
         os.makedirs(f"{self.out}/levels", exist_ok=True)
         meta = dict(objective=a.objective, dt_targets=self.dt_targets, targets=self.targets,
                     rule_episodes=a.rule_episodes if a.objective == "combo" else None,
-                    panels_used_in_search=["ルール"] if a.objective == "combo" else [])
+                    panels_used_in_search=self.obj.panels_used())
         meta_path = f"{self.out}/meta.json"
         if os.path.exists(meta_path):
             old = json.load(open(meta_path, encoding="utf-8"))
@@ -257,7 +292,9 @@ class Search:
             rows.append(dict(generation=gen, target=t, best_D=best["D"], best_err=abs(best["D"] - t),
                              mean_err=float(np.mean([abs(p["D"] - t) for p in pop])),
                              best_label=best["label"]))
-            comp = (f" [DT {best['D_dt']:.3f} / ルール {best['D_rule']:.3f}]" if "D_dt" in best else "")
+            names = {"D_dt": "DT", "D_rule": "ルール", "D_ppo": "PPO"}
+            comp = (" [" + " / ".join(f"{names[k]} {best[k]:.3f}" for k in names if k in best) + "]"
+                    if "D_dt" in best else "")
             msg.append(f"D*={t:.2f}: 最良 D={best['D']:.3f}{comp} (誤差 {abs(best['D'] - t):.3f}) "
                        f"集団平均誤差 {rows[-1]['mean_err']:.3f}")
         print("  ".join(msg), flush=True)
@@ -305,11 +342,15 @@ def main():
     ap.add_argument("--corpus-dt", default="validity_out/v1/dt.json")
     ap.add_argument("--corpus-rule", default="validity_out/v1/rule_panel.json",
                     help="combo の尺度合わせに使うコーパスのルールパネル結果")
-    ap.add_argument("--objective", choices=["dt", "combo"], default="dt",
+    ap.add_argument("--objective", choices=["dt", "combo", "combo3"], default="dt",
                     help="dt: DT だけ（v1） / combo: DT（高い target）とルールパネルの平均")
     ap.add_argument("--dt-targets", default=None,
                     help="DT を遊ばせる target。既定は dt なら 0,60,120,180,235、combo なら 120,180,235"
                          "（わざと下手な低い target の到達率を操作する抜け道を塞ぐ）")
+    ap.add_argument("--corpus-ppo", default="validity_out/v1/panel.json",
+                    help="combo3 の尺度合わせに使うコーパスの PPO パネル結果")
+    ap.add_argument("--ppo-episodes", type=int, default=2,
+                    help="combo3 で、PPO の各エージェントに遊ばせるエピソード数")
     ap.add_argument("--rule-episodes", type=int, default=4,
                     help="combo で、ルールの各エージェントに遊ばせるエピソード数")
     args = ap.parse_args()

@@ -72,8 +72,10 @@ class Replicates:
         meta = dict(design="replicates", objective=a.objective, dt_targets=self.obj.dt_targets,
                     targets=self.targets, replicates=a.replicates, mu=a.mu, lam=a.lam,
                     generations=a.generations, N=self.N, episodes=a.episodes,
-                    rule_episodes=a.rule_episodes if a.objective == "combo" else None,
-                    panels_used_in_search=["ルール"] if a.objective == "combo" else [])
+                    rule_episodes=a.rule_episodes if a.objective in ("combo", "combo3") else None,
+                    panels_used_in_search=self.obj.panels_used())
+        if a.objective == "combo3":
+            meta["ppo_episodes"] = a.ppo_episodes
         meta_path = f"{self.out}/meta.json"
         if os.path.exists(meta_path):
             if json.load(open(meta_path, encoding="utf-8")) != meta:
@@ -191,7 +193,8 @@ def main():
     ap.add_argument("--generations", type=int, default=5)
     ap.add_argument("--episodes", type=int, default=6)
     ap.add_argument("--rule-episodes", type=int, default=4)
-    ap.add_argument("--objective", choices=["dt", "combo"], default="combo")
+    ap.add_argument("--objective", choices=["dt", "combo", "combo3"], default="combo")
+    ap.add_argument("--ppo-episodes", type=int, default=2, help="combo3 で PPO の各エージェントのエピソード数")
     ap.add_argument("--dt-targets", default=None)
     ap.add_argument("--workers", type=int, default=0)
     ap.add_argument("--batch-size", type=int, default=512)
@@ -202,6 +205,7 @@ def main():
     ap.add_argument("--corpus-manifest", default="corpus/v1/manifest.json")
     ap.add_argument("--corpus-dt", default="validity_out/v1/dt.json")
     ap.add_argument("--corpus-rule", default="validity_out/v1/rule_panel.json")
+    ap.add_argument("--corpus-ppo", default="validity_out/v1/panel.json")
     args = ap.parse_args()
     if args.dt_targets is None:
         args.dt_targets = "0,60,120,180,235" if args.objective == "dt" else "120,180,235"
