@@ -174,3 +174,5 @@ corpus/
 # 段階3: 探索途中の候補ステージ（数百個）は入れない。ベースライン（第0世代）だけ残す
 gen_out/*/levels/*
 !gen_out/*/levels/*_g000_*.json
+# 評価の途中保存（完走すると消える）
+*.partial.jsonl

@@ -14,6 +14,8 @@
 # 使い方:
 #   WORKERS=8 ./run_v4.sh
 # 各段の結果を保存するので、途中で止まっても再実行で続きから走る。
+# プランナー・ルールの評価は1エピソードごとに保存し、子プロセスが死んだり固まったりしても
+# 作り直して続ける（以前は Pool.map が子プロセスの OOM で永久に止まることがあった）。
 set -euo pipefail
 cd "$(dirname "$0")"
 
@@ -42,7 +44,7 @@ CORPUS_ARGS="--corpus-manifest corpus/$CORPUS/manifest.json --corpus-dt validity
 step "1/5 プランナーでコーパスを測る（審判としての妥当性）"
 [ -f "validity_out/$CORPUS/planner_panel.json" ] && echo "既存" || python planner_panel.py \
   --levels-from "corpus/$CORPUS/manifest.json" --agents "$PLANNER_AGENTS" --episodes "$PLANNER_EPISODES" \
-  --workers "$WORKERS" --seed 0 --output "validity_out/$CORPUS/planner_panel.json" | tail -3
+  --workers "$WORKERS" --seed 0 --output "validity_out/$CORPUS/planner_panel.json"
 python analyze_validity.py --manifest "corpus/$CORPUS/manifest.json" --dt "validity_out/$CORPUS/dt.json" \
   --dt-retest "validity_out/$CORPUS/dt_retest.json" --panel "validity_out/$CORPUS/panel.json" \
   --rule-panel "validity_out/$CORPUS/rule_panel.json" --planner-panel "validity_out/$CORPUS/planner_panel.json" \
@@ -52,7 +54,7 @@ sed -n '/パネル\] エージェント別/,/量では分からない/p' "validi
 step "2/5 プランナーで v3 の結果を測る"
 [ -f "$V3/val_planner.json" ] && echo "既存" || python planner_panel.py --levels-from "$V3/validate_manifest.json" \
   --agents "$PLANNER_AGENTS" --episodes "$PLANNER_EPISODES" --workers "$WORKERS" --seed 1000 \
-  --output "$V3/val_planner.json" | tail -2
+  --output "$V3/val_planner.json"
 
 step "3/5 v4 の探索（目的関数 = DT + ルール + PPO）"
 python generate_replicates.py --model "$DT_MODEL" --objective combo3 --workers "$WORKERS" --out "$OUT" $CORPUS_ARGS
@@ -64,9 +66,9 @@ step "4/5 v4 の検証"
 [ -f "$OUT/val_ppo.json" ] || python panel_difficulty.py --levels-from "$M" \
   --episodes 8 --workers "$WORKERS" --seed 1000 --output "$OUT/val_ppo.json" | tail -1
 [ -f "$OUT/val_rule.json" ] || python rule_panel.py --levels-from "$M" \
-  --episodes 8 --workers "$WORKERS" --seed 1000 --output "$OUT/val_rule.json" | tail -1
+  --episodes 8 --workers "$WORKERS" --seed 1000 --output "$OUT/val_rule.json"
 [ -f "$OUT/val_planner.json" ] || python planner_panel.py --levels-from "$M" --agents "$PLANNER_AGENTS" \
-  --episodes "$PLANNER_EPISODES" --workers "$WORKERS" --seed 1000 --output "$OUT/val_planner.json" | tail -1
+  --episodes "$PLANNER_EPISODES" --workers "$WORKERS" --seed 1000 --output "$OUT/val_planner.json"
 
 step "5/5 分析"
 python analyze_replicates.py --gen-dir "$OUT" --compare "$V3" $CORPUS_ARGS \

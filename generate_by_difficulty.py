@@ -120,12 +120,11 @@ class Objective:
         return (["ルール"] if self.use_rule else []) + (["PPO"] if self.use_ppo else [])
 
     def start_pool(self):
-        """パネル用のプロセス群は、DT を GPU に載せる前に作る（CUDA 初期化後の fork を避ける）。
-        PPO パネルは目的関数の中では CPU で推論する（GPU を初期化させないため）"""
+        """PPO パネル用のプロセス群は、DT を GPU に載せる前に作る（CUDA 初期化後の fork を避ける）。
+        PPO パネルは目的関数の中では CPU で推論する（GPU を初期化させないため）。
+        ルールパネルは評価のたびに spawn で子プロセスを作る（rule_panel.run_jobs_robust）。
+        以前は Pool を使い回していたが、子プロセスが OOM で殺されると Pool.map が永久に止まる"""
         a = self.args
-        if self.use_rule and a.workers > 0 and self.rule_pool is None:
-            import multiprocessing as mp
-            self.rule_pool = mp.get_context("fork" if hasattr(os, "fork") else "spawn").Pool(a.workers)
         if self.use_ppo and self.ppo is None:
             from panel_difficulty import DEFAULT_PANEL, PanelEvaluator
             self.ppo = PanelEvaluator(DEFAULT_PANEL, device="cpu", workers=a.workers,
@@ -157,7 +156,8 @@ class Objective:
         if self.use_rule:
             from rule_panel import evaluate as rule_evaluate
             rres = rule_evaluate(plist, self.rule_agents, episodes=a.rule_episodes,
-                                 seed=a.seed, max_steps=a.max_steps, pool=self.rule_pool)
+                                 seed=a.seed, max_steps=a.max_steps, workers=a.workers,
+                                 start_method="spawn", quiet=True)
         if self.use_ppo:
             if self.ppo is None:
                 self.start_pool()
