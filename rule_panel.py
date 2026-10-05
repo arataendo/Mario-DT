@@ -36,6 +36,23 @@ def _job_key(j):
     return f"{j['level']}|{j['agent']}|{j['episode']}"
 
 
+def _completed_with_stall(futs, stall_timeout):
+    """終わったものから順に返す。「最後に何かが終わってから」stall_timeout 秒、何も終わらなければ
+    TimeoutError を出す。
+
+    concurrent.futures.as_completed(timeout=...) の timeout は「呼び出してからの合計時間」なので、
+    順調に進んでいても開始から stall_timeout 秒たつと必ず TimeoutError になる。
+    研究室PCで、86 件終わっていたのに 30 分で「固まった」と誤判定したのはこのため。
+    """
+    from concurrent.futures import FIRST_COMPLETED, TimeoutError as FutTimeout, wait
+    pending = set(futs)
+    while pending:
+        done, pending = wait(pending, timeout=stall_timeout, return_when=FIRST_COMPLETED)
+        if not done:
+            raise FutTimeout()
+        yield from done
+
+
 def run_jobs_robust(jobs, run_fn, workers, checkpoint=None, stall_timeout=1800,
                     max_restarts=5, progress_every=50, start_method=None, quiet=False):
     """長時間かかる評価を、止まらないように回す。
@@ -53,7 +70,7 @@ def run_jobs_robust(jobs, run_fn, workers, checkpoint=None, stall_timeout=1800,
     プランナーの評価が「作り直しても毎回だめ」になったのはこれだと考えられる
     （親が pygame.time.Clock() を作って SDL タイマーを初期化していた。手元の Windows は常に spawn なので再現しなかった）
     """
-    from concurrent.futures import ProcessPoolExecutor, TimeoutError as FutTimeout, as_completed
+    from concurrent.futures import ProcessPoolExecutor, TimeoutError as FutTimeout
     from concurrent.futures.process import BrokenProcessPool
 
     done = {}
@@ -75,7 +92,7 @@ def run_jobs_robust(jobs, run_fn, workers, checkpoint=None, stall_timeout=1800,
             ex = ProcessPoolExecutor(max_workers=workers, mp_context=ctx)
             futs = {ex.submit(run_fn, j): j for j in todo}
             try:
-                for fut in as_completed(futs, timeout=stall_timeout):
+                for fut in _completed_with_stall(futs, stall_timeout):
                     r = fut.result()
                     done[_job_key(r)] = r
                     if ckf:
