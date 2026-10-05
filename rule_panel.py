@@ -48,8 +48,10 @@ def run_jobs_robust(jobs, run_fn, workers, checkpoint=None, stall_timeout=1800,
       - いずれの場合もプロセス群を作り直し、残りのジョブだけを続ける（最大 max_restarts 回）
       - 終わったジョブは checkpoint (JSON Lines) に1件ずつ追記し、再実行時は飛ばす
       - progress_every 件ごとに進み具合を表示する
-    start_method: 呼び出し側が既に CUDA を初期化している場合（探索中など）は "spawn" を渡す。
-                  fork だと CUDA 初期化後の親を複製してしまい、子が固まることがある
+    子プロセスは既定で spawn（まっさらな新しいプロセス）で作る。Linux 既定の fork は親の状態を
+    丸ごと複製するため、親で SDL（pygame）や CUDA が初期化済みだと子が固まる。研究室PCで
+    プランナーの評価が「作り直しても毎回だめ」になったのはこれだと考えられる
+    （親が pygame.time.Clock() を作って SDL タイマーを初期化していた。手元の Windows は常に spawn なので再現しなかった）
     """
     from concurrent.futures import ProcessPoolExecutor, TimeoutError as FutTimeout, as_completed
     from concurrent.futures.process import BrokenProcessPool
@@ -65,10 +67,11 @@ def run_jobs_robust(jobs, run_fn, workers, checkpoint=None, stall_timeout=1800,
     todo = [j for j in jobs if _job_key(j) not in done]
     ckf = open(checkpoint, "a", encoding="utf-8") if checkpoint else None
     t0, n0 = time.time(), len(done)
-    ctx = mp.get_context(start_method or ("fork" if hasattr(os, "fork") else "spawn"))
+    ctx = mp.get_context(start_method or "spawn")
     restarts = 0
     try:
         while todo:
+            n_before = len(done)
             ex = ProcessPoolExecutor(max_workers=workers, mp_context=ctx)
             futs = {ex.submit(run_fn, j): j for j in todo}
             try:
@@ -86,16 +89,21 @@ def run_jobs_robust(jobs, run_fn, workers, checkpoint=None, stall_timeout=1800,
                 ex.shutdown(wait=True)
                 break
             except (BrokenProcessPool, FutTimeout) as e:
-                why = "子プロセスが異常終了" if isinstance(e, BrokenProcessPool) else f"{stall_timeout}秒どのジョブも終わらない"
-                for p in list(getattr(ex, "_processes", {}).values()):   # 固まった子プロセスを確実に止める
+                procs = list(getattr(ex, "_processes", {}).values())
+                codes = sorted({p.exitcode for p in procs if p.exitcode is not None})
+                why = (f"子プロセスが異常終了（終了コード {codes}。-9 は外部からの強制終了、-11 はクラッシュ）"
+                       if isinstance(e, BrokenProcessPool) else f"{stall_timeout}秒どのジョブも終わらない")
+                for p in procs:   # 固まった子プロセスを確実に止める
                     p.terminate()
                 ex.shutdown(wait=False, cancel_futures=True)
                 todo = [j for j in jobs if _job_key(j) not in done]
                 restarts += 1
-                print(f"⚠️  {why}。プロセス群を作り直して残り {len(todo)} 件を続けます"
-                      f"（{restarts}/{max_restarts} 回目）", flush=True)
+                print(f"⚠️  {why}。この間に終わったのは {len(done) - n_before} 件。"
+                      f"プロセス群を作り直して残り {len(todo)} 件を続けます（{restarts}/{max_restarts} 回目）", flush=True)
                 if restarts > max_restarts:
-                    raise RuntimeError(f"作り直しが {max_restarts} 回を超えました。メモリ (free -g) を確認してください")
+                    raise RuntimeError(
+                        f"作り直しが {max_restarts} 回を超えました（直前の原因: {why}）。"
+                        "1エピソードを並列なしで動かして、エラーが出ないか・何秒かかるかを確かめてください")
     finally:
         if ckf:
             ckf.close()

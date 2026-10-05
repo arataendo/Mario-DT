@@ -27,7 +27,10 @@ import numpy as np
 import pygame
 
 # 画像・時計は複製せず共有する（描画用で、物理には関係しない。複製を 17ms 程度に抑える）
-for _T in (pygame.Surface, type(pygame.time.Clock())):
+# 型はクラスそのものから取る。以前は type(pygame.time.Clock()) とインスタンスを作っており、
+# モジュールを読み込んだだけで親プロセスの SDL タイマーが初期化されていた疑いがある。
+# Linux で fork した子プロセスがそれを引き継ぐと固まり、研究室PCで評価が進まなかった。
+for _T in (pygame.Surface, pygame.time.Clock):
     copy._deepcopy_dispatch[_T] = lambda x, memo: x
 
 SKIP = 4
