@@ -98,6 +98,7 @@ class Replicates:
                 if f"{run_id}_c{i:02d}" not in st["cands"]]
         if todo:
             print(f"\n[1/2] 候補の評価: 残り {len(todo)} / {len(self.runs) * self.N}")
+        t_phase = time.time()
         for s in range(0, len(todo), a.chunk):
             t0 = time.time()
             items, seeds = [], {}
@@ -111,7 +112,9 @@ class Replicates:
                 t = self.targets[int(label[1:label.index("_")])]
                 st["cands"][label] = dict(res[label], fit=fitness(res[label], t), seed=seeds[label])
             self.save(st)
-            print(f"  {min(s + a.chunk, len(todo))}/{len(todo)} 評価済み ({(time.time() - t0) / 60:.1f}分)", flush=True)
+            n_done, el = min(s + a.chunk, len(todo)), time.time() - t_phase
+            print(f"  {n_done}/{len(todo)} 評価済み（このかたまり {(time.time() - t0) / 60:.1f}分、累計 {el / 60:.0f}分、"
+                  f"残り約 {(len(todo) - n_done) * el / n_done / 60:.0f}分）", flush=True)
 
         # ---- 2. 編集探索（全探索を同じ世代で進め、子をまとめて評価する）----
         rng = np.random.default_rng(a.seed + 777)
@@ -140,7 +143,27 @@ class Replicates:
                     label = f"{run_id}_g{g:02d}_{j:02d}"
                     items.append((label, EditableLevel.from_json(parent["level"]).mutate(rng)))
                     owner[label] = (run_id, t)
-            res = self.obj.evaluate(items)
+            # 1世代は 本数×λ 個（既定 180 個、数時間）あるので、chunk 個ずつ評価して進み具合を出し、
+            # そのたびに保存する。子のステージは世代の始めの乱数の状態（st["rng"]。世代の途中では
+            # 更新しない）から決まるので、途中で止めて再開しても同じステージが作られ、
+            # 評価済みのものだけを飛ばせば結果は変わらない
+            part = st.get("partial") or {}
+            if part.get("generation") != g:
+                part = dict(generation=g, res={})
+            res = part["res"]
+            if res:
+                print(f"  世代 {g}: 途中保存から {len(res)}/{len(items)} 個を読み込み、続きから評価します", flush=True)
+            todo = [(label, lvl) for label, lvl in items if label not in res]
+            for s in range(0, len(todo), a.chunk):
+                t1 = time.time()
+                res.update(self.obj.evaluate(todo[s:s + a.chunk]))
+                st["partial"] = part
+                self.save(st)
+                el = time.time() - t0
+                n_new = len(res) - (len(items) - len(todo))
+                print(f"  世代 {g}: {len(res)}/{len(items)} 評価済み（このかたまり {(time.time() - t1) / 60:.1f}分、"
+                      f"この世代の残り約 {(len(items) - len(res)) * el / max(n_new, 1) / 60:.0f}分）", flush=True)
+            st["partial"] = None
             for label, lvl in items:
                 run_id, t = owner[label]
                 st["pops"][run_id].append(dict(res[label], fit=fitness(res[label], t), label=label,
