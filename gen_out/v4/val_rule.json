@@ -1,0 +1,3782 @@
+{
+  "gen_out/v4/final/t0_r00_naive.json": {
+    "D_panel_clear": 0.3125,
+    "D_panel_progress": 0.19296673646907214,
+    "agents": [
+      {
+        "model": "rule_s0",
+        "n": 8,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "rule_s1",
+        "n": 8,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "rule_s2",
+        "n": 8,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "rule_s3",
+        "n": 8,
+        "clear_rate": 0.375,
+        "progress": 0.6745328608247423
+      },
+      {
+        "model": "rule_s4",
+        "n": 8,
+        "clear_rate": 0.625,
+        "progress": 0.8034995167525774
+      },
+      {
+        "model": "rule_s5",
+        "n": 8,
+        "clear_rate": 0.125,
+        "progress": 0.37963112113402064
+      }
+    ]
+  },
+  "gen_out/v4/final/t0_r00_gentest.json": {
+    "D_panel_clear": 0.47916666666666663,
+    "D_panel_progress": 0.27359187070446733,
+    "agents": [
+      {
+        "model": "rule_s0",
+        "n": 8,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "rule_s1",
+        "n": 8,
+        "clear_rate": 0.625,
+        "progress": 0.7921230670103093
+      },
+      {
+        "model": "rule_s2",
+        "n": 8,
+        "clear_rate": 0.875,
+        "progress": 0.9444265463917526
+      },
+      {
+        "model": "rule_s3",
+        "n": 8,
+        "clear_rate": 0.375,
+        "progress": 0.8208561533505154
+      },
+      {
+        "model": "rule_s4",
+        "n": 8,
+        "clear_rate": 0.125,
+        "progress": 0.43198292525773196
+      },
+      {
+        "model": "rule_s5",
+        "n": 8,
+        "clear_rate": 0.125,
+        "progress": 0.3742147229381443
+      }
+    ]
+  },
+  "gen_out/v4/final/t0_r00_search.json": {
+    "D_panel_clear": 0.375,
+    "D_panel_progress": 0.1972320661512028,
+    "agents": [
+      {
+        "model": "rule_s0",
+        "n": 8,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "rule_s1",
+        "n": 8,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "rule_s2",
+        "n": 8,
+        "clear_rate": 0.875,
+        "progress": 0.9284391108247423
+      },
+      {
+        "model": "rule_s3",
+        "n": 8,
+        "clear_rate": 0.5,
+        "progress": 0.8704695554123711
+      },
+      {
+        "model": "rule_s4",
+        "n": 8,
+        "clear_rate": 0.375,
+        "progress": 0.7673163659793815
+      },
+      {
+        "model": "rule_s5",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.2606918492268041
+      }
+    ]
+  },
+  "gen_out/v4/final/t0_r01_naive.json": {
+    "D_panel_clear": 0.6041666666666667,
+    "D_panel_progress": 0.45724267074742253,
+    "agents": [
+      {
+        "model": "rule_s0",
+        "n": 8,
+        "clear_rate": 0.375,
+        "progress": 0.4614610180412371
+      },
+      {
+        "model": "rule_s1",
+        "n": 8,
+        "clear_rate": 0.75,
+        "progress": 0.7812902706185567
+      },
+      {
+        "model": "rule_s2",
+        "n": 8,
+        "clear_rate": 0.75,
+        "progress": 0.7840689432989691
+      },
+      {
+        "model": "rule_s3",
+        "n": 8,
+        "clear_rate": 0.375,
+        "progress": 0.6060325386597938
+      },
+      {
+        "model": "rule_s4",
+        "n": 8,
+        "clear_rate": 0.125,
+        "progress": 0.35222696520618557
+      },
+      {
+        "model": "rule_s5",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.27146423969072164
+      }
+    ]
+  },
+  "gen_out/v4/final/t0_r01_gentest.json": {
+    "D_panel_clear": 0.39583333333333337,
+    "D_panel_progress": 0.19991006228522323,
+    "agents": [
+      {
+        "model": "rule_s0",
+        "n": 8,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "rule_s1",
+        "n": 8,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "rule_s2",
+        "n": 8,
+        "clear_rate": 0.625,
+        "progress": 0.9366543170103092
+      },
+      {
+        "model": "rule_s3",
+        "n": 8,
+        "clear_rate": 0.5,
+        "progress": 0.7416438466494846
+      },
+      {
+        "model": "rule_s4",
+        "n": 8,
+        "clear_rate": 0.5,
+        "progress": 0.7839279961340206
+      },
+      {
+        "model": "rule_s5",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.3486227448453608
+      }
+    ]
+  },
+  "gen_out/v4/final/t0_r01_search.json": {
+    "D_panel_clear": 0.375,
+    "D_panel_progress": 0.25741986146907214,
+    "agents": [
+      {
+        "model": "rule_s0",
+        "n": 8,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "rule_s1",
+        "n": 8,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "rule_s2",
+        "n": 8,
+        "clear_rate": 0.875,
+        "progress": 0.8780202963917526
+      },
+      {
+        "model": "rule_s3",
+        "n": 8,
+        "clear_rate": 0.375,
+        "progress": 0.6512564432989691
+      },
+      {
+        "model": "rule_s4",
+        "n": 8,
+        "clear_rate": 0.5,
+        "progress": 0.6871375644329898
+      },
+      {
+        "model": "rule_s5",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.24937580541237112
+      }
+    ]
+  },
+  "gen_out/v4/final/t0_r02_naive.json": {
+    "D_panel_clear": 0.375,
+    "D_panel_progress": 0.2496677673969071,
+    "agents": [
+      {
+        "model": "rule_s0",
+        "n": 8,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "rule_s1",
+        "n": 8,
+        "clear_rate": 0.875,
+        "progress": 0.9322245489690721
+      },
+      {
+        "model": "rule_s2",
+        "n": 8,
+        "clear_rate": 0.75,
+        "progress": 0.8717783505154639
+      },
+      {
+        "model": "rule_s3",
+        "n": 8,
+        "clear_rate": 0.5,
+        "progress": 0.6820836018041238
+      },
+      {
+        "model": "rule_s4",
+        "n": 8,
+        "clear_rate": 0.5,
+        "progress": 0.6189191365979382
+      },
+      {
+        "model": "rule_s5",
+        "n": 8,
+        "clear_rate": 0.125,
+        "progress": 0.4021423969072165
+      }
+    ]
+  },
+  "gen_out/v4/final/t0_r02_gentest.json": {
+    "D_panel_clear": 0.35416666666666663,
+    "D_panel_progress": 0.2454494201030929,
+    "agents": [
+      {
+        "model": "rule_s0",
+        "n": 8,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "rule_s1",
+        "n": 8,
+        "clear_rate": 0.875,
+        "progress": 0.879651256443299
+      },
+      {
+        "model": "rule_s2",
+        "n": 8,
+        "clear_rate": 0.875,
+        "progress": 0.8797317976804124
+      },
+      {
+        "model": "rule_s3",
+        "n": 8,
+        "clear_rate": 0.625,
+        "progress": 0.7917807667525774
+      },
+      {
+        "model": "rule_s4",
+        "n": 8,
+        "clear_rate": 0.375,
+        "progress": 0.622583762886598
+      },
+      {
+        "model": "rule_s5",
+        "n": 8,
+        "clear_rate": 0.125,
+        "progress": 0.35871053479381443
+      }
+    ]
+  },
+  "gen_out/v4/final/t0_r02_search.json": {
+    "D_panel_clear": 0.5208333333333333,
+    "D_panel_progress": 0.34860260953608246,
+    "agents": [
+      {
+        "model": "rule_s0",
+        "n": 8,
+        "clear_rate": 0.75,
+        "progress": 0.9928318298969072
+      },
+      {
+        "model": "rule_s1",
+        "n": 8,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "rule_s2",
+        "n": 8,
+        "clear_rate": 0.625,
+        "progress": 0.6453769329896908
+      },
+      {
+        "model": "rule_s3",
+        "n": 8,
+        "clear_rate": 0.25,
+        "progress": 0.5592783505154639
+      },
+      {
+        "model": "rule_s4",
+        "n": 8,
+        "clear_rate": 0.25,
+        "progress": 0.4419700386597938
+      },
+      {
+        "model": "rule_s5",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.2740818298969072
+      }
+    ]
+  },
+  "gen_out/v4/final/t0_r03_naive.json": {
+    "D_panel_clear": 0.47916666666666663,
+    "D_panel_progress": 0.24853347830756023,
+    "agents": [
+      {
+        "model": "rule_s0",
+        "n": 8,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "rule_s1",
+        "n": 8,
+        "clear_rate": 0.75,
+        "progress": 0.9403390786082474
+      },
+      {
+        "model": "rule_s2",
+        "n": 8,
+        "clear_rate": 0.75,
+        "progress": 0.9269692332474226
+      },
+      {
+        "model": "rule_s3",
+        "n": 8,
+        "clear_rate": 0.625,
+        "progress": 0.8857522551546392
+      },
+      {
+        "model": "rule_s4",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.5084971005154639
+      },
+      {
+        "model": "rule_s5",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.2523961018041237
+      }
+    ]
+  },
+  "gen_out/v4/final/t0_r03_gentest.json": {
+    "D_panel_clear": 0.4375,
+    "D_panel_progress": 0.22810620704467366,
+    "agents": [
+      {
+        "model": "rule_s0",
+        "n": 8,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "rule_s1",
+        "n": 8,
+        "clear_rate": 0.875,
+        "progress": 0.9435808634020619
+      },
+      {
+        "model": "rule_s2",
+        "n": 8,
+        "clear_rate": 0.75,
+        "progress": 0.9066929768041238
+      },
+      {
+        "model": "rule_s3",
+        "n": 8,
+        "clear_rate": 0.5,
+        "progress": 0.8787854381443299
+      },
+      {
+        "model": "rule_s4",
+        "n": 8,
+        "clear_rate": 0.25,
+        "progress": 0.5858569587628866
+      },
+      {
+        "model": "rule_s5",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.32160115979381443
+      }
+    ]
+  },
+  "gen_out/v4/final/t0_r03_search.json": {
+    "D_panel_clear": 0.39583333333333337,
+    "D_panel_progress": 0.22067627792096223,
+    "agents": [
+      {
+        "model": "rule_s0",
+        "n": 8,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "rule_s1",
+        "n": 8,
+        "clear_rate": 0.75,
+        "progress": 0.9536887886597938
+      },
+      {
+        "model": "rule_s2",
+        "n": 8,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "rule_s3",
+        "n": 8,
+        "clear_rate": 0.5,
+        "progress": 0.8683150773195877
+      },
+      {
+        "model": "rule_s4",
+        "n": 8,
+        "clear_rate": 0.375,
+        "progress": 0.6118516430412371
+      },
+      {
+        "model": "rule_s5",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.2523961018041237
+      }
+    ]
+  },
+  "gen_out/v4/final/t0_r04_naive.json": {
+    "D_panel_clear": 0.5,
+    "D_panel_progress": 0.3195104435137458,
+    "agents": [
+      {
+        "model": "rule_s0",
+        "n": 8,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "rule_s1",
+        "n": 8,
+        "clear_rate": 0.75,
+        "progress": 0.8639457152061856
+      },
+      {
+        "model": "rule_s2",
+        "n": 8,
+        "clear_rate": 0.75,
+        "progress": 0.8926788015463918
+      },
+      {
+        "model": "rule_s3",
+        "n": 8,
+        "clear_rate": 0.375,
+        "progress": 0.7163337628865979
+      },
+      {
+        "model": "rule_s4",
+        "n": 8,
+        "clear_rate": 0.125,
+        "progress": 0.39690721649484534
+      },
+      {
+        "model": "rule_s5",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.21822648195876287
+      }
+    ]
+  },
+  "gen_out/v4/final/t0_r04_gentest.json": {
+    "D_panel_clear": 0.39583333333333337,
+    "D_panel_progress": 0.20395054768041243,
+    "agents": [
+      {
+        "model": "rule_s0",
+        "n": 8,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "rule_s1",
+        "n": 8,
+        "clear_rate": 0.875,
+        "progress": 0.9718508376288659
+      },
+      {
+        "model": "rule_s2",
+        "n": 8,
+        "clear_rate": 0.875,
+        "progress": 0.9729180090206186
+      },
+      {
+        "model": "rule_s3",
+        "n": 8,
+        "clear_rate": 0.375,
+        "progress": 0.7962306701030928
+      },
+      {
+        "model": "rule_s4",
+        "n": 8,
+        "clear_rate": 0.5,
+        "progress": 0.730931862113402
+      },
+      {
+        "model": "rule_s5",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.3095199742268041
+      }
+    ]
+  },
+  "gen_out/v4/final/t0_r04_search.json": {
+    "D_panel_clear": 0.39583333333333337,
+    "D_panel_progress": 0.2474663069158075,
+    "agents": [
+      {
+        "model": "rule_s0",
+        "n": 8,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "rule_s1",
+        "n": 8,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "rule_s2",
+        "n": 8,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "rule_s3",
+        "n": 8,
+        "clear_rate": 0.5,
+        "progress": 0.6710897229381443
+      },
+      {
+        "model": "rule_s4",
+        "n": 8,
+        "clear_rate": 0.125,
+        "progress": 0.5664263853092784
+      },
+      {
+        "model": "rule_s5",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.29314996778350516
+      }
+    ]
+  },
+  "gen_out/v4/final/t0_r05_naive.json": {
+    "D_panel_clear": 0.5208333333333333,
+    "D_panel_progress": 0.3932325225515464,
+    "agents": [
+      {
+        "model": "rule_s0",
+        "n": 8,
+        "clear_rate": 0.875,
+        "progress": 0.8866986146907216
+      },
+      {
+        "model": "rule_s1",
+        "n": 8,
+        "clear_rate": 0.75,
+        "progress": 0.7724307345360825
+      },
+      {
+        "model": "rule_s2",
+        "n": 8,
+        "clear_rate": 0.75,
+        "progress": 0.8051908827319587
+      },
+      {
+        "model": "rule_s3",
+        "n": 8,
+        "clear_rate": 0.5,
+        "progress": 0.7183070231958764
+      },
+      {
+        "model": "rule_s4",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.2718065399484536
+      },
+      {
+        "model": "rule_s5",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.18617106958762886
+      }
+    ]
+  },
+  "gen_out/v4/final/t0_r05_gentest.json": {
+    "D_panel_clear": 0.5416666666666667,
+    "D_panel_progress": 0.24832541344501724,
+    "agents": [
+      {
+        "model": "rule_s0",
+        "n": 8,
+        "clear_rate": 0.625,
+        "progress": 0.8939674613402062
+      },
+      {
+        "model": "rule_s1",
+        "n": 8,
+        "clear_rate": 0.75,
+        "progress": 0.8840407538659794
+      },
+      {
+        "model": "rule_s2",
+        "n": 8,
+        "clear_rate": 0.625,
+        "progress": 0.919176868556701
+      },
+      {
+        "model": "rule_s3",
+        "n": 8,
+        "clear_rate": 0.25,
+        "progress": 0.7352206829896908
+      },
+      {
+        "model": "rule_s4",
+        "n": 8,
+        "clear_rate": 0.5,
+        "progress": 0.7668129832474226
+      },
+      {
+        "model": "rule_s5",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.3108287693298969
+      }
+    ]
+  },
+  "gen_out/v4/final/t0_r05_search.json": {
+    "D_panel_clear": 0.45833333333333337,
+    "D_panel_progress": 0.21942453286082475,
+    "agents": [
+      {
+        "model": "rule_s0",
+        "n": 8,
+        "clear_rate": 0.625,
+        "progress": 0.9601119523195876
+      },
+      {
+        "model": "rule_s1",
+        "n": 8,
+        "clear_rate": 0.875,
+        "progress": 0.9829252577319587
+      },
+      {
+        "model": "rule_s2",
+        "n": 8,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "rule_s3",
+        "n": 8,
+        "clear_rate": 0.5,
+        "progress": 0.8749395940721649
+      },
+      {
+        "model": "rule_s4",
+        "n": 8,
+        "clear_rate": 0.125,
+        "progress": 0.4684882409793814
+      },
+      {
+        "model": "rule_s5",
+        "n": 8,
+        "clear_rate": 0.125,
+        "progress": 0.4021423969072165
+      }
+    ]
+  },
+  "gen_out/v4/final/t1_r00_naive.json": {
+    "D_panel_clear": 0.33333333333333337,
+    "D_panel_progress": 0.186060325386598,
+    "agents": [
+      {
+        "model": "rule_s0",
+        "n": 8,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "rule_s1",
+        "n": 8,
+        "clear_rate": 0.875,
+        "progress": 0.9855428479381443
+      },
+      {
+        "model": "rule_s2",
+        "n": 8,
+        "clear_rate": 0.875,
+        "progress": 0.9071560889175259
+      },
+      {
+        "model": "rule_s3",
+        "n": 8,
+        "clear_rate": 0.625,
+        "progress": 0.8640665270618557
+      },
+      {
+        "model": "rule_s4",
+        "n": 8,
+        "clear_rate": 0.5,
+        "progress": 0.7337910760309279
+      },
+      {
+        "model": "rule_s5",
+        "n": 8,
+        "clear_rate": 0.125,
+        "progress": 0.3982361469072164
+      }
+    ]
+  },
+  "gen_out/v4/final/t1_r00_gentest.json": {
+    "D_panel_clear": 0.5625,
+    "D_panel_progress": 0.3400685942869416,
+    "agents": [
+      {
+        "model": "rule_s0",
+        "n": 8,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "rule_s1",
+        "n": 8,
+        "clear_rate": 0.5,
+        "progress": 0.6845803801546392
+      },
+      {
+        "model": "rule_s2",
+        "n": 8,
+        "clear_rate": 0.25,
+        "progress": 0.6239126932989691
+      },
+      {
+        "model": "rule_s3",
+        "n": 8,
+        "clear_rate": 0.375,
+        "progress": 0.7340125644329897
+      },
+      {
+        "model": "rule_s4",
+        "n": 8,
+        "clear_rate": 0.375,
+        "progress": 0.6198050902061856
+      },
+      {
+        "model": "rule_s5",
+        "n": 8,
+        "clear_rate": 0.125,
+        "progress": 0.30243234536082475
+      }
+    ]
+  },
+  "gen_out/v4/final/t1_r00_search.json": {
+    "D_panel_clear": 0.5416666666666667,
+    "D_panel_progress": 0.34875026847079027,
+    "agents": [
+      {
+        "model": "rule_s0",
+        "n": 8,
+        "clear_rate": 0.625,
+        "progress": 0.6620086984536082
+      },
+      {
+        "model": "rule_s1",
+        "n": 8,
+        "clear_rate": 0.75,
+        "progress": 0.8754228414948454
+      },
+      {
+        "model": "rule_s2",
+        "n": 8,
+        "clear_rate": 0.875,
+        "progress": 0.9829655283505154
+      },
+      {
+        "model": "rule_s3",
+        "n": 8,
+        "clear_rate": 0.5,
+        "progress": 0.7347777061855669
+      },
+      {
+        "model": "rule_s4",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.44235260953608246
+      },
+      {
+        "model": "rule_s5",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.20997100515463918
+      }
+    ]
+  },
+  "gen_out/v4/final/t1_r01_naive.json": {
+    "D_panel_clear": 0.47916666666666663,
+    "D_panel_progress": 0.23716038445017185,
+    "agents": [
+      {
+        "model": "rule_s0",
+        "n": 8,
+        "clear_rate": 0.875,
+        "progress": 0.982421875
+      },
+      {
+        "model": "rule_s1",
+        "n": 8,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "rule_s2",
+        "n": 8,
+        "clear_rate": 0.625,
+        "progress": 0.8925177190721649
+      },
+      {
+        "model": "rule_s3",
+        "n": 8,
+        "clear_rate": 0.375,
+        "progress": 0.7347575708762887
+      },
+      {
+        "model": "rule_s4",
+        "n": 8,
+        "clear_rate": 0.125,
+        "progress": 0.608911887886598
+      },
+      {
+        "model": "rule_s5",
+        "n": 8,
+        "clear_rate": 0.125,
+        "progress": 0.36358327963917525
+      }
+    ]
+  },
+  "gen_out/v4/final/t1_r01_gentest.json": {
+    "D_panel_clear": 0.5833333333333333,
+    "D_panel_progress": 0.3832353414948453,
+    "agents": [
+      {
+        "model": "rule_s0",
+        "n": 8,
+        "clear_rate": 0.5,
+        "progress": 0.8190238402061856
+      },
+      {
+        "model": "rule_s1",
+        "n": 8,
+        "clear_rate": 0.75,
+        "progress": 0.8468307023195876
+      },
+      {
+        "model": "rule_s2",
+        "n": 8,
+        "clear_rate": 0.625,
+        "progress": 0.6817614368556701
+      },
+      {
+        "model": "rule_s3",
+        "n": 8,
+        "clear_rate": 0.375,
+        "progress": 0.6658746778350516
+      },
+      {
+        "model": "rule_s4",
+        "n": 8,
+        "clear_rate": 0.25,
+        "progress": 0.4822406572164948
+      },
+      {
+        "model": "rule_s5",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.20485663659793812
+      }
+    ]
+  },
+  "gen_out/v4/final/t1_r01_search.json": {
+    "D_panel_clear": 0.5208333333333333,
+    "D_panel_progress": 0.30556003006872834,
+    "agents": [
+      {
+        "model": "rule_s0",
+        "n": 8,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "rule_s1",
+        "n": 8,
+        "clear_rate": 0.875,
+        "progress": 0.9830259342783505
+      },
+      {
+        "model": "rule_s2",
+        "n": 8,
+        "clear_rate": 0.625,
+        "progress": 0.801063144329897
+      },
+      {
+        "model": "rule_s3",
+        "n": 8,
+        "clear_rate": 0.375,
+        "progress": 0.7005879510309279
+      },
+      {
+        "model": "rule_s4",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.3608650128865979
+      },
+      {
+        "model": "rule_s5",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.32625241623711343
+      }
+    ]
+  },
+  "gen_out/v4/final/t1_r02_naive.json": {
+    "D_panel_clear": 0.45833333333333337,
+    "D_panel_progress": 0.27514564540378006,
+    "agents": [
+      {
+        "model": "rule_s0",
+        "n": 8,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "rule_s1",
+        "n": 8,
+        "clear_rate": 0.875,
+        "progress": 0.8997865657216495
+      },
+      {
+        "model": "rule_s2",
+        "n": 8,
+        "clear_rate": 0.625,
+        "progress": 0.8296955541237113
+      },
+      {
+        "model": "rule_s3",
+        "n": 8,
+        "clear_rate": 0.5,
+        "progress": 0.7267235824742269
+      },
+      {
+        "model": "rule_s4",
+        "n": 8,
+        "clear_rate": 0.125,
+        "progress": 0.5337870489690721
+      },
+      {
+        "model": "rule_s5",
+        "n": 8,
+        "clear_rate": 0.125,
+        "progress": 0.36428801546391754
+      }
+    ]
+  },
+  "gen_out/v4/final/t1_r02_gentest.json": {
+    "D_panel_clear": 0.5625,
+    "D_panel_progress": 0.34323319372852235,
+    "agents": [
+      {
+        "model": "rule_s0",
+        "n": 8,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "rule_s1",
+        "n": 8,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "rule_s2",
+        "n": 8,
+        "clear_rate": 0.5,
+        "progress": 0.7412210051546392
+      },
+      {
+        "model": "rule_s3",
+        "n": 8,
+        "clear_rate": 0.125,
+        "progress": 0.4581588273195876
+      },
+      {
+        "model": "rule_s4",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.4941003543814433
+      },
+      {
+        "model": "rule_s5",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.2574299291237113
+      }
+    ]
+  },
+  "gen_out/v4/final/t1_r02_search.json": {
+    "D_panel_clear": 0.41666666666666663,
+    "D_panel_progress": 0.24725824205326452,
+    "agents": [
+      {
+        "model": "rule_s0",
+        "n": 8,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "rule_s1",
+        "n": 8,
+        "clear_rate": 0.875,
+        "progress": 0.9449500644329897
+      },
+      {
+        "model": "rule_s2",
+        "n": 8,
+        "clear_rate": 0.625,
+        "progress": 0.764819587628866
+      },
+      {
+        "model": "rule_s3",
+        "n": 8,
+        "clear_rate": 0.5,
+        "progress": 0.8212387242268041
+      },
+      {
+        "model": "rule_s4",
+        "n": 8,
+        "clear_rate": 0.375,
+        "progress": 0.6111871778350515
+      },
+      {
+        "model": "rule_s5",
+        "n": 8,
+        "clear_rate": 0.125,
+        "progress": 0.37940963273195877
+      }
+    ]
+  },
+  "gen_out/v4/final/t1_r03_naive.json": {
+    "D_panel_clear": 0.39583333333333337,
+    "D_panel_progress": 0.2166324366408935,
+    "agents": [
+      {
+        "model": "rule_s0",
+        "n": 8,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "rule_s1",
+        "n": 8,
+        "clear_rate": 0.75,
+        "progress": 0.9134785760309279
+      },
+      {
+        "model": "rule_s2",
+        "n": 8,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "rule_s3",
+        "n": 8,
+        "clear_rate": 0.5,
+        "progress": 0.8054727770618557
+      },
+      {
+        "model": "rule_s4",
+        "n": 8,
+        "clear_rate": 0.375,
+        "progress": 0.6871375644329897
+      },
+      {
+        "model": "rule_s5",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.30442574097938147
+      }
+    ]
+  },
+  "gen_out/v4/final/t1_r03_gentest.json": {
+    "D_panel_clear": 0.4375,
+    "D_panel_progress": 0.25716145833333315,
+    "agents": [
+      {
+        "model": "rule_s0",
+        "n": 8,
+        "clear_rate": 0.875,
+        "progress": 0.9363724226804124
+      },
+      {
+        "model": "rule_s1",
+        "n": 8,
+        "clear_rate": 0.625,
+        "progress": 0.8658384342783505
+      },
+      {
+        "model": "rule_s2",
+        "n": 8,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "rule_s3",
+        "n": 8,
+        "clear_rate": 0.375,
+        "progress": 0.7548526095360826
+      },
+      {
+        "model": "rule_s4",
+        "n": 8,
+        "clear_rate": 0.375,
+        "progress": 0.5617348582474226
+      },
+      {
+        "model": "rule_s5",
+        "n": 8,
+        "clear_rate": 0.125,
+        "progress": 0.3433875644329897
+      }
+    ]
+  },
+  "gen_out/v4/final/t1_r03_search.json": {
+    "D_panel_clear": 0.47916666666666663,
+    "D_panel_progress": 0.3036706668814434,
+    "agents": [
+      {
+        "model": "rule_s0",
+        "n": 8,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "rule_s1",
+        "n": 8,
+        "clear_rate": 0.75,
+        "progress": 0.8131443298969072
+      },
+      {
+        "model": "rule_s2",
+        "n": 8,
+        "clear_rate": 0.875,
+        "progress": 0.9766833118556701
+      },
+      {
+        "model": "rule_s3",
+        "n": 8,
+        "clear_rate": 0.375,
+        "progress": 0.711400612113402
+      },
+      {
+        "model": "rule_s4",
+        "n": 8,
+        "clear_rate": 0.125,
+        "progress": 0.4013571198453608
+      },
+      {
+        "model": "rule_s5",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.2805452641752577
+      }
+    ]
+  },
+  "gen_out/v4/final/t1_r04_naive.json": {
+    "D_panel_clear": 0.5,
+    "D_panel_progress": 0.29152571950171813,
+    "agents": [
+      {
+        "model": "rule_s0",
+        "n": 8,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "rule_s1",
+        "n": 8,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "rule_s2",
+        "n": 8,
+        "clear_rate": 0.75,
+        "progress": 0.9115053157216495
+      },
+      {
+        "model": "rule_s3",
+        "n": 8,
+        "clear_rate": 0.25,
+        "progress": 0.7323413337628866
+      },
+      {
+        "model": "rule_s4",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.3419579574742268
+      },
+      {
+        "model": "rule_s5",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.2753503543814433
+      }
+    ]
+  },
+  "gen_out/v4/final/t1_r04_gentest.json": {
+    "D_panel_clear": 0.375,
+    "D_panel_progress": 0.1993026471219932,
+    "agents": [
+      {
+        "model": "rule_s0",
+        "n": 8,
+        "clear_rate": 0.75,
+        "progress": 0.9029880798969072
+      },
+      {
+        "model": "rule_s1",
+        "n": 8,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "rule_s2",
+        "n": 8,
+        "clear_rate": 0.75,
+        "progress": 0.8604019007731959
+      },
+      {
+        "model": "rule_s3",
+        "n": 8,
+        "clear_rate": 0.625,
+        "progress": 0.8857119845360826
+      },
+      {
+        "model": "rule_s4",
+        "n": 8,
+        "clear_rate": 0.5,
+        "progress": 0.7604703608247423
+      },
+      {
+        "model": "rule_s5",
+        "n": 8,
+        "clear_rate": 0.125,
+        "progress": 0.39976643041237114
+      }
+    ]
+  },
+  "gen_out/v4/final/t1_r04_search.json": {
+    "D_panel_clear": 0.5,
+    "D_panel_progress": 0.32182935996563566,
+    "agents": [
+      {
+        "model": "rule_s0",
+        "n": 8,
+        "clear_rate": 0.75,
+        "progress": 0.8116140463917526
+      },
+      {
+        "model": "rule_s1",
+        "n": 8,
+        "clear_rate": 0.75,
+        "progress": 0.8113522873711341
+      },
+      {
+        "model": "rule_s2",
+        "n": 8,
+        "clear_rate": 0.625,
+        "progress": 0.8212588595360825
+      },
+      {
+        "model": "rule_s3",
+        "n": 8,
+        "clear_rate": 0.5,
+        "progress": 0.7882973582474226
+      },
+      {
+        "model": "rule_s4",
+        "n": 8,
+        "clear_rate": 0.25,
+        "progress": 0.5411968427835052
+      },
+      {
+        "model": "rule_s5",
+        "n": 8,
+        "clear_rate": 0.125,
+        "progress": 0.2953044458762886
+      }
+    ]
+  },
+  "gen_out/v4/final/t1_r05_naive.json": {
+    "D_panel_clear": 0.45833333333333337,
+    "D_panel_progress": 0.27751490012886604,
+    "agents": [
+      {
+        "model": "rule_s0",
+        "n": 8,
+        "clear_rate": 0.875,
+        "progress": 0.9423324742268041
+      },
+      {
+        "model": "rule_s1",
+        "n": 8,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "rule_s2",
+        "n": 8,
+        "clear_rate": 0.75,
+        "progress": 0.8456024484536082
+      },
+      {
+        "model": "rule_s3",
+        "n": 8,
+        "clear_rate": 0.25,
+        "progress": 0.6319466817010309
+      },
+      {
+        "model": "rule_s4",
+        "n": 8,
+        "clear_rate": 0.375,
+        "progress": 0.6193621134020618
+      },
+      {
+        "model": "rule_s5",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.3008215206185567
+      }
+    ]
+  },
+  "gen_out/v4/final/t1_r05_gentest.json": {
+    "D_panel_clear": 0.5625,
+    "D_panel_progress": 0.30859375,
+    "agents": [
+      {
+        "model": "rule_s0",
+        "n": 8,
+        "clear_rate": 0.75,
+        "progress": 0.965246456185567
+      },
+      {
+        "model": "rule_s1",
+        "n": 8,
+        "clear_rate": 0.75,
+        "progress": 0.9028269974226805
+      },
+      {
+        "model": "rule_s2",
+        "n": 8,
+        "clear_rate": 0.625,
+        "progress": 0.8874033505154639
+      },
+      {
+        "model": "rule_s3",
+        "n": 8,
+        "clear_rate": 0.5,
+        "progress": 0.7268645296391752
+      },
+      {
+        "model": "rule_s4",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.39656491623711343
+      },
+      {
+        "model": "rule_s5",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.26953125
+      }
+    ]
+  },
+  "gen_out/v4/final/t1_r05_search.json": {
+    "D_panel_clear": 0.5208333333333333,
+    "D_panel_progress": 0.34714615549828176,
+    "agents": [
+      {
+        "model": "rule_s0",
+        "n": 8,
+        "clear_rate": 0.625,
+        "progress": 0.7375161082474226
+      },
+      {
+        "model": "rule_s1",
+        "n": 8,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "rule_s2",
+        "n": 8,
+        "clear_rate": 0.625,
+        "progress": 0.7600072487113403
+      },
+      {
+        "model": "rule_s3",
+        "n": 8,
+        "clear_rate": 0.25,
+        "progress": 0.5881926546391752
+      },
+      {
+        "model": "rule_s4",
+        "n": 8,
+        "clear_rate": 0.375,
+        "progress": 0.5748026739690721
+      },
+      {
+        "model": "rule_s5",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.2617590206185567
+      }
+    ]
+  },
+  "gen_out/v4/final/t2_r00_naive.json": {
+    "D_panel_clear": 0.7291666666666667,
+    "D_panel_progress": 0.4350334246134021,
+    "agents": [
+      {
+        "model": "rule_s0",
+        "n": 8,
+        "clear_rate": 0.25,
+        "progress": 0.6932385631443299
+      },
+      {
+        "model": "rule_s1",
+        "n": 8,
+        "clear_rate": 0.5,
+        "progress": 0.7855388208762887
+      },
+      {
+        "model": "rule_s2",
+        "n": 8,
+        "clear_rate": 0.25,
+        "progress": 0.5473179768041236
+      },
+      {
+        "model": "rule_s3",
+        "n": 8,
+        "clear_rate": 0.375,
+        "progress": 0.6602367912371134
+      },
+      {
+        "model": "rule_s4",
+        "n": 8,
+        "clear_rate": 0.25,
+        "progress": 0.5136517396907216
+      },
+      {
+        "model": "rule_s5",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.18981556056701032
+      }
+    ]
+  },
+  "gen_out/v4/final/t2_r00_gentest.json": {
+    "D_panel_clear": 0.6875,
+    "D_panel_progress": 0.4682264819587628,
+    "agents": [
+      {
+        "model": "rule_s0",
+        "n": 8,
+        "clear_rate": 0.375,
+        "progress": 0.5856958762886597
+      },
+      {
+        "model": "rule_s1",
+        "n": 8,
+        "clear_rate": 0.625,
+        "progress": 0.7565641108247423
+      },
+      {
+        "model": "rule_s2",
+        "n": 8,
+        "clear_rate": 0.625,
+        "progress": 0.7052794780927835
+      },
+      {
+        "model": "rule_s3",
+        "n": 8,
+        "clear_rate": 0.125,
+        "progress": 0.546069587628866
+      },
+      {
+        "model": "rule_s4",
+        "n": 8,
+        "clear_rate": 0.125,
+        "progress": 0.3616905605670103
+      },
+      {
+        "model": "rule_s5",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.23534149484536082
+      }
+    ]
+  },
+  "gen_out/v4/final/t2_r00_search.json": {
+    "D_panel_clear": 0.7291666666666667,
+    "D_panel_progress": 0.4816936479810997,
+    "agents": [
+      {
+        "model": "rule_s0",
+        "n": 8,
+        "clear_rate": 0.5,
+        "progress": 0.5830581507731959
+      },
+      {
+        "model": "rule_s1",
+        "n": 8,
+        "clear_rate": 0.5,
+        "progress": 0.6952319587628866
+      },
+      {
+        "model": "rule_s2",
+        "n": 8,
+        "clear_rate": 0.5,
+        "progress": 0.9176868556701031
+      },
+      {
+        "model": "rule_s3",
+        "n": 8,
+        "clear_rate": 0.125,
+        "progress": 0.33795103092783507
+      },
+      {
+        "model": "rule_s4",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.3338836984536082
+      },
+      {
+        "model": "rule_s5",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.2420264175257732
+      }
+    ]
+  },
+  "gen_out/v4/final/t2_r01_naive.json": {
+    "D_panel_clear": 0.6458333333333333,
+    "D_panel_progress": 0.40739771262886604,
+    "agents": [
+      {
+        "model": "rule_s0",
+        "n": 8,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "rule_s1",
+        "n": 8,
+        "clear_rate": 0.75,
+        "progress": 0.8454615012886598
+      },
+      {
+        "model": "rule_s2",
+        "n": 8,
+        "clear_rate": 0.125,
+        "progress": 0.5032820554123711
+      },
+      {
+        "model": "rule_s3",
+        "n": 8,
+        "clear_rate": 0.25,
+        "progress": 0.6423969072164948
+      },
+      {
+        "model": "rule_s4",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.34707232603092786
+      },
+      {
+        "model": "rule_s5",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.22255557345360827
+      }
+    ]
+  },
+  "gen_out/v4/final/t2_r01_gentest.json": {
+    "D_panel_clear": 0.5833333333333333,
+    "D_panel_progress": 0.3738724226804123,
+    "agents": [
+      {
+        "model": "rule_s0",
+        "n": 8,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "rule_s1",
+        "n": 8,
+        "clear_rate": 0.5,
+        "progress": 0.6906813788659794
+      },
+      {
+        "model": "rule_s2",
+        "n": 8,
+        "clear_rate": 0.375,
+        "progress": 0.6674250966494846
+      },
+      {
+        "model": "rule_s3",
+        "n": 8,
+        "clear_rate": 0.375,
+        "progress": 0.6265101481958764
+      },
+      {
+        "model": "rule_s4",
+        "n": 8,
+        "clear_rate": 0.25,
+        "progress": 0.47756926546391754
+      },
+      {
+        "model": "rule_s5",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.29973421391752575
+      }
+    ]
+  },
+  "gen_out/v4/final/t2_r01_search.json": {
+    "D_panel_clear": 0.6458333333333333,
+    "D_panel_progress": 0.42271397121993126,
+    "agents": [
+      {
+        "model": "rule_s0",
+        "n": 8,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "rule_s1",
+        "n": 8,
+        "clear_rate": 0.875,
+        "progress": 0.8972495167525774
+      },
+      {
+        "model": "rule_s2",
+        "n": 8,
+        "clear_rate": 0.25,
+        "progress": 0.5032417847938144
+      },
+      {
+        "model": "rule_s3",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.46844797036082475
+      },
+      {
+        "model": "rule_s4",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.3770940721649485
+      },
+      {
+        "model": "rule_s5",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.22283746778350516
+      }
+    ]
+  },
+  "gen_out/v4/final/t2_r02_naive.json": {
+    "D_panel_clear": 0.6458333333333333,
+    "D_panel_progress": 0.47418988939003437,
+    "agents": [
+      {
+        "model": "rule_s0",
+        "n": 8,
+        "clear_rate": 0.75,
+        "progress": 0.8445755476804124
+      },
+      {
+        "model": "rule_s1",
+        "n": 8,
+        "clear_rate": 0.375,
+        "progress": 0.5870650773195876
+      },
+      {
+        "model": "rule_s2",
+        "n": 8,
+        "clear_rate": 0.5,
+        "progress": 0.6336179123711341
+      },
+      {
+        "model": "rule_s3",
+        "n": 8,
+        "clear_rate": 0.25,
+        "progress": 0.43296955541237114
+      },
+      {
+        "model": "rule_s4",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.2654639175257732
+      },
+      {
+        "model": "rule_s5",
+        "n": 8,
+        "clear_rate": 0.25,
+        "progress": 0.3911686533505155
+      }
+    ]
+  },
+  "gen_out/v4/final/t2_r02_gentest.json": {
+    "D_panel_clear": 0.7708333333333334,
+    "D_panel_progress": 0.5330252631013745,
+    "agents": [
+      {
+        "model": "rule_s0",
+        "n": 8,
+        "clear_rate": 0.125,
+        "progress": 0.7018162048969072
+      },
+      {
+        "model": "rule_s1",
+        "n": 8,
+        "clear_rate": 0.75,
+        "progress": 0.7832836662371134
+      },
+      {
+        "model": "rule_s2",
+        "n": 8,
+        "clear_rate": 0.125,
+        "progress": 0.2903108891752577
+      },
+      {
+        "model": "rule_s3",
+        "n": 8,
+        "clear_rate": 0.25,
+        "progress": 0.48332796391752575
+      },
+      {
+        "model": "rule_s4",
+        "n": 8,
+        "clear_rate": 0.125,
+        "progress": 0.3568782216494845
+      },
+      {
+        "model": "rule_s5",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.18623147551546393
+      }
+    ]
+  },
+  "gen_out/v4/final/t2_r02_search.json": {
+    "D_panel_clear": 0.5833333333333333,
+    "D_panel_progress": 0.3797989153780069,
+    "agents": [
+      {
+        "model": "rule_s0",
+        "n": 8,
+        "clear_rate": 0.625,
+        "progress": 0.9069748711340206
+      },
+      {
+        "model": "rule_s1",
+        "n": 8,
+        "clear_rate": 0.625,
+        "progress": 0.7509664948453608
+      },
+      {
+        "model": "rule_s2",
+        "n": 8,
+        "clear_rate": 0.75,
+        "progress": 0.8859334729381443
+      },
+      {
+        "model": "rule_s3",
+        "n": 8,
+        "clear_rate": 0.25,
+        "progress": 0.5099669780927836
+      },
+      {
+        "model": "rule_s4",
+        "n": 8,
+        "clear_rate": 0.25,
+        "progress": 0.43564755154639173
+      },
+      {
+        "model": "rule_s5",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.23171713917525774
+      }
+    ]
+  },
+  "gen_out/v4/final/t2_r03_naive.json": {
+    "D_panel_clear": 0.5,
+    "D_panel_progress": 0.39603133054123707,
+    "agents": [
+      {
+        "model": "rule_s0",
+        "n": 8,
+        "clear_rate": 0.625,
+        "progress": 0.6764658505154639
+      },
+      {
+        "model": "rule_s1",
+        "n": 8,
+        "clear_rate": 0.875,
+        "progress": 0.8871818621134021
+      },
+      {
+        "model": "rule_s2",
+        "n": 8,
+        "clear_rate": 0.875,
+        "progress": 0.8874234858247423
+      },
+      {
+        "model": "rule_s3",
+        "n": 8,
+        "clear_rate": 0.375,
+        "progress": 0.537109375
+      },
+      {
+        "model": "rule_s4",
+        "n": 8,
+        "clear_rate": 0.125,
+        "progress": 0.3875644329896908
+      },
+      {
+        "model": "rule_s5",
+        "n": 8,
+        "clear_rate": 0.125,
+        "progress": 0.24806701030927833
+      }
+    ]
+  },
+  "gen_out/v4/final/t2_r03_gentest.json": {
+    "D_panel_clear": 0.7083333333333333,
+    "D_panel_progress": 0.4395772927405498,
+    "agents": [
+      {
+        "model": "rule_s0",
+        "n": 8,
+        "clear_rate": 0.125,
+        "progress": 0.7343145940721649
+      },
+      {
+        "model": "rule_s1",
+        "n": 8,
+        "clear_rate": 0.875,
+        "progress": 0.8991623711340206
+      },
+      {
+        "model": "rule_s2",
+        "n": 8,
+        "clear_rate": 0.375,
+        "progress": 0.5615335051546392
+      },
+      {
+        "model": "rule_s3",
+        "n": 8,
+        "clear_rate": 0.125,
+        "progress": 0.4925298002577319
+      },
+      {
+        "model": "rule_s4",
+        "n": 8,
+        "clear_rate": 0.25,
+        "progress": 0.4805694265463918
+      },
+      {
+        "model": "rule_s5",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.19442654639175258
+      }
+    ]
+  },
+  "gen_out/v4/final/t2_r03_search.json": {
+    "D_panel_clear": 0.5625,
+    "D_panel_progress": 0.2829615012886598,
+    "agents": [
+      {
+        "model": "rule_s0",
+        "n": 8,
+        "clear_rate": 0.75,
+        "progress": 0.9850998711340206
+      },
+      {
+        "model": "rule_s1",
+        "n": 8,
+        "clear_rate": 0.75,
+        "progress": 0.8684157538659794
+      },
+      {
+        "model": "rule_s2",
+        "n": 8,
+        "clear_rate": 0.625,
+        "progress": 0.9321641430412371
+      },
+      {
+        "model": "rule_s3",
+        "n": 8,
+        "clear_rate": 0.25,
+        "progress": 0.6616261275773195
+      },
+      {
+        "model": "rule_s4",
+        "n": 8,
+        "clear_rate": 0.25,
+        "progress": 0.6741905605670103
+      },
+      {
+        "model": "rule_s5",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.1807345360824742
+      }
+    ]
+  },
+  "gen_out/v4/final/t2_r04_naive.json": {
+    "D_panel_clear": 0.7291666666666667,
+    "D_panel_progress": 0.49577494093642616,
+    "agents": [
+      {
+        "model": "rule_s0",
+        "n": 8,
+        "clear_rate": 0.625,
+        "progress": 0.8083722615979381
+      },
+      {
+        "model": "rule_s1",
+        "n": 8,
+        "clear_rate": 0.375,
+        "progress": 0.589441043814433
+      },
+      {
+        "model": "rule_s2",
+        "n": 8,
+        "clear_rate": 0.25,
+        "progress": 0.5258134664948453
+      },
+      {
+        "model": "rule_s3",
+        "n": 8,
+        "clear_rate": 0.375,
+        "progress": 0.684338756443299
+      },
+      {
+        "model": "rule_s4",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.17489529639175258
+      },
+      {
+        "model": "rule_s5",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.24248952963917528
+      }
+    ]
+  },
+  "gen_out/v4/final/t2_r04_gentest.json": {
+    "D_panel_clear": 0.7083333333333333,
+    "D_panel_progress": 0.396507866194158,
+    "agents": [
+      {
+        "model": "rule_s0",
+        "n": 8,
+        "clear_rate": 0.375,
+        "progress": 0.8176546391752578
+      },
+      {
+        "model": "rule_s1",
+        "n": 8,
+        "clear_rate": 0.5,
+        "progress": 0.7500402706185567
+      },
+      {
+        "model": "rule_s2",
+        "n": 8,
+        "clear_rate": 0.75,
+        "progress": 0.8852488724226804
+      },
+      {
+        "model": "rule_s3",
+        "n": 8,
+        "clear_rate": 0.125,
+        "progress": 0.5514054445876289
+      },
+      {
+        "model": "rule_s4",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.3607240657216495
+      },
+      {
+        "model": "rule_s5",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.25587951030927836
+      }
+    ]
+  },
+  "gen_out/v4/final/t2_r04_search.json": {
+    "D_panel_clear": 0.6666666666666667,
+    "D_panel_progress": 0.428502872637457,
+    "agents": [
+      {
+        "model": "rule_s0",
+        "n": 8,
+        "clear_rate": 0.5,
+        "progress": 0.7972374355670103
+      },
+      {
+        "model": "rule_s1",
+        "n": 8,
+        "clear_rate": 0.625,
+        "progress": 0.7656652706185567
+      },
+      {
+        "model": "rule_s2",
+        "n": 8,
+        "clear_rate": 0.375,
+        "progress": 0.6393363402061856
+      },
+      {
+        "model": "rule_s3",
+        "n": 8,
+        "clear_rate": 0.5,
+        "progress": 0.7961501288659794
+      },
+      {
+        "model": "rule_s4",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.17489529639175258
+      },
+      {
+        "model": "rule_s5",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.2556982925257732
+      }
+    ]
+  },
+  "gen_out/v4/final/t2_r05_naive.json": {
+    "D_panel_clear": 0.6458333333333333,
+    "D_panel_progress": 0.39400773195876293,
+    "agents": [
+      {
+        "model": "rule_s0",
+        "n": 8,
+        "clear_rate": 0.75,
+        "progress": 0.8492066688144331
+      },
+      {
+        "model": "rule_s1",
+        "n": 8,
+        "clear_rate": 0.625,
+        "progress": 0.7880557345360825
+      },
+      {
+        "model": "rule_s2",
+        "n": 8,
+        "clear_rate": 0.375,
+        "progress": 0.6014416881443299
+      },
+      {
+        "model": "rule_s3",
+        "n": 8,
+        "clear_rate": 0.25,
+        "progress": 0.6505718427835052
+      },
+      {
+        "model": "rule_s4",
+        "n": 8,
+        "clear_rate": 0.125,
+        "progress": 0.44098340850515466
+      },
+      {
+        "model": "rule_s5",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.30569426546391754
+      }
+    ]
+  },
+  "gen_out/v4/final/t2_r05_gentest.json": {
+    "D_panel_clear": 0.6875,
+    "D_panel_progress": 0.4782437983247423,
+    "agents": [
+      {
+        "model": "rule_s0",
+        "n": 8,
+        "clear_rate": 0.5,
+        "progress": 0.6415914948453608
+      },
+      {
+        "model": "rule_s1",
+        "n": 8,
+        "clear_rate": 0.625,
+        "progress": 0.7058835373711341
+      },
+      {
+        "model": "rule_s2",
+        "n": 8,
+        "clear_rate": 0.25,
+        "progress": 0.4741059922680413
+      },
+      {
+        "model": "rule_s3",
+        "n": 8,
+        "clear_rate": 0.375,
+        "progress": 0.6754993556701031
+      },
+      {
+        "model": "rule_s4",
+        "n": 8,
+        "clear_rate": 0.125,
+        "progress": 0.3512806056701031
+      },
+      {
+        "model": "rule_s5",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.2821762242268041
+      }
+    ]
+  },
+  "gen_out/v4/final/t2_r05_search.json": {
+    "D_panel_clear": 0.75,
+    "D_panel_progress": 0.5197930090206184,
+    "agents": [
+      {
+        "model": "rule_s0",
+        "n": 8,
+        "clear_rate": 0.375,
+        "progress": 0.553479381443299
+      },
+      {
+        "model": "rule_s1",
+        "n": 8,
+        "clear_rate": 0.25,
+        "progress": 0.5472978414948453
+      },
+      {
+        "model": "rule_s2",
+        "n": 8,
+        "clear_rate": 0.625,
+        "progress": 0.689855831185567
+      },
+      {
+        "model": "rule_s3",
+        "n": 8,
+        "clear_rate": 0.125,
+        "progress": 0.45676949097938147
+      },
+      {
+        "model": "rule_s4",
+        "n": 8,
+        "clear_rate": 0.125,
+        "progress": 0.42602287371134023
+      },
+      {
+        "model": "rule_s5",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.20781652706185566
+      }
+    ]
+  },
+  "gen_out/v4/final/t3_r00_naive.json": {
+    "D_panel_clear": 1.0,
+    "D_panel_progress": 0.7287706722508591,
+    "agents": [
+      {
+        "model": "rule_s0",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.5632852770618557
+      },
+      {
+        "model": "rule_s1",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.5259745489690721
+      },
+      {
+        "model": "rule_s2",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.051002738402061855
+      },
+      {
+        "model": "rule_s3",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.23721407860824742
+      },
+      {
+        "model": "rule_s4",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.09115254510309279
+      },
+      {
+        "model": "rule_s5",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.15874677835051548
+      }
+    ]
+  },
+  "gen_out/v4/final/t3_r00_gentest.json": {
+    "D_panel_clear": 0.75,
+    "D_panel_progress": 0.594166129725086,
+    "agents": [
+      {
+        "model": "rule_s0",
+        "n": 8,
+        "clear_rate": 0.875,
+        "progress": 0.8906451353092784
+      },
+      {
+        "model": "rule_s1",
+        "n": 8,
+        "clear_rate": 0.25,
+        "progress": 0.3888933634020619
+      },
+      {
+        "model": "rule_s2",
+        "n": 8,
+        "clear_rate": 0.25,
+        "progress": 0.3452802835051546
+      },
+      {
+        "model": "rule_s3",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.26926949097938147
+      },
+      {
+        "model": "rule_s4",
+        "n": 8,
+        "clear_rate": 0.125,
+        "progress": 0.46995811855670105
+      },
+      {
+        "model": "rule_s5",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.07095682989690721
+      }
+    ]
+  },
+  "gen_out/v4/final/t3_r00_search.json": {
+    "D_panel_clear": 0.9791666666666666,
+    "D_panel_progress": 0.4950198668384881,
+    "agents": [
+      {
+        "model": "rule_s0",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.7086823453608248
+      },
+      {
+        "model": "rule_s1",
+        "n": 8,
+        "clear_rate": 0.125,
+        "progress": 0.8041639819587629
+      },
+      {
+        "model": "rule_s2",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.5044700386597938
+      },
+      {
+        "model": "rule_s3",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.4332313144329897
+      },
+      {
+        "model": "rule_s4",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.4083038015463918
+      },
+      {
+        "model": "rule_s5",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.17102931701030927
+      }
+    ]
+  },
+  "gen_out/v4/final/t3_r01_naive.json": {
+    "D_panel_clear": 0.7708333333333334,
+    "D_panel_progress": 0.6089689379295533,
+    "agents": [
+      {
+        "model": "rule_s0",
+        "n": 8,
+        "clear_rate": 0.5,
+        "progress": 0.5853938466494845
+      },
+      {
+        "model": "rule_s1",
+        "n": 8,
+        "clear_rate": 0.5,
+        "progress": 0.7041720360824741
+      },
+      {
+        "model": "rule_s2",
+        "n": 8,
+        "clear_rate": 0.375,
+        "progress": 0.5018725837628866
+      },
+      {
+        "model": "rule_s3",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.2645175579896907
+      },
+      {
+        "model": "rule_s4",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.18099629510309279
+      },
+      {
+        "model": "rule_s5",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.10923405283505154
+      }
+    ]
+  },
+  "gen_out/v4/final/t3_r01_gentest.json": {
+    "D_panel_clear": 0.6666666666666667,
+    "D_panel_progress": 0.515722320661512,
+    "agents": [
+      {
+        "model": "rule_s0",
+        "n": 8,
+        "clear_rate": 0.875,
+        "progress": 0.9396142074742269
+      },
+      {
+        "model": "rule_s1",
+        "n": 8,
+        "clear_rate": 0.625,
+        "progress": 0.7009503865979381
+      },
+      {
+        "model": "rule_s2",
+        "n": 8,
+        "clear_rate": 0.125,
+        "progress": 0.42108972293814434
+      },
+      {
+        "model": "rule_s3",
+        "n": 8,
+        "clear_rate": 0.25,
+        "progress": 0.4363925579896907
+      },
+      {
+        "model": "rule_s4",
+        "n": 8,
+        "clear_rate": 0.125,
+        "progress": 0.2709205863402062
+      },
+      {
+        "model": "rule_s5",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.13669861469072164
+      }
+    ]
+  },
+  "gen_out/v4/final/t3_r01_search.json": {
+    "D_panel_clear": 0.7291666666666667,
+    "D_panel_progress": 0.5286055627147765,
+    "agents": [
+      {
+        "model": "rule_s0",
+        "n": 8,
+        "clear_rate": 0.875,
+        "progress": 0.9396142074742269
+      },
+      {
+        "model": "rule_s1",
+        "n": 8,
+        "clear_rate": 0.375,
+        "progress": 0.6175298002577319
+      },
+      {
+        "model": "rule_s2",
+        "n": 8,
+        "clear_rate": 0.125,
+        "progress": 0.4536082474226804
+      },
+      {
+        "model": "rule_s3",
+        "n": 8,
+        "clear_rate": 0.125,
+        "progress": 0.4099951675257732
+      },
+      {
+        "model": "rule_s4",
+        "n": 8,
+        "clear_rate": 0.125,
+        "progress": 0.2709205863402062
+      },
+      {
+        "model": "rule_s5",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.13669861469072164
+      }
+    ]
+  },
+  "gen_out/v4/final/t3_r02_naive.json": {
+    "D_panel_clear": 0.7708333333333334,
+    "D_panel_progress": 0.5502073936855669,
+    "agents": [
+      {
+        "model": "rule_s0",
+        "n": 8,
+        "clear_rate": 0.25,
+        "progress": 0.44974226804123707
+      },
+      {
+        "model": "rule_s1",
+        "n": 8,
+        "clear_rate": 0.25,
+        "progress": 0.45246053479381443
+      },
+      {
+        "model": "rule_s2",
+        "n": 8,
+        "clear_rate": 0.125,
+        "progress": 0.3252859213917526
+      },
+      {
+        "model": "rule_s3",
+        "n": 8,
+        "clear_rate": 0.25,
+        "progress": 0.6422559600515463
+      },
+      {
+        "model": "rule_s4",
+        "n": 8,
+        "clear_rate": 0.5,
+        "progress": 0.6011396585051546
+      },
+      {
+        "model": "rule_s5",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.22787129510309279
+      }
+    ]
+  },
+  "gen_out/v4/final/t3_r02_gentest.json": {
+    "D_panel_clear": 0.6875,
+    "D_panel_progress": 0.5211018041237112,
+    "agents": [
+      {
+        "model": "rule_s0",
+        "n": 8,
+        "clear_rate": 0.875,
+        "progress": 0.9737838273195876
+      },
+      {
+        "model": "rule_s1",
+        "n": 8,
+        "clear_rate": 0.625,
+        "progress": 0.7149444265463918
+      },
+      {
+        "model": "rule_s2",
+        "n": 8,
+        "clear_rate": 0.375,
+        "progress": 0.6135027384020619
+      },
+      {
+        "model": "rule_s3",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.16762644974226804
+      },
+      {
+        "model": "rule_s4",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.2118033182989691
+      },
+      {
+        "model": "rule_s5",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.1917284149484536
+      }
+    ]
+  },
+  "gen_out/v4/final/t3_r02_search.json": {
+    "D_panel_clear": 0.7291666666666667,
+    "D_panel_progress": 0.486925472508591,
+    "agents": [
+      {
+        "model": "rule_s0",
+        "n": 8,
+        "clear_rate": 0.875,
+        "progress": 0.8928600193298969
+      },
+      {
+        "model": "rule_s1",
+        "n": 8,
+        "clear_rate": 0.25,
+        "progress": 0.49204655283505155
+      },
+      {
+        "model": "rule_s2",
+        "n": 8,
+        "clear_rate": 0.375,
+        "progress": 0.7104945231958764
+      },
+      {
+        "model": "rule_s3",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.36310003221649484
+      },
+      {
+        "model": "rule_s4",
+        "n": 8,
+        "clear_rate": 0.125,
+        "progress": 0.3716172680412371
+      },
+      {
+        "model": "rule_s5",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.24832876932989692
+      }
+    ]
+  },
+  "gen_out/v4/final/t3_r03_naive.json": {
+    "D_panel_clear": 0.8333333333333334,
+    "D_panel_progress": 0.6988496026632303,
+    "agents": [
+      {
+        "model": "rule_s0",
+        "n": 8,
+        "clear_rate": 0.375,
+        "progress": 0.43832554768041243
+      },
+      {
+        "model": "rule_s1",
+        "n": 8,
+        "clear_rate": 0.5,
+        "progress": 0.6093548646907216
+      },
+      {
+        "model": "rule_s2",
+        "n": 8,
+        "clear_rate": 0.125,
+        "progress": 0.26983327963917525
+      },
+      {
+        "model": "rule_s3",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.24087870489690721
+      },
+      {
+        "model": "rule_s4",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.11269732603092783
+      },
+      {
+        "model": "rule_s5",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.13581266108247425
+      }
+    ]
+  },
+  "gen_out/v4/final/t3_r03_gentest.json": {
+    "D_panel_clear": 0.8333333333333334,
+    "D_panel_progress": 0.6461320070876289,
+    "agents": [
+      {
+        "model": "rule_s0",
+        "n": 8,
+        "clear_rate": 0.25,
+        "progress": 0.3358166881443299
+      },
+      {
+        "model": "rule_s1",
+        "n": 8,
+        "clear_rate": 0.5,
+        "progress": 0.6474710051546392
+      },
+      {
+        "model": "rule_s2",
+        "n": 8,
+        "clear_rate": 0.25,
+        "progress": 0.5165109536082475
+      },
+      {
+        "model": "rule_s3",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.2307909149484536
+      },
+      {
+        "model": "rule_s4",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.23610663659793815
+      },
+      {
+        "model": "rule_s5",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.15651175902061853
+      }
+    ]
+  },
+  "gen_out/v4/final/t3_r03_search.json": {
+    "D_panel_clear": 0.6875,
+    "D_panel_progress": 0.5965722991838487,
+    "agents": [
+      {
+        "model": "rule_s0",
+        "n": 8,
+        "clear_rate": 0.5,
+        "progress": 0.5426465850515465
+      },
+      {
+        "model": "rule_s1",
+        "n": 8,
+        "clear_rate": 0.625,
+        "progress": 0.6470078930412371
+      },
+      {
+        "model": "rule_s2",
+        "n": 8,
+        "clear_rate": 0.25,
+        "progress": 0.3395618556701031
+      },
+      {
+        "model": "rule_s3",
+        "n": 8,
+        "clear_rate": 0.25,
+        "progress": 0.40830380154639173
+      },
+      {
+        "model": "rule_s4",
+        "n": 8,
+        "clear_rate": 0.25,
+        "progress": 0.3547640141752577
+      },
+      {
+        "model": "rule_s5",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.12828205541237114
+      }
+    ]
+  },
+  "gen_out/v4/final/t3_r04_naive.json": {
+    "D_panel_clear": 0.6666666666666667,
+    "D_panel_progress": 0.4257879617697594,
+    "agents": [
+      {
+        "model": "rule_s0",
+        "n": 8,
+        "clear_rate": 0.875,
+        "progress": 0.9085051546391752
+      },
+      {
+        "model": "rule_s1",
+        "n": 8,
+        "clear_rate": 0.5,
+        "progress": 0.8205742590206185
+      },
+      {
+        "model": "rule_s2",
+        "n": 8,
+        "clear_rate": 0.375,
+        "progress": 0.5568621134020619
+      },
+      {
+        "model": "rule_s3",
+        "n": 8,
+        "clear_rate": 0.25,
+        "progress": 0.7291800902061856
+      },
+      {
+        "model": "rule_s4",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.2580339884020618
+      },
+      {
+        "model": "rule_s5",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.1721166237113402
+      }
+    ]
+  },
+  "gen_out/v4/final/t3_r04_gentest.json": {
+    "D_panel_clear": 0.9375,
+    "D_panel_progress": 0.6375208064862543,
+    "agents": [
+      {
+        "model": "rule_s0",
+        "n": 8,
+        "clear_rate": 0.125,
+        "progress": 0.471105831185567
+      },
+      {
+        "model": "rule_s1",
+        "n": 8,
+        "clear_rate": 0.125,
+        "progress": 0.4096125966494845
+      },
+      {
+        "model": "rule_s2",
+        "n": 8,
+        "clear_rate": 0.125,
+        "progress": 0.36493234536082475
+      },
+      {
+        "model": "rule_s3",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.2771826675257732
+      },
+      {
+        "model": "rule_s4",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.34433392396907214
+      },
+      {
+        "model": "rule_s5",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.3077077963917526
+      }
+    ]
+  },
+  "gen_out/v4/final/t3_r04_search.json": {
+    "D_panel_clear": 0.75,
+    "D_panel_progress": 0.4584306539948454,
+    "agents": [
+      {
+        "model": "rule_s0",
+        "n": 8,
+        "clear_rate": 0.625,
+        "progress": 0.7634906572164948
+      },
+      {
+        "model": "rule_s1",
+        "n": 8,
+        "clear_rate": 0.375,
+        "progress": 0.7429123711340206
+      },
+      {
+        "model": "rule_s2",
+        "n": 8,
+        "clear_rate": 0.25,
+        "progress": 0.5220280283505154
+      },
+      {
+        "model": "rule_s3",
+        "n": 8,
+        "clear_rate": 0.25,
+        "progress": 0.7286767074742267
+      },
+      {
+        "model": "rule_s4",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.3201916881443299
+      },
+      {
+        "model": "rule_s5",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.1721166237113402
+      }
+    ]
+  },
+  "gen_out/v4/final/t3_r05_naive.json": {
+    "D_panel_clear": 0.6458333333333333,
+    "D_panel_progress": 0.4721595790378007,
+    "agents": [
+      {
+        "model": "rule_s0",
+        "n": 8,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "rule_s1",
+        "n": 8,
+        "clear_rate": 0.75,
+        "progress": 0.86706668814433
+      },
+      {
+        "model": "rule_s2",
+        "n": 8,
+        "clear_rate": 0.25,
+        "progress": 0.4697970360824742
+      },
+      {
+        "model": "rule_s3",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.4106797680412371
+      },
+      {
+        "model": "rule_s4",
+        "n": 8,
+        "clear_rate": 0.125,
+        "progress": 0.2700144974226804
+      },
+      {
+        "model": "rule_s5",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.15463917525773196
+      }
+    ]
+  },
+  "gen_out/v4/final/t3_r05_gentest.json": {
+    "D_panel_clear": 0.9375,
+    "D_panel_progress": 0.6625791988831615,
+    "agents": [
+      {
+        "model": "rule_s0",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.42249919458762886
+      },
+      {
+        "model": "rule_s1",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.3608046069587629
+      },
+      {
+        "model": "rule_s2",
+        "n": 8,
+        "clear_rate": 0.375,
+        "progress": 0.6304566688144331
+      },
+      {
+        "model": "rule_s3",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.2303076675257732
+      },
+      {
+        "model": "rule_s4",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.23695231958762886
+      },
+      {
+        "model": "rule_s5",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.1435043492268041
+      }
+    ]
+  },
+  "gen_out/v4/final/t3_r05_search.json": {
+    "D_panel_clear": 0.8541666666666666,
+    "D_panel_progress": 0.6687171123281787,
+    "agents": [
+      {
+        "model": "rule_s0",
+        "n": 8,
+        "clear_rate": 0.5,
+        "progress": 0.5466333762886598
+      },
+      {
+        "model": "rule_s1",
+        "n": 8,
+        "clear_rate": 0.25,
+        "progress": 0.395678962628866
+      },
+      {
+        "model": "rule_s2",
+        "n": 8,
+        "clear_rate": 0.125,
+        "progress": 0.3971287048969072
+      },
+      {
+        "model": "rule_s3",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.3044458762886598
+      },
+      {
+        "model": "rule_s4",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.2290995489690722
+      },
+      {
+        "model": "rule_s5",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.11471085695876289
+      }
+    ]
+  },
+  "gen_out/v4/final/t4_r00_naive.json": {
+    "D_panel_clear": 0.7291666666666667,
+    "D_panel_progress": 0.4631087575171823,
+    "agents": [
+      {
+        "model": "rule_s0",
+        "n": 8,
+        "clear_rate": 0.75,
+        "progress": 0.7880557345360825
+      },
+      {
+        "model": "rule_s1",
+        "n": 8,
+        "clear_rate": 0.625,
+        "progress": 0.7510470360824741
+      },
+      {
+        "model": "rule_s2",
+        "n": 8,
+        "clear_rate": 0.25,
+        "progress": 0.6014014175257731
+      },
+      {
+        "model": "rule_s3",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.6016631765463918
+      },
+      {
+        "model": "rule_s4",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.3741945876288659
+      },
+      {
+        "model": "rule_s5",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.10498550257731959
+      }
+    ]
+  },
+  "gen_out/v4/final/t4_r00_gentest.json": {
+    "D_panel_clear": 0.75,
+    "D_panel_progress": 0.5181217783505154,
+    "agents": [
+      {
+        "model": "rule_s0",
+        "n": 8,
+        "clear_rate": 0.625,
+        "progress": 0.7887000644329897
+      },
+      {
+        "model": "rule_s1",
+        "n": 8,
+        "clear_rate": 0.25,
+        "progress": 0.48310647551546393
+      },
+      {
+        "model": "rule_s2",
+        "n": 8,
+        "clear_rate": 0.375,
+        "progress": 0.6438869201030928
+      },
+      {
+        "model": "rule_s3",
+        "n": 8,
+        "clear_rate": 0.25,
+        "progress": 0.37916800902061853
+      },
+      {
+        "model": "rule_s4",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.42564030283505155
+      },
+      {
+        "model": "rule_s5",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.17076755798969073
+      }
+    ]
+  },
+  "gen_out/v4/final/t4_r00_search.json": {
+    "D_panel_clear": 0.7916666666666666,
+    "D_panel_progress": 0.47991838487972516,
+    "agents": [
+      {
+        "model": "rule_s0",
+        "n": 8,
+        "clear_rate": 0.625,
+        "progress": 0.979723743556701
+      },
+      {
+        "model": "rule_s1",
+        "n": 8,
+        "clear_rate": 0.5,
+        "progress": 0.8861549613402062
+      },
+      {
+        "model": "rule_s2",
+        "n": 8,
+        "clear_rate": 0.125,
+        "progress": 0.5859173646907216
+      },
+      {
+        "model": "rule_s3",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.30140544458762886
+      },
+      {
+        "model": "rule_s4",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.276196037371134
+      },
+      {
+        "model": "rule_s5",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.09109213917525773
+      }
+    ]
+  },
+  "gen_out/v4/final/t4_r01_naive.json": {
+    "D_panel_clear": 0.9791666666666666,
+    "D_panel_progress": 0.8947191795532646,
+    "agents": [
+      {
+        "model": "rule_s0",
+        "n": 8,
+        "clear_rate": 0.125,
+        "progress": 0.1759423324742268
+      },
+      {
+        "model": "rule_s1",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.07846730025773196
+      },
+      {
+        "model": "rule_s2",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.08072245489690721
+      },
+      {
+        "model": "rule_s3",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.17795586340206188
+      },
+      {
+        "model": "rule_s4",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.05956024484536083
+      },
+      {
+        "model": "rule_s5",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.05903672680412372
+      }
+    ]
+  },
+  "gen_out/v4/final/t4_r01_gentest.json": {
+    "D_panel_clear": 0.6666666666666667,
+    "D_panel_progress": 0.5358979005584192,
+    "agents": [
+      {
+        "model": "rule_s0",
+        "n": 8,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "rule_s1",
+        "n": 8,
+        "clear_rate": 0.375,
+        "progress": 0.5241623711340206
+      },
+      {
+        "model": "rule_s2",
+        "n": 8,
+        "clear_rate": 0.625,
+        "progress": 0.7425499355670103
+      },
+      {
+        "model": "rule_s3",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.24641591494845358
+      },
+      {
+        "model": "rule_s4",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.17588192654639173
+      },
+      {
+        "model": "rule_s5",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.10075708762886598
+      }
+    ]
+  },
+  "gen_out/v4/final/t4_r01_search.json": {
+    "D_panel_clear": 0.9791666666666666,
+    "D_panel_progress": 0.7840320285652921,
+    "agents": [
+      {
+        "model": "rule_s0",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.10653592139175258
+      },
+      {
+        "model": "rule_s1",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.20086984536082475
+      },
+      {
+        "model": "rule_s2",
+        "n": 8,
+        "clear_rate": 0.125,
+        "progress": 0.43204333118556704
+      },
+      {
+        "model": "rule_s3",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.28757248711340205
+      },
+      {
+        "model": "rule_s4",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.17022390463917525
+      },
+      {
+        "model": "rule_s5",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.09856233891752578
+      }
+    ]
+  },
+  "gen_out/v4/final/t4_r02_naive.json": {
+    "D_panel_clear": 0.7916666666666666,
+    "D_panel_progress": 0.6206474173109966,
+    "agents": [
+      {
+        "model": "rule_s0",
+        "n": 8,
+        "clear_rate": 0.5,
+        "progress": 0.6287854381443299
+      },
+      {
+        "model": "rule_s1",
+        "n": 8,
+        "clear_rate": 0.625,
+        "progress": 0.6879832474226804
+      },
+      {
+        "model": "rule_s2",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.2770618556701031
+      },
+      {
+        "model": "rule_s3",
+        "n": 8,
+        "clear_rate": 0.125,
+        "progress": 0.3057345360824742
+      },
+      {
+        "model": "rule_s4",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.24627496778350516
+      },
+      {
+        "model": "rule_s5",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.13027545103092783
+      }
+    ]
+  },
+  "gen_out/v4/final/t4_r02_gentest.json": {
+    "D_panel_clear": 0.7083333333333333,
+    "D_panel_progress": 0.544042633161512,
+    "agents": [
+      {
+        "model": "rule_s0",
+        "n": 8,
+        "clear_rate": 0.75,
+        "progress": 0.797962306701031
+      },
+      {
+        "model": "rule_s1",
+        "n": 8,
+        "clear_rate": 0.625,
+        "progress": 0.7125080541237114
+      },
+      {
+        "model": "rule_s2",
+        "n": 8,
+        "clear_rate": 0.125,
+        "progress": 0.27615576675257736
+      },
+      {
+        "model": "rule_s3",
+        "n": 8,
+        "clear_rate": 0.25,
+        "progress": 0.5417404961340206
+      },
+      {
+        "model": "rule_s4",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.2804244523195876
+      },
+      {
+        "model": "rule_s5",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.126953125
+      }
+    ]
+  },
+  "gen_out/v4/final/t4_r02_search.json": {
+    "D_panel_clear": 0.625,
+    "D_panel_progress": 0.4263114798109965,
+    "agents": [
+      {
+        "model": "rule_s0",
+        "n": 8,
+        "clear_rate": 0.75,
+        "progress": 0.8144329896907216
+      },
+      {
+        "model": "rule_s1",
+        "n": 8,
+        "clear_rate": 0.75,
+        "progress": 0.8529719716494846
+      },
+      {
+        "model": "rule_s2",
+        "n": 8,
+        "clear_rate": 0.5,
+        "progress": 0.6914465206185567
+      },
+      {
+        "model": "rule_s3",
+        "n": 8,
+        "clear_rate": 0.25,
+        "progress": 0.5143564755154639
+      },
+      {
+        "model": "rule_s4",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.3384141430412371
+      },
+      {
+        "model": "rule_s5",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.23050902061855671
+      }
+    ]
+  },
+  "gen_out/v4/final/t4_r03_naive.json": {
+    "D_panel_clear": 0.6666666666666667,
+    "D_panel_progress": 0.47784109213917525,
+    "agents": [
+      {
+        "model": "rule_s0",
+        "n": 8,
+        "clear_rate": 0.75,
+        "progress": 0.8015463917525774
+      },
+      {
+        "model": "rule_s1",
+        "n": 8,
+        "clear_rate": 0.5,
+        "progress": 0.7323010631443299
+      },
+      {
+        "model": "rule_s2",
+        "n": 8,
+        "clear_rate": 0.375,
+        "progress": 0.4595280283505154
+      },
+      {
+        "model": "rule_s3",
+        "n": 8,
+        "clear_rate": 0.25,
+        "progress": 0.6505919780927836
+      },
+      {
+        "model": "rule_s4",
+        "n": 8,
+        "clear_rate": 0.125,
+        "progress": 0.25026175902061853
+      },
+      {
+        "model": "rule_s5",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.23872422680412375
+      }
+    ]
+  },
+  "gen_out/v4/final/t4_r03_gentest.json": {
+    "D_panel_clear": 0.8333333333333334,
+    "D_panel_progress": 0.6236744254725086,
+    "agents": [
+      {
+        "model": "rule_s0",
+        "n": 8,
+        "clear_rate": 0.125,
+        "progress": 0.4528028350515464
+      },
+      {
+        "model": "rule_s1",
+        "n": 8,
+        "clear_rate": 0.375,
+        "progress": 0.5701916881443299
+      },
+      {
+        "model": "rule_s2",
+        "n": 8,
+        "clear_rate": 0.375,
+        "progress": 0.46148115335051554
+      },
+      {
+        "model": "rule_s3",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.28312258376288657
+      },
+      {
+        "model": "rule_s4",
+        "n": 8,
+        "clear_rate": 0.125,
+        "progress": 0.3686372422680413
+      },
+      {
+        "model": "rule_s5",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.12171794458762888
+      }
+    ]
+  },
+  "gen_out/v4/final/t4_r03_search.json": {
+    "D_panel_clear": 0.9375,
+    "D_panel_progress": 0.7125885953608248,
+    "agents": [
+      {
+        "model": "rule_s0",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.3171311211340206
+      },
+      {
+        "model": "rule_s1",
+        "n": 8,
+        "clear_rate": 0.25,
+        "progress": 0.5245449420103092
+      },
+      {
+        "model": "rule_s2",
+        "n": 8,
+        "clear_rate": 0.125,
+        "progress": 0.2953447164948454
+      },
+      {
+        "model": "rule_s3",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.1436050257731959
+      },
+      {
+        "model": "rule_s4",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.2896665592783505
+      },
+      {
+        "model": "rule_s5",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.1541760631443299
+      }
+    ]
+  },
+  "gen_out/v4/final/t4_r04_naive.json": {
+    "D_panel_clear": 0.875,
+    "D_panel_progress": 0.5828500859106529,
+    "agents": [
+      {
+        "model": "rule_s0",
+        "n": 8,
+        "clear_rate": 0.25,
+        "progress": 0.48302593427835055
+      },
+      {
+        "model": "rule_s1",
+        "n": 8,
+        "clear_rate": 0.25,
+        "progress": 0.7232603092783505
+      },
+      {
+        "model": "rule_s2",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.46023276417525777
+      },
+      {
+        "model": "rule_s3",
+        "n": 8,
+        "clear_rate": 0.125,
+        "progress": 0.3922559600515464
+      },
+      {
+        "model": "rule_s4",
+        "n": 8,
+        "clear_rate": 0.125,
+        "progress": 0.31443298969072164
+      },
+      {
+        "model": "rule_s5",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.12969152706185566
+      }
+    ]
+  },
+  "gen_out/v4/final/t4_r04_gentest.json": {
+    "D_panel_clear": 0.875,
+    "D_panel_progress": 0.6268390249140894,
+    "agents": [
+      {
+        "model": "rule_s0",
+        "n": 8,
+        "clear_rate": 0.25,
+        "progress": 0.5164706829896908
+      },
+      {
+        "model": "rule_s1",
+        "n": 8,
+        "clear_rate": 0.375,
+        "progress": 0.6382893041237113
+      },
+      {
+        "model": "rule_s2",
+        "n": 8,
+        "clear_rate": 0.125,
+        "progress": 0.4707433956185567
+      },
+      {
+        "model": "rule_s3",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.22638128221649487
+      },
+      {
+        "model": "rule_s4",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.22513289304123713
+      },
+      {
+        "model": "rule_s5",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.1619482925257732
+      }
+    ]
+  },
+  "gen_out/v4/final/t4_r04_search.json": {
+    "D_panel_clear": 0.625,
+    "D_panel_progress": 0.44675888638316164,
+    "agents": [
+      {
+        "model": "rule_s0",
+        "n": 8,
+        "clear_rate": 0.625,
+        "progress": 0.7889014175257731
+      },
+      {
+        "model": "rule_s1",
+        "n": 8,
+        "clear_rate": 0.75,
+        "progress": 0.8348099226804124
+      },
+      {
+        "model": "rule_s2",
+        "n": 8,
+        "clear_rate": 0.625,
+        "progress": 0.7477247100515464
+      },
+      {
+        "model": "rule_s3",
+        "n": 8,
+        "clear_rate": 0.25,
+        "progress": 0.565661243556701
+      },
+      {
+        "model": "rule_s4",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.2766994201030928
+      },
+      {
+        "model": "rule_s5",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.10564996778350516
+      }
+    ]
+  },
+  "gen_out/v4/final/t4_r05_naive.json": {
+    "D_panel_clear": 0.8125,
+    "D_panel_progress": 0.6196876342353952,
+    "agents": [
+      {
+        "model": "rule_s0",
+        "n": 8,
+        "clear_rate": 0.5,
+        "progress": 0.6593709729381443
+      },
+      {
+        "model": "rule_s1",
+        "n": 8,
+        "clear_rate": 0.375,
+        "progress": 0.45211823453608246
+      },
+      {
+        "model": "rule_s2",
+        "n": 8,
+        "clear_rate": 0.25,
+        "progress": 0.4145256121134021
+      },
+      {
+        "model": "rule_s3",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.34580380154639173
+      },
+      {
+        "model": "rule_s4",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.2360663659793814
+      },
+      {
+        "model": "rule_s5",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.1739892074742268
+      }
+    ]
+  },
+  "gen_out/v4/final/t4_r05_gentest.json": {
+    "D_panel_clear": 0.875,
+    "D_panel_progress": 0.7086454306271477,
+    "agents": [
+      {
+        "model": "rule_s0",
+        "n": 8,
+        "clear_rate": 0.25,
+        "progress": 0.5067453286082475
+      },
+      {
+        "model": "rule_s1",
+        "n": 8,
+        "clear_rate": 0.375,
+        "progress": 0.5259544136597938
+      },
+      {
+        "model": "rule_s2",
+        "n": 8,
+        "clear_rate": 0.125,
+        "progress": 0.3210776417525773
+      },
+      {
+        "model": "rule_s3",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.23292525773195877
+      },
+      {
+        "model": "rule_s4",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.099609375
+      },
+      {
+        "model": "rule_s5",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.061815399484536085
+      }
+    ]
+  },
+  "gen_out/v4/final/t4_r05_search.json": {
+    "D_panel_clear": 0.8541666666666666,
+    "D_panel_progress": 0.6943392933848798,
+    "agents": [
+      {
+        "model": "rule_s0",
+        "n": 8,
+        "clear_rate": 0.375,
+        "progress": 0.48411324097938147
+      },
+      {
+        "model": "rule_s1",
+        "n": 8,
+        "clear_rate": 0.25,
+        "progress": 0.44766833118556704
+      },
+      {
+        "model": "rule_s2",
+        "n": 8,
+        "clear_rate": 0.25,
+        "progress": 0.3764094716494846
+      },
+      {
+        "model": "rule_s3",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.20334648840206188
+      },
+      {
+        "model": "rule_s4",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.1385510631443299
+      },
+      {
+        "model": "rule_s5",
+        "n": 8,
+        "clear_rate": 0.0,
+        "progress": 0.1838756443298969
+      }
+    ]
+  }
+}

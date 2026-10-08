@@ -1,0 +1,2162 @@
+{
+  "gen_out/v4/final/t0_r00_naive.json": {
+    "D_panel_clear": 0.16666666666666663,
+    "D_panel_progress": 0.1597669673539519,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 0.75,
+        "progress": 0.762926868556701
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 0.75,
+        "progress": 0.762926868556701
+      }
+    ]
+  },
+  "gen_out/v4/final/t0_r00_gentest.json": {
+    "D_panel_clear": 0.0,
+    "D_panel_progress": 0.005154639175257714,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      }
+    ]
+  },
+  "gen_out/v4/final/t0_r00_search.json": {
+    "D_panel_clear": 0.33333333333333337,
+    "D_panel_progress": 0.16791505584192434,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 0.75,
+        "progress": 0.7757731958762887
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 0.25,
+        "progress": 0.7256362757731959
+      }
+    ]
+  },
+  "gen_out/v4/final/t0_r01_naive.json": {
+    "D_panel_clear": 0.16666666666666663,
+    "D_panel_progress": 0.10354918384879719,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 0.5,
+        "progress": 0.6996617268041238
+      }
+    ]
+  },
+  "gen_out/v4/final/t0_r01_gentest.json": {
+    "D_panel_clear": 0.08333333333333337,
+    "D_panel_progress": 0.058741408934707806,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 0.75,
+        "progress": 0.8340850515463918
+      }
+    ]
+  },
+  "gen_out/v4/final/t0_r01_search.json": {
+    "D_panel_clear": 0.08333333333333337,
+    "D_panel_progress": 0.05135846219931273,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 0.75,
+        "progress": 0.8562338917525774
+      }
+    ]
+  },
+  "gen_out/v4/final/t0_r02_naive.json": {
+    "D_panel_clear": 0.08333333333333337,
+    "D_panel_progress": 0.044458762886598,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 0.75,
+        "progress": 0.8769329896907216
+      }
+    ]
+  },
+  "gen_out/v4/final/t0_r02_gentest.json": {
+    "D_panel_clear": 0.0,
+    "D_panel_progress": 0.005154639175257714,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      }
+    ]
+  },
+  "gen_out/v4/final/t0_r02_search.json": {
+    "D_panel_clear": 0.16666666666666663,
+    "D_panel_progress": 0.12891967353951894,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 0.5,
+        "progress": 0.6235502577319588
+      }
+    ]
+  },
+  "gen_out/v4/final/t0_r03_naive.json": {
+    "D_panel_clear": 0.33333333333333337,
+    "D_panel_progress": 0.16247852233676985,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 0.75,
+        "progress": 0.7757731958762887
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 0.25,
+        "progress": 0.7419458762886598
+      }
+    ]
+  },
+  "gen_out/v4/final/t0_r03_gentest.json": {
+    "D_panel_clear": 0.08333333333333337,
+    "D_panel_progress": 0.006496993127147799,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 0.75,
+        "progress": 0.9908182989690721
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      }
+    ]
+  },
+  "gen_out/v4/final/t0_r03_search.json": {
+    "D_panel_clear": 0.25,
+    "D_panel_progress": 0.15684063573883156,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 0.5,
+        "progress": 0.739489368556701
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 0.75,
+        "progress": 0.7951433634020619
+      }
+    ]
+  },
+  "gen_out/v4/final/t0_r04_naive.json": {
+    "D_panel_clear": 0.16666666666666663,
+    "D_panel_progress": 0.1597669673539519,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 0.75,
+        "progress": 0.762926868556701
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 0.75,
+        "progress": 0.762926868556701
+      }
+    ]
+  },
+  "gen_out/v4/final/t0_r04_gentest.json": {
+    "D_panel_clear": 0.25,
+    "D_panel_progress": 0.19390302835051543,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 0.75,
+        "progress": 0.7693701675257733
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 0.5,
+        "progress": 0.6540753865979382
+      }
+    ]
+  },
+  "gen_out/v4/final/t0_r04_search.json": {
+    "D_panel_clear": 0.41666666666666663,
+    "D_panel_progress": 0.2616919029209622,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 0.5,
+        "progress": 0.6800499355670103
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 0.25,
+        "progress": 0.5400289948453608
+      }
+    ]
+  },
+  "gen_out/v4/final/t0_r05_naive.json": {
+    "D_panel_clear": 0.25,
+    "D_panel_progress": 0.1597669673539519,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 0.75,
+        "progress": 0.8319507087628866
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 0.5,
+        "progress": 0.6939030283505154
+      }
+    ]
+  },
+  "gen_out/v4/final/t0_r05_gentest.json": {
+    "D_panel_clear": 0.0,
+    "D_panel_progress": 0.005154639175257714,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      }
+    ]
+  },
+  "gen_out/v4/final/t0_r05_search.json": {
+    "D_panel_clear": 0.41666666666666663,
+    "D_panel_progress": 0.1455648625429552,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 0.75,
+        "progress": 0.9691124355670103
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 0.0,
+        "progress": 0.5993476159793815
+      }
+    ]
+  },
+  "gen_out/v4/final/t1_r00_naive.json": {
+    "D_panel_clear": 0.08333333333333337,
+    "D_panel_progress": 0.016739153780068627,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 0.75,
+        "progress": 0.9600918170103093
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      }
+    ]
+  },
+  "gen_out/v4/final/t1_r00_gentest.json": {
+    "D_panel_clear": 0.08333333333333337,
+    "D_panel_progress": 0.07146692439862534,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 0.75,
+        "progress": 0.7959085051546392
+      }
+    ]
+  },
+  "gen_out/v4/final/t1_r00_search.json": {
+    "D_panel_clear": 0.41666666666666663,
+    "D_panel_progress": 0.22320661512027495,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 0.75,
+        "progress": 0.8031572164948454
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 0.0,
+        "progress": 0.5323775773195876
+      }
+    ]
+  },
+  "gen_out/v4/final/t1_r01_naive.json": {
+    "D_panel_clear": 0.25,
+    "D_panel_progress": 0.10067654639175261,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 0.75,
+        "progress": 0.983972293814433
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 0.5,
+        "progress": 0.719152706185567
+      }
+    ]
+  },
+  "gen_out/v4/final/t1_r01_gentest.json": {
+    "D_panel_clear": 0.16666666666666663,
+    "D_panel_progress": 0.15082689003436422,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 0.75,
+        "progress": 0.7820554123711341
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 0.75,
+        "progress": 0.770618556701031
+      }
+    ]
+  },
+  "gen_out/v4/final/t1_r01_search.json": {
+    "D_panel_clear": 0.5833333333333333,
+    "D_panel_progress": 0.35030068728522334,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 0.25,
+        "progress": 0.5090608891752577
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 0.0,
+        "progress": 0.44519168814432986
+      }
+    ]
+  },
+  "gen_out/v4/final/t1_r02_naive.json": {
+    "D_panel_clear": 0.25,
+    "D_panel_progress": 0.1089857173539519,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 0.75,
+        "progress": 0.8944104381443299
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 0.5,
+        "progress": 0.7837870489690721
+      }
+    ]
+  },
+  "gen_out/v4/final/t1_r02_gentest.json": {
+    "D_panel_clear": 0.16666666666666663,
+    "D_panel_progress": 0.11353629725085901,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 0.5,
+        "progress": 0.6697003865979382
+      }
+    ]
+  },
+  "gen_out/v4/final/t1_r02_search.json": {
+    "D_panel_clear": 0.33333333333333337,
+    "D_panel_progress": 0.13996724656357384,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 0.5,
+        "progress": 0.9159954896907216
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 0.5,
+        "progress": 0.6692574097938144
+      }
+    ]
+  },
+  "gen_out/v4/final/t1_r03_naive.json": {
+    "D_panel_clear": 0.08333333333333337,
+    "D_panel_progress": 0.05956024484536082,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 0.75,
+        "progress": 0.831628543814433
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      }
+    ]
+  },
+  "gen_out/v4/final/t1_r03_gentest.json": {
+    "D_panel_clear": 0.25,
+    "D_panel_progress": 0.1339535008591065,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 0.75,
+        "progress": 0.8277222938144331
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 0.5,
+        "progress": 0.7755718427835051
+      }
+    ]
+  },
+  "gen_out/v4/final/t1_r03_search.json": {
+    "D_panel_clear": 0.33333333333333337,
+    "D_panel_progress": 0.22818674828178687,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 0.75,
+        "progress": 0.8180573453608248
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 0.25,
+        "progress": 0.5025370489690723
+      }
+    ]
+  },
+  "gen_out/v4/final/t1_r04_naive.json": {
+    "D_panel_clear": 0.08333333333333337,
+    "D_panel_progress": 0.03683419243986252,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 0.75,
+        "progress": 0.8998067010309279
+      }
+    ]
+  },
+  "gen_out/v4/final/t1_r04_gentest.json": {
+    "D_panel_clear": 0.33333333333333337,
+    "D_panel_progress": 0.1534847508591065,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 0.75,
+        "progress": 0.9336742912371134
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 0.25,
+        "progress": 0.6110260953608248
+      }
+    ]
+  },
+  "gen_out/v4/final/t1_r04_search.json": {
+    "D_panel_clear": 0.33333333333333337,
+    "D_panel_progress": 0.14147068298969068,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 0.75,
+        "progress": 0.9069748711340206
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 0.25,
+        "progress": 0.6737677190721649
+      }
+    ]
+  },
+  "gen_out/v4/final/t1_r05_naive.json": {
+    "D_panel_clear": 0.08333333333333337,
+    "D_panel_progress": 0.053694158075601295,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 0.75,
+        "progress": 0.8492268041237113
+      }
+    ]
+  },
+  "gen_out/v4/final/t1_r05_gentest.json": {
+    "D_panel_clear": 0.08333333333333337,
+    "D_panel_progress": 0.046579682130584055,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 0.75,
+        "progress": 0.8705702319587629
+      }
+    ]
+  },
+  "gen_out/v4/final/t1_r05_search.json": {
+    "D_panel_clear": 0.16666666666666663,
+    "D_panel_progress": 0.11321413230240551,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 0.75,
+        "progress": 0.8416961984536082
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 0.75,
+        "progress": 0.8238160438144331
+      }
+    ]
+  },
+  "gen_out/v4/final/t2_r00_naive.json": {
+    "D_panel_clear": 0.75,
+    "D_panel_progress": 0.33059493127147765,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 0.0,
+        "progress": 0.711340206185567
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 0.75,
+        "progress": 0.9420505798969072
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 0.0,
+        "progress": 0.3548244201030928
+      }
+    ]
+  },
+  "gen_out/v4/final/t2_r00_gentest.json": {
+    "D_panel_clear": 0.5,
+    "D_panel_progress": 0.29923754295532634,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 0.25,
+        "progress": 0.6237516108247423
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 0.25,
+        "progress": 0.48369039948453607
+      }
+    ]
+  },
+  "gen_out/v4/final/t2_r00_search.json": {
+    "D_panel_clear": 0.25,
+    "D_panel_progress": 0.15594125859106533,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 0.75,
+        "progress": 0.762806056701031
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 0.5,
+        "progress": 0.774524806701031
+      }
+    ]
+  },
+  "gen_out/v4/final/t2_r01_naive.json": {
+    "D_panel_clear": 0.41666666666666663,
+    "D_panel_progress": 0.27014873281786933,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 0.75,
+        "progress": 0.8416961984536082
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 0.0,
+        "progress": 0.3530122422680413
+      }
+    ]
+  },
+  "gen_out/v4/final/t2_r01_gentest.json": {
+    "D_panel_clear": 0.5,
+    "D_panel_progress": 0.27008161512027495,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 0.25,
+        "progress": 0.63269168814433
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 0.25,
+        "progress": 0.5622181056701031
+      }
+    ]
+  },
+  "gen_out/v4/final/t2_r01_search.json": {
+    "D_panel_clear": 0.5833333333333333,
+    "D_panel_progress": 0.3167955326460481,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 0.25,
+        "progress": 0.7094474871134021
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 0.0,
+        "progress": 0.3453205541237113
+      }
+    ]
+  },
+  "gen_out/v4/final/t2_r02_naive.json": {
+    "D_panel_clear": 0.5,
+    "D_panel_progress": 0.4073775773195877,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 0.5,
+        "progress": 0.5922197164948454
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 0.0,
+        "progress": 0.19080219072164947
+      }
+    ]
+  },
+  "gen_out/v4/final/t2_r02_gentest.json": {
+    "D_panel_clear": 0.5833333333333333,
+    "D_panel_progress": 0.35580433848797244,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 0.25,
+        "progress": 0.5771182345360825
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 0.0,
+        "progress": 0.3606233891752577
+      }
+    ]
+  },
+  "gen_out/v4/final/t2_r02_search.json": {
+    "D_panel_clear": 0.5833333333333333,
+    "D_panel_progress": 0.2879214991408935,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 0.25,
+        "progress": 0.7071117912371134
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 0.0,
+        "progress": 0.43427835051546393
+      }
+    ]
+  },
+  "gen_out/v4/final/t2_r03_naive.json": {
+    "D_panel_clear": 0.25,
+    "D_panel_progress": 0.19286941580756023,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 0.5,
+        "progress": 0.61328125
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 0.75,
+        "progress": 0.8132651417525774
+      }
+    ]
+  },
+  "gen_out/v4/final/t2_r03_gentest.json": {
+    "D_panel_clear": 0.5,
+    "D_panel_progress": 0.3519517826460481,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 0.5,
+        "progress": 0.6661163015463918
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 0.0,
+        "progress": 0.28318298969072164
+      }
+    ]
+  },
+  "gen_out/v4/final/t2_r03_search.json": {
+    "D_panel_clear": 0.41666666666666663,
+    "D_panel_progress": 0.3733354810996563,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 0.75,
+        "progress": 0.7638128221649485
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 0.0,
+        "progress": 0.1213353737113402
+      }
+    ]
+  },
+  "gen_out/v4/final/t2_r04_naive.json": {
+    "D_panel_clear": 0.33333333333333337,
+    "D_panel_progress": 0.2787934922680412,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 0.5,
+        "progress": 0.6277786726804124
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 0.5,
+        "progress": 0.5409954896907216
+      }
+    ]
+  },
+  "gen_out/v4/final/t2_r04_gentest.json": {
+    "D_panel_clear": 0.41666666666666663,
+    "D_panel_progress": 0.2754913015463917,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 0.75,
+        "progress": 0.79296875
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 0.0,
+        "progress": 0.38571198453608246
+      }
+    ]
+  },
+  "gen_out/v4/final/t2_r04_search.json": {
+    "D_panel_clear": 0.5,
+    "D_panel_progress": 0.22273679123711343,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 0.5,
+        "progress": 0.6277786726804124
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 0.0,
+        "progress": 0.7091655927835052
+      }
+    ]
+  },
+  "gen_out/v4/final/t2_r05_naive.json": {
+    "D_panel_clear": 0.8333333333333334,
+    "D_panel_progress": 0.42594233247422686,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 0.25,
+        "progress": 0.5502577319587628
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 0.25,
+        "progress": 0.6472696520618556
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 0.0,
+        "progress": 0.524645618556701
+      }
+    ]
+  },
+  "gen_out/v4/final/t2_r05_gentest.json": {
+    "D_panel_clear": 0.33333333333333337,
+    "D_panel_progress": 0.27714239690721654,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 0.75,
+        "progress": 0.7706588273195877
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 0.25,
+        "progress": 0.40306862113402064
+      }
+    ]
+  },
+  "gen_out/v4/final/t2_r05_search.json": {
+    "D_panel_clear": 0.41666666666666663,
+    "D_panel_progress": 0.2420801116838488,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 0.5,
+        "progress": 0.7666720360824744
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 0.25,
+        "progress": 0.5122422680412371
+      }
+    ]
+  },
+  "gen_out/v4/final/t3_r00_naive.json": {
+    "D_panel_clear": 0.75,
+    "D_panel_progress": 0.5460293170103092,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 0.0,
+        "progress": 0.4452722293814433
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 0.75,
+        "progress": 0.752416237113402
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 0.0,
+        "progress": 0.1642235824742268
+      }
+    ]
+  },
+  "gen_out/v4/final/t3_r00_gentest.json": {
+    "D_panel_clear": 0.5,
+    "D_panel_progress": 0.3040834407216494,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 0.5,
+        "progress": 0.7187097293814433
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 0.0,
+        "progress": 0.37419458762886604
+      }
+    ]
+  },
+  "gen_out/v4/final/t3_r00_search.json": {
+    "D_panel_clear": 0.9166666666666666,
+    "D_panel_progress": 0.3640598152920963,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 0.0,
+        "progress": 0.867992912371134
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 0.25,
+        "progress": 0.5925016108247423
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 0.0,
+        "progress": 0.44732603092783507
+      }
+    ]
+  },
+  "gen_out/v4/final/t3_r01_naive.json": {
+    "D_panel_clear": 0.5,
+    "D_panel_progress": 0.35644866838487976,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 0.5,
+        "progress": 0.8174532860824743
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 0.0,
+        "progress": 0.11835534793814434
+      }
+    ]
+  },
+  "gen_out/v4/final/t3_r01_gentest.json": {
+    "D_panel_clear": 0.5,
+    "D_panel_progress": 0.37108032646048106,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 0.5,
+        "progress": 0.7913176546391752
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 0.0,
+        "progress": 0.10059600515463918
+      }
+    ]
+  },
+  "gen_out/v4/final/t3_r01_search.json": {
+    "D_panel_clear": 0.33333333333333337,
+    "D_panel_progress": 0.3032377577319587,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 0.0,
+        "progress": 0.10059600515463918
+      }
+    ]
+  },
+  "gen_out/v4/final/t3_r02_naive.json": {
+    "D_panel_clear": 0.25,
+    "D_panel_progress": 0.1705594931271478,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 0.75,
+        "progress": 0.8263933634020619
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 0.5,
+        "progress": 0.6670827963917526
+      }
+    ]
+  },
+  "gen_out/v4/final/t3_r02_gentest.json": {
+    "D_panel_clear": 0.5833333333333333,
+    "D_panel_progress": 0.37270457474226804,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 0.25,
+        "progress": 0.6236307989690721
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 0.0,
+        "progress": 0.26341011597938147
+      }
+    ]
+  },
+  "gen_out/v4/final/t3_r02_search.json": {
+    "D_panel_clear": 0.33333333333333337,
+    "D_panel_progress": 0.26731636597938147,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 0.0,
+        "progress": 0.20836018041237114
+      }
+    ]
+  },
+  "gen_out/v4/final/t3_r03_naive.json": {
+    "D_panel_clear": 0.33333333333333337,
+    "D_panel_progress": 0.19682935996563578,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 0.0,
+        "progress": 0.4198211984536082
+      }
+    ]
+  },
+  "gen_out/v4/final/t3_r03_gentest.json": {
+    "D_panel_clear": 0.41666666666666663,
+    "D_panel_progress": 0.3443540592783505,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 0.75,
+        "progress": 0.8067413015463918
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 0.0,
+        "progress": 0.16535115979381443
+      }
+    ]
+  },
+  "gen_out/v4/final/t3_r03_search.json": {
+    "D_panel_clear": 0.33333333333333337,
+    "D_panel_progress": 0.20888369845360832,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 0.0,
+        "progress": 0.3836581829896908
+      }
+    ]
+  },
+  "gen_out/v4/final/t3_r04_naive.json": {
+    "D_panel_clear": 0.5,
+    "D_panel_progress": 0.3603414948453608,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 0.5,
+        "progress": 0.7616382087628867
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 0.0,
+        "progress": 0.16249194587628865
+      }
+    ]
+  },
+  "gen_out/v4/final/t3_r04_gentest.json": {
+    "D_panel_clear": 0.6666666666666667,
+    "D_panel_progress": 0.4731126503436426,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 0.5,
+        "progress": 0.7355428479381443
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 0.5,
+        "progress": 0.6369201030927836
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 0.0,
+        "progress": 0.20819909793814434
+      }
+    ]
+  },
+  "gen_out/v4/final/t3_r04_search.json": {
+    "D_panel_clear": 0.5833333333333333,
+    "D_panel_progress": 0.4176868556701031,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 0.25,
+        "progress": 0.5428076675257731
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 0.0,
+        "progress": 0.20928640463917525
+      }
+    ]
+  },
+  "gen_out/v4/final/t3_r05_naive.json": {
+    "D_panel_clear": 0.5,
+    "D_panel_progress": 0.3608247422680413,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 0.5,
+        "progress": 0.7848743556701031
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 0.0,
+        "progress": 0.13780605670103094
+      }
+    ]
+  },
+  "gen_out/v4/final/t3_r05_gentest.json": {
+    "D_panel_clear": 1.0,
+    "D_panel_progress": 0.6217246563573884,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 0.0,
+        "progress": 0.44784954896907214
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 0.0,
+        "progress": 0.48260309278350516
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 0.0,
+        "progress": 0.20437338917525774
+      }
+    ]
+  },
+  "gen_out/v4/final/t3_r05_search.json": {
+    "D_panel_clear": 0.41666666666666663,
+    "D_panel_progress": 0.29125053694158076,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 0.75,
+        "progress": 0.9399967783505154
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 0.0,
+        "progress": 0.19140625
+      }
+    ]
+  },
+  "gen_out/v4/final/t4_r00_naive.json": {
+    "D_panel_clear": 0.6666666666666667,
+    "D_panel_progress": 0.4490442439862542,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 0.0,
+        "progress": 0.4395538015463918
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 0.0,
+        "progress": 0.2184681056701031
+      }
+    ]
+  },
+  "gen_out/v4/final/t4_r00_gentest.json": {
+    "D_panel_clear": 0.5,
+    "D_panel_progress": 0.37248979810996563,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 0.5,
+        "progress": 0.7990093427835052
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 0.0,
+        "progress": 0.08867590206185567
+      }
+    ]
+  },
+  "gen_out/v4/final/t4_r00_search.json": {
+    "D_panel_clear": 0.5,
+    "D_panel_progress": 0.3828796176975945,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 0.5,
+        "progress": 0.6739690721649484
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 0.0,
+        "progress": 0.18254671391752578
+      }
+    ]
+  },
+  "gen_out/v4/final/t4_r01_naive.json": {
+    "D_panel_clear": 0.75,
+    "D_panel_progress": 0.5904075386597938,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 0.5,
+        "progress": 0.6465850515463917
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 0.25,
+        "progress": 0.3975112757731959
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 0.0,
+        "progress": 0.18468105670103094
+      }
+    ]
+  },
+  "gen_out/v4/final/t4_r01_gentest.json": {
+    "D_panel_clear": 0.33333333333333337,
+    "D_panel_progress": 0.29695554123711343,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 0.0,
+        "progress": 0.11944265463917524
+      }
+    ]
+  },
+  "gen_out/v4/final/t4_r01_search.json": {
+    "D_panel_clear": 1.0,
+    "D_panel_progress": 0.6178721005154639,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 0.0,
+        "progress": 0.5016913659793815
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 0.0,
+        "progress": 0.5428882087628866
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 0.0,
+        "progress": 0.1018041237113402
+      }
+    ]
+  },
+  "gen_out/v4/final/t4_r02_naive.json": {
+    "D_panel_clear": 0.41666666666666663,
+    "D_panel_progress": 0.3320715206185567,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 0.75,
+        "progress": 0.8818460051546392
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 0.0,
+        "progress": 0.12709407216494845
+      }
+    ]
+  },
+  "gen_out/v4/final/t4_r02_gentest.json": {
+    "D_panel_clear": 0.5833333333333333,
+    "D_panel_progress": 0.3170103092783506,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 0.5,
+        "progress": 0.8195876288659794
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 0.75,
+        "progress": 0.849267074742268
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 0.0,
+        "progress": 0.38011436855670105
+      }
+    ]
+  },
+  "gen_out/v4/final/t4_r02_search.json": {
+    "D_panel_clear": 0.41666666666666663,
+    "D_panel_progress": 0.2632758805841924,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 0.75,
+        "progress": 0.9366140463917526
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 0.0,
+        "progress": 0.27871295103092786
+      }
+    ]
+  },
+  "gen_out/v4/final/t4_r03_naive.json": {
+    "D_panel_clear": 0.5,
+    "D_panel_progress": 0.30201621563573877,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 0.5,
+        "progress": 0.7208440721649485
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 0.0,
+        "progress": 0.3782619201030928
+      }
+    ]
+  },
+  "gen_out/v4/final/t4_r03_gentest.json": {
+    "D_panel_clear": 0.6666666666666667,
+    "D_panel_progress": 0.4416076030927836,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 0.25,
+        "progress": 0.5669297680412371
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 0.75,
+        "progress": 0.7759342783505154
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 0.0,
+        "progress": 0.3323131443298969
+      }
+    ]
+  },
+  "gen_out/v4/final/t4_r03_search.json": {
+    "D_panel_clear": 0.75,
+    "D_panel_progress": 0.5516135094501717,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 0.5,
+        "progress": 0.8170103092783505
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 0.25,
+        "progress": 0.41269329896907214
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 0.0,
+        "progress": 0.11545586340206186
+      }
+    ]
+  },
+  "gen_out/v4/final/t4_r04_naive.json": {
+    "D_panel_clear": 0.6666666666666667,
+    "D_panel_progress": 0.5054231099656357,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 0.0,
+        "progress": 0.31910438144329895
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 0.0,
+        "progress": 0.16978092783505155
+      }
+    ]
+  },
+  "gen_out/v4/final/t4_r04_gentest.json": {
+    "D_panel_clear": 0.8333333333333334,
+    "D_panel_progress": 0.6089454467353952,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 0.5,
+        "progress": 0.6898356958762887
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 0.0,
+        "progress": 0.2978414948453608
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 0.0,
+        "progress": 0.18548646907216493
+      }
+    ]
+  },
+  "gen_out/v4/final/t4_r04_search.json": {
+    "D_panel_clear": 0.5,
+    "D_panel_progress": 0.36184493127147765,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 0.5,
+        "progress": 0.6858086340206185
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 0.0,
+        "progress": 0.23381121134020622
+      }
+    ]
+  },
+  "gen_out/v4/final/t4_r05_naive.json": {
+    "D_panel_clear": 0.5,
+    "D_panel_progress": 0.35567010309278346,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 0.5,
+        "progress": 0.6740093427835052
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 0.0,
+        "progress": 0.26413498711340205
+      }
+    ]
+  },
+  "gen_out/v4/final/t4_r05_gentest.json": {
+    "D_panel_clear": 0.5833333333333333,
+    "D_panel_progress": 0.520605133161512,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 0.25,
+        "progress": 0.31556056701030927
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 0.0,
+        "progress": 0.12777867268041238
+      }
+    ]
+  },
+  "gen_out/v4/final/t4_r05_search.json": {
+    "D_panel_clear": 0.5833333333333333,
+    "D_panel_progress": 0.4780122422680412,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 0.25,
+        "progress": 0.3405686211340206
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 0.0,
+        "progress": 0.2305492912371134
+      }
+    ]
+  }
+}
