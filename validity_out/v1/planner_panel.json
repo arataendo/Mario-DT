@@ -1,0 +1,1442 @@
+{
+  "corpus/v1/lvl_000.json": {
+    "D_panel_clear": 0.33333333333333337,
+    "D_panel_progress": 0.21010524054982815,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 0.75,
+        "progress": 0.9497825386597938
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 0.25,
+        "progress": 0.42505637886597936
+      }
+    ]
+  },
+  "corpus/v1/lvl_001.json": {
+    "D_panel_clear": 0.08333333333333337,
+    "D_panel_progress": 0.08062177835051543,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 0.75,
+        "progress": 0.7684439432989691
+      }
+    ]
+  },
+  "corpus/v1/lvl_002.json": {
+    "D_panel_clear": 0.08333333333333337,
+    "D_panel_progress": 0.08450118127147765,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 0.75,
+        "progress": 0.7568057345360825
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      }
+    ]
+  },
+  "corpus/v1/lvl_003.json": {
+    "D_panel_clear": 0.08333333333333337,
+    "D_panel_progress": 0.05153296821305842,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 0.75,
+        "progress": 0.8557103737113403
+      }
+    ]
+  },
+  "corpus/v1/lvl_004.json": {
+    "D_panel_clear": 0.08333333333333337,
+    "D_panel_progress": 0.05670103092783496,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 0.75,
+        "progress": 0.8402061855670103
+      }
+    ]
+  },
+  "corpus/v1/lvl_005.json": {
+    "D_panel_clear": 0.16666666666666663,
+    "D_panel_progress": 0.040230347938144284,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 0.75,
+        "progress": 0.9114046391752577
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 0.75,
+        "progress": 0.973058956185567
+      }
+    ]
+  },
+  "corpus/v1/lvl_006.json": {
+    "D_panel_clear": 0.25,
+    "D_panel_progress": 0.07146692439862556,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 0.5,
+        "progress": 0.8345280283505154
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 0.75,
+        "progress": 0.9562258376288659
+      }
+    ]
+  },
+  "corpus/v1/lvl_007.json": {
+    "D_panel_clear": 0.08333333333333337,
+    "D_panel_progress": 0.07497046821305842,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 0.75,
+        "progress": 0.7853978737113403
+      }
+    ]
+  },
+  "corpus/v1/lvl_008.json": {
+    "D_panel_clear": 0.08333333333333337,
+    "D_panel_progress": 0.07209783075601373,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 0.75,
+        "progress": 0.7940157860824743
+      }
+    ]
+  },
+  "corpus/v1/lvl_009.json": {
+    "D_panel_clear": 0.16666666666666663,
+    "D_panel_progress": 0.10595199742268047,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 0.5,
+        "progress": 0.6924532860824743
+      }
+    ]
+  },
+  "corpus/v1/lvl_010.json": {
+    "D_panel_clear": 0.16666666666666663,
+    "D_panel_progress": 0.09485073024054991,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 0.75,
+        "progress": 0.8278028350515464
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 0.75,
+        "progress": 0.8927996134020619
+      }
+    ]
+  },
+  "corpus/v1/lvl_011.json": {
+    "D_panel_clear": 0.25,
+    "D_panel_progress": 0.17825118127147765,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 0.5,
+        "progress": 0.5963675902061856
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 0.75,
+        "progress": 0.8740335051546392
+      }
+    ]
+  },
+  "corpus/v1/lvl_012.json": {
+    "D_panel_clear": 0.08333333333333337,
+    "D_panel_progress": 0.041881443298969145,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 0.75,
+        "progress": 0.8846649484536082
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      }
+    ]
+  },
+  "corpus/v1/lvl_013.json": {
+    "D_panel_clear": 0.16666666666666663,
+    "D_panel_progress": 0.041532431271477654,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 0.5,
+        "progress": 0.8857119845360825
+      }
+    ]
+  },
+  "corpus/v1/lvl_014.json": {
+    "D_panel_clear": 0.33333333333333337,
+    "D_panel_progress": 0.157458118556701,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 0.0,
+        "progress": 0.5379349226804123
+      }
+    ]
+  },
+  "corpus/v1/lvl_015.json": {
+    "D_panel_clear": 0.25,
+    "D_panel_progress": 0.19766161941580762,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 0.75,
+        "progress": 0.7781894329896908
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 0.5,
+        "progress": 0.6339803479381443
+      }
+    ]
+  },
+  "corpus/v1/lvl_016.json": {
+    "D_panel_clear": 0.16666666666666663,
+    "D_panel_progress": 0.07519866838487965,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 0.75,
+        "progress": 0.8284874355670103
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 0.75,
+        "progress": 0.9510711984536082
+      }
+    ]
+  },
+  "corpus/v1/lvl_017.json": {
+    "D_panel_clear": 0.25,
+    "D_panel_progress": 0.12930895618556704,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 0.75,
+        "progress": 0.9834487757731959
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 0.5,
+        "progress": 0.6337789948453608
+      }
+    ]
+  },
+  "corpus/v1/lvl_018.json": {
+    "D_panel_clear": 0.33333333333333337,
+    "D_panel_progress": 0.16800902061855671,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 0.5,
+        "progress": 0.7170183634020618
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 0.5,
+        "progress": 0.7841092139175259
+      }
+    ]
+  },
+  "corpus/v1/lvl_019.json": {
+    "D_panel_clear": 0.08333333333333337,
+    "D_panel_progress": 0.037371134020618535,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 0.75,
+        "progress": 0.8981958762886598
+      }
+    ]
+  },
+  "corpus/v1/lvl_020.json": {
+    "D_panel_clear": 0.33333333333333337,
+    "D_panel_progress": 0.20630637886597947,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 0.0,
+        "progress": 0.39139014175257736
+      }
+    ]
+  },
+  "corpus/v1/lvl_021.json": {
+    "D_panel_clear": 0.5,
+    "D_panel_progress": 0.35321359536082475,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 0.25,
+        "progress": 0.523840206185567
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 0.25,
+        "progress": 0.4216736469072165
+      }
+    ]
+  },
+  "corpus/v1/lvl_022.json": {
+    "D_panel_clear": 0.33333333333333337,
+    "D_panel_progress": 0.17316365979381443,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 0.0,
+        "progress": 0.4908182989690722
+      }
+    ]
+  },
+  "corpus/v1/lvl_023.json": {
+    "D_panel_clear": 0.33333333333333337,
+    "D_panel_progress": 0.19799720790378006,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 0.0,
+        "progress": 0.41631765463917525
+      }
+    ]
+  },
+  "corpus/v1/lvl_024.json": {
+    "D_panel_clear": 0.33333333333333337,
+    "D_panel_progress": 0.11286512027491413,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 0.75,
+        "progress": 0.9790190077319587
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 0.25,
+        "progress": 0.6875402706185567
+      }
+    ]
+  },
+  "corpus/v1/lvl_025.json": {
+    "D_panel_clear": 0.41666666666666663,
+    "D_panel_progress": 0.2816124355670103,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 0.75,
+        "progress": 0.7954252577319587
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 0.0,
+        "progress": 0.36489207474226804
+      }
+    ]
+  },
+  "corpus/v1/lvl_026.json": {
+    "D_panel_clear": 0.08333333333333337,
+    "D_panel_progress": 0.03392128436426123,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 0.75,
+        "progress": 0.908545425257732
+      }
+    ]
+  },
+  "corpus/v1/lvl_027.json": {
+    "D_panel_clear": 0.33333333333333337,
+    "D_panel_progress": 0.1074957044673539,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 0.75,
+        "progress": 0.9803479381443299
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 0.25,
+        "progress": 0.702319587628866
+      }
+    ]
+  },
+  "corpus/v1/lvl_028.json": {
+    "D_panel_clear": 0.33333333333333337,
+    "D_panel_progress": 0.24681862113402053,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 0.5,
+        "progress": 0.6627335695876289
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 0.5,
+        "progress": 0.601965206185567
+      }
+    ]
+  },
+  "corpus/v1/lvl_029.json": {
+    "D_panel_clear": 0.41666666666666663,
+    "D_panel_progress": 0.371227985395189,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 0.75,
+        "progress": 0.7938547036082475
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 0.0,
+        "progress": 0.0976159793814433
+      }
+    ]
+  },
+  "corpus/v1/lvl_030.json": {
+    "D_panel_clear": 0.8333333333333334,
+    "D_panel_progress": 0.6561560352233677,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 0.5,
+        "progress": 0.5232764175257733
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 0.0,
+        "progress": 0.22958279639175258
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 0.0,
+        "progress": 0.27867268041237114
+      }
+    ]
+  },
+  "corpus/v1/lvl_031.json": {
+    "D_panel_clear": 0.33333333333333337,
+    "D_panel_progress": 0.2805117053264605,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 0.75,
+        "progress": 0.8234938788659794
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 0.25,
+        "progress": 0.3401256443298969
+      }
+    ]
+  },
+  "corpus/v1/lvl_032.json": {
+    "D_panel_clear": 0.33333333333333337,
+    "D_panel_progress": 0.31688949742268047,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 0.0,
+        "progress": 0.05964078608247423
+      }
+    ]
+  },
+  "corpus/v1/lvl_033.json": {
+    "D_panel_clear": 0.41666666666666663,
+    "D_panel_progress": 0.3350112757731959,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 0.75,
+        "progress": 0.8028350515463918
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 0.75,
+        "progress": 0.8028350515463918
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 0.25,
+        "progress": 0.3892960695876289
+      }
+    ]
+  },
+  "corpus/v1/lvl_034.json": {
+    "D_panel_clear": 0.33333333333333337,
+    "D_panel_progress": 0.23720736683848787,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 0.5,
+        "progress": 0.5845280283505154
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 0.5,
+        "progress": 0.7090045103092784
+      }
+    ]
+  },
+  "corpus/v1/lvl_035.json": {
+    "D_panel_clear": 0.16666666666666663,
+    "D_panel_progress": 0.10310620704467366,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 0.5,
+        "progress": 0.7009906572164948
+      }
+    ]
+  },
+  "corpus/v1/lvl_036.json": {
+    "D_panel_clear": 0.41666666666666663,
+    "D_panel_progress": 0.16364637027491413,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 0.75,
+        "progress": 0.9587628865979382
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 0.0,
+        "progress": 0.5554526417525774
+      }
+    ]
+  },
+  "corpus/v1/lvl_037.json": {
+    "D_panel_clear": 0.41666666666666663,
+    "D_panel_progress": 0.2339857173539519,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 0.75,
+        "progress": 0.8036807345360825
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 0.0,
+        "progress": 0.49951675257731964
+      }
+    ]
+  },
+  "corpus/v1/lvl_038.json": {
+    "D_panel_clear": 0.33333333333333337,
+    "D_panel_progress": 0.23865710910652915,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 0.75,
+        "progress": 0.8067413015463918
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 0.25,
+        "progress": 0.48244201030927836
+      }
+    ]
+  },
+  "corpus/v1/lvl_039.json": {
+    "D_panel_clear": 0.41666666666666663,
+    "D_panel_progress": 0.2595441365979382,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 0.75,
+        "progress": 0.782740012886598
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 0.0,
+        "progress": 0.4437822164948454
+      }
+    ]
+  },
+  "corpus/v1/lvl_040.json": {
+    "D_panel_clear": 0.5,
+    "D_panel_progress": 0.27664572594501713,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 0.5,
+        "progress": 0.7152867268041238
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 0.0,
+        "progress": 0.45993073453608246
+      }
+    ]
+  },
+  "corpus/v1/lvl_041.json": {
+    "D_panel_clear": 0.41666666666666663,
+    "D_panel_progress": 0.2571010524054982,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 0.5,
+        "progress": 0.5423244201030928
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 0.25,
+        "progress": 0.6915270618556701
+      }
+    ]
+  },
+  "corpus/v1/lvl_042.json": {
+    "D_panel_clear": 0.25,
+    "D_panel_progress": 0.12290592783505161,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 0.25,
+        "progress": 0.6415914948453608
+      }
+    ]
+  },
+  "corpus/v1/lvl_043.json": {
+    "D_panel_clear": 0.5,
+    "D_panel_progress": 0.32778941151202756,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 0.5,
+        "progress": 0.7858811211340206
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 0.0,
+        "progress": 0.23590528350515463
+      }
+    ]
+  },
+  "corpus/v1/lvl_044.json": {
+    "D_panel_clear": 0.33333333333333337,
+    "D_panel_progress": 0.1777008161512027,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 0.0,
+        "progress": 0.4772068298969072
+      }
+    ]
+  },
+  "corpus/v1/lvl_045.json": {
+    "D_panel_clear": 0.5,
+    "D_panel_progress": 0.2882168170103093,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 0.5,
+        "progress": 0.7833038015463917
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 0.0,
+        "progress": 0.3572003865979382
+      }
+    ]
+  },
+  "corpus/v1/lvl_046.json": {
+    "D_panel_clear": 0.41666666666666663,
+    "D_panel_progress": 0.2975193298969071,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 0.75,
+        "progress": 0.9056862113402062
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 0.0,
+        "progress": 0.2069104381443299
+      }
+    ]
+  },
+  "corpus/v1/lvl_047.json": {
+    "D_panel_clear": 0.5833333333333333,
+    "D_panel_progress": 0.4842676116838488,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 0.25,
+        "progress": 0.4865093427835051
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 0.0,
+        "progress": 0.06584246134020619
+      }
+    ]
+  },
+  "corpus/v1/lvl_048.json": {
+    "D_panel_clear": 0.33333333333333337,
+    "D_panel_progress": 0.16280068728522334,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 0.0,
+        "progress": 0.5219072164948454
+      }
+    ]
+  },
+  "corpus/v1/lvl_049.json": {
+    "D_panel_clear": 0.6666666666666667,
+    "D_panel_progress": 0.5727958548109966,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 0.5,
+        "progress": 0.6064755154639175
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 0.5,
+        "progress": 0.5610905283505154
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 0.0,
+        "progress": 0.11404639175257732
+      }
+    ]
+  },
+  "corpus/v1/lvl_050.json": {
+    "D_panel_clear": 0.41666666666666663,
+    "D_panel_progress": 0.22229381443298968,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 0.5,
+        "progress": 0.6147309922680413
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 0.25,
+        "progress": 0.7235422036082474
+      }
+    ]
+  },
+  "corpus/v1/lvl_051.json": {
+    "D_panel_clear": 0.8333333333333334,
+    "D_panel_progress": 0.5717890893470792,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 0.25,
+        "progress": 0.6314432989690721
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 0.25,
+        "progress": 0.5792928479381443
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 0.0,
+        "progress": 0.07389658505154639
+      }
+    ]
+  },
+  "corpus/v1/lvl_052.json": {
+    "D_panel_clear": 0.5833333333333333,
+    "D_panel_progress": 0.3904102233676976,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 0.25,
+        "progress": 0.4601723582474227
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 0.0,
+        "progress": 0.3737516108247423
+      }
+    ]
+  },
+  "corpus/v1/lvl_053.json": {
+    "D_panel_clear": 0.8333333333333334,
+    "D_panel_progress": 0.7269383591065293,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 0.5,
+        "progress": 0.5269007731958762
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 0.0,
+        "progress": 0.13671875
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 0.0,
+        "progress": 0.15556539948453607
+      }
+    ]
+  },
+  "corpus/v1/lvl_054.json": {
+    "D_panel_clear": 0.5,
+    "D_panel_progress": 0.3063520189003436,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 0.5,
+        "progress": 0.7269249355670103
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 0.0,
+        "progress": 0.3591736469072165
+      }
+    ]
+  },
+  "corpus/v1/lvl_055.json": {
+    "D_panel_clear": 0.9166666666666666,
+    "D_panel_progress": 0.781115764604811,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 0.0,
+        "progress": 0.1301546391752577
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 0.25,
+        "progress": 0.34274323453608246
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 0.0,
+        "progress": 0.1837548324742268
+      }
+    ]
+  },
+  "corpus/v1/lvl_056.json": {
+    "D_panel_clear": 0.8333333333333334,
+    "D_panel_progress": 0.5109401847079038,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 0.5,
+        "progress": 0.7010309278350515
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 0.0,
+        "progress": 0.4552996134020618
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 0.0,
+        "progress": 0.3108489046391753
+      }
+    ]
+  },
+  "corpus/v1/lvl_057.json": {
+    "D_panel_clear": 0.33333333333333337,
+    "D_panel_progress": 0.2754913015463917,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 0.0,
+        "progress": 0.18383537371134023
+      }
+    ]
+  },
+  "corpus/v1/lvl_058.json": {
+    "D_panel_clear": 0.8333333333333334,
+    "D_panel_progress": 0.5021746134020619,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 0.0,
+        "progress": 0.6153350515463918
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 0.5,
+        "progress": 0.6279397551546392
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 0.0,
+        "progress": 0.25020135309278346
+      }
+    ]
+  },
+  "corpus/v1/lvl_059.json": {
+    "D_panel_clear": 0.5833333333333333,
+    "D_panel_progress": 0.33652813573883156,
+    "agents": [
+      {
+        "model": "plan_h8",
+        "n": 4,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423
+      },
+      {
+        "model": "plan_h4",
+        "n": 4,
+        "clear_rate": 0.25,
+        "progress": 0.5681378865979382
+      },
+      {
+        "model": "plan_h2",
+        "n": 4,
+        "clear_rate": 0.0,
+        "progress": 0.4274323453608247
+      }
+    ]
+  }
+}
