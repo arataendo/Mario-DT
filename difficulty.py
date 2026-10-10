@@ -173,7 +173,10 @@ class EnvPool:
 
 class DTDifficultyEvaluator:
     def __init__(self, model_path, device=None, workers=0, max_steps=500,
-                 sample=True, temperature=1.0, batch_size=256):
+                 sample=True, temperature=1.0, batch_size=256, temp_map=None):
+        """temp_map = {target: 温度} を渡すと、その target だけ温度を変える（それ以外は temperature）。
+        温度を下げると腕前が上がるが、argmax（温度 0 相当）まで下げると target による違いが消える。
+        高い target だけ下げて、上限を上げつつ条件付けを保てるかを確かめるために使う"""
         # 環境用のプロセスは、モデルを GPU に載せる「前」に fork しておく。
         # CUDA を初期化した後に fork すると、子プロセスが固まることがあるため。
         self.pool = EnvPool(workers)
@@ -183,6 +186,7 @@ class DTDifficultyEvaluator:
         self.max_steps = max_steps
         self.sample = sample
         self.temperature = temperature
+        self.temp_map = {float(k): float(v) for k, v in (temp_map or {}).items()}
         self.batch_size = batch_size
         with torch.no_grad():
             # 推論ループ (infer_dt.py) は足りない過去をゼロ画像で埋めるので、その埋め込みを用意しておく
@@ -202,6 +206,8 @@ class DTDifficultyEvaluator:
         act = torch.zeros(B, T, dtype=torch.long, device=dev)
         rtg = torch.zeros(B, T, device=dev)
         cur_rtg = np.array([float(j["target"]) for j in jobs])
+        temps = torch.tensor([self.temp_map.get(float(j["target"]), self.temperature) for j in jobs],
+                             dtype=torch.float32, device=dev)
         rngs = [np.random.default_rng(j["sample_seed"]) for j in jobs]
         guards = [StallGuard() for _ in jobs]
         mario_x = np.zeros(B, dtype=np.int64)
@@ -254,7 +260,7 @@ class DTDifficultyEvaluator:
 
                 # 3) 行動を決める（サンプリングはエピソードごとの乱数で行い、バッチの組み方に依存させない）
                 if self.sample:
-                    probs = torch.softmax(logits / self.temperature, dim=-1).double().cpu().numpy()
+                    probs = torch.softmax(logits / temps[idx_t].unsqueeze(1), dim=-1).double().cpu().numpy()
                     cdf = np.cumsum(probs, axis=1)
                     chosen = [int(min(np.searchsorted(cdf[n], rngs[i].random() * cdf[n, -1]),
                                       cdf.shape[1] - 1)) for n, i in enumerate(idx)]
@@ -339,12 +345,17 @@ def main():
     ap.add_argument("--max-steps", type=int, default=500)
     ap.add_argument("--seed", type=int, default=0)
     ap.add_argument("--argmax", action="store_true", help="サンプリングせず argmax で行動する")
+    ap.add_argument("--temperature", type=float, default=1.0, help="サンプリングの温度（全 target 共通）")
+    ap.add_argument("--temp-map", default="",
+                    help="target ごとの温度。例: 180:0.7,235:0.7（書いていない target は --temperature）")
     ap.add_argument("--device", default=None)
     ap.add_argument("--output", default=None, help="結果 JSON の保存先")
     args = ap.parse_args()
 
+    temp_map = dict(kv.split(":") for kv in args.temp_map.split(",") if kv.strip())
     ev = DTDifficultyEvaluator(args.model, device=args.device, workers=args.workers,
                                max_steps=args.max_steps, sample=not args.argmax,
+                               temperature=args.temperature, temp_map=temp_map,
                                batch_size=args.batch_size)
     levels = read_levels(args.levels, args.levels_from)
     targets = [float(t) for t in args.targets.split(",")]
