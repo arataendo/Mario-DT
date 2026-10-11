@@ -279,7 +279,7 @@ def train(args):
         print(f"   run_name={run_name}, epoch {start_epoch} から再開")
     else:
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-        run_name = f"mario_dt_{timestamp}"
+        run_name = args.run_name or f"mario_dt_{timestamp}"
 
     model.train()
     for epoch in range(start_epoch, start_epoch + args.epochs):
@@ -346,6 +346,9 @@ def main():
     parser.add_argument("--resume-from", type=str, default=None,
                          help="このチェックポイント(.pth)からモデル/optimizer状態を読み込み、"
                               "ファイル名の epoch 番号から続けて学習する")
+    parser.add_argument("--run-name", type=str, default=None,
+                         help="保存名 (models/<run-name>_epochN.pth)。省略時は mario_dt_<日時>。"
+                              "固定しておくと、止まったときに最後のエポックから再開しやすい")
     args = parser.parse_args()
     train(args)
 

@@ -78,7 +78,7 @@ def section_levels(runs):
     print("  テストの易・中・難の D_progress が、この順に大きくなっていれば物差しとして使える")
 
 
-def section_corpus(runs, manifest, panels):
+def section_corpus(runs, manifest, panels, same_model=False):
     print("\n" + "=" * 84)
     print("[B] 評価コーパス 60 ステージ")
     print("=" * 84)
@@ -95,7 +95,7 @@ def section_corpus(runs, manifest, panels):
         print(f"    {label:14s} " + " ".join(f"{v * 100:9.0f}%" for v in vals))
 
     base_name, base = runs[0]
-    for name, res in runs[1:]:
+    for name, res in (runs[1:] if same_model else []):
         same = diff = 0
         for p in paths:
             for c0, c1 in zip(base[p]["curve"], res[p]["curve"]):
@@ -130,13 +130,15 @@ def main():
     ap.add_argument("--panels", nargs="*", default=["PPO=validity_out/v1/panel.json",
                                                     "ルール=validity_out/v1/rule_panel.json",
                                                     "プランナー=validity_out/v1/planner_panel.json"])
+    ap.add_argument("--same-model", action="store_true",
+                    help="同じモデルで温度だけ変えた比較。温度を変えていない target の結果が一致するかを確かめる")
     a = ap.parse_args()
     lv = pairs(a.levels)
     if lv:
         section_levels(lv)
     cp = pairs(a.corpus)
     if len(cp) >= 1:
-        section_corpus(cp, load(a.manifest), pairs(a.panels))
+        section_corpus(cp, load(a.manifest), pairs(a.panels), a.same_model)
 
 
 if __name__ == "__main__":

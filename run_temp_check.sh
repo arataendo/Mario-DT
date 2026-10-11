@@ -52,7 +52,7 @@ for k in hi07 hi05; do
 done
 
 echo "======== 分析 ========"
-python analyze_temperature.py \
+python analyze_temperature.py --same-model \
   --levels T1.0="$OUT/levels_t10.json" hi0.7="$OUT/levels_hi07.json" hi0.5="$OUT/levels_hi05.json" \
   --corpus T1.0=validity_out/v1/dt.json hi0.7="$OUT/corpus_hi07.json" hi0.5="$OUT/corpus_hi05.json" \
   | tee "$OUT/report.txt"
