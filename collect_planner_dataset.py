@@ -42,13 +42,13 @@ def run_episode(job):
     from PIL import Image
     from classes.MarioGymEnv import MarioEnv
     from classes.wrappers import SkipFrame, MarioImageWrapper
-    from planner_agent import PRESETS, PlannerAgent, N_ACTIONS
+    from planner_agent import PRESETS, TEACHER_PRESETS, PlannerAgent, N_ACTIONS
 
     # DT の推論・評価（difficulty.py, infer_dt.py）と同じ観測の作り方
     env = MarioImageWrapper(SkipFrame(MarioEnv(level=job["level"], render_mode=None,
                                                max_episode_steps=job["max_steps"] * SKIP), skip=SKIP))
     obs, info = env.reset(seed=job["env_seed"])
-    agent = PlannerAgent(**PRESETS[job["agent_name"]], seed=job["sample_seed"])
+    agent = PlannerAgent(**{**PRESETS, **TEACHER_PRESETS}[job["agent_name"]], seed=job["sample_seed"])
     rng = np.random.default_rng(job["sample_seed"] + 1)
 
     frame_dir = job["frame_dir"]

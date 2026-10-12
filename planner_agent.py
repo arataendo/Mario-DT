@@ -50,6 +50,16 @@ PRESETS = {
     "plan_h2": dict(horizon=2, noise=0.30),
 }
 
+# DT の教師用（collect_planner_dataset.py）。審判のパネルには入れない（planner_panel.py の既定に混ざらないよう別にする）。
+# plan_h8 は同点なら候補の先頭（走るだけ）を選ぶので、障害物の直前の一瞬にしか跳ばない（ε=0 で跳ぶのは 3%）。
+# 画面から真似する DT にはこの正確なタイミングが学べず、跳ばずに最初の障害物で死んだ（planner_out/diagnose.txt）。
+# 教師用は「跳ぶ方が最良と同点（tol=0）なら、走りながら跳ぶ」にして、PPO（87% が走りながら跳ぶ）に近い、
+# タイミングに頼らない真似しやすいスタイルにする。生成した6ステージで、跳ぶ割合 3% → 95%、
+# クリア 6/6 → 5/6（落としたのは最も難しいステージ）。tol=8 でもほぼ同じだったので、判断を変えない tol=0 にした
+TEACHER_PRESETS = {
+    "teach_h8": dict(horizon=8, noise=0.00, prefer=RIGHT_DASH_JUMP, tol=0),
+}
+
 
 def _sim_step(sim, action):
     """複製した環境を1手（4フレーム）進める。(死んだか, ゴールしたか) を返す"""
@@ -62,8 +72,9 @@ def _sim_step(sim, action):
 
 class PlannerAgent:
     def __init__(self, horizon=8, noise=0.0, candidates=CANDIDATES,
-                 continuations=(RIGHT_DASH, RIGHT_DASH_JUMP), seed=0):
+                 continuations=(RIGHT_DASH, RIGHT_DASH_JUMP), seed=0, prefer=None, tol=0.0):
         self.horizon, self.noise = horizon, noise
+        self.prefer, self.tol = prefer, tol
         self.candidates, self.continuations = candidates, continuations
         self.rng = np.random.default_rng(seed)
 
@@ -90,6 +101,10 @@ class PlannerAgent:
             return int(self.rng.integers(N_ACTIONS))  # 操作ミス
         game = env.unwrapped
         scores = [self._score(game, a) for a in self.candidates]
+        if self.prefer is not None and self.prefer in self.candidates:
+            # 好みの行動が最良から tol 以内なら、それを選ぶ（死ぬ・ゴールの点数は桁が違うので tol では覆らない）
+            if scores[self.candidates.index(self.prefer)] >= max(scores) - self.tol:
+                return int(self.prefer)
         return int(self.candidates[int(np.argmax(scores))])   # 同点なら候補の先頭（走る）を優先
 
 
@@ -100,7 +115,7 @@ def run_episode(job):
     env = SkipFrame(MarioEnv(level=job["level"], render_mode=None,
                              max_episode_steps=job["max_steps"] * SKIP), skip=SKIP)
     env.reset(seed=job["env_seed"])
-    agent = PlannerAgent(**PRESETS[job["agent_name"]], seed=job["sample_seed"])
+    agent = PlannerAgent(**{**PRESETS, **TEACHER_PRESETS}[job["agent_name"]], seed=job["sample_seed"])
     total, steps, reason, info = 0.0, 0, "timeout", {}
     for t in range(job["max_steps"]):
         _, reward, term, trunc, info = env.step(agent.act(env))
