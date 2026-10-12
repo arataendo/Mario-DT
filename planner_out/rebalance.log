@@ -1,0 +1,60 @@
+======================================================================
+変更前: dt_dataset_planner/metadata.pkl (1200 エピソード)
+======================================================================
+  return: min=-72.7 中央=280.0 max=292.0 平均=180.2
+  非クリア最大=292.0 / クリア最小=232.3 → ギャップ=-59.7
+    [ -75, -50):    1 (  0.1%)   ← 空白
+    [ -50, -25):    1 (  0.1%)   ← 空白
+    [ -25,   0):  167 ( 13.9%) ########
+    [   0,  25):  103 (  8.6%) #####
+    [  25,  50):   73 (  6.1%) ###
+    [  50,  75):   62 (  5.2%) ###
+    [  75, 100):   33 (  2.8%) #
+    [ 100, 125):   18 (  1.5%) 
+    [ 125, 150):   11 (  0.9%)   ← 空白
+    [ 150, 175):    2 (  0.2%)   ← 空白
+    [ 175, 200):    0 (  0.0%)   ← 空白
+    [ 200, 225):    1 (  0.1%)   ← 空白
+    [ 225, 250):   14 (  1.2%) 
+    [ 250, 275):   38 (  3.2%) #
+    [ 275, 300):  676 ( 56.3%) #################################
+
+⚠️  クリア群より高収益な非クリアエピソードを 17 本除外しました
+     level=corpus/train_gen/lvl_025.json reason=game_over  steps= 542 return=  158.8 progress= 91.8%
+     level=corpus/train_gen/lvl_039.json reason=game_over  steps= 397 return=  166.1 progress= 91.5%
+     level=corpus/train_gen/lvl_047.json reason=game_over  steps= 383 return=  167.2 progress= 92.3%
+     level=corpus/train_gen/lvl_088.json reason=game_over  steps= 317 return=  158.0 progress= 87.5%
+     level=corpus/train_gen/lvl_104.json reason=game_over  steps= 368 return=  169.0 progress= 90.3%
+     level=corpus/train_gen/lvl_105.json reason=game_over  steps= 402 return=  172.9 progress= 95.3%
+     level=corpus/train_gen/lvl_115.json reason=game_over  steps= 409 return=  169.1 progress= 92.3%
+     level=corpus/train_gen/lvl_131.json reason=game_over  steps= 381 return=  158.8 progress= 88.7%
+     level=corpus/train_gen/lvl_139.json reason=timeout    steps=2000 return=  252.0 progress= 29.9%
+     level=corpus/train_gen/lvl_139.json reason=game_over  steps=1333 return=  179.9 progress= 51.4%
+     level=corpus/train_gen/lvl_153.json reason=game_over  steps= 525 return=  163.1 progress= 89.2%
+     level=corpus/train_gen/lvl_166.json reason=timeout    steps=2000 return=  221.7 progress= 87.5%
+     level=corpus/train_gen/lvl_174.json reason=timeout    steps=2000 return=  260.5 progress= 35.1%
+     level=corpus/train_gen/lvl_178.json reason=game_over  steps= 371 return=  164.0 progress= 90.1%
+     level=corpus/train_gen/lvl_181.json reason=game_over  steps= 562 return=  162.8 progress= 87.5%
+     level=corpus/train_gen/lvl_195.json reason=game_over  steps= 404 return=  181.1 progress= 98.3%
+     level=corpus/train_gen/lvl_199.json reason=timeout    steps=2000 return=  292.0 progress= 57.7%
+
+======================================================================
+変更後: clear_bonus=25.0 death_penalty=0.0
+======================================================================
+  return: min=-72.7 中央=205.3 max=212.2 平均=143.7
+  非クリア最大=146.1 / クリア最小=157.3 → ギャップ=11.2
+    [ -75, -50):    1 (  0.1%)   ← 空白
+    [ -50, -25):    0 (  0.0%)   ← 空白
+    [ -25,   0):    9 (  0.8%)   ← 空白
+    [   0,  25):  160 ( 13.5%) ########
+    [  25,  50):  107 (  9.0%) #####
+    [  50,  75):   68 (  5.7%) ###
+    [  75, 100):   62 (  5.2%) ###
+    [ 100, 125):   35 (  3.0%) #
+    [ 125, 150):   16 (  1.4%) 
+    [ 150, 175):   14 (  1.2%) 
+    [ 175, 200):   36 (  3.0%) #
+    [ 200, 225):  675 ( 57.1%) ##################################
+
+💾 保存しました: dt_dataset_planner/metadata_rebalanced.pkl (1183 エピソード)
+   ※ フレーム画像は元のまま共有しているので再収集は不要です
