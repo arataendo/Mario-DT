@@ -42,7 +42,8 @@ def load_model(model_path, device):
 
 
 def run_episode(model, rtg_min, rtg_max, context_len, level, target_return,
-                 max_steps, device, render, sample=False, temperature=1.0, seed=None):
+                 max_steps, device, render, sample=False, temperature=1.0, seed=None, action_log=None):
+    # action_log にリストを渡すと、実際に取った行動を順に追記する（診断用）
     # MarioEnv の max_episode_steps は生フレーム単位。SkipFrame(skip=4) を通すと
     # 1マクロステップ=4フレームになるため、意図したマクロステップ数になるよう skip 倍する。
     skip = 4
@@ -117,6 +118,8 @@ def run_episode(model, rtg_min, rtg_max, context_len, level, target_return,
         # 障害物前でargmaxが固着する自己ループを防ぐ安全弁（infer_ppo.py と同じ仕組み）
         action = guard.choose(action, mario_x)
         actions[-1] = action  # 予測した行動で置き換え
+        if action_log is not None:
+            action_log.append(action)
 
         obs, reward, terminated, truncated, info = env.step(action)
         mario_x = info.get("mario_x", mario_x)
