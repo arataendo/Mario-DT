@@ -1,0 +1,205 @@
+Using device: cuda
+Loading metadata from dt_dataset_teach/metadata_rebalanced.pkl...
+Dataset Loaded: 1140 episodes. RTG range: -79.40 to 282.60
+[transformers] Model config: bos_token_id must be `None` or an integer within the vocabulary (between 0 and 0), got 50256. This may result in unexpected behavior.
+[transformers] Model config: eos_token_id must be `None` or an integer within the vocabulary (between 0 and 0), got 50256. This may result in unexpected behavior.
+Epoch 1/20 | Step 0 | Loss: 2.4817
+Epoch 1/20 | Step 100 | Loss: 1.0875
+Epoch 1/20 | Step 200 | Loss: 1.0540
+Epoch 1/20 | Step 300 | Loss: 0.9469
+Epoch 1/20 | Step 400 | Loss: 1.1903
+Epoch 1/20 | Step 500 | Loss: 1.0322
+Epoch 1/20 | Step 600 | Loss: 1.1016
+Epoch 1/20 | Step 700 | Loss: 1.0684
+=== Epoch 1 Complete | Average Loss: 0.8326 ===
+💾 保存: ./models/mario_dt_teach_epoch1.pth
+Epoch 2/20 | Step 0 | Loss: 1.0236
+Epoch 2/20 | Step 100 | Loss: 1.1681
+Epoch 2/20 | Step 200 | Loss: 0.8584
+Epoch 2/20 | Step 300 | Loss: 0.8910
+Epoch 2/20 | Step 400 | Loss: 0.8064
+Epoch 2/20 | Step 500 | Loss: 1.0802
+Epoch 2/20 | Step 600 | Loss: 1.0931
+Epoch 2/20 | Step 700 | Loss: 1.1741
+=== Epoch 2 Complete | Average Loss: 0.7875 ===
+💾 保存: ./models/mario_dt_teach_epoch2.pth
+Epoch 3/20 | Step 0 | Loss: 1.1276
+Epoch 3/20 | Step 100 | Loss: 0.9872
+Epoch 3/20 | Step 200 | Loss: 1.0671
+Epoch 3/20 | Step 300 | Loss: 1.0261
+Epoch 3/20 | Step 400 | Loss: 0.9032
+Epoch 3/20 | Step 500 | Loss: 0.9805
+Epoch 3/20 | Step 600 | Loss: 0.8772
+Epoch 3/20 | Step 700 | Loss: 0.9930
+=== Epoch 3 Complete | Average Loss: 0.7842 ===
+💾 保存: ./models/mario_dt_teach_epoch3.pth
+Epoch 4/20 | Step 0 | Loss: 1.1815
+Epoch 4/20 | Step 100 | Loss: 0.7384
+Epoch 4/20 | Step 200 | Loss: 0.9776
+Epoch 4/20 | Step 300 | Loss: 0.8552
+Epoch 4/20 | Step 400 | Loss: 1.3048
+Epoch 4/20 | Step 500 | Loss: 0.9763
+Epoch 4/20 | Step 600 | Loss: 1.1926
+Epoch 4/20 | Step 700 | Loss: 0.7992
+=== Epoch 4 Complete | Average Loss: 0.7754 ===
+💾 保存: ./models/mario_dt_teach_epoch4.pth
+Epoch 5/20 | Step 0 | Loss: 1.0147
+Epoch 5/20 | Step 100 | Loss: 0.8872
+Epoch 5/20 | Step 200 | Loss: 0.7523
+Epoch 5/20 | Step 300 | Loss: 0.9499
+Epoch 5/20 | Step 400 | Loss: 1.1135
+Epoch 5/20 | Step 500 | Loss: 1.0431
+Epoch 5/20 | Step 600 | Loss: 0.9133
+Epoch 5/20 | Step 700 | Loss: 1.1958
+=== Epoch 5 Complete | Average Loss: 0.7764 ===
+💾 保存: ./models/mario_dt_teach_epoch5.pth
+Epoch 6/20 | Step 0 | Loss: 0.7584
+Epoch 6/20 | Step 100 | Loss: 1.0405
+Epoch 6/20 | Step 200 | Loss: 0.9856
+Epoch 6/20 | Step 300 | Loss: 1.0405
+Epoch 6/20 | Step 400 | Loss: 1.1284
+Epoch 6/20 | Step 500 | Loss: 0.9349
+Epoch 6/20 | Step 600 | Loss: 0.9677
+Epoch 6/20 | Step 700 | Loss: 1.0558
+=== Epoch 6 Complete | Average Loss: 0.7714 ===
+💾 保存: ./models/mario_dt_teach_epoch6.pth
+Epoch 7/20 | Step 0 | Loss: 0.9046
+Epoch 7/20 | Step 100 | Loss: 0.8131
+Epoch 7/20 | Step 200 | Loss: 0.9469
+Epoch 7/20 | Step 300 | Loss: 0.9225
+Epoch 7/20 | Step 400 | Loss: 0.9635
+Epoch 7/20 | Step 500 | Loss: 0.8095
+Epoch 7/20 | Step 600 | Loss: 1.1211
+Epoch 7/20 | Step 700 | Loss: 1.0577
+=== Epoch 7 Complete | Average Loss: 0.7755 ===
+💾 保存: ./models/mario_dt_teach_epoch7.pth
+Epoch 8/20 | Step 0 | Loss: 0.9997
+Epoch 8/20 | Step 100 | Loss: 1.0134
+Epoch 8/20 | Step 200 | Loss: 1.0615
+Epoch 8/20 | Step 300 | Loss: 0.8673
+Epoch 8/20 | Step 400 | Loss: 1.0802
+Epoch 8/20 | Step 500 | Loss: 1.0401
+Epoch 8/20 | Step 600 | Loss: 0.9163
+Epoch 8/20 | Step 700 | Loss: 0.9970
+=== Epoch 8 Complete | Average Loss: 0.7729 ===
+💾 保存: ./models/mario_dt_teach_epoch8.pth
+Epoch 9/20 | Step 0 | Loss: 1.1080
+Epoch 9/20 | Step 100 | Loss: 0.9431
+Epoch 9/20 | Step 200 | Loss: 0.9438
+Epoch 9/20 | Step 300 | Loss: 1.0367
+Epoch 9/20 | Step 400 | Loss: 1.1141
+Epoch 9/20 | Step 500 | Loss: 0.8573
+Epoch 9/20 | Step 600 | Loss: 0.9913
+Epoch 9/20 | Step 700 | Loss: 1.0241
+=== Epoch 9 Complete | Average Loss: 0.7697 ===
+💾 保存: ./models/mario_dt_teach_epoch9.pth
+Epoch 10/20 | Step 0 | Loss: 0.9979
+Epoch 10/20 | Step 100 | Loss: 1.0790
+Epoch 10/20 | Step 200 | Loss: 1.0521
+Epoch 10/20 | Step 300 | Loss: 1.1413
+Epoch 10/20 | Step 400 | Loss: 0.9857
+Epoch 10/20 | Step 500 | Loss: 0.9507
+Epoch 10/20 | Step 600 | Loss: 0.9439
+Epoch 10/20 | Step 700 | Loss: 0.9531
+=== Epoch 10 Complete | Average Loss: 0.7666 ===
+💾 保存: ./models/mario_dt_teach_epoch10.pth
+Epoch 11/20 | Step 0 | Loss: 1.0664
+Epoch 11/20 | Step 100 | Loss: 0.9872
+Epoch 11/20 | Step 200 | Loss: 0.8266
+Epoch 11/20 | Step 300 | Loss: 0.8107
+Epoch 11/20 | Step 400 | Loss: 0.9332
+Epoch 11/20 | Step 500 | Loss: 0.9599
+Epoch 11/20 | Step 600 | Loss: 1.1077
+Epoch 11/20 | Step 700 | Loss: 0.8889
+=== Epoch 11 Complete | Average Loss: 0.7605 ===
+💾 保存: ./models/mario_dt_teach_epoch11.pth
+Epoch 12/20 | Step 0 | Loss: 0.9655
+Epoch 12/20 | Step 100 | Loss: 0.8392
+Epoch 12/20 | Step 200 | Loss: 1.1825
+Epoch 12/20 | Step 300 | Loss: 1.1251
+Epoch 12/20 | Step 400 | Loss: 1.0390
+Epoch 12/20 | Step 500 | Loss: 1.1470
+Epoch 12/20 | Step 600 | Loss: 1.0035
+Epoch 12/20 | Step 700 | Loss: 1.0686
+=== Epoch 12 Complete | Average Loss: 0.7679 ===
+💾 保存: ./models/mario_dt_teach_epoch12.pth
+Epoch 13/20 | Step 0 | Loss: 1.0038
+Epoch 13/20 | Step 100 | Loss: 0.9211
+Epoch 13/20 | Step 200 | Loss: 1.1194
+Epoch 13/20 | Step 300 | Loss: 1.0122
+Epoch 13/20 | Step 400 | Loss: 1.1725
+Epoch 13/20 | Step 500 | Loss: 1.0029
+Epoch 13/20 | Step 600 | Loss: 0.9823
+Epoch 13/20 | Step 700 | Loss: 0.9375
+=== Epoch 13 Complete | Average Loss: 0.7685 ===
+💾 保存: ./models/mario_dt_teach_epoch13.pth
+Epoch 14/20 | Step 0 | Loss: 0.9815
+Epoch 14/20 | Step 100 | Loss: 0.9344
+Epoch 14/20 | Step 200 | Loss: 0.8998
+Epoch 14/20 | Step 300 | Loss: 1.1096
+Epoch 14/20 | Step 400 | Loss: 0.6853
+Epoch 14/20 | Step 500 | Loss: 1.0338
+Epoch 14/20 | Step 600 | Loss: 0.9635
+Epoch 14/20 | Step 700 | Loss: 1.0608
+=== Epoch 14 Complete | Average Loss: 0.7580 ===
+💾 保存: ./models/mario_dt_teach_epoch14.pth
+Epoch 15/20 | Step 0 | Loss: 1.0914
+Epoch 15/20 | Step 100 | Loss: 0.9276
+Epoch 15/20 | Step 200 | Loss: 0.9128
+Epoch 15/20 | Step 300 | Loss: 0.8240
+Epoch 15/20 | Step 400 | Loss: 1.0598
+Epoch 15/20 | Step 500 | Loss: 0.9170
+Epoch 15/20 | Step 600 | Loss: 1.1469
+Epoch 15/20 | Step 700 | Loss: 0.8990
+=== Epoch 15 Complete | Average Loss: 0.7508 ===
+💾 保存: ./models/mario_dt_teach_epoch15.pth
+Epoch 16/20 | Step 0 | Loss: 0.8584
+Epoch 16/20 | Step 100 | Loss: 0.8004
+Epoch 16/20 | Step 200 | Loss: 1.1466
+Epoch 16/20 | Step 300 | Loss: 1.1105
+Epoch 16/20 | Step 400 | Loss: 0.7616
+Epoch 16/20 | Step 500 | Loss: 1.1643
+Epoch 16/20 | Step 600 | Loss: 1.0152
+Epoch 16/20 | Step 700 | Loss: 0.8513
+=== Epoch 16 Complete | Average Loss: 0.7554 ===
+💾 保存: ./models/mario_dt_teach_epoch16.pth
+Epoch 17/20 | Step 0 | Loss: 0.9891
+Epoch 17/20 | Step 100 | Loss: 1.0965
+Epoch 17/20 | Step 200 | Loss: 1.0027
+Epoch 17/20 | Step 300 | Loss: 0.9316
+Epoch 17/20 | Step 400 | Loss: 0.7981
+Epoch 17/20 | Step 500 | Loss: 1.0666
+Epoch 17/20 | Step 600 | Loss: 0.9167
+Epoch 17/20 | Step 700 | Loss: 1.0660
+=== Epoch 17 Complete | Average Loss: 0.7552 ===
+💾 保存: ./models/mario_dt_teach_epoch17.pth
+Epoch 18/20 | Step 0 | Loss: 0.9334
+Epoch 18/20 | Step 100 | Loss: 0.8892
+Epoch 18/20 | Step 200 | Loss: 0.9533
+Epoch 18/20 | Step 300 | Loss: 1.1186
+Epoch 18/20 | Step 400 | Loss: 0.9213
+Epoch 18/20 | Step 500 | Loss: 0.9768
+Epoch 18/20 | Step 600 | Loss: 0.8968
+Epoch 18/20 | Step 700 | Loss: 0.9321
+=== Epoch 18 Complete | Average Loss: 0.7492 ===
+💾 保存: ./models/mario_dt_teach_epoch18.pth
+Epoch 19/20 | Step 0 | Loss: 0.8328
+Epoch 19/20 | Step 100 | Loss: 1.0475
+Epoch 19/20 | Step 200 | Loss: 0.9801
+Epoch 19/20 | Step 300 | Loss: 1.0730
+Epoch 19/20 | Step 400 | Loss: 0.9783
+Epoch 19/20 | Step 500 | Loss: 1.1002
+Epoch 19/20 | Step 600 | Loss: 1.1459
+Epoch 19/20 | Step 700 | Loss: 0.9598
+=== Epoch 19 Complete | Average Loss: 0.7440 ===
+💾 保存: ./models/mario_dt_teach_epoch19.pth
+Epoch 20/20 | Step 0 | Loss: 1.0127
+Epoch 20/20 | Step 100 | Loss: 1.0254
+Epoch 20/20 | Step 200 | Loss: 1.0810
+Epoch 20/20 | Step 300 | Loss: 1.0663
+Epoch 20/20 | Step 400 | Loss: 0.8275
+Epoch 20/20 | Step 500 | Loss: 0.9743
+Epoch 20/20 | Step 600 | Loss: 0.8636
+Epoch 20/20 | Step 700 | Loss: 0.8683
+=== Epoch 20 Complete | Average Loss: 0.7438 ===
+💾 保存: ./models/mario_dt_teach_epoch20.pth

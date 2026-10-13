@@ -1,0 +1,548 @@
+{
+  "Level_easy_01": {
+    "D_clear": 0.48,
+    "D_progress": 0.2188563144329898,
+    "ceiling": 0.9,
+    "curve": [
+      {
+        "target": 0.0,
+        "n": 20,
+        "clear_rate": 0.0,
+        "progress": 0.33074259020618557,
+        "total_reward": 43.878062500000105
+      },
+      {
+        "target": 60.0,
+        "n": 20,
+        "clear_rate": 0.1,
+        "progress": 0.7475515463917526,
+        "total_reward": 135.22799999999955
+      },
+      {
+        "target": 120.0,
+        "n": 20,
+        "clear_rate": 0.7,
+        "progress": 0.9126771907216493,
+        "total_reward": 230.78187500000027
+      },
+      {
+        "target": 180.0,
+        "n": 20,
+        "clear_rate": 0.9,
+        "progress": 0.9546552835051543,
+        "total_reward": 260.9406250000001
+      },
+      {
+        "target": 235.0,
+        "n": 20,
+        "clear_rate": 0.9,
+        "progress": 0.9600918170103092,
+        "total_reward": 262.5673125
+      }
+    ]
+  },
+  "Level_medium_01": {
+    "D_clear": 0.62,
+    "D_progress": 0.33433634020618563,
+    "ceiling": 0.45,
+    "curve": [
+      {
+        "target": 0.0,
+        "n": 20,
+        "clear_rate": 0.0,
+        "progress": 0.24776900773195876,
+        "total_reward": 24.716687500000152
+      },
+      {
+        "target": 60.0,
+        "n": 20,
+        "clear_rate": 0.2,
+        "progress": 0.6736630154639177,
+        "total_reward": 129.27612499999972
+      },
+      {
+        "target": 120.0,
+        "n": 20,
+        "clear_rate": 0.6,
+        "progress": 0.826183956185567,
+        "total_reward": 202.30018750000002
+      },
+      {
+        "target": 180.0,
+        "n": 20,
+        "clear_rate": 0.65,
+        "progress": 0.8403672680412371,
+        "total_reward": 211.22625
+      },
+      {
+        "target": 235.0,
+        "n": 20,
+        "clear_rate": 0.45,
+        "progress": 0.7403350515463918,
+        "total_reward": 169.47100000000006
+      }
+    ]
+  },
+  "Level_hard_01": {
+    "D_clear": 0.92,
+    "D_progress": 0.6105009664948453,
+    "ceiling": 0.2,
+    "curve": [
+      {
+        "target": 0.0,
+        "n": 20,
+        "clear_rate": 0.0,
+        "progress": 0.20471971649484538,
+        "total_reward": 13.404125000000136
+      },
+      {
+        "target": 60.0,
+        "n": 20,
+        "clear_rate": 0.0,
+        "progress": 0.39442654639175256,
+        "total_reward": 51.5582499999997
+      },
+      {
+        "target": 120.0,
+        "n": 20,
+        "clear_rate": 0.2,
+        "progress": 0.5020699097938144,
+        "total_reward": 96.23806250000015
+      },
+      {
+        "target": 180.0,
+        "n": 20,
+        "clear_rate": 0.0,
+        "progress": 0.3496617268041238,
+        "total_reward": 42.981375
+      },
+      {
+        "target": 235.0,
+        "n": 20,
+        "clear_rate": 0.2,
+        "progress": 0.4966172680412371,
+        "total_reward": 97.77875000000014
+      }
+    ]
+  },
+  "Level_hard_02": {
+    "D_clear": 1.0,
+    "D_progress": 0.6741124355670103,
+    "ceiling": 0.0,
+    "curve": [
+      {
+        "target": 0.0,
+        "n": 20,
+        "clear_rate": 0.0,
+        "progress": 0.18294136597938143,
+        "total_reward": 6.6386250000001095
+      },
+      {
+        "target": 60.0,
+        "n": 20,
+        "clear_rate": 0.0,
+        "progress": 0.29793009020618555,
+        "total_reward": 30.874437499999907
+      },
+      {
+        "target": 120.0,
+        "n": 20,
+        "clear_rate": 0.0,
+        "progress": 0.410558956185567,
+        "total_reward": 49.64893749999972
+      },
+      {
+        "target": 180.0,
+        "n": 20,
+        "clear_rate": 0.0,
+        "progress": 0.3500563788659794,
+        "total_reward": 39.06543749999985
+      },
+      {
+        "target": 235.0,
+        "n": 20,
+        "clear_rate": 0.0,
+        "progress": 0.387951030927835,
+        "total_reward": 45.92699999999983
+      }
+    ]
+  },
+  "Level_test_easy": {
+    "D_clear": 0.51,
+    "D_progress": 0.23330380154639174,
+    "ceiling": 0.8,
+    "curve": [
+      {
+        "target": 0.0,
+        "n": 20,
+        "clear_rate": 0.0,
+        "progress": 0.29060083762886596,
+        "total_reward": 32.40956250000014
+      },
+      {
+        "target": 60.0,
+        "n": 20,
+        "clear_rate": 0.05,
+        "progress": 0.728100837628866,
+        "total_reward": 123.7925624999998
+      },
+      {
+        "target": 120.0,
+        "n": 20,
+        "clear_rate": 0.65,
+        "progress": 0.9167847938144327,
+        "total_reward": 227.5632500000002
+      },
+      {
+        "target": 180.0,
+        "n": 20,
+        "clear_rate": 0.95,
+        "progress": 0.9665109536082472,
+        "total_reward": 269.77312500000016
+      },
+      {
+        "target": 235.0,
+        "n": 20,
+        "clear_rate": 0.8,
+        "progress": 0.931483569587629,
+        "total_reward": 246.3278125
+      }
+    ]
+  },
+  "Level_test_easy_02": {
+    "D_clear": 0.6699999999999999,
+    "D_progress": 0.31455057989690727,
+    "ceiling": 0.55,
+    "curve": [
+      {
+        "target": 0.0,
+        "n": 20,
+        "clear_rate": 0.0,
+        "progress": 0.2911485180412371,
+        "total_reward": 32.58831250000014
+      },
+      {
+        "target": 60.0,
+        "n": 20,
+        "clear_rate": 0.05,
+        "progress": 0.6628785438144331,
+        "total_reward": 113.96493749999986
+      },
+      {
+        "target": 120.0,
+        "n": 20,
+        "clear_rate": 0.45,
+        "progress": 0.8111388530927834,
+        "total_reward": 183.5404375000002
+      },
+      {
+        "target": 180.0,
+        "n": 20,
+        "clear_rate": 0.6,
+        "progress": 0.826490012886598,
+        "total_reward": 202.34456250000008
+      },
+      {
+        "target": 235.0,
+        "n": 20,
+        "clear_rate": 0.55,
+        "progress": 0.8355911726804124,
+        "total_reward": 198.4851875000001
+      }
+    ]
+  },
+  "Level_test_easy_03": {
+    "D_clear": 0.81,
+    "D_progress": 0.5548050902061855,
+    "ceiling": 0.35,
+    "curve": [
+      {
+        "target": 0.0,
+        "n": 20,
+        "clear_rate": 0.0,
+        "progress": 0.21601965206185567,
+        "total_reward": 17.66931250000014
+      },
+      {
+        "target": 60.0,
+        "n": 20,
+        "clear_rate": 0.0,
+        "progress": 0.4411807345360825,
+        "total_reward": 62.33356249999947
+      },
+      {
+        "target": 120.0,
+        "n": 20,
+        "clear_rate": 0.2,
+        "progress": 0.5117590206185566,
+        "total_reward": 97.09675000000001
+      },
+      {
+        "target": 180.0,
+        "n": 20,
+        "clear_rate": 0.4,
+        "progress": 0.559656894329897,
+        "total_reward": 128.58243750000003
+      },
+      {
+        "target": 235.0,
+        "n": 20,
+        "clear_rate": 0.35,
+        "progress": 0.4973582474226804,
+        "total_reward": 112.49100000000006
+      }
+    ]
+  },
+  "Level_test_medium": {
+    "D_clear": 0.8300000000000001,
+    "D_progress": 0.5614400773195877,
+    "ceiling": 0.15,
+    "curve": [
+      {
+        "target": 0.0,
+        "n": 20,
+        "clear_rate": 0.0,
+        "progress": 0.21213756443298964,
+        "total_reward": 16.321187500000143
+      },
+      {
+        "target": 60.0,
+        "n": 20,
+        "clear_rate": 0.0,
+        "progress": 0.43160438144329893,
+        "total_reward": 57.95574999999999
+      },
+      {
+        "target": 120.0,
+        "n": 20,
+        "clear_rate": 0.25,
+        "progress": 0.5067896262886598,
+        "total_reward": 100.4606874999999
+      },
+      {
+        "target": 180.0,
+        "n": 20,
+        "clear_rate": 0.45,
+        "progress": 0.5761114690721649,
+        "total_reward": 137.53662500000007
+      },
+      {
+        "target": 235.0,
+        "n": 20,
+        "clear_rate": 0.15,
+        "progress": 0.46615657216494844,
+        "total_reward": 80.68987499999984
+      }
+    ]
+  },
+  "Level_test_medium_02": {
+    "D_clear": 0.99,
+    "D_progress": 0.6947261597938144,
+    "ceiling": 0.05,
+    "curve": [
+      {
+        "target": 0.0,
+        "n": 20,
+        "clear_rate": 0.0,
+        "progress": 0.21100193298969075,
+        "total_reward": 13.92037500000016
+      },
+      {
+        "target": 60.0,
+        "n": 20,
+        "clear_rate": 0.0,
+        "progress": 0.3310325386597938,
+        "total_reward": 37.18581249999985
+      },
+      {
+        "target": 120.0,
+        "n": 20,
+        "clear_rate": 0.0,
+        "progress": 0.32057023195876294,
+        "total_reward": 33.75062499999993
+      },
+      {
+        "target": 180.0,
+        "n": 20,
+        "clear_rate": 0.0,
+        "progress": 0.3322648195876289,
+        "total_reward": 36.01087499999993
+      },
+      {
+        "target": 235.0,
+        "n": 20,
+        "clear_rate": 0.05,
+        "progress": 0.3314996778350515,
+        "total_reward": 41.83943749999994
+      }
+    ]
+  },
+  "Level_test_medium_03": {
+    "D_clear": 0.95,
+    "D_progress": 0.49321037371134024,
+    "ceiling": 0.05,
+    "curve": [
+      {
+        "target": 0.0,
+        "n": 20,
+        "clear_rate": 0.0,
+        "progress": 0.21430412371134025,
+        "total_reward": 16.13750000000004
+      },
+      {
+        "target": 60.0,
+        "n": 20,
+        "clear_rate": 0.0,
+        "progress": 0.5388692010309278,
+        "total_reward": 78.80112499999953
+      },
+      {
+        "target": 120.0,
+        "n": 20,
+        "clear_rate": 0.05,
+        "progress": 0.5253704896907216,
+        "total_reward": 77.4268749999999
+      },
+      {
+        "target": 180.0,
+        "n": 20,
+        "clear_rate": 0.15,
+        "progress": 0.6908424613402062,
+        "total_reward": 120.95493749999972
+      },
+      {
+        "target": 235.0,
+        "n": 20,
+        "clear_rate": 0.05,
+        "progress": 0.5645618556701031,
+        "total_reward": 84.90999999999985
+      }
+    ]
+  },
+  "Level_test_hard": {
+    "D_clear": 0.8200000000000001,
+    "D_progress": 0.4902239046391752,
+    "ceiling": 0.25,
+    "curve": [
+      {
+        "target": 0.0,
+        "n": 20,
+        "clear_rate": 0.0,
+        "progress": 0.20135309278350516,
+        "total_reward": 15.654000000000016
+      },
+      {
+        "target": 60.0,
+        "n": 20,
+        "clear_rate": 0.05,
+        "progress": 0.5162773840206186,
+        "total_reward": 90.49381249999922
+      },
+      {
+        "target": 120.0,
+        "n": 20,
+        "clear_rate": 0.2,
+        "progress": 0.59519168814433,
+        "total_reward": 118.61718749999974
+      },
+      {
+        "target": 180.0,
+        "n": 20,
+        "clear_rate": 0.4,
+        "progress": 0.675354381443299,
+        "total_reward": 154.97374999999988
+      },
+      {
+        "target": 235.0,
+        "n": 20,
+        "clear_rate": 0.25,
+        "progress": 0.5607039304123712,
+        "total_reward": 121.5585624999998
+      }
+    ]
+  },
+  "Level_test_hard_02": {
+    "D_clear": 1.0,
+    "D_progress": 0.9295231958762886,
+    "ceiling": 0.0,
+    "curve": [
+      {
+        "target": 0.0,
+        "n": 20,
+        "clear_rate": 0.0,
+        "progress": 0.10182023195876289,
+        "total_reward": -6.657874999999933
+      },
+      {
+        "target": 60.0,
+        "n": 20,
+        "clear_rate": 0.0,
+        "progress": 0.05837628865979381,
+        "total_reward": -14.493500000000003
+      },
+      {
+        "target": 120.0,
+        "n": 20,
+        "clear_rate": 0.0,
+        "progress": 0.057280927835051544,
+        "total_reward": -14.646000000000004
+      },
+      {
+        "target": 180.0,
+        "n": 20,
+        "clear_rate": 0.0,
+        "progress": 0.05331829896907216,
+        "total_reward": -15.376250000000008
+      },
+      {
+        "target": 235.0,
+        "n": 20,
+        "clear_rate": 0.0,
+        "progress": 0.08158827319587628,
+        "total_reward": -10.168875000000018
+      }
+    ]
+  },
+  "Level_test_hard_03": {
+    "D_clear": 1.0,
+    "D_progress": 0.6042847938144329,
+    "ceiling": 0.0,
+    "curve": [
+      {
+        "target": 0.0,
+        "n": 20,
+        "clear_rate": 0.0,
+        "progress": 0.20903672680412372,
+        "total_reward": 16.095125000000067
+      },
+      {
+        "target": 60.0,
+        "n": 20,
+        "clear_rate": 0.0,
+        "progress": 0.49860663659793814,
+        "total_reward": 67.5871874999998
+      },
+      {
+        "target": 120.0,
+        "n": 20,
+        "clear_rate": 0.0,
+        "progress": 0.3725273840206186,
+        "total_reward": 44.21831249999984
+      },
+      {
+        "target": 180.0,
+        "n": 20,
+        "clear_rate": 0.0,
+        "progress": 0.46788820876288656,
+        "total_reward": 62.35531249999976
+      },
+      {
+        "target": 235.0,
+        "n": 20,
+        "clear_rate": 0.0,
+        "progress": 0.4305170747422681,
+        "total_reward": 54.7518124999998
+      }
+    ]
+  }
+}

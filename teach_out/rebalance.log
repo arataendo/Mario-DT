@@ -1,0 +1,109 @@
+======================================================================
+変更前: dt_dataset_teach/metadata.pkl (1200 エピソード)
+======================================================================
+  return: min=-72.7 中央=275.3 max=357.5 平均=176.9
+  非クリア最大=314.5 / クリア最小=221.5 → ギャップ=-93.0
+    [ -75, -50):    3 (  0.2%)   ← 空白
+    [ -50, -25):    4 (  0.3%)   ← 空白
+    [ -25,   0):  145 ( 12.1%) #######
+    [   0,  25):  102 (  8.5%) #####
+    [  25,  50):   78 (  6.5%) ###
+    [  50,  75):   57 (  4.8%) ##
+    [  75, 100):   45 (  3.8%) ##
+    [ 100, 125):   41 (  3.4%) ##
+    [ 125, 150):   26 (  2.2%) #
+    [ 150, 175):   15 (  1.2%) 
+    [ 175, 200):    0 (  0.0%)   ← 空白
+    [ 200, 225):    3 (  0.2%)   ← 空白
+    [ 225, 250):   26 (  2.2%) #
+    [ 250, 275):   52 (  4.3%) ##
+    [ 275, 300):  600 ( 50.0%) ##############################
+    [ 300, 325):    2 (  0.2%)   ← 空白
+    [ 325, 350):    0 (  0.0%)   ← 空白
+    [ 350, 375):    1 (  0.1%)   ← 空白
+
+⚠️  クリア群より高収益な非クリアエピソードを 60 本除外しました
+     level=corpus/train_gen/lvl_028.json reason=game_over  steps= 370 return=  176.3 progress= 95.4%
+     level=corpus/train_gen/lvl_030.json reason=game_over  steps= 369 return=  169.3 progress= 91.3%
+     level=corpus/train_gen/lvl_048.json reason=game_over  steps= 372 return=  170.3 progress= 91.3%
+     level=corpus/train_gen/lvl_066.json reason=game_over  steps= 555 return=  169.2 progress= 94.3%
+     level=corpus/train_gen/lvl_070.json reason=game_over  steps= 355 return=  161.8 progress= 88.1%
+     level=corpus/train_gen/lvl_089.json reason=game_over  steps= 298 return=  181.1 progress= 94.9%
+     level=corpus/train_gen/lvl_089.json reason=game_over  steps= 298 return=  181.1 progress= 94.9%
+     level=corpus/train_gen/lvl_089.json reason=game_over  steps= 298 return=  181.1 progress= 94.9%
+     level=corpus/train_gen/lvl_091.json reason=game_over  steps= 472 return=  146.9 progress= 82.8%
+     level=corpus/train_gen/lvl_098.json reason=game_over  steps= 267 return=  160.9 progress= 84.6%
+     level=corpus/train_gen/lvl_104.json reason=game_over  steps= 369 return=  168.3 progress= 90.2%
+     level=corpus/train_gen/lvl_105.json reason=game_over  steps= 594 return=  166.0 progress= 95.2%
+     level=corpus/train_gen/lvl_107.json reason=game_over  steps= 549 return=  165.8 progress= 94.0%
+     level=corpus/train_gen/lvl_116.json reason=game_over  steps= 318 return=  151.3 progress= 80.9%
+     level=corpus/train_gen/lvl_119.json reason=game_over  steps= 595 return=  170.1 progress= 96.6%
+     level=corpus/train_gen/lvl_125.json reason=game_over  steps= 252 return=  152.9 progress= 80.4%
+     level=corpus/train_gen/lvl_139.json reason=timeout    steps=2000 return=  251.0 progress= 29.9%
+     level=corpus/train_gen/lvl_144.json reason=game_over  steps= 564 return=  164.5 progress= 91.8%
+     level=corpus/train_gen/lvl_145.json reason=game_over  steps= 512 return=  152.7 progress= 86.9%
+     level=corpus/train_gen/lvl_148.json reason=game_over  steps= 401 return=  176.5 progress= 93.3%
+     level=corpus/train_gen/lvl_150.json reason=game_over  steps= 311 return=  174.6 progress= 94.3%
+     level=corpus/train_gen/lvl_154.json reason=game_over  steps= 283 return=  166.7 progress= 90.2%
+     level=corpus/train_gen/lvl_157.json reason=game_over  steps= 296 return=  178.1 progress= 94.3%
+     level=corpus/train_gen/lvl_158.json reason=timeout    steps=2000 return=  220.0 progress=  9.3%
+     level=corpus/train_gen/lvl_160.json reason=game_over  steps= 289 return=  172.9 progress= 91.8%
+     level=corpus/train_gen/lvl_163.json reason=game_over  steps= 357 return=  165.3 progress= 90.8%
+     level=corpus/train_gen/lvl_166.json reason=timeout    steps=2000 return=  250.5 progress= 30.9%
+     level=corpus/train_gen/lvl_166.json reason=game_over  steps= 577 return=  160.5 progress= 88.4%
+     level=corpus/train_gen/lvl_166.json reason=game_over  steps=1565 return=  159.5 progress= 61.4%
+     level=corpus/train_gen/lvl_170.json reason=game_over  steps= 255 return=  148.4 progress= 80.7%
+     level=corpus/train_gen/lvl_172.json reason=game_over  steps= 259 return=  149.7 progress= 79.9%
+     level=corpus/train_gen/lvl_172.json reason=game_over  steps= 259 return=  149.7 progress= 79.9%
+     level=corpus/train_gen/lvl_172.json reason=game_over  steps= 277 return=  158.9 progress= 86.1%
+     level=corpus/train_gen/lvl_174.json reason=timeout    steps=2000 return=  261.0 progress= 35.1%
+     level=corpus/train_gen/lvl_174.json reason=timeout    steps=2000 return=  259.5 progress= 35.1%
+     level=corpus/train_gen/lvl_175.json reason=game_over  steps= 306 return=  181.3 progress= 96.9%
+     level=corpus/train_gen/lvl_175.json reason=game_over  steps= 306 return=  183.3 progress= 96.9%
+     level=corpus/train_gen/lvl_175.json reason=game_over  steps= 306 return=  180.9 progress= 96.9%
+     level=corpus/train_gen/lvl_177.json reason=game_over  steps= 305 return=  177.3 progress= 96.4%
+     level=corpus/train_gen/lvl_178.json reason=game_over  steps= 300 return=  169.2 progress= 90.3%
+     level=corpus/train_gen/lvl_181.json reason=timeout    steps=2000 return=  308.0 progress= 69.6%
+     level=corpus/train_gen/lvl_181.json reason=game_over  steps= 949 return=  182.3 progress= 74.6%
+     level=corpus/train_gen/lvl_188.json reason=game_over  steps= 267 return=  155.9 progress= 83.0%
+     level=corpus/train_gen/lvl_188.json reason=game_over  steps= 263 return=  157.6 progress= 82.8%
+     level=corpus/train_gen/lvl_188.json reason=game_over  steps= 252 return=  149.4 progress= 78.9%
+     level=corpus/train_gen/lvl_190.json reason=game_over  steps= 325 return=  148.2 progress= 80.8%
+     level=corpus/train_gen/lvl_191.json reason=game_over  steps= 259 return=  149.6 progress= 81.2%
+     level=corpus/train_gen/lvl_191.json reason=game_over  steps= 259 return=  149.6 progress= 81.2%
+     level=corpus/train_gen/lvl_191.json reason=game_over  steps= 260 return=  152.6 progress= 81.5%
+     level=corpus/train_gen/lvl_192.json reason=game_over  steps= 241 return=  146.5 progress= 75.8%
+     level=corpus/train_gen/lvl_193.json reason=timeout    steps=2000 return=  244.5 progress= 25.3%
+     level=corpus/train_gen/lvl_193.json reason=timeout    steps=2000 return=  260.5 progress= 33.5%
+     level=corpus/train_gen/lvl_193.json reason=timeout    steps=2000 return=  258.5 progress= 33.5%
+     level=corpus/train_gen/lvl_194.json reason=game_over  steps= 312 return=  181.6 progress= 95.4%
+     level=corpus/train_gen/lvl_195.json reason=timeout    steps=2000 return=  314.5 progress= 70.6%
+     level=corpus/train_gen/lvl_196.json reason=game_over  steps= 312 return=  177.4 progress= 95.6%
+     level=corpus/train_gen/lvl_196.json reason=game_over  steps= 306 return=  181.2 progress= 95.6%
+     level=corpus/train_gen/lvl_196.json reason=game_over  steps= 317 return=  179.7 progress= 95.6%
+     level=corpus/train_gen/lvl_196.json reason=game_over  steps= 621 return=  162.7 progress= 91.8%
+     level=corpus/train_gen/lvl_198.json reason=game_over  steps= 297 return=  150.6 progress= 81.4%
+
+======================================================================
+変更後: clear_bonus=25.0 death_penalty=0.0
+======================================================================
+  return: min=-72.7 中央=204.1 max=282.5 平均=143.4
+  非クリア最大=146.3 / クリア最小=146.5 → ギャップ=0.2
+    [ -75, -50):    3 (  0.3%)   ← 空白
+    [ -50, -25):    3 (  0.3%)   ← 空白
+    [ -25,   0):    5 (  0.4%)   ← 空白
+    [   0,  25):  141 ( 12.4%) #######
+    [  25,  50):  103 (  9.0%) #####
+    [  50,  75):   77 (  6.8%) ####
+    [  75, 100):   57 (  5.0%) ###
+    [ 100, 125):   46 (  4.0%) ##
+    [ 125, 150):   33 (  2.9%) #
+    [ 150, 175):   25 (  2.2%) #
+    [ 175, 200):   46 (  4.0%) ##
+    [ 200, 225):  600 ( 52.6%) ###############################
+    [ 225, 250):    0 (  0.0%)   ← 空白
+    [ 250, 275):    0 (  0.0%)   ← 空白
+    [ 275, 300):    1 (  0.1%)   ← 空白
+
+💾 保存しました: dt_dataset_teach/metadata_rebalanced.pkl (1140 エピソード)
+   ※ フレーム画像は元のまま共有しているので再収集は不要です
