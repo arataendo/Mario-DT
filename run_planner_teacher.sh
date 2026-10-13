@@ -85,8 +85,8 @@ step "5/6 評価"
 
 step "6/6 分析"
 python analyze_temperature.py \
-  --levels PPO教師=temp_out/levels_t10.json プランナー教師="$OUT/levels.json" \
-  --corpus PPO教師=validity_out/v1/dt.json プランナー教師="$OUT/dt.json" | tee "$OUT/report.txt"
+  --levels PPO教師=temp_out/levels_t10.json "$TEACHER"="$OUT/levels.json" \
+  --corpus PPO教師=validity_out/v1/dt.json "$TEACHER"="$OUT/dt.json" | tee "$OUT/report.txt"
 python analyze_validity.py --manifest corpus/v1/manifest.json --dt "$OUT/dt.json" --dt-retest "$OUT/dt_retest.json" \
   --panel validity_out/v1/panel.json --rule-panel validity_out/v1/rule_panel.json \
   --planner-panel validity_out/v1/planner_panel.json > "$OUT/validity_report.txt"
