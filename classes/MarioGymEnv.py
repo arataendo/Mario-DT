@@ -157,6 +157,10 @@ class MarioEnv(gym.Env):
                     if self.allowed_levels is not None and level_name not in self.allowed_levels:
                         continue
                     levels.append(level_name)
+        # .json のパスで指定されたもの（生成したステージなど、levels/ の外にあるもの）はそのまま候補にする
+        for lv in (self.allowed_levels or []):
+            if str(lv).endswith('.json') and not self.is_heldout(os.path.basename(str(lv))):
+                levels.append(str(lv))
         if not levels:
             raise ValueError(
                 f"選択可能なレベルがありません (levels={self.allowed_levels})。"

@@ -167,7 +167,7 @@ def train_ppo(
     print("=" * 60)
     print(f"   - レベル          : {'ランダム' if random_level else level}")
     if random_level and levels:
-        print(f"   - 候補レベル      : {levels}")
+        print(f"   - 候補レベル      : {levels if len(levels) <= 20 else f'{len(levels)} 個（{levels[:3]} ...）'}")
     print(f"   - 総ステップ数    : {total_steps:,}")
     print(f"   - 並列環境数      : {num_envs}")
     print(f"   - エピソード上限  : {max_episode_steps:,} ゲームフレーム "
@@ -323,6 +323,9 @@ def main():
     parser.add_argument("--levels", type=str, default=None,
                          help="--random-level の抽選候補をカンマ区切りで限定する。"
                               "例: Level_hard_01,Level_hard_02,Level_hard_03")
+    parser.add_argument("--levels-from", type=str, default=None,
+                        help="make_corpus.py の manifest.json。そのステージ（.json のパス）を --levels に加える。"
+                             "生成した多数のステージで学習するときに使う（--random-level と一緒に）")
     parser.add_argument("--random-level", action="store_true",
                         help="毎エピソード levels/ からランダムに選ぶ（既定は --level 固定）")
     parser.add_argument("--device", type=str, default="auto",
@@ -341,6 +344,11 @@ def main():
     parser.add_argument("--seed", type=int, default=0)
 
     args = parser.parse_args()
+    levels = [l.strip() for l in args.levels.split(",")] if args.levels else []
+    if args.levels_from:
+        import json
+        with open(args.levels_from, encoding="utf-8") as f:
+            levels += [m["path"] for m in json.load(f)]
 
     train_ppo(
         level=args.level,
@@ -348,7 +356,7 @@ def main():
         num_envs=args.num_envs,
         max_episode_steps=args.max_episode_steps,
         random_level=args.random_level,
-        levels=[l.strip() for l in args.levels.split(",")] if args.levels else None,
+        levels=levels or None,
         device=args.device,
         log_dir=args.log_dir,
         model_dir=args.model_dir,
