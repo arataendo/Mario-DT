@@ -1,0 +1,380 @@
+{
+  "Level_test_easy": {
+    "D_panel_clear": 0.1333333333333333,
+    "D_panel_progress": 0.0750872530068728,
+    "agents": [
+      {
+        "model": "mario_ppo_level11_checkpoint_8000000_steps.zip",
+        "n": 20,
+        "clear_rate": 0.8,
+        "progress": 0.8783263530927833
+      },
+      {
+        "model": "mario_ppo_level11_checkpoint_9999968_steps.zip",
+        "n": 20,
+        "clear_rate": 0.9,
+        "progress": 0.9355670103092784
+      },
+      {
+        "model": "mario_ppo_level11_checkpoint_11999936_steps.zip",
+        "n": 20,
+        "clear_rate": 0.95,
+        "progress": 0.9840206185567009
+      },
+      {
+        "model": "mario_ppo_level11_checkpoint_13999904_steps.zip",
+        "n": 20,
+        "clear_rate": 0.95,
+        "progress": 0.9840206185567009
+      },
+      {
+        "model": "mario_ppo_level11_checkpoint_15999872_steps.zip",
+        "n": 20,
+        "clear_rate": 0.8,
+        "progress": 0.8930573453608247
+      },
+      {
+        "model": "mario_ppo_level11_checkpoint_17999840_steps.zip",
+        "n": 20,
+        "clear_rate": 0.8,
+        "progress": 0.874484536082474
+      }
+    ]
+  },
+  "Level_test_easy_02": {
+    "D_panel_clear": 0.125,
+    "D_panel_progress": 0.08085266323024065,
+    "agents": [
+      {
+        "model": "mario_ppo_level11_checkpoint_8000000_steps.zip",
+        "n": 20,
+        "clear_rate": 0.7,
+        "progress": 0.7902384020618557
+      },
+      {
+        "model": "mario_ppo_level11_checkpoint_9999968_steps.zip",
+        "n": 20,
+        "clear_rate": 0.95,
+        "progress": 0.9619764819587626
+      },
+      {
+        "model": "mario_ppo_level11_checkpoint_11999936_steps.zip",
+        "n": 20,
+        "clear_rate": 0.95,
+        "progress": 0.9701836340206185
+      },
+      {
+        "model": "mario_ppo_level11_checkpoint_13999904_steps.zip",
+        "n": 20,
+        "clear_rate": 1.0,
+        "progress": 0.994845360824742
+      },
+      {
+        "model": "mario_ppo_level11_checkpoint_15999872_steps.zip",
+        "n": 20,
+        "clear_rate": 0.7,
+        "progress": 0.8356636597938145
+      },
+      {
+        "model": "mario_ppo_level11_checkpoint_17999840_steps.zip",
+        "n": 20,
+        "clear_rate": 0.95,
+        "progress": 0.9619764819587626
+      }
+    ]
+  },
+  "Level_test_easy_03": {
+    "D_panel_clear": 0.09166666666666667,
+    "D_panel_progress": 0.05654129080756032,
+    "agents": [
+      {
+        "model": "mario_ppo_level11_checkpoint_8000000_steps.zip",
+        "n": 20,
+        "clear_rate": 0.95,
+        "progress": 0.9828286082474225
+      },
+      {
+        "model": "mario_ppo_level11_checkpoint_9999968_steps.zip",
+        "n": 20,
+        "clear_rate": 0.9,
+        "progress": 0.9198131443298969
+      },
+      {
+        "model": "mario_ppo_level11_checkpoint_11999936_steps.zip",
+        "n": 20,
+        "clear_rate": 0.85,
+        "progress": 0.92331668814433
+      },
+      {
+        "model": "mario_ppo_level11_checkpoint_13999904_steps.zip",
+        "n": 20,
+        "clear_rate": 0.9,
+        "progress": 0.9260309278350516
+      },
+      {
+        "model": "mario_ppo_level11_checkpoint_15999872_steps.zip",
+        "n": 20,
+        "clear_rate": 0.85,
+        "progress": 0.9139175257731956
+      },
+      {
+        "model": "mario_ppo_level11_checkpoint_17999840_steps.zip",
+        "n": 20,
+        "clear_rate": 1.0,
+        "progress": 0.994845360824742
+      }
+    ]
+  },
+  "Level_test_medium": {
+    "D_panel_clear": 0.17499999999999993,
+    "D_panel_progress": 0.13967327104811,
+    "agents": [
+      {
+        "model": "mario_ppo_level11_checkpoint_8000000_steps.zip",
+        "n": 20,
+        "clear_rate": 0.45,
+        "progress": 0.52566043814433
+      },
+      {
+        "model": "mario_ppo_level11_checkpoint_9999968_steps.zip",
+        "n": 20,
+        "clear_rate": 1.0,
+        "progress": 0.994845360824742
+      },
+      {
+        "model": "mario_ppo_level11_checkpoint_11999936_steps.zip",
+        "n": 20,
+        "clear_rate": 0.9,
+        "progress": 0.9623389175257732
+      },
+      {
+        "model": "mario_ppo_level11_checkpoint_13999904_steps.zip",
+        "n": 20,
+        "clear_rate": 0.8,
+        "progress": 0.8497905927835052
+      },
+      {
+        "model": "mario_ppo_level11_checkpoint_15999872_steps.zip",
+        "n": 20,
+        "clear_rate": 0.95,
+        "progress": 0.9557989690721648
+      },
+      {
+        "model": "mario_ppo_level11_checkpoint_17999840_steps.zip",
+        "n": 20,
+        "clear_rate": 0.85,
+        "progress": 0.8735260953608247
+      }
+    ]
+  },
+  "Level_test_medium_02": {
+    "D_panel_clear": 0.16666666666666663,
+    "D_panel_progress": 0.08795774269759449,
+    "agents": [
+      {
+        "model": "mario_ppo_level11_checkpoint_8000000_steps.zip",
+        "n": 20,
+        "clear_rate": 0.8,
+        "progress": 0.8871939432989692
+      },
+      {
+        "model": "mario_ppo_level11_checkpoint_9999968_steps.zip",
+        "n": 20,
+        "clear_rate": 0.8,
+        "progress": 0.9026256443298969
+      },
+      {
+        "model": "mario_ppo_level11_checkpoint_11999936_steps.zip",
+        "n": 20,
+        "clear_rate": 0.9,
+        "progress": 0.9452480670103093
+      },
+      {
+        "model": "mario_ppo_level11_checkpoint_13999904_steps.zip",
+        "n": 20,
+        "clear_rate": 0.9,
+        "progress": 0.9336823453608247
+      },
+      {
+        "model": "mario_ppo_level11_checkpoint_15999872_steps.zip",
+        "n": 20,
+        "clear_rate": 0.8,
+        "progress": 0.8953769329896908
+      },
+      {
+        "model": "mario_ppo_level11_checkpoint_17999840_steps.zip",
+        "n": 20,
+        "clear_rate": 0.8,
+        "progress": 0.9081266108247421
+      }
+    ]
+  },
+  "Level_test_medium_03": {
+    "D_panel_clear": 0.15833333333333333,
+    "D_panel_progress": 0.12117294888316155,
+    "agents": [
+      {
+        "model": "mario_ppo_level11_checkpoint_8000000_steps.zip",
+        "n": 20,
+        "clear_rate": 0.75,
+        "progress": 0.8229784149484537
+      },
+      {
+        "model": "mario_ppo_level11_checkpoint_9999968_steps.zip",
+        "n": 20,
+        "clear_rate": 0.8,
+        "progress": 0.8734294458762886
+      },
+      {
+        "model": "mario_ppo_level11_checkpoint_11999936_steps.zip",
+        "n": 20,
+        "clear_rate": 0.85,
+        "progress": 0.8524162371134019
+      },
+      {
+        "model": "mario_ppo_level11_checkpoint_13999904_steps.zip",
+        "n": 20,
+        "clear_rate": 1.0,
+        "progress": 0.994845360824742
+      },
+      {
+        "model": "mario_ppo_level11_checkpoint_15999872_steps.zip",
+        "n": 20,
+        "clear_rate": 0.7,
+        "progress": 0.7804526417525773
+      },
+      {
+        "model": "mario_ppo_level11_checkpoint_17999840_steps.zip",
+        "n": 20,
+        "clear_rate": 0.95,
+        "progress": 0.948840206185567
+      }
+    ]
+  },
+  "Level_test_hard": {
+    "D_panel_clear": 0.41666666666666663,
+    "D_panel_progress": 0.3013020833333333,
+    "agents": [
+      {
+        "model": "mario_ppo_level11_checkpoint_8000000_steps.zip",
+        "n": 20,
+        "clear_rate": 0.5,
+        "progress": 0.6072567654639174
+      },
+      {
+        "model": "mario_ppo_level11_checkpoint_9999968_steps.zip",
+        "n": 20,
+        "clear_rate": 0.85,
+        "progress": 0.8979784149484538
+      },
+      {
+        "model": "mario_ppo_level11_checkpoint_11999936_steps.zip",
+        "n": 20,
+        "clear_rate": 0.7,
+        "progress": 0.7824017396907217
+      },
+      {
+        "model": "mario_ppo_level11_checkpoint_13999904_steps.zip",
+        "n": 20,
+        "clear_rate": 0.5,
+        "progress": 0.662709407216495
+      },
+      {
+        "model": "mario_ppo_level11_checkpoint_15999872_steps.zip",
+        "n": 20,
+        "clear_rate": 0.5,
+        "progress": 0.6337226159793814
+      },
+      {
+        "model": "mario_ppo_level11_checkpoint_17999840_steps.zip",
+        "n": 20,
+        "clear_rate": 0.45,
+        "progress": 0.608118556701031
+      }
+    ]
+  },
+  "Level_test_hard_02": {
+    "D_panel_clear": 0.6333333333333333,
+    "D_panel_progress": 0.5437244952749141,
+    "agents": [
+      {
+        "model": "mario_ppo_level11_checkpoint_8000000_steps.zip",
+        "n": 20,
+        "clear_rate": 0.5,
+        "progress": 0.5913740335051546
+      },
+      {
+        "model": "mario_ppo_level11_checkpoint_9999968_steps.zip",
+        "n": 20,
+        "clear_rate": 0.3,
+        "progress": 0.40188466494845365
+      },
+      {
+        "model": "mario_ppo_level11_checkpoint_11999936_steps.zip",
+        "n": 20,
+        "clear_rate": 0.55,
+        "progress": 0.6300982603092783
+      },
+      {
+        "model": "mario_ppo_level11_checkpoint_13999904_steps.zip",
+        "n": 20,
+        "clear_rate": 0.4,
+        "progress": 0.5369845360824742
+      },
+      {
+        "model": "mario_ppo_level11_checkpoint_15999872_steps.zip",
+        "n": 20,
+        "clear_rate": 0.25,
+        "progress": 0.33659793814432987
+      },
+      {
+        "model": "mario_ppo_level11_checkpoint_17999840_steps.zip",
+        "n": 20,
+        "clear_rate": 0.2,
+        "progress": 0.24071359536082476
+      }
+    ]
+  },
+  "Level_test_hard_03": {
+    "D_panel_clear": 0.5083333333333333,
+    "D_panel_progress": 0.2751771907216495,
+    "agents": [
+      {
+        "model": "mario_ppo_level11_checkpoint_8000000_steps.zip",
+        "n": 20,
+        "clear_rate": 0.25,
+        "progress": 0.5212628865979382
+      },
+      {
+        "model": "mario_ppo_level11_checkpoint_9999968_steps.zip",
+        "n": 20,
+        "clear_rate": 0.45,
+        "progress": 0.7316204896907217
+      },
+      {
+        "model": "mario_ppo_level11_checkpoint_11999936_steps.zip",
+        "n": 20,
+        "clear_rate": 0.65,
+        "progress": 0.7591978092783505
+      },
+      {
+        "model": "mario_ppo_level11_checkpoint_13999904_steps.zip",
+        "n": 20,
+        "clear_rate": 0.75,
+        "progress": 0.891970038659794
+      },
+      {
+        "model": "mario_ppo_level11_checkpoint_15999872_steps.zip",
+        "n": 20,
+        "clear_rate": 0.35,
+        "progress": 0.7130396262886597
+      },
+      {
+        "model": "mario_ppo_level11_checkpoint_17999840_steps.zip",
+        "n": 20,
+        "clear_rate": 0.5,
+        "progress": 0.7318460051546392
+      }
+    ]
+  }
+}
