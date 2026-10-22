@@ -1,0 +1,381 @@
+======================================================================
+変更前: dt_dataset_div/metadata_merged.pkl (8100 エピソード)
+======================================================================
+  return: min=-35.8 中央=280.1 max=331.5 平均=181.2
+  非クリア最大=331.5 / クリア最小=219.1 → ギャップ=-112.4
+    [ -50, -25):    1 (  0.0%)   ← 空白
+    [ -25,   0): 1123 ( 13.9%) ########
+    [   0,  25):  658 (  8.1%) ####
+    [  25,  50):  484 (  6.0%) ###
+    [  50,  75):  309 (  3.8%) ##
+    [  75, 100):  269 (  3.3%) #
+    [ 100, 125):  178 (  2.2%) #
+    [ 125, 150):  162 (  2.0%) #
+    [ 150, 175):   83 (  1.0%) 
+    [ 175, 200):   12 (  0.1%)   ← 空白
+    [ 200, 225):   22 (  0.3%)   ← 空白
+    [ 225, 250):  156 (  1.9%) #
+    [ 250, 275):  294 (  3.6%) ##
+    [ 275, 300): 4326 ( 53.4%) ################################
+    [ 300, 325):   20 (  0.2%)   ← 空白
+    [ 325, 350):    3 (  0.0%)   ← 空白
+
+⚠️  クリア群より高収益な非クリアエピソードを 338 本除外しました
+     level=Level1-1         reason=game_over  steps= 309 return=  174.2 progress= 85.9%
+     level=Level1-1         reason=game_over  steps= 352 return=  169.8 progress= 86.0%
+     level=Level1-1         reason=game_over  steps= 290 return=  147.7 progress= 73.3%
+     level=Level1-1         reason=game_over  steps= 327 return=  169.7 progress= 86.5%
+     level=Level_custom     reason=game_over  steps= 470 return=  168.8 progress= 86.9%
+     level=Level_custom     reason=game_over  steps= 318 return=  157.3 progress= 78.9%
+     level=Level_custom     reason=game_over  steps= 423 return=  179.0 progress= 88.9%
+     level=Level_custom     reason=game_over  steps= 388 return=  172.4 progress= 87.3%
+     level=Level_custom     reason=game_over  steps= 369 return=  175.8 progress= 87.1%
+     level=Level_easy_03    reason=game_over  steps= 252 return=  146.1 progress= 80.2%
+     level=Level_easy_03    reason=game_over  steps= 310 return=  174.6 progress= 95.6%
+     level=Level_hard_03    reason=game_over  steps= 319 return=  158.6 progress= 86.3%
+     level=Level_hard_03    reason=game_over  steps= 299 return=  152.6 progress= 82.7%
+     level=Level_hard_03    reason=game_over  steps= 322 return=  158.6 progress= 87.1%
+     level=Level_medium_01  reason=game_over  steps= 432 return=  174.8 progress= 96.7%
+     level=Level_medium_01  reason=game_over  steps= 382 return=  177.8 progress= 96.9%
+     level=Level_medium_01  reason=game_over  steps= 350 return=  178.4 progress= 96.9%
+     level=Level_medium_01  reason=game_over  steps= 360 return=  180.6 progress= 96.9%
+     level=Level_medium_01  reason=game_over  steps= 357 return=  179.7 progress= 96.9%
+     level=Level_medium_01  reason=game_over  steps= 396 return=  175.8 progress= 96.5%
+     level=Level_medium_01  reason=game_over  steps= 366 return=  181.9 progress= 96.9%
+     level=Level_medium_01  reason=game_over  steps= 413 return=  178.5 progress= 96.4%
+     level=Level_medium_01  reason=game_over  steps= 336 return=  180.1 progress= 96.9%
+     level=Level_medium_01  reason=game_over  steps= 439 return=  178.9 progress= 96.9%
+     level=Level_medium_01  reason=game_over  steps= 360 return=  178.8 progress= 96.8%
+     level=Level_medium_01  reason=game_over  steps= 411 return=  178.6 progress= 96.6%
+     level=Level_medium_01  reason=game_over  steps= 338 return=  181.4 progress= 96.9%
+     level=Level_medium_01  reason=game_over  steps= 445 return=  174.4 progress= 96.5%
+     level=Level_medium_01  reason=game_over  steps= 384 return=  179.3 progress= 96.5%
+     level=Level_medium_01  reason=game_over  steps= 363 return=  179.9 progress= 96.9%
+     level=Level_medium_01  reason=game_over  steps= 357 return=  179.7 progress= 96.9%
+     level=Level_medium_01  reason=game_over  steps= 387 return=  178.4 progress= 96.6%
+     level=Level_medium_01  reason=game_over  steps= 386 return=  180.2 progress= 97.0%
+     level=Level_medium_01  reason=game_over  steps= 331 return=  181.8 progress= 96.9%
+     level=Level_medium_01  reason=game_over  steps= 466 return=  173.8 progress= 96.6%
+     level=Level_medium_02  reason=game_over  steps= 289 return=  164.5 progress= 88.2%
+     level=Level_medium_02  reason=game_over  steps= 289 return=  164.5 progress= 88.2%
+     level=Level_medium_02  reason=game_over  steps= 338 return=  156.5 progress= 86.1%
+     level=Level_medium_02  reason=game_over  steps= 326 return=  156.4 progress= 85.8%
+     level=Level_medium_02  reason=game_over  steps= 377 return=  166.4 progress= 90.7%
+     level=Level_medium_02  reason=game_over  steps= 263 return=  151.2 progress= 81.0%
+     level=Level_medium_02  reason=game_over  steps= 271 return=  151.6 progress= 81.7%
+     level=Level_medium_02  reason=game_over  steps= 285 return=  165.6 progress= 88.4%
+     level=Level_medium_03  reason=game_over  steps= 318 return=  181.3 progress= 95.9%
+     level=Level1-1         reason=game_over  steps= 424 return=  154.6 progress= 78.9%
+     level=Level_custom     reason=game_over  steps= 656 return=  168.6 progress= 88.3%
+     level=Level_easy_02    reason=game_over  steps= 521 return=  150.4 progress= 88.3%
+     level=Level_easy_03    reason=game_over  steps= 319 return=  144.6 progress= 81.1%
+     level=Level_easy_03    reason=game_over  steps= 363 return=  159.9 progress= 88.1%
+     level=Level_hard_02    reason=game_over  steps= 464 return=  172.5 progress= 96.4%
+     level=Level_hard_02    reason=game_over  steps= 428 return=  175.6 progress= 96.2%
+     level=Level_medium_01  reason=game_over  steps= 728 return=  165.7 progress= 96.8%
+     level=Level_medium_01  reason=game_over  steps= 422 return=  177.5 progress= 96.6%
+     level=Level_medium_01  reason=game_over  steps= 516 return=  175.4 progress= 96.9%
+     level=Level_medium_02  reason=game_over  steps= 596 return=  156.5 progress= 89.1%
+     level=Level_medium_03  reason=game_over  steps= 641 return=  167.4 progress= 95.9%
+     level=corpus/train_div/lvl_000.json reason=game_over  steps= 332 return=  145.0 progress= 80.3%
+     level=corpus/train_div/lvl_010.json reason=game_over  steps= 266 return=  153.3 progress= 84.5%
+     level=corpus/train_div/lvl_019.json reason=game_over  steps= 267 return=  147.3 progress= 81.4%
+     level=corpus/train_div/lvl_058.json reason=game_over  steps= 266 return=  149.4 progress= 82.0%
+     level=corpus/train_div/lvl_065.json reason=game_over  steps= 254 return=  147.9 progress= 80.4%
+     level=corpus/train_div/lvl_070.json reason=game_over  steps= 280 return=  162.3 progress= 89.2%
+     level=corpus/train_div/lvl_076.json reason=game_over  steps= 311 return=  171.1 progress= 92.3%
+     level=corpus/train_div/lvl_080.json reason=game_over  steps= 321 return=  173.2 progress= 91.8%
+     level=corpus/train_div/lvl_083.json reason=game_over  steps= 412 return=  177.5 progress= 96.9%
+     level=corpus/train_div/lvl_086.json reason=game_over  steps= 344 return=  154.2 progress= 84.0%
+     level=corpus/train_div/lvl_088.json reason=game_over  steps= 646 return=  163.2 progress= 96.4%
+     level=corpus/train_div/lvl_093.json reason=game_over  steps= 412 return=  170.5 progress= 94.8%
+     level=corpus/train_div/lvl_100.json reason=game_over  steps= 397 return=  168.7 progress= 94.1%
+     level=corpus/train_div/lvl_108.json reason=game_over  steps= 588 return=  156.7 progress= 90.6%
+     level=corpus/train_div/lvl_130.json reason=game_over  steps= 414 return=  181.7 progress= 97.8%
+     level=corpus/train_div/lvl_134.json reason=game_over  steps= 373 return=  151.8 progress= 83.4%
+     level=corpus/train_div/lvl_140.json reason=game_over  steps= 339 return=  156.4 progress= 85.6%
+     level=corpus/train_div/lvl_146.json reason=game_over  steps= 325 return=  185.6 progress= 97.7%
+     level=corpus/train_div/lvl_146.json reason=game_over  steps= 366 return=  155.3 progress= 84.2%
+     level=corpus/train_div/lvl_152.json reason=game_over  steps= 287 return=  162.5 progress= 87.6%
+     level=corpus/train_div/lvl_162.json reason=game_over  steps= 316 return=  177.3 progress= 95.6%
+     level=corpus/train_div/lvl_179.json reason=game_over  steps= 349 return=  150.2 progress= 83.3%
+     level=corpus/train_div/lvl_180.json reason=game_over  steps= 689 return=  163.7 progress= 96.0%
+     level=corpus/train_div/lvl_183.json reason=game_over  steps= 371 return=  162.4 progress= 89.6%
+     level=corpus/train_div/lvl_185.json reason=game_over  steps= 299 return=  173.9 progress= 95.5%
+     level=corpus/train_div/lvl_188.json reason=game_over  steps= 277 return=  156.5 progress= 84.3%
+     level=corpus/train_div/lvl_190.json reason=game_over  steps= 383 return=  159.7 progress= 87.6%
+     level=corpus/train_div/lvl_194.json reason=game_over  steps= 325 return=  185.7 progress= 98.8%
+     level=corpus/train_div/lvl_198.json reason=game_over  steps= 348 return=  146.9 progress= 81.1%
+     level=corpus/train_div/lvl_198.json reason=game_over  steps= 635 return=  159.5 progress= 93.7%
+     level=corpus/train_div/lvl_200.json reason=game_over  steps= 663 return=  161.5 progress= 94.3%
+     level=corpus/train_div/lvl_201.json reason=game_over  steps= 308 return=  174.9 progress= 96.2%
+     level=corpus/train_div/lvl_201.json reason=game_over  steps= 532 return=  145.5 progress= 84.9%
+     level=corpus/train_div/lvl_204.json reason=game_over  steps= 316 return=  177.6 progress= 95.7%
+     level=corpus/train_div/lvl_205.json reason=game_over  steps= 653 return=  152.6 progress= 90.5%
+     level=corpus/train_div/lvl_212.json reason=game_over  steps= 318 return=  181.4 progress= 97.2%
+     level=corpus/train_div/lvl_218.json reason=game_over  steps= 713 return=  165.0 progress= 96.9%
+     level=corpus/train_div/lvl_221.json reason=game_over  steps= 308 return=  174.2 progress= 94.3%
+     level=corpus/train_div/lvl_222.json reason=game_over  steps= 296 return=  172.0 progress= 92.9%
+     level=corpus/train_div/lvl_223.json reason=game_over  steps= 373 return=  158.6 progress= 87.1%
+     level=corpus/train_div/lvl_223.json reason=game_over  steps= 764 return=  157.4 progress= 91.8%
+     level=corpus/train_div/lvl_225.json reason=game_over  steps= 325 return=  179.1 progress= 96.7%
+     level=corpus/train_div/lvl_225.json reason=game_over  steps= 400 return=  177.2 progress= 95.5%
+     level=corpus/train_div/lvl_227.json reason=game_over  steps= 305 return=  175.5 progress= 95.4%
+     level=corpus/train_div/lvl_232.json reason=game_over  steps= 370 return=  165.2 progress= 90.2%
+     level=corpus/train_div/lvl_233.json reason=game_over  steps= 334 return=  179.1 progress= 97.1%
+     level=corpus/train_div/lvl_234.json reason=game_over  steps= 258 return=  150.7 progress= 80.4%
+     level=corpus/train_div/lvl_248.json reason=game_over  steps= 308 return=  177.3 progress= 95.7%
+     level=corpus/train_div/lvl_255.json reason=game_over  steps= 390 return=  152.9 progress= 86.3%
+     level=corpus/train_div/lvl_256.json reason=game_over  steps= 315 return=  180.0 progress= 95.9%
+     level=corpus/train_div/lvl_257.json reason=game_over  steps= 639 return=  152.6 progress= 88.0%
+     level=corpus/train_div/lvl_258.json reason=game_over  steps= 366 return=  161.2 progress= 88.3%
+     level=corpus/train_div/lvl_279.json reason=game_over  steps= 709 return=  159.9 progress= 93.2%
+     level=corpus/train_div/lvl_280.json reason=game_over  steps= 311 return=  175.9 progress= 96.1%
+     level=corpus/train_div/lvl_287.json reason=game_over  steps= 680 return=  169.6 progress= 97.1%
+     level=corpus/train_div/lvl_290.json reason=game_over  steps= 295 return=  172.5 progress= 93.4%
+     level=corpus/train_div/lvl_291.json reason=game_over  steps= 325 return=  184.7 progress= 98.8%
+     level=corpus/train_div/lvl_294.json reason=game_over  steps= 327 return=  177.1 progress= 97.3%
+     level=corpus/train_div/lvl_294.json reason=game_over  steps= 422 return=  177.7 progress= 98.7%
+     level=corpus/train_div/lvl_294.json reason=game_over  steps= 548 return=  148.8 progress= 87.5%
+     level=corpus/train_div/lvl_302.json reason=game_over  steps= 307 return=  172.2 progress= 94.3%
+     level=corpus/train_div/lvl_310.json reason=game_over  steps= 371 return=  172.1 progress= 95.1%
+     level=corpus/train_div/lvl_311.json reason=game_over  steps= 375 return=  165.0 progress= 89.7%
+     level=corpus/train_div/lvl_315.json reason=game_over  steps= 320 return=  180.1 progress= 97.1%
+     level=corpus/train_div/lvl_322.json reason=game_over  steps= 415 return=  176.0 progress= 96.7%
+     level=corpus/train_div/lvl_323.json reason=game_over  steps= 635 return=  157.0 progress= 92.2%
+     level=corpus/train_div/lvl_327.json reason=game_over  steps= 532 return=  152.0 progress= 87.3%
+     level=corpus/train_div/lvl_330.json reason=game_over  steps= 563 return=  147.0 progress= 83.5%
+     level=corpus/train_div/lvl_335.json reason=game_over  steps= 605 return=  150.5 progress= 86.2%
+     level=corpus/train_div/lvl_338.json reason=game_over  steps= 347 return=  153.9 progress= 85.2%
+     level=corpus/train_div/lvl_344.json reason=game_over  steps= 626 return=  158.5 progress= 91.0%
+     level=corpus/train_div/lvl_346.json reason=game_over  steps= 663 return=  163.5 progress= 95.1%
+     level=corpus/train_div/lvl_348.json reason=game_over  steps= 292 return=  163.7 progress= 88.6%
+     level=corpus/train_div/lvl_354.json reason=game_over  steps= 528 return=  153.0 progress= 85.9%
+     level=corpus/train_div/lvl_369.json reason=game_over  steps= 263 return=  152.2 progress= 82.1%
+     level=corpus/train_div/lvl_372.json reason=game_over  steps= 266 return=  145.4 progress= 78.6%
+     level=corpus/train_div/lvl_372.json reason=game_over  steps= 585 return=  158.1 progress= 91.0%
+     level=corpus/train_div/lvl_380.json reason=game_over  steps= 607 return=  166.1 progress= 96.3%
+     level=corpus/train_div/lvl_387.json reason=game_over  steps= 324 return=  185.7 progress= 98.3%
+     level=corpus/train_div/lvl_392.json reason=game_over  steps= 695 return=  144.3 progress= 86.7%
+     level=corpus/train_div/lvl_395.json reason=game_over  steps= 626 return=  147.2 progress= 85.7%
+     level=corpus/train_div/lvl_398.json reason=game_over  steps= 744 return=  158.0 progress= 95.2%
+     level=corpus/train_div/lvl_406.json reason=game_over  steps= 312 return=  180.0 progress= 97.6%
+     level=corpus/train_div/lvl_406.json reason=game_over  steps= 671 return=  152.5 progress= 89.1%
+     level=corpus/train_div/lvl_408.json reason=game_over  steps= 313 return=  180.6 progress= 98.5%
+     level=corpus/train_div/lvl_412.json reason=game_over  steps= 407 return=  165.8 progress= 92.3%
+     level=corpus/train_div/lvl_415.json reason=game_over  steps= 340 return=  154.7 progress= 86.0%
+     level=corpus/train_div/lvl_426.json reason=game_over  steps= 306 return=  180.7 progress= 97.4%
+     level=corpus/train_div/lvl_433.json reason=game_over  steps= 320 return=  173.9 progress= 94.4%
+     level=corpus/train_div/lvl_441.json reason=game_over  steps= 313 return=  146.1 progress= 78.4%
+     level=corpus/train_div/lvl_442.json reason=game_over  steps= 349 return=  162.0 progress= 88.7%
+     level=corpus/train_div/lvl_447.json reason=game_over  steps= 288 return=  162.3 progress= 86.8%
+     level=corpus/train_div/lvl_449.json reason=game_over  steps= 330 return=  179.9 progress= 98.5%
+     level=corpus/train_div/lvl_455.json reason=game_over  steps= 357 return=  145.2 progress= 80.4%
+     level=corpus/train_div/lvl_471.json reason=game_over  steps= 463 return=  162.2 progress= 91.3%
+     level=corpus/train_div/lvl_473.json reason=game_over  steps= 308 return=  177.4 progress= 96.7%
+     level=corpus/train_div/lvl_473.json reason=game_over  steps= 428 return=  172.9 progress= 96.9%
+     level=corpus/train_div/lvl_476.json reason=game_over  steps= 248 return=  144.6 progress= 78.9%
+     level=corpus/train_div/lvl_477.json reason=game_over  steps= 628 return=  150.1 progress= 85.4%
+     level=corpus/train_div/lvl_479.json reason=game_over  steps= 286 return=  164.2 progress= 88.4%
+     level=corpus/train_div/lvl_486.json reason=game_over  steps= 571 return=  163.1 progress= 93.8%
+     level=corpus/train_div/lvl_490.json reason=game_over  steps= 311 return=  182.5 progress= 97.6%
+     level=corpus/train_div/lvl_490.json reason=game_over  steps= 660 return=  160.6 progress= 92.0%
+     level=corpus/train_div/lvl_502.json reason=game_over  steps= 396 return=  157.7 progress= 85.1%
+     level=corpus/train_div/lvl_512.json reason=game_over  steps= 339 return=  182.2 progress= 97.5%
+     level=corpus/train_div/lvl_521.json reason=game_over  steps= 261 return=  144.4 progress= 78.0%
+     level=corpus/train_div/lvl_525.json reason=game_over  steps= 296 return=  159.3 progress= 87.7%
+     level=corpus/train_div/lvl_527.json reason=game_over  steps= 319 return=  178.5 progress= 96.0%
+     level=corpus/train_div/lvl_535.json reason=game_over  steps= 327 return=  180.3 progress= 97.8%
+     level=corpus/train_div/lvl_538.json reason=game_over  steps= 274 return=  154.6 progress= 84.5%
+     level=corpus/train_div/lvl_556.json reason=game_over  steps= 324 return=  166.8 progress= 87.0%
+     level=corpus/train_div/lvl_562.json reason=game_over  steps= 416 return=  172.3 progress= 93.2%
+     level=corpus/train_div/lvl_563.json reason=game_over  steps= 379 return=  172.3 progress= 94.3%
+     level=corpus/train_div/lvl_568.json reason=game_over  steps= 386 return=  159.1 progress= 85.8%
+     level=corpus/train_div/lvl_573.json reason=game_over  steps= 331 return=  179.2 progress= 97.9%
+     level=corpus/train_div/lvl_580.json reason=game_over  steps= 307 return=  176.5 progress= 94.7%
+     level=corpus/train_div/lvl_580.json reason=game_over  steps= 274 return=  160.6 progress= 86.6%
+     level=corpus/train_div/lvl_583.json reason=game_over  steps= 339 return=  181.9 progress= 98.4%
+     level=corpus/train_div/lvl_590.json reason=game_over  steps= 368 return=  155.9 progress= 85.9%
+     level=corpus/train_div/lvl_593.json reason=game_over  steps= 332 return=  147.2 progress= 78.8%
+     level=corpus/train_div/lvl_598.json reason=game_over  steps= 321 return=  183.1 progress= 97.4%
+     level=corpus/train_div/lvl_603.json reason=game_over  steps= 337 return=  182.1 progress= 96.9%
+     level=corpus/train_div/lvl_605.json reason=game_over  steps= 319 return=  177.2 progress= 97.1%
+     level=corpus/train_div/lvl_606.json reason=game_over  steps= 319 return=  184.5 progress= 97.3%
+     level=corpus/train_div/lvl_613.json reason=game_over  steps= 314 return=  170.9 progress= 92.8%
+     level=corpus/train_div/lvl_614.json reason=game_over  steps= 385 return=  176.4 progress= 93.9%
+     level=corpus/train_div/lvl_621.json reason=game_over  steps= 638 return=  171.2 progress= 96.2%
+     level=corpus/train_div/lvl_623.json reason=game_over  steps= 308 return=  176.5 progress= 96.3%
+     level=corpus/train_div/lvl_630.json reason=game_over  steps= 301 return=  167.5 progress= 91.0%
+     level=corpus/train_div/lvl_632.json reason=game_over  steps= 420 return=  174.7 progress= 96.9%
+     level=corpus/train_div/lvl_637.json reason=game_over  steps= 295 return=  162.3 progress= 87.2%
+     level=corpus/train_div/lvl_646.json reason=game_over  steps= 294 return=  155.3 progress= 83.3%
+     level=corpus/train_div/lvl_652.json reason=game_over  steps= 474 return=  169.7 progress= 93.3%
+     level=corpus/train_div/lvl_653.json reason=game_over  steps= 338 return=  146.5 progress= 79.4%
+     level=corpus/train_div/lvl_658.json reason=game_over  steps= 413 return=  168.4 progress= 92.5%
+     level=corpus/train_div/lvl_661.json reason=timeout    steps=2000 return=  219.0 progress= 23.2%
+     level=corpus/train_div/lvl_662.json reason=game_over  steps= 351 return=  149.0 progress= 80.4%
+     level=corpus/train_div/lvl_665.json reason=game_over  steps= 282 return=  159.3 progress= 85.1%
+     level=corpus/train_div/lvl_669.json reason=game_over  steps= 431 return=  171.5 progress= 93.7%
+     level=corpus/train_div/lvl_670.json reason=game_over  steps= 276 return=  156.5 progress= 82.0%
+     level=corpus/train_div/lvl_671.json reason=timeout    steps=2000 return=  240.0 progress= 34.0%
+     level=corpus/train_div/lvl_671.json reason=timeout    steps=2000 return=  239.5 progress= 34.0%
+     level=corpus/train_div/lvl_675.json reason=game_over  steps= 358 return=  145.9 progress= 77.9%
+     level=corpus/train_div/lvl_680.json reason=game_over  steps= 280 return=  156.8 progress= 86.1%
+     level=corpus/train_div/lvl_683.json reason=timeout    steps=2000 return=  202.5 progress= 10.8%
+     level=corpus/train_div/lvl_686.json reason=game_over  steps= 374 return=  161.5 progress= 89.9%
+     level=corpus/train_div/lvl_687.json reason=game_over  steps= 366 return=  155.5 progress= 84.9%
+     level=corpus/train_div/lvl_689.json reason=timeout    steps=2000 return=  278.5 progress= 89.2%
+     level=corpus/train_div/lvl_694.json reason=timeout    steps=2000 return=  308.5 progress= 78.9%
+     level=corpus/train_div/lvl_694.json reason=timeout    steps=2000 return=  305.5 progress= 78.9%
+     level=corpus/train_div/lvl_699.json reason=timeout    steps=2000 return=  283.0 progress= 62.4%
+     level=corpus/train_div/lvl_699.json reason=timeout    steps=2000 return=  273.5 progress= 62.4%
+     level=corpus/train_div/lvl_700.json reason=game_over  steps= 672 return=  172.8 progress= 97.0%
+     level=corpus/train_div/lvl_701.json reason=game_over  steps= 363 return=  152.2 progress= 83.6%
+     level=corpus/train_div/lvl_704.json reason=game_over  steps= 323 return=  182.3 progress= 97.6%
+     level=corpus/train_div/lvl_704.json reason=game_over  steps= 317 return=  181.5 progress= 97.8%
+     level=corpus/train_div/lvl_704.json reason=game_over  steps= 332 return=  180.1 progress= 97.9%
+     level=corpus/train_div/lvl_704.json reason=timeout    steps=2000 return=  221.5 progress= 34.0%
+     level=corpus/train_div/lvl_705.json reason=timeout    steps=2000 return=  211.0 progress= 23.2%
+     level=corpus/train_div/lvl_708.json reason=game_over  steps= 382 return=  161.2 progress= 86.8%
+     level=corpus/train_div/lvl_709.json reason=game_over  steps= 409 return=  165.0 progress= 91.9%
+     level=corpus/train_div/lvl_715.json reason=game_over  steps= 557 return=  148.3 progress= 84.6%
+     level=corpus/train_div/lvl_720.json reason=game_over  steps= 421 return=  171.7 progress= 93.1%
+     level=corpus/train_div/lvl_727.json reason=game_over  steps= 385 return=  162.8 progress= 89.0%
+     level=corpus/train_div/lvl_731.json reason=game_over  steps= 255 return=  149.5 progress= 79.2%
+     level=corpus/train_div/lvl_735.json reason=timeout    steps=2000 return=  285.0 progress= 60.3%
+     level=corpus/train_div/lvl_735.json reason=game_over  steps= 428 return=  147.6 progress= 79.2%
+     level=corpus/train_div/lvl_742.json reason=game_over  steps= 359 return=  151.5 progress= 80.4%
+     level=corpus/train_div/lvl_743.json reason=game_over  steps= 548 return=  145.2 progress= 81.7%
+     level=corpus/train_div/lvl_743.json reason=timeout    steps=2000 return=  173.5 progress= 17.0%
+     level=corpus/train_div/lvl_744.json reason=timeout    steps=2000 return=  327.0 progress= 93.3%
+     level=corpus/train_div/lvl_747.json reason=game_over  steps= 719 return=  173.3 progress= 98.2%
+     level=corpus/train_div/lvl_759.json reason=timeout    steps=2000 return=  284.5 progress= 62.4%
+     level=corpus/train_div/lvl_759.json reason=timeout    steps=2000 return=  283.0 progress= 62.4%
+     level=corpus/train_div/lvl_761.json reason=game_over  steps= 754 return=  167.0 progress= 97.5%
+     level=corpus/train_div/lvl_762.json reason=timeout    steps=2000 return=  228.5 progress= 27.8%
+     level=corpus/train_div/lvl_766.json reason=game_over  steps= 345 return=  184.2 progress= 98.5%
+     level=corpus/train_div/lvl_768.json reason=timeout    steps=2000 return=  207.0 progress= 11.9%
+     level=corpus/train_div/lvl_770.json reason=timeout    steps=2000 return=  291.5 progress= 67.0%
+     level=corpus/train_div/lvl_770.json reason=timeout    steps=2000 return=  274.5 progress= 77.3%
+     level=corpus/train_div/lvl_774.json reason=timeout    steps=2000 return=  319.5 progress= 85.6%
+     level=corpus/train_div/lvl_775.json reason=timeout    steps=2000 return=  194.0 progress=  5.2%
+     level=corpus/train_div/lvl_775.json reason=timeout    steps=2000 return=  194.5 progress=  5.2%
+     level=corpus/train_div/lvl_775.json reason=timeout    steps=2000 return=  194.5 progress=  5.2%
+     level=corpus/train_div/lvl_776.json reason=timeout    steps=2000 return=  236.5 progress= 34.5%
+     level=corpus/train_div/lvl_776.json reason=game_over  steps= 623 return=  150.2 progress= 88.2%
+     level=corpus/train_div/lvl_778.json reason=game_over  steps= 359 return=  169.3 progress= 92.9%
+     level=corpus/train_div/lvl_782.json reason=timeout    steps=2000 return=  232.0 progress= 29.9%
+     level=corpus/train_div/lvl_787.json reason=game_over  steps= 380 return=  166.1 progress= 92.2%
+     level=corpus/train_div/lvl_790.json reason=game_over  steps= 424 return=  168.4 progress= 89.9%
+     level=corpus/train_div/lvl_792.json reason=game_over  steps= 302 return=  168.6 progress= 90.1%
+     level=corpus/train_div/lvl_795.json reason=game_over  steps= 312 return=  179.1 progress= 97.7%
+     level=corpus/train_div/lvl_795.json reason=game_over  steps= 437 return=  177.8 progress= 97.8%
+     level=corpus/train_div/lvl_799.json reason=game_over  steps= 330 return=  151.4 progress= 82.8%
+     level=corpus/train_div/lvl_800.json reason=game_over  steps= 289 return=  151.7 progress= 83.6%
+     level=corpus/train_div/lvl_802.json reason=game_over  steps= 272 return=  154.3 progress= 83.6%
+     level=corpus/train_div/lvl_802.json reason=game_over  steps= 273 return=  154.0 progress= 83.5%
+     level=corpus/train_div/lvl_805.json reason=game_over  steps= 323 return=  177.4 progress= 97.1%
+     level=corpus/train_div/lvl_805.json reason=game_over  steps= 399 return=  159.8 progress= 88.8%
+     level=corpus/train_div/lvl_809.json reason=game_over  steps= 419 return=  155.9 progress= 88.2%
+     level=corpus/train_div/lvl_810.json reason=timeout    steps=2000 return=  194.5 progress=  5.2%
+     level=corpus/train_div/lvl_810.json reason=game_over  steps= 441 return=  170.0 progress= 93.1%
+     level=corpus/train_div/lvl_812.json reason=timeout    steps=2000 return=  195.5 progress=  5.7%
+     level=corpus/train_div/lvl_812.json reason=timeout    steps=2000 return=  195.5 progress=  5.7%
+     level=corpus/train_div/lvl_815.json reason=game_over  steps= 398 return=  171.6 progress= 93.6%
+     level=corpus/train_div/lvl_821.json reason=game_over  steps= 408 return=  162.6 progress= 89.6%
+     level=corpus/train_div/lvl_823.json reason=timeout    steps=2000 return=  262.5 progress= 47.9%
+     level=corpus/train_div/lvl_823.json reason=game_over  steps= 351 return=  178.1 progress= 97.0%
+     level=corpus/train_div/lvl_825.json reason=timeout    steps=2000 return=  206.0 progress= 12.4%
+     level=corpus/train_div/lvl_825.json reason=timeout    steps=2000 return=  204.5 progress= 12.4%
+     level=corpus/train_div/lvl_828.json reason=timeout    steps=2000 return=  207.5 progress= 13.9%
+     level=corpus/train_div/lvl_829.json reason=timeout    steps=2000 return=  254.5 progress= 45.4%
+     level=corpus/train_div/lvl_830.json reason=game_over  steps= 325 return=  181.0 progress= 97.1%
+     level=corpus/train_div/lvl_831.json reason=game_over  steps= 320 return=  167.7 progress= 90.7%
+     level=corpus/train_div/lvl_834.json reason=game_over  steps= 312 return=  179.6 progress= 96.4%
+     level=corpus/train_div/lvl_834.json reason=game_over  steps= 297 return=  170.3 progress= 91.8%
+     level=corpus/train_div/lvl_836.json reason=game_over  steps= 389 return=  161.9 progress= 89.9%
+     level=corpus/train_div/lvl_837.json reason=game_over  steps= 382 return=  158.6 progress= 85.7%
+     level=corpus/train_div/lvl_842.json reason=game_over  steps= 334 return=  179.4 progress= 97.3%
+     level=corpus/train_div/lvl_846.json reason=game_over  steps= 306 return=  169.3 progress= 90.2%
+     level=corpus/train_div/lvl_853.json reason=game_over  steps= 367 return=  176.1 progress= 96.8%
+     level=corpus/train_div/lvl_854.json reason=game_over  steps= 314 return=  181.5 progress= 96.9%
+     level=corpus/train_div/lvl_860.json reason=game_over  steps= 316 return=  151.9 progress= 83.0%
+     level=corpus/train_div/lvl_861.json reason=game_over  steps= 328 return=  182.1 progress= 98.8%
+     level=corpus/train_div/lvl_862.json reason=game_over  steps= 282 return=  153.7 progress= 83.0%
+     level=corpus/train_div/lvl_863.json reason=game_over  steps= 396 return=  157.2 progress= 87.1%
+     level=corpus/train_div/lvl_865.json reason=timeout    steps=2000 return=  274.5 progress= 55.2%
+     level=corpus/train_div/lvl_871.json reason=game_over  steps= 344 return=  182.0 progress= 96.2%
+     level=corpus/train_div/lvl_875.json reason=game_over  steps= 272 return=  150.0 progress= 80.9%
+     level=corpus/train_div/lvl_880.json reason=timeout    steps=2000 return=  199.0 progress=  8.8%
+     level=corpus/train_div/lvl_880.json reason=timeout    steps=2000 return=  200.5 progress=  8.8%
+     level=corpus/train_div/lvl_881.json reason=game_over  steps= 324 return=  152.6 progress= 84.5%
+     level=corpus/train_div/lvl_884.json reason=game_over  steps= 354 return=  163.5 progress= 88.7%
+     level=corpus/train_div/lvl_884.json reason=game_over  steps= 310 return=  164.0 progress= 89.1%
+     level=corpus/train_div/lvl_891.json reason=timeout    steps=2000 return=  195.0 progress=  7.7%
+     level=corpus/train_div/lvl_895.json reason=game_over  steps= 261 return=  145.8 progress= 78.2%
+     level=corpus/train_div/lvl_898.json reason=game_over  steps= 316 return=  172.6 progress= 95.2%
+     level=corpus/train_div/lvl_899.json reason=timeout    steps=2000 return=  321.0 progress= 86.6%
+     level=corpus/train_div/lvl_899.json reason=game_over  steps= 323 return=  156.0 progress= 85.8%
+     level=corpus/train_div/lvl_901.json reason=timeout    steps=2000 return=  270.0 progress= 50.5%
+     level=corpus/train_div/lvl_906.json reason=game_over  steps= 271 return=  147.6 progress= 78.6%
+     level=corpus/train_div/lvl_909.json reason=game_over  steps= 317 return=  186.5 progress= 98.3%
+     level=corpus/train_div/lvl_910.json reason=timeout    steps=2000 return=  195.5 progress=  5.7%
+     level=corpus/train_div/lvl_912.json reason=game_over  steps= 290 return=  156.4 progress= 85.6%
+     level=corpus/train_div/lvl_912.json reason=timeout    steps=2000 return=  238.0 progress= 36.6%
+     level=corpus/train_div/lvl_915.json reason=game_over  steps= 267 return=  147.7 progress= 79.8%
+     level=corpus/train_div/lvl_916.json reason=game_over  steps= 333 return=  178.5 progress= 96.3%
+     level=corpus/train_div/lvl_918.json reason=game_over  steps= 266 return=  151.8 progress= 81.9%
+     level=corpus/train_div/lvl_920.json reason=game_over  steps= 313 return=  160.7 progress= 87.7%
+     level=corpus/train_div/lvl_923.json reason=game_over  steps= 322 return=  182.7 progress= 98.5%
+     level=corpus/train_div/lvl_929.json reason=game_over  steps= 408 return=  171.3 progress= 95.4%
+     level=corpus/train_div/lvl_931.json reason=timeout    steps=2000 return=  224.5 progress= 25.3%
+     level=corpus/train_div/lvl_931.json reason=timeout    steps=2000 return=  225.0 progress= 25.3%
+     level=corpus/train_div/lvl_932.json reason=timeout    steps=2000 return=  195.5 progress=  5.7%
+     level=corpus/train_div/lvl_932.json reason=timeout    steps=2000 return=  195.5 progress=  5.7%
+     level=corpus/train_div/lvl_932.json reason=timeout    steps=2000 return=  195.5 progress=  5.7%
+     level=corpus/train_div/lvl_936.json reason=timeout    steps=2000 return=  247.5 progress= 37.6%
+     level=corpus/train_div/lvl_936.json reason=timeout    steps=2000 return=  246.0 progress= 37.6%
+     level=corpus/train_div/lvl_937.json reason=timeout    steps=2000 return=  242.0 progress= 36.1%
+     level=corpus/train_div/lvl_937.json reason=timeout    steps=2000 return=  249.0 progress= 39.7%
+     level=corpus/train_div/lvl_937.json reason=timeout    steps=2000 return=  241.0 progress= 39.7%
+     level=corpus/train_div/lvl_937.json reason=timeout    steps=2000 return=  231.5 progress= 36.1%
+     level=corpus/train_div/lvl_938.json reason=game_over  steps= 370 return=  181.2 progress= 96.9%
+     level=corpus/train_div/lvl_941.json reason=game_over  steps= 283 return=  155.0 progress= 83.9%
+     level=corpus/train_div/lvl_941.json reason=game_over  steps= 300 return=  156.7 progress= 84.9%
+     level=corpus/train_div/lvl_945.json reason=game_over  steps= 274 return=  150.8 progress= 82.6%
+     level=corpus/train_div/lvl_948.json reason=timeout    steps=2000 return=  255.5 progress= 47.4%
+     level=corpus/train_div/lvl_949.json reason=timeout    steps=2000 return=  236.5 progress= 38.1%
+     level=corpus/train_div/lvl_953.json reason=game_over  steps= 311 return=  178.7 progress= 94.1%
+     level=corpus/train_div/lvl_953.json reason=game_over  steps= 346 return=  144.7 progress= 76.8%
+     level=corpus/train_div/lvl_957.json reason=game_over  steps= 381 return=  159.9 progress= 87.5%
+     level=corpus/train_div/lvl_959.json reason=timeout    steps=2000 return=  212.5 progress= 22.2%
+     level=corpus/train_div/lvl_975.json reason=timeout    steps=2000 return=  210.0 progress= 15.5%
+     level=corpus/train_div/lvl_975.json reason=timeout    steps=2000 return=  210.0 progress= 15.5%
+     level=corpus/train_div/lvl_984.json reason=timeout    steps=2000 return=  221.0 progress= 23.2%
+     level=corpus/train_div/lvl_986.json reason=game_over  steps= 632 return=  148.8 progress= 87.1%
+     level=corpus/train_div/lvl_994.json reason=timeout    steps=2000 return=  220.0 progress= 29.9%
+     level=corpus/train_div/lvl_995.json reason=game_over  steps= 307 return=  164.7 progress= 90.2%
+     level=corpus/train_div/lvl_996.json reason=timeout    steps=2000 return=  330.5 progress= 90.7%
+     level=corpus/train_div/lvl_996.json reason=timeout    steps=2000 return=  331.5 progress= 90.7%
+     level=corpus/train_div/lvl_997.json reason=game_over  steps= 347 return=  169.0 progress= 90.9%
+     level=corpus/train_div/lvl_998.json reason=timeout    steps=2000 return=  240.5 progress= 35.1%
+
+======================================================================
+変更後: clear_bonus=25.0 death_penalty=0.0
+======================================================================
+  return: min=-10.8 中央=205.6 max=229.8 平均=145.6
+  非クリア最大=144.1 / クリア最小=144.1 → ギャップ=0.0
+    [ -25,   0):    1 (  0.0%)   ← 空白
+    [   0,  25): 1123 ( 14.5%) ########
+    [  25,  50):  658 (  8.5%) #####
+    [  50,  75):  487 (  6.3%) ###
+    [  75, 100):  333 (  4.3%) ##
+    [ 100, 125):  244 (  3.1%) #
+    [ 125, 150):  152 (  2.0%) #
+    [ 150, 175):  141 (  1.8%) #
+    [ 175, 200):  287 (  3.7%) ##
+    [ 200, 225): 4320 ( 55.7%) #################################
+    [ 225, 250):   16 (  0.2%)   ← 空白
+
+💾 保存しました: dt_dataset_div/metadata_rebalanced.pkl (7762 エピソード)
+   ※ フレーム画像は元のまま共有しているので再収集は不要です
