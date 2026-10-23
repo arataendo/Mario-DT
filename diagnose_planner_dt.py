@@ -48,9 +48,17 @@ def section_data(eps, ref_eps):
               f"  収益 {np.mean([x['rewards'].sum() for x in es]):6.1f}"
               f"  長さ {np.mean([len(x['actions']) for x in es]):6.0f}"
               f"  結末 {dict(Counter(x['final_reason'] for x in es))}")
+    # 今のデータと合わせて学習した場合は、出どころ別にも見る（新しく集めたものには teacher が付いている）
+    src = [("新しく集めた分", [x for x in eps if "teacher" in x]), ("今のデータ（11ステージ）", [x for x in eps if "teacher" not in x])]
+    if all(g for _, g in src):
+        for name, g in src:
+            g0 = [x for x in g if x.get("epsilon", 0) == 0]
+            clears = [x["rewards"].sum() for x in g0 if x["final_reason"] == "level_complete"]
+            print(f"  {name:14s} {len(g):5d} 本  ε=0 のクリア {np.mean([x['final_reason'] == 'level_complete' for x in g0]) * 100:5.1f}%"
+                  f"  クリアした回の収益 中央 {np.median(clears):6.1f}（{np.percentile(clears, 10):.1f}〜{np.percentile(clears, 90):.1f}）")
     allr = np.concatenate([x["returns_to_go"] for x in eps])
     print(f"  RTG の範囲: {allr.min():.1f} 〜 {allr.max():.1f}")
-    print(f"  行動の分布（ε=0）  プランナー教師: {hist([a for x in eps if x.get('epsilon', 0) == 0 for a in x['actions']])}")
+    print(f"  行動の分布（ε=0）  新しいデータ  : {hist([a for x in eps if x.get('epsilon', 0) == 0 for a in x['actions']])}")
     if ref_eps:
         print(f"                     PPO 教師      : {hist([a for x in ref_eps if x.get('epsilon', 0) == 0 for a in x['actions']])}")
     print(f"  （行動番号: {ACTION_NAMES}）")
@@ -162,6 +170,8 @@ def main():
     ap.add_argument("--ref-data", default="dt_dataset_v10/metadata_rebalanced.pkl")
     ap.add_argument("--train-log", default="planner_out/train.log")
     ap.add_argument("--train-manifest", default="corpus/train_gen/manifest.json")
+    ap.add_argument("--label", default="プランナー教師", help="診断する DT の呼び名（表示用）")
+    ap.add_argument("--play-target", type=float, default=235.0, help="[5] 実際のプレイの目標収益")
     a = ap.parse_args()
 
     with open(f"{a.data}/metadata_rebalanced.pkl", "rb") as f:
@@ -171,20 +181,23 @@ def main():
         with open(a.ref_data, "rb") as f:
             ref = pickle.load(f)
     section_data(eps, ref)
-    section_replay(eps, f"{a.data}/progress.jsonl")
+    if os.path.exists(f"{a.data}/progress.jsonl"):
+        section_replay(eps, f"{a.data}/progress.jsonl")
+    else:
+        print(f"\n（{a.data}/progress.jsonl が無いので、[2] 再生の確認は飛ばす）")
     section_train(a.model, a.train_log)
 
     print("\n" + "=" * 80)
     print("[4] 学習データ上の正解率")
     print("=" * 80)
-    section_accuracy(a.model, f"{a.data}/metadata_rebalanced.pkl", label="プランナー教師の DT（自分の学習データ）")
+    section_accuracy(a.model, f"{a.data}/metadata_rebalanced.pkl", label=f"{a.label}の DT（自分の学習データ）")
     if os.path.exists(a.ref_data) and os.path.exists(a.ref_model):
         section_accuracy(a.ref_model, a.ref_data, label="PPO 教師の DT（自分の学習データ）")
 
     with open(a.train_manifest, encoding="utf-8") as f:
         train_lv = json.load(f)[0]["path"]
-    models = [("プランナー教師", a.model)] + ([("PPO教師", a.ref_model)] if os.path.exists(a.ref_model) else [])
-    section_play(models, ["Level_easy_01", train_lv])
+    models = [(a.label, a.model)] + ([("今の DT", a.ref_model)] if os.path.exists(a.ref_model) else [])
+    section_play(models, ["Level_easy_01", train_lv, "Level_test_medium", "Level_test_hard"], target=a.play_target)
 
 
 if __name__ == "__main__":
