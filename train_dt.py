@@ -237,10 +237,14 @@ def train(args):
     if args.resume_from:
         # 再開時はチェックポイント側の frame_stack を正とする。
         # --frame-stack の指定を忘れると conv 層の形状が合わずに落ちるため。
-        ck_fs = torch.load(args.resume_from, map_location="cpu", weights_only=False).get("frame_stack", 1)
+        ck = torch.load(args.resume_from, map_location="cpu", weights_only=False)
+        ck_fs = ck.get("frame_stack", 1)
         if ck_fs != args.frame_stack:
             print(f"ℹ️  チェックポイントの frame_stack={ck_fs} に合わせます (指定値 {args.frame_stack})")
             args.frame_stack = ck_fs
+        # モデルの大きさもチェックポイントに合わせる（指定し忘れると形状が合わずに落ちる）
+        args.hidden_size = ck.get("hidden_size", args.hidden_size)
+        args.n_layer = ck.get("n_layer", 3)
     dataset = MarioDTDataset(args.dataset, context_len=args.context_len,
                              frame_stack=args.frame_stack)
     dataloader = DataLoader(
@@ -253,7 +257,10 @@ def train(args):
         frame_stack=args.frame_stack,
         hidden_size=args.hidden_size,
         context_len=args.context_len,
+        n_layer=args.n_layer,
     ).to(device)
+    print(f"モデル: hidden_size={args.hidden_size}, n_layer={args.n_layer}, "
+          f"パラメータ {sum(p.numel() for p in model.parameters()) / 1e6:.2f}M")
     optimizer = torch.optim.AdamW(model.parameters(), lr=args.lr, weight_decay=1e-4)
 
     os.makedirs(args.model_dir, exist_ok=True)
@@ -322,6 +329,7 @@ def train(args):
             "rtg_min": dataset.rtg_min,
             "rtg_max": dataset.rtg_max,
             "hidden_size": args.hidden_size,
+            "n_layer": args.n_layer,
             "context_len": args.context_len,
             "action_vocab_size": ACTION_VOCAB_SIZE,
             "frame_stack": args.frame_stack,
@@ -335,6 +343,8 @@ def main():
     parser.add_argument("--model-dir", type=str, default="./models")
     parser.add_argument("--context-len", type=int, default=30)
     parser.add_argument("--hidden-size", type=int, default=128)
+    parser.add_argument("--n-layer", type=int, default=3,
+                        help="Transformer の層の数。多数のステージで学習すると 3 層では学習データにも合いきらなかった")
     parser.add_argument("--batch-size", type=int, default=64)
     parser.add_argument("--epochs", type=int, default=10)
     parser.add_argument("--steps-per-epoch", type=int, default=1000)

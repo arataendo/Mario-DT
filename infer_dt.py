@@ -32,6 +32,7 @@ def load_model(model_path, device):
     model = DecisionTransformer(
         action_vocab_size=ckpt.get("action_vocab_size", ACTION_VOCAB_SIZE),
         hidden_size=ckpt["hidden_size"],
+        n_layer=ckpt.get("n_layer", 3),
         context_len=ckpt["context_len"],
         frame_stack=frame_stack,
     ).to(device)

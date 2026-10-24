@@ -19,6 +19,8 @@ command -v python >/dev/null || { echo "❌ python が見つかりません。so
 
 WORKERS=${WORKERS:-8}
 EPOCHS=${EPOCHS:-20}
+HIDDEN=${HIDDEN:-128}   # モデルの大きさ（今の DT は 128 / 3 層）。新しく学習するときだけ効く
+NLAYER=${NLAYER:-3}
 RUN=${RUN:-mario_dt_div}
 DATA=${DATA:-dt_dataset_div}
 OUT=${OUT:-div_out}
@@ -75,7 +77,7 @@ elif [ "$last" -gt 0 ]; then
 else
   python -u train_dt.py --dataset "$DATA/metadata_rebalanced.pkl" --epochs "$EPOCHS" \
     --steps-per-epoch 1000 --batch-size 64 --num-workers 8 --frame-stack 2 \
-    --run-name "$RUN" 2>&1 | tee -a "$OUT/train.log"
+    --hidden-size "$HIDDEN" --n-layer "$NLAYER" --run-name "$RUN" 2>&1 | tee -a "$OUT/train.log"
 fi
 MODEL=models/${RUN}_epoch${EPOCHS}.pth
 
