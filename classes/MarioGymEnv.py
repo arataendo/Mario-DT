@@ -8,6 +8,7 @@ Note: gym の後継である gymnasium を使用
 import gymnasium as gym
 from gymnasium import spaces
 import numpy as np
+import json
 import os
 import random
 
@@ -53,7 +54,7 @@ class MarioEnv(gym.Env):
     }
     
     def __init__(self, level=None, random_level=True, render_mode=None, max_episode_steps=8000,
-                 levels=None):
+                 levels=None, level_weights_file=None):
         """
         Parameters:
         -----------
@@ -88,6 +89,11 @@ class MarioEnv(gym.Env):
         # 特定の難易度だけを重点的に学習させたいときに使う。
         self.allowed_levels = set(levels) if levels else None
         self.available_levels = self._get_available_levels()
+        # level_weights_file: ランダム選択の重み（train_ppo.py の LevelCurriculumCallback が書き出す JSON）。
+        # 学習中に書き換わるので、エピソードの開始時に更新を確かめて読み直す。無ければ均等に選ぶ
+        self.level_weights_file = level_weights_file
+        self._weights_mtime = None
+        self._level_p = None
         self.current_level_name = level if level else (self.available_levels[0] if self.available_levels else 'Level1-1')
         
         # ゲーム状態
@@ -168,6 +174,29 @@ class MarioEnv(gym.Env):
             )
         return sorted(levels)
     
+    def _level_probs(self):
+        """ステージを選ぶ確率。重みのファイルが無ければ None（均等）。
+
+        確率 = mix × 均等 + (1 − mix) × 重みに比例。重みは「苦手さ」（最近失敗した割合）で、
+        mix を残すのは、得意になったステージや一度も出ていないステージも時々は出すため
+        """
+        path = self.level_weights_file
+        if not path or not os.path.exists(path):
+            return None
+        mtime = os.stat(path).st_mtime
+        if mtime != self._weights_mtime:
+            try:
+                with open(path, encoding='utf-8') as f:
+                    data = json.load(f)
+            except (OSError, ValueError):
+                return self._level_p   # 書き換えの途中などで読めなければ、前の確率のまま
+            w = np.array([float(data["weights"].get(lv, data["default"])) for lv in self.available_levels])
+            n = len(w)
+            p = data["mix"] / n + (1 - data["mix"]) * (w / w.sum() if w.sum() > 0 else 1.0 / n)
+            self._level_p = p / p.sum()
+            self._weights_mtime = mtime
+        return self._level_p
+
     def _init_pygame(self):
         """pygame の初期化"""
         import pygame
@@ -228,7 +257,7 @@ class MarioEnv(gym.Env):
         if self.level_name is not None:
             level_name = self.level_name
         elif self.random_level:
-            level_name = self.np_random.choice(self.available_levels)
+            level_name = self.np_random.choice(self.available_levels, p=self._level_probs())
         else:
             level_name = self.available_levels[0]
         

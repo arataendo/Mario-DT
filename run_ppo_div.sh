@@ -9,13 +9,17 @@
 #   2. 800万ステップの PPO から、11 ステージ + 生成したステージで追加学習（毎エピソードくじ引き）
 #   3. 追加学習前後の PPO を、評価コーパス 60 ステージと未知のテスト用 9 ステージで比べる
 #   4. 高難度の評価専用ステージ 60 個（つまみ 0.7〜0.95、どの学習にも使わない）で、
-#      ステージ数の違う追加学習（1000 個の ppo_div と、この実行）を比べる
+#      これまでの追加学習（models/ppo_div*）をすべて並べて比べる
 #      → ppo_<NAME>_out/report.txt
 #
 # 使い方:
 #   WORKERS=48 ./run_ppo_div.sh                                   # 1000 ステージ（ppo_div、実行済み）
 #   WORKERS=48 NAME=div10k STAGES=10000 ./run_ppo_div.sh          # 1万ステージ。開始点・ステップ数・学習率は同じ
-# 100万ステップごとにチェックポイントを保存し、止まっても再実行で最後のチェックポイントから続きを学習する。
+#   WORKERS=48 NAME=div10k STAGES=10000 TOTAL=30000000 ./run_ppo_div.sh
+#                                         # 1万ステージを続きから 3000 万ステップまで延長（評価もやり直す）
+#   WORKERS=48 NAME=div10k_cur STAGES=10000 CURRICULUM=1 ./run_ppo_div.sh
+#                                         # 苦手なステージほど多く出す（同じ 1万ステージ。MIX=0.5 で半分は均等）
+# 学習の 1/10 ごとにチェックポイントを保存し、止まっても再実行で最後のチェックポイントから続きを学習する。
 set -euo pipefail
 cd "$(dirname "$0")"
 if [ -z "${VIRTUAL_ENV:-}" ] && [ -f .venv/bin/activate ]; then
@@ -28,6 +32,10 @@ TOTAL=${TOTAL:-10000000}
 LR=${LR:-1e-4}
 NAME=${NAME:-div}
 STAGES=${STAGES:-1000}
+CURRICULUM=${CURRICULUM:-0}
+MIX=${MIX:-0.5}
+CUR_ARGS=""
+[ "$CURRICULUM" = 1 ] && CUR_ARGS="--curriculum --curriculum-mix $MIX"
 # 学習用ステージのシード。評価コーパス 300000〜、生成実験 600000〜、DT 用 800000〜/900000〜、
 # 1000 ステージ 1000000〜、1万ステージ 2000000〜、高難度の評価用 3000000〜 で重ならない
 if [ "$NAME" = div ]; then SEED_BASE=${SEED_BASE:-1000000}; else SEED_BASE=${SEED_BASE:-2000000}; fi
@@ -52,6 +60,13 @@ models_of() {
   for s in $pick; do m="$m,$1/mario_ppo_level11_checkpoint_${s}_steps.zip"; done
   echo "$m"
 }
+# 評価: 同じモデルの組み合わせで評価済みなら飛ばす（学習を延長してチェックポイントが増えたらやり直す）
+evaluate() {
+  local f=$1 models=$2; shift 2
+  if [ -f "$f" ] && [ "$(cat "$f.models" 2>/dev/null)" = "$models" ]; then echo "既存: $f"; return; fi
+  python panel_difficulty.py --models "$models" --workers "$WORKERS" --device cpu --seed 0 --output "$f" "$@" | sed -n 1p
+  echo "$models" > "$f.models"
+}
 [ -f "$BASE" ] || { echo "❌ $BASE がありません（元の PC から models/ に送ってください）"; exit 1; }
 [ -f corpus/v1/manifest.json ] || python make_corpus.py --name v1 --count 60 | tail -1   # 評価コーパス（シードで再現）
 mkdir -p "$DIR" "$OUT"
@@ -60,7 +75,7 @@ step "1/4 学習用ステージを生成（$STAGES 個、シード $SEED_BASE〜
 [ -f "$TRAIN/manifest.json" ] && echo "既存" || python make_corpus.py --name "train_${NAME}" \
   --count "$STAGES" --seed-base "$SEED_BASE" | tail -4
 
-step "2/4 PPO の追加学習（${TOTAL} ステップ、並列 ${WORKERS}、学習率 ${LR}）"
+step "2/4 PPO の追加学習（${TOTAL} ステップ、並列 ${WORKERS}、学習率 ${LR}${CUR_ARGS:+、苦手なステージを多く出す mix=$MIX}）"
 latest=$(ls "$DIR"/mario_ppo_level11_checkpoint_*_steps.zip 2>/dev/null \
   | sed -E 's/.*_checkpoint_([0-9]+)_steps\.zip/\1/' | sort -n | tail -1 || true)
 if [ -n "$latest" ]; then
@@ -76,26 +91,23 @@ else
   echo "$load から、残り $remain ステップ"
   python -u train_ppo.py --random-level --levels "$ORIG" --levels-from "$TRAIN/manifest.json" \
     --load-model "$load" --total-steps "$remain" --num-envs "$WORKERS" --device cpu --lr "$LR" \
-    --model-dir "$DIR" --log-dir "logs/ppo_${NAME}" 2>&1 | grep -v "^\s*|" | tee -a "$OUT/train.log"
+    --model-dir "$DIR" --log-dir "logs/ppo_${NAME}" $CUR_ARGS 2>&1 | grep -v "^\s*|" | tee -a "$OUT/train.log"
 fi
 
 step "3/4 追加学習の前後を比べる（評価コーパスとテスト用ステージ）"
 MODELS=$(models_of "$DIR")
 echo "$MODELS" | tr ',' '\n'
-[ -f "$OUT/eval_corpus.json" ] || python panel_difficulty.py --levels-from corpus/v1/manifest.json --models "$MODELS" \
-  --episodes 8 --workers "$WORKERS" --device cpu --seed 0 --output "$OUT/eval_corpus.json" | sed -n 1p
-[ -f "$OUT/eval_test.json" ] || python panel_difficulty.py --levels "$TEST" --models "$MODELS" \
-  --episodes 20 --workers "$WORKERS" --device cpu --seed 0 --output "$OUT/eval_test.json" | sed -n 1p
+evaluate "$OUT/eval_corpus.json" "$MODELS" --levels-from corpus/v1/manifest.json --episodes 8
+evaluate "$OUT/eval_test.json" "$MODELS" --levels "$TEST" --episodes 20
 
-step "4/4 高難度の評価専用ステージで、ステージ数の違う追加学習を比べる"
+step "4/4 高難度の評価専用ステージで、これまでの追加学習を比べる"
 [ -f corpus/hard_eval/manifest.json ] || python make_corpus.py --name hard_eval --count 60 \
   --dmin 0.7 --dmax 0.95 --seed-base 3000000 | tail -4
-for d in models/ppo_div "$DIR"; do
-  run=$(basename "$d")
-  f="$OUT/eval_hard_${run}.json"
-  [ -d "$d" ] && [ ! -f "$f" ] || continue
-  python panel_difficulty.py --levels-from corpus/hard_eval/manifest.json --models "$(models_of "$d")" \
-    --episodes 8 --workers "$WORKERS" --device cpu --seed 0 --output "$f" | sed -n 1p
+for d in models/ppo_div*/; do
+  d=${d%/}
+  ls "$d"/mario_ppo_level11_checkpoint_*_steps.zip >/dev/null 2>&1 || continue
+  evaluate "$OUT/eval_hard_$(basename "$d").json" "$(models_of "$d")" \
+    --levels-from corpus/hard_eval/manifest.json --episodes 8
 done
 
 python - "$OUT" <<'EOF' | tee "$OUT/report.txt"

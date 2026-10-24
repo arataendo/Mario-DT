@@ -166,6 +166,7 @@ def make_mario_env(
     skip=SKIP,
     n_stack=N_STACK,
     levels=None,
+    level_weights_file=None,
 ):
     """学習・推論・データ収集で共通の Mario 環境を作る。
 
@@ -186,6 +187,7 @@ def make_mario_env(
         max_episode_steps=max_episode_steps,
         random_level=random_level,
         levels=levels,
+        level_weights_file=level_weights_file,
     )
     env = SkipFrame(env, skip=skip)
     env = MarioImageWrapper(env)
