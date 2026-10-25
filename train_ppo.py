@@ -16,6 +16,7 @@ PPO を使用してカスタム Mario ゲーム環境で学習を行う
 """
 
 import json
+import time
 import os
 import argparse
 from collections import defaultdict, deque
@@ -108,7 +109,26 @@ class MarioStatsCallback(BaseCallback):
             self.best_progress = max(self.best_progress, progress)
         return True
 
+    def _on_training_start(self) -> None:
+        self.t0, self.s0 = time.time(), self.num_timesteps
+
+    def _print_progress(self):
+        """ロールアウトごとに1行で進み具合を出す。
+
+        stable-baselines3 の表や進み具合のバーは、ログを絞り込んで tee に流すと
+        区切り線だけが残って「止まって見える」ので、こちらで改行付きの1行を出す"""
+        el = time.time() - self.t0
+        total = getattr(self.model, "_total_timesteps", 0) or self.num_timesteps
+        done = max(self.num_timesteps - self.s0, 1)
+        rest = max(total - self.num_timesteps, 0) * el / done
+        clear = f"  クリア率 {np.mean(self.clears) * 100:3.0f}%  到達 {np.mean(self.progress) * 100:3.0f}%" if self.clears else ""
+        run_total = max(total - self.s0, 1)   # 再開した場合は、この実行で学習する分
+        print(f"[{datetime.now():%m/%d %H:%M}] {done:,} / {run_total:,} ステップ "
+              f"({done / run_total * 100:4.1f}%、通算 {self.num_timesteps:,})  経過 {el / 3600:.1f}時間  "
+              f"残り約 {rest / 3600:.1f}時間{clear}", flush=True)
+
     def _on_rollout_end(self) -> None:
+        self._print_progress()
         if not self.progress:
             return
         n = len(self.recent_reasons)

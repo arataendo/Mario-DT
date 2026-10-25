@@ -91,7 +91,10 @@ else
   echo "$load から、残り $remain ステップ"
   python -u train_ppo.py --random-level --levels "$ORIG" --levels-from "$TRAIN/manifest.json" \
     --load-model "$load" --total-steps "$remain" --num-envs "$WORKERS" --device cpu --lr "$LR" \
-    --model-dir "$DIR" --log-dir "logs/ppo_${NAME}" $CUR_ARGS 2>&1 | grep -v "^\s*|" | tee -a "$OUT/train.log"
+    --model-dir "$DIR" --log-dir "logs/ppo_${NAME}" $CUR_ARGS 2>&1 \
+    | grep --line-buffered -v -E '^\s*(\||-+\s*$)' | tee -a "$OUT/train.log"
+  # ↑ stable-baselines3 の表（| で始まる行と ---- の区切り線）を消す。進み具合は train_ppo.py が1行ずつ出す。
+  #   --line-buffered が無いと grep が出力をためこみ、画面に出るのが遅れる
 fi
 
 step "3/4 追加学習の前後を比べる（評価コーパスとテスト用ステージ）"
