@@ -22,10 +22,16 @@
 # 学習の 1/10 ごとにチェックポイントを保存し、止まっても再実行で最後のチェックポイントから続きを学習する。
 set -euo pipefail
 cd "$(dirname "$0")"
-if [ -z "${VIRTUAL_ENV:-}" ] && [ -f .venv/bin/activate ]; then
+# このフォルダの .venv を使う。別の仮想環境が有効になっていても切り替える
+# （別の環境のまま動いて「No module named 'stable_baselines3'」で止まったことがある）
+if [ -f .venv/bin/activate ] && [ "${VIRTUAL_ENV:-}" != "$(pwd)/.venv" ]; then
   set +u; source .venv/bin/activate; set -u
 fi
 command -v python >/dev/null || { echo "❌ python が見つかりません。source .venv/bin/activate を実行してください"; exit 1; }
+python -c "import torch, stable_baselines3, pygame" 2>/dev/null || {
+  echo "❌ $(command -v python) に必要なライブラリがありません。"
+  echo "   このフォルダで python3 -m venv .venv && source .venv/bin/activate && pip install -r requirements.txt を済ませてください"
+  exit 1; }
 
 WORKERS=${WORKERS:-48}
 TOTAL=${TOTAL:-10000000}

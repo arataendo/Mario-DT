@@ -12,11 +12,16 @@
 # 各段の結果を保存するので、途中で止まっても再実行で続きから走る。
 set -euo pipefail
 cd "$(dirname "$0")"
-# 仮想環境を有効にし忘れても動くように（tmux の新しいシェルでは毎回必要になる）
-if [ -z "${VIRTUAL_ENV:-}" ] && [ -f .venv/bin/activate ]; then
+# このフォルダの .venv を使う。別の仮想環境が有効になっていても切り替える
+# （別の環境のまま動いて「No module named 'stable_baselines3'」で止まったことがある）
+if [ -f .venv/bin/activate ] && [ "${VIRTUAL_ENV:-}" != "$(pwd)/.venv" ]; then
   set +u; source .venv/bin/activate; set -u
 fi
 command -v python >/dev/null || { echo "❌ python が見つかりません。source .venv/bin/activate を実行してください"; exit 1; }
+python -c "import torch, stable_baselines3, pygame" 2>/dev/null || {
+  echo "❌ $(command -v python) に必要なライブラリがありません。"
+  echo "   このフォルダで python3 -m venv .venv && source .venv/bin/activate && pip install -r requirements.txt を済ませてください"
+  exit 1; }
 
 WORKERS=${WORKERS:-8}
 DT_MODEL=${DT_MODEL:-models/mario_dt_20260924_111016_epoch20.pth}
