@@ -1,0 +1,2522 @@
+{
+  "corpus/v1/lvl_000.json": {
+    "D_clear": 0.5,
+    "D_progress": 0.1971778350515464,
+    "ceiling": 0.9,
+    "curve": [
+      {
+        "target": 0.0,
+        "n": 10,
+        "clear_rate": 0.0,
+        "progress": 0.4769168814432989,
+        "total_reward": 73.4508749999992
+      },
+      {
+        "target": 60.0,
+        "n": 10,
+        "clear_rate": 0.1,
+        "progress": 0.8540753865979381,
+        "total_reward": 153.15662499999976
+      },
+      {
+        "target": 120.0,
+        "n": 10,
+        "clear_rate": 0.8,
+        "progress": 0.9817654639175257,
+        "total_reward": 253.42150000000078
+      },
+      {
+        "target": 180.0,
+        "n": 10,
+        "clear_rate": 0.7,
+        "progress": 0.711646262886598,
+        "total_reward": 192.39837500000007
+      },
+      {
+        "target": 235.0,
+        "n": 10,
+        "clear_rate": 0.9,
+        "progress": 0.9897068298969073,
+        "total_reward": 267.5741250000002
+      }
+    ]
+  },
+  "corpus/v1/lvl_001.json": {
+    "D_clear": 0.45999999999999996,
+    "D_progress": 0.21646262886597933,
+    "ceiling": 0.8,
+    "curve": [
+      {
+        "target": 0.0,
+        "n": 10,
+        "clear_rate": 0.0,
+        "progress": 0.3498872422680412,
+        "total_reward": 43.9261249999996
+      },
+      {
+        "target": 60.0,
+        "n": 10,
+        "clear_rate": 0.2,
+        "progress": 0.8461340206185568,
+        "total_reward": 163.39399999999935
+      },
+      {
+        "target": 120.0,
+        "n": 10,
+        "clear_rate": 0.8,
+        "progress": 0.8606153350515464,
+        "total_reward": 229.65737500000054
+      },
+      {
+        "target": 180.0,
+        "n": 10,
+        "clear_rate": 0.9,
+        "progress": 0.9371295103092784,
+        "total_reward": 258.22812500000015
+      },
+      {
+        "target": 235.0,
+        "n": 10,
+        "clear_rate": 0.8,
+        "progress": 0.9239207474226804,
+        "total_reward": 244.74662500000008
+      }
+    ]
+  },
+  "corpus/v1/lvl_002.json": {
+    "D_clear": 0.45999999999999996,
+    "D_progress": 0.1810502577319587,
+    "ceiling": 0.8,
+    "curve": [
+      {
+        "target": 0.0,
+        "n": 10,
+        "clear_rate": 0.0,
+        "progress": 0.5631926546391752,
+        "total_reward": 89.5483749999993
+      },
+      {
+        "target": 60.0,
+        "n": 10,
+        "clear_rate": 0.2,
+        "progress": 0.8086340206185568,
+        "total_reward": 158.3130000000003
+      },
+      {
+        "target": 120.0,
+        "n": 10,
+        "clear_rate": 0.8,
+        "progress": 0.9063627577319588,
+        "total_reward": 241.2023750000008
+      },
+      {
+        "target": 180.0,
+        "n": 10,
+        "clear_rate": 0.9,
+        "progress": 0.9188305412371134,
+        "total_reward": 257.28512500000016
+      },
+      {
+        "target": 235.0,
+        "n": 10,
+        "clear_rate": 0.8,
+        "progress": 0.8977287371134022,
+        "total_reward": 242.1243750000001
+      }
+    ]
+  },
+  "corpus/v1/lvl_003.json": {
+    "D_clear": 0.48,
+    "D_progress": 0.17613724226804128,
+    "ceiling": 0.9,
+    "curve": [
+      {
+        "target": 0.0,
+        "n": 10,
+        "clear_rate": 0.0,
+        "progress": 0.3559761597938145,
+        "total_reward": 43.20437499999955
+      },
+      {
+        "target": 60.0,
+        "n": 10,
+        "clear_rate": 0.0,
+        "progress": 0.7923969072164948,
+        "total_reward": 134.59599999999944
+      },
+      {
+        "target": 120.0,
+        "n": 10,
+        "clear_rate": 0.7,
+        "progress": 0.9831668814432989,
+        "total_reward": 246.195375000001
+      },
+      {
+        "target": 180.0,
+        "n": 10,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423,
+        "total_reward": 281.5150000000001
+      },
+      {
+        "target": 235.0,
+        "n": 10,
+        "clear_rate": 0.9,
+        "progress": 0.9929284793814434,
+        "total_reward": 271.1631250000002
+      }
+    ]
+  },
+  "corpus/v1/lvl_004.json": {
+    "D_clear": 0.64,
+    "D_progress": 0.32397551546391745,
+    "ceiling": 0.6,
+    "curve": [
+      {
+        "target": 0.0,
+        "n": 10,
+        "clear_rate": 0.0,
+        "progress": 0.44234858247422676,
+        "total_reward": 63.272624999999515
+      },
+      {
+        "target": 60.0,
+        "n": 10,
+        "clear_rate": 0.0,
+        "progress": 0.5482280927835051,
+        "total_reward": 81.27224999999973
+      },
+      {
+        "target": 120.0,
+        "n": 10,
+        "clear_rate": 0.5,
+        "progress": 0.8736630154639176,
+        "total_reward": 199.1376250000006
+      },
+      {
+        "target": 180.0,
+        "n": 10,
+        "clear_rate": 0.7,
+        "progress": 0.7671875,
+        "total_reward": 202.43037500000005
+      },
+      {
+        "target": 235.0,
+        "n": 10,
+        "clear_rate": 0.6,
+        "progress": 0.7486952319587629,
+        "total_reward": 188.67987500000004
+      }
+    ]
+  },
+  "corpus/v1/lvl_005.json": {
+    "D_clear": 0.62,
+    "D_progress": 0.24820876288659788,
+    "ceiling": 0.4,
+    "curve": [
+      {
+        "target": 0.0,
+        "n": 10,
+        "clear_rate": 0.0,
+        "progress": 0.3774967783505155,
+        "total_reward": 45.37737499999976
+      },
+      {
+        "target": 60.0,
+        "n": 10,
+        "clear_rate": 0.1,
+        "progress": 0.6544780927835052,
+        "total_reward": 112.61374999999967
+      },
+      {
+        "target": 120.0,
+        "n": 10,
+        "clear_rate": 0.6,
+        "progress": 0.9073775773195877,
+        "total_reward": 216.52725000000078
+      },
+      {
+        "target": 180.0,
+        "n": 10,
+        "clear_rate": 0.8,
+        "progress": 0.9600676546391753,
+        "total_reward": 250.39012500000004
+      },
+      {
+        "target": 235.0,
+        "n": 10,
+        "clear_rate": 0.4,
+        "progress": 0.8595360824742269,
+        "total_reward": 183.419
+      }
+    ]
+  },
+  "corpus/v1/lvl_006.json": {
+    "D_clear": 0.44000000000000006,
+    "D_progress": 0.12911726804123713,
+    "ceiling": 0.9,
+    "curve": [
+      {
+        "target": 0.0,
+        "n": 10,
+        "clear_rate": 0.0,
+        "progress": 0.6088434278350514,
+        "total_reward": 97.13762499999888
+      },
+      {
+        "target": 60.0,
+        "n": 10,
+        "clear_rate": 0.1,
+        "progress": 0.8479703608247423,
+        "total_reward": 152.11124999999964
+      },
+      {
+        "target": 120.0,
+        "n": 10,
+        "clear_rate": 0.8,
+        "progress": 0.9091172680412372,
+        "total_reward": 240.3297500000007
+      },
+      {
+        "target": 180.0,
+        "n": 10,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423,
+        "total_reward": 281.45300000000015
+      },
+      {
+        "target": 235.0,
+        "n": 10,
+        "clear_rate": 0.9,
+        "progress": 0.9936372422680412,
+        "total_reward": 270.5456250000001
+      }
+    ]
+  },
+  "corpus/v1/lvl_007.json": {
+    "D_clear": 0.62,
+    "D_progress": 0.26384664948453607,
+    "ceiling": 0.6,
+    "curve": [
+      {
+        "target": 0.0,
+        "n": 10,
+        "clear_rate": 0.0,
+        "progress": 0.3718588917525773,
+        "total_reward": 50.06262499999933
+      },
+      {
+        "target": 60.0,
+        "n": 10,
+        "clear_rate": 0.0,
+        "progress": 0.807409793814433,
+        "total_reward": 139.68749999999915
+      },
+      {
+        "target": 120.0,
+        "n": 10,
+        "clear_rate": 0.6,
+        "progress": 0.8037210051546392,
+        "total_reward": 196.16987500000025
+      },
+      {
+        "target": 180.0,
+        "n": 10,
+        "clear_rate": 0.7,
+        "progress": 0.8947326030927835,
+        "total_reward": 226.11212500000005
+      },
+      {
+        "target": 235.0,
+        "n": 10,
+        "clear_rate": 0.6,
+        "progress": 0.8030444587628865,
+        "total_reward": 197.86562500000005
+      }
+    ]
+  },
+  "corpus/v1/lvl_008.json": {
+    "D_clear": 0.5599999999999999,
+    "D_progress": 0.213353737113402,
+    "ceiling": 0.7,
+    "curve": [
+      {
+        "target": 0.0,
+        "n": 10,
+        "clear_rate": 0.0,
+        "progress": 0.529333118556701,
+        "total_reward": 80.79262499999905
+      },
+      {
+        "target": 60.0,
+        "n": 10,
+        "clear_rate": 0.3,
+        "progress": 0.8672519329896907,
+        "total_reward": 181.2178749999999
+      },
+      {
+        "target": 120.0,
+        "n": 10,
+        "clear_rate": 0.4,
+        "progress": 0.8238724226804124,
+        "total_reward": 180.3972500000006
+      },
+      {
+        "target": 180.0,
+        "n": 10,
+        "clear_rate": 0.8,
+        "progress": 0.9056378865979381,
+        "total_reward": 241.60875000000004
+      },
+      {
+        "target": 235.0,
+        "n": 10,
+        "clear_rate": 0.7,
+        "progress": 0.8071359536082475,
+        "total_reward": 209.96237500000007
+      }
+    ]
+  },
+  "corpus/v1/lvl_009.json": {
+    "D_clear": 0.5599999999999999,
+    "D_progress": 0.3007152061855669,
+    "ceiling": 0.8,
+    "curve": [
+      {
+        "target": 0.0,
+        "n": 10,
+        "clear_rate": 0.0,
+        "progress": 0.4893041237113403,
+        "total_reward": 72.64999999999922
+      },
+      {
+        "target": 60.0,
+        "n": 10,
+        "clear_rate": 0.0,
+        "progress": 0.567493556701031,
+        "total_reward": 87.85774999999896
+      },
+      {
+        "target": 120.0,
+        "n": 10,
+        "clear_rate": 0.4,
+        "progress": 0.6230992268041238,
+        "total_reward": 139.6612500000003
+      },
+      {
+        "target": 180.0,
+        "n": 10,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423,
+        "total_reward": 281.23400000000015
+      },
+      {
+        "target": 235.0,
+        "n": 10,
+        "clear_rate": 0.8,
+        "progress": 0.8216817010309277,
+        "total_reward": 223.64025000000015
+      }
+    ]
+  },
+  "corpus/v1/lvl_010.json": {
+    "D_clear": 0.72,
+    "D_progress": 0.374507087628866,
+    "ceiling": 0.6,
+    "curve": [
+      {
+        "target": 0.0,
+        "n": 10,
+        "clear_rate": 0.0,
+        "progress": 0.3548646907216495,
+        "total_reward": 48.985749999999605
+      },
+      {
+        "target": 60.0,
+        "n": 10,
+        "clear_rate": 0.0,
+        "progress": 0.4560083762886598,
+        "total_reward": 63.72862499999896
+      },
+      {
+        "target": 120.0,
+        "n": 10,
+        "clear_rate": 0.2,
+        "progress": 0.678431056701031,
+        "total_reward": 132.50962500000045
+      },
+      {
+        "target": 180.0,
+        "n": 10,
+        "clear_rate": 0.6,
+        "progress": 0.8193782216494846,
+        "total_reward": 202.585375
+      },
+      {
+        "target": 235.0,
+        "n": 10,
+        "clear_rate": 0.6,
+        "progress": 0.8187822164948454,
+        "total_reward": 202.29375000000007
+      }
+    ]
+  },
+  "corpus/v1/lvl_011.json": {
+    "D_clear": 0.6799999999999999,
+    "D_progress": 0.3503125,
+    "ceiling": 0.4,
+    "curve": [
+      {
+        "target": 0.0,
+        "n": 10,
+        "clear_rate": 0.0,
+        "progress": 0.4350193298969073,
+        "total_reward": 61.81274999999954
+      },
+      {
+        "target": 60.0,
+        "n": 10,
+        "clear_rate": 0.1,
+        "progress": 0.7191365979381443,
+        "total_reward": 130.01849999999888
+      },
+      {
+        "target": 120.0,
+        "n": 10,
+        "clear_rate": 0.3,
+        "progress": 0.6241301546391752,
+        "total_reward": 127.55425000000022
+      },
+      {
+        "target": 180.0,
+        "n": 10,
+        "clear_rate": 0.8,
+        "progress": 0.8337306701030928,
+        "total_reward": 228.03975000000008
+      },
+      {
+        "target": 235.0,
+        "n": 10,
+        "clear_rate": 0.4,
+        "progress": 0.6364207474226804,
+        "total_reward": 141.18962500000006
+      }
+    ]
+  },
+  "corpus/v1/lvl_012.json": {
+    "D_clear": 0.62,
+    "D_progress": 0.17543170103092776,
+    "ceiling": 0.5,
+    "curve": [
+      {
+        "target": 0.0,
+        "n": 10,
+        "clear_rate": 0.0,
+        "progress": 0.5340850515463917,
+        "total_reward": 82.58249999999917
+      },
+      {
+        "target": 60.0,
+        "n": 10,
+        "clear_rate": 0.0,
+        "progress": 0.7841494845360826,
+        "total_reward": 128.63199999999946
+      },
+      {
+        "target": 120.0,
+        "n": 10,
+        "clear_rate": 0.5,
+        "progress": 0.8823775773195877,
+        "total_reward": 198.45325000000045
+      },
+      {
+        "target": 180.0,
+        "n": 10,
+        "clear_rate": 0.9,
+        "progress": 0.9864690721649485,
+        "total_reward": 268.2980000000001
+      },
+      {
+        "target": 235.0,
+        "n": 10,
+        "clear_rate": 0.5,
+        "progress": 0.9357603092783504,
+        "total_reward": 207.81150000000002
+      }
+    ]
+  },
+  "corpus/v1/lvl_013.json": {
+    "D_clear": 0.72,
+    "D_progress": 0.26361469072164945,
+    "ceiling": 0.6,
+    "curve": [
+      {
+        "target": 0.0,
+        "n": 10,
+        "clear_rate": 0.0,
+        "progress": 0.46821842783505163,
+        "total_reward": 71.75537499999977
+      },
+      {
+        "target": 60.0,
+        "n": 10,
+        "clear_rate": 0.0,
+        "progress": 0.6377577319587628,
+        "total_reward": 93.30899999999902
+      },
+      {
+        "target": 120.0,
+        "n": 10,
+        "clear_rate": 0.3,
+        "progress": 0.9412048969072165,
+        "total_reward": 193.66075000000112
+      },
+      {
+        "target": 180.0,
+        "n": 10,
+        "clear_rate": 0.5,
+        "progress": 0.8685244845360824,
+        "total_reward": 195.95175
+      },
+      {
+        "target": 235.0,
+        "n": 10,
+        "clear_rate": 0.6,
+        "progress": 0.7662210051546391,
+        "total_reward": 189.79587499999997
+      }
+    ]
+  },
+  "corpus/v1/lvl_014.json": {
+    "D_clear": 0.7,
+    "D_progress": 0.4215689432989691,
+    "ceiling": 0.6,
+    "curve": [
+      {
+        "target": 0.0,
+        "n": 10,
+        "clear_rate": 0.0,
+        "progress": 0.39660115979381444,
+        "total_reward": 56.19062499999963
+      },
+      {
+        "target": 60.0,
+        "n": 10,
+        "clear_rate": 0.0,
+        "progress": 0.3663498711340206,
+        "total_reward": 42.78687499999972
+      },
+      {
+        "target": 120.0,
+        "n": 10,
+        "clear_rate": 0.1,
+        "progress": 0.5654317010309279,
+        "total_reward": 90.28075000000004
+      },
+      {
+        "target": 180.0,
+        "n": 10,
+        "clear_rate": 0.8,
+        "progress": 0.91027706185567,
+        "total_reward": 243.77175000000003
+      },
+      {
+        "target": 235.0,
+        "n": 10,
+        "clear_rate": 0.6,
+        "progress": 0.6534954896907216,
+        "total_reward": 170.55112500000013
+      }
+    ]
+  },
+  "corpus/v1/lvl_015.json": {
+    "D_clear": 0.7,
+    "D_progress": 0.3142590206185567,
+    "ceiling": 0.7,
+    "curve": [
+      {
+        "target": 0.0,
+        "n": 10,
+        "clear_rate": 0.0,
+        "progress": 0.3835051546391753,
+        "total_reward": 49.455000000000084
+      },
+      {
+        "target": 60.0,
+        "n": 10,
+        "clear_rate": 0.0,
+        "progress": 0.4205541237113402,
+        "total_reward": 54.63349999999959
+      },
+      {
+        "target": 120.0,
+        "n": 10,
+        "clear_rate": 0.3,
+        "progress": 0.8828447164948454,
+        "total_reward": 180.43487500000057
+      },
+      {
+        "target": 180.0,
+        "n": 10,
+        "clear_rate": 0.5,
+        "progress": 0.8310889175257732,
+        "total_reward": 190.98424999999992
+      },
+      {
+        "target": 235.0,
+        "n": 10,
+        "clear_rate": 0.7,
+        "progress": 0.9107119845360824,
+        "total_reward": 229.03812499999995
+      }
+    ]
+  },
+  "corpus/v1/lvl_016.json": {
+    "D_clear": 0.76,
+    "D_progress": 0.37143041237113406,
+    "ceiling": 0.6,
+    "curve": [
+      {
+        "target": 0.0,
+        "n": 10,
+        "clear_rate": 0.0,
+        "progress": 0.4351643041237113,
+        "total_reward": 64.98587499999972
+      },
+      {
+        "target": 60.0,
+        "n": 10,
+        "clear_rate": 0.0,
+        "progress": 0.5235502577319588,
+        "total_reward": 76.57774999999927
+      },
+      {
+        "target": 120.0,
+        "n": 10,
+        "clear_rate": 0.2,
+        "progress": 0.6767074742268042,
+        "total_reward": 124.34625000000014
+      },
+      {
+        "target": 180.0,
+        "n": 10,
+        "clear_rate": 0.4,
+        "progress": 0.696778350515464,
+        "total_reward": 154.05199999999996
+      },
+      {
+        "target": 235.0,
+        "n": 10,
+        "clear_rate": 0.6,
+        "progress": 0.8106475515463917,
+        "total_reward": 200.11762500000003
+      }
+    ]
+  },
+  "corpus/v1/lvl_017.json": {
+    "D_clear": 0.5599999999999999,
+    "D_progress": 0.3007538659793815,
+    "ceiling": 1.0,
+    "curve": [
+      {
+        "target": 0.0,
+        "n": 10,
+        "clear_rate": 0.0,
+        "progress": 0.2939271907216495,
+        "total_reward": 23.80387499999999
+      },
+      {
+        "target": 60.0,
+        "n": 10,
+        "clear_rate": 0.0,
+        "progress": 0.41783182989690715,
+        "total_reward": 51.24537499999983
+      },
+      {
+        "target": 120.0,
+        "n": 10,
+        "clear_rate": 0.2,
+        "progress": 0.7947809278350515,
+        "total_reward": 146.36650000000017
+      },
+      {
+        "target": 180.0,
+        "n": 10,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423,
+        "total_reward": 282.60600000000034
+      },
+      {
+        "target": 235.0,
+        "n": 10,
+        "clear_rate": 1.0,
+        "progress": 0.9948453608247423,
+        "total_reward": 283.0740000000001
+      }
+    ]
+  },
+  "corpus/v1/lvl_018.json": {
+    "D_clear": 0.6,
+    "D_progress": 0.27576675257731953,
+    "ceiling": 0.8,
+    "curve": [
+      {
+        "target": 0.0,
+        "n": 10,
+        "clear_rate": 0.0,
+        "progress": 0.3890947164948454,
+        "total_reward": 51.262375000000205
+      },
+      {
+        "target": 60.0,
+        "n": 10,
+        "clear_rate": 0.0,
+        "progress": 0.5583762886597938,
+        "total_reward": 75.4339999999995
+      },
+      {
+        "target": 120.0,
+        "n": 10,
+        "clear_rate": 0.3,
+        "progress": 0.8032538659793815,
+        "total_reward": 163.9222500000005
+      },
+      {
+        "target": 180.0,
+        "n": 10,
+        "clear_rate": 0.9,
+        "progress": 0.964465206185567,
+        "total_reward": 263.18325000000004
+      },
+      {
+        "target": 235.0,
+        "n": 10,
+        "clear_rate": 0.8,
+        "progress": 0.9059761597938143,
+        "total_reward": 239.8483750000001
+      }
+    ]
+  },
+  "corpus/v1/lvl_019.json": {
+    "D_clear": 0.78,
+    "D_progress": 0.43946520618556695,
+    "ceiling": 0.3,
+    "curve": [
+      {
+        "target": 0.0,
+        "n": 10,
+        "clear_rate": 0.0,
+        "progress": 0.3923646907216495,
+        "total_reward": 52.86974999999967
+      },
+      {
+        "target": 60.0,
+        "n": 10,
+        "clear_rate": 0.0,
+        "progress": 0.5781894329896907,
+        "total_reward": 84.02374999999941
+      },
+      {
+        "target": 120.0,
+        "n": 10,
+        "clear_rate": 0.2,
+        "progress": 0.5400612113402061,
+        "total_reward": 99.36887500000002
+      },
+      {
+        "target": 180.0,
+        "n": 10,
+        "clear_rate": 0.6,
+        "progress": 0.7418653350515465,
+        "total_reward": 186.20087500000002
+      },
+      {
+        "target": 235.0,
+        "n": 10,
+        "clear_rate": 0.3,
+        "progress": 0.5501932989690722,
+        "total_reward": 112.6564999999999
+      }
+    ]
+  },
+  "corpus/v1/lvl_020.json": {
+    "D_clear": 0.7,
+    "D_progress": 0.38173324742268044,
+    "ceiling": 0.8,
+    "curve": [
+      {
+        "target": 0.0,
+        "n": 10,
+        "clear_rate": 0.0,
+        "progress": 0.20104703608247423,
+        "total_reward": 10.758125000000081
+      },
+      {
+        "target": 60.0,
+        "n": 10,
+        "clear_rate": 0.0,
+        "progress": 0.4170425257731959,
+        "total_reward": 49.50424999999977
+      },
+      {
+        "target": 120.0,
+        "n": 10,
+        "clear_rate": 0.1,
+        "progress": 0.6298324742268041,
+        "total_reward": 106.29250000000029
+      },
+      {
+        "target": 180.0,
+        "n": 10,
+        "clear_rate": 0.6,
+        "progress": 0.9057828608247422,
+        "total_reward": 216.29587500000008
+      },
+      {
+        "target": 235.0,
+        "n": 10,
+        "clear_rate": 0.8,
+        "progress": 0.9376288659793814,
+        "total_reward": 247.18700000000013
+      }
+    ]
+  },
+  "corpus/v1/lvl_021.json": {
+    "D_clear": 0.84,
+    "D_progress": 0.4410663659793814,
+    "ceiling": 0.3,
+    "curve": [
+      {
+        "target": 0.0,
+        "n": 10,
+        "clear_rate": 0.0,
+        "progress": 0.4088756443298969,
+        "total_reward": 52.57887499999981
+      },
+      {
+        "target": 60.0,
+        "n": 10,
+        "clear_rate": 0.0,
+        "progress": 0.5622905927835052,
+        "total_reward": 85.63137499999962
+      },
+      {
+        "target": 120.0,
+        "n": 10,
+        "clear_rate": 0.2,
+        "progress": 0.6332152061855669,
+        "total_reward": 118.71775000000022
+      },
+      {
+        "target": 180.0,
+        "n": 10,
+        "clear_rate": 0.3,
+        "progress": 0.6656088917525772,
+        "total_reward": 136.1901249999999
+      },
+      {
+        "target": 235.0,
+        "n": 10,
+        "clear_rate": 0.3,
+        "progress": 0.5246778350515464,
+        "total_reward": 110.6854999999999
+      }
+    ]
+  },
+  "corpus/v1/lvl_022.json": {
+    "D_clear": 0.8200000000000001,
+    "D_progress": 0.3244426546391752,
+    "ceiling": 0.5,
+    "curve": [
+      {
+        "target": 0.0,
+        "n": 10,
+        "clear_rate": 0.0,
+        "progress": 0.3471488402061856,
+        "total_reward": 41.50787499999985
+      },
+      {
+        "target": 60.0,
+        "n": 10,
+        "clear_rate": 0.0,
+        "progress": 0.7171069587628865,
+        "total_reward": 112.58074999999954
+      },
+      {
+        "target": 120.0,
+        "n": 10,
+        "clear_rate": 0.0,
+        "progress": 0.7767557989690721,
+        "total_reward": 114.74362500000026
+      },
+      {
+        "target": 180.0,
+        "n": 10,
+        "clear_rate": 0.4,
+        "progress": 0.781056701030928,
+        "total_reward": 167.9279999999999
+      },
+      {
+        "target": 235.0,
+        "n": 10,
+        "clear_rate": 0.5,
+        "progress": 0.7557184278350515,
+        "total_reward": 175.06237499999997
+      }
+    ]
+  },
+  "corpus/v1/lvl_023.json": {
+    "D_clear": 0.9,
+    "D_progress": 0.6236469072164947,
+    "ceiling": 0.3,
+    "curve": [
+      {
+        "target": 0.0,
+        "n": 10,
+        "clear_rate": 0.0,
+        "progress": 0.1270779639175258,
+        "total_reward": -3.3618749999999387
+      },
+      {
+        "target": 60.0,
+        "n": 10,
+        "clear_rate": 0.0,
+        "progress": 0.34358891752577314,
+        "total_reward": 37.63024999999957
+      },
+      {
+        "target": 120.0,
+        "n": 10,
+        "clear_rate": 0.0,
+        "progress": 0.4159954896907217,
+        "total_reward": 55.162125000000216
+      },
+      {
+        "target": 180.0,
+        "n": 10,
+        "clear_rate": 0.2,
+        "progress": 0.4305412371134022,
+        "total_reward": 79.70899999999999
+      },
+      {
+        "target": 235.0,
+        "n": 10,
+        "clear_rate": 0.3,
+        "progress": 0.5645618556701033,
+        "total_reward": 116.944
+      }
+    ]
+  },
+  "corpus/v1/lvl_024.json": {
+    "D_clear": 0.76,
+    "D_progress": 0.3434310567010309,
+    "ceiling": 0.4,
+    "curve": [
+      {
+        "target": 0.0,
+        "n": 10,
+        "clear_rate": 0.0,
+        "progress": 0.3832474226804124,
+        "total_reward": 48.86799999999966
+      },
+      {
+        "target": 60.0,
+        "n": 10,
+        "clear_rate": 0.0,
+        "progress": 0.6918170103092783,
+        "total_reward": 107.686499999999
+      },
+      {
+        "target": 120.0,
+        "n": 10,
+        "clear_rate": 0.1,
+        "progress": 0.6051707474226804,
+        "total_reward": 101.24612499999998
+      },
+      {
+        "target": 180.0,
+        "n": 10,
+        "clear_rate": 0.7,
+        "progress": 0.8333762886597939,
+        "total_reward": 216.44400000000033
+      },
+      {
+        "target": 235.0,
+        "n": 10,
+        "clear_rate": 0.4,
+        "progress": 0.7692332474226804,
+        "total_reward": 167.9662500000001
+      }
+    ]
+  },
+  "corpus/v1/lvl_025.json": {
+    "D_clear": 0.7,
+    "D_progress": 0.39210051546391755,
+    "ceiling": 0.6,
+    "curve": [
+      {
+        "target": 0.0,
+        "n": 10,
+        "clear_rate": 0.0,
+        "progress": 0.28745167525773196,
+        "total_reward": 20.16862500000021
+      },
+      {
+        "target": 60.0,
+        "n": 10,
+        "clear_rate": 0.0,
+        "progress": 0.3632409793814433,
+        "total_reward": 41.217749999999924
+      },
+      {
+        "target": 120.0,
+        "n": 10,
+        "clear_rate": 0.2,
+        "progress": 0.7817654639175258,
+        "total_reward": 141.17250000000033
+      },
+      {
+        "target": 180.0,
+        "n": 10,
+        "clear_rate": 0.7,
+        "progress": 0.7329252577319587,
+        "total_reward": 196.63950000000008
+      },
+      {
+        "target": 235.0,
+        "n": 10,
+        "clear_rate": 0.6,
+        "progress": 0.8741140463917526,
+        "total_reward": 210.10612500000002
+      }
+    ]
+  },
+  "corpus/v1/lvl_026.json": {
+    "D_clear": 0.74,
+    "D_progress": 0.4707087628865979,
+    "ceiling": 0.6,
+    "curve": [
+      {
+        "target": 0.0,
+        "n": 10,
+        "clear_rate": 0.0,
+        "progress": 0.43695231958762887,
+        "total_reward": 58.0237499999998
+      },
+      {
+        "target": 60.0,
+        "n": 10,
+        "clear_rate": 0.0,
+        "progress": 0.4339078608247423,
+        "total_reward": 55.550124999999184
+      },
+      {
+        "target": 120.0,
+        "n": 10,
+        "clear_rate": 0.0,
+        "progress": 0.4038981958762887,
+        "total_reward": 50.20024999999988
+      },
+      {
+        "target": 180.0,
+        "n": 10,
+        "clear_rate": 0.7,
+        "progress": 0.7123872422680412,
+        "total_reward": 192.37712500000004
+      },
+      {
+        "target": 235.0,
+        "n": 10,
+        "clear_rate": 0.6,
+        "progress": 0.6593105670103092,
+        "total_reward": 169.85525000000007
+      }
+    ]
+  },
+  "corpus/v1/lvl_027.json": {
+    "D_clear": 0.8200000000000001,
+    "D_progress": 0.41162693298969066,
+    "ceiling": 0.2,
+    "curve": [
+      {
+        "target": 0.0,
+        "n": 10,
+        "clear_rate": 0.0,
+        "progress": 0.3323775773195876,
+        "total_reward": 31.72725000000018
+      },
+      {
+        "target": 60.0,
+        "n": 10,
+        "clear_rate": 0.0,
+        "progress": 0.3278028350515464,
+        "total_reward": 34.56274999999995
+      },
+      {
+        "target": 120.0,
+        "n": 10,
+        "clear_rate": 0.0,
+        "progress": 0.6955057989690723,
+        "total_reward": 109.53912500000028
+      },
+      {
+        "target": 180.0,
+        "n": 10,
+        "clear_rate": 0.7,
+        "progress": 0.9088434278350516,
+        "total_reward": 229.50462500000003
+      },
+      {
+        "target": 235.0,
+        "n": 10,
+        "clear_rate": 0.2,
+        "progress": 0.6773356958762886,
+        "total_reward": 124.79912499999978
+      }
+    ]
+  },
+  "corpus/v1/lvl_028.json": {
+    "D_clear": 0.62,
+    "D_progress": 0.37138208762886593,
+    "ceiling": 0.9,
+    "curve": [
+      {
+        "target": 0.0,
+        "n": 10,
+        "clear_rate": 0.0,
+        "progress": 0.12118234536082477,
+        "total_reward": -4.10162499999996
+      },
+      {
+        "target": 60.0,
+        "n": 10,
+        "clear_rate": 0.0,
+        "progress": 0.49429768041237115,
+        "total_reward": 66.64574999999947
+      },
+      {
+        "target": 120.0,
+        "n": 10,
+        "clear_rate": 0.3,
+        "progress": 0.694007731958763,
+        "total_reward": 140.8585000000001
+      },
+      {
+        "target": 180.0,
+        "n": 10,
+        "clear_rate": 0.7,
+        "progress": 0.8430573453608247,
+        "total_reward": 217.132125
+      },
+      {
+        "target": 235.0,
+        "n": 10,
+        "clear_rate": 0.9,
+        "progress": 0.9905444587628865,
+        "total_reward": 270.16062500000015
+      }
+    ]
+  },
+  "corpus/v1/lvl_029.json": {
+    "D_clear": 0.86,
+    "D_progress": 0.5262757731958764,
+    "ceiling": 0.4,
+    "curve": [
+      {
+        "target": 0.0,
+        "n": 10,
+        "clear_rate": 0.0,
+        "progress": 0.12691688144329896,
+        "total_reward": -2.5161249999999584
+      },
+      {
+        "target": 60.0,
+        "n": 10,
+        "clear_rate": 0.0,
+        "progress": 0.5396585051546391,
+        "total_reward": 78.6627499999992
+      },
+      {
+        "target": 120.0,
+        "n": 10,
+        "clear_rate": 0.0,
+        "progress": 0.710180412371134,
+        "total_reward": 109.90400000000018
+      },
+      {
+        "target": 180.0,
+        "n": 10,
+        "clear_rate": 0.3,
+        "progress": 0.38041237113402065,
+        "total_reward": 81.77700000000004
+      },
+      {
+        "target": 235.0,
+        "n": 10,
+        "clear_rate": 0.4,
+        "progress": 0.6114529639175258,
+        "total_reward": 136.59987499999994
+      }
+    ]
+  },
+  "corpus/v1/lvl_030.json": {
+    "D_clear": 0.94,
+    "D_progress": 0.7578994845360825,
+    "ceiling": 0.1,
+    "curve": [
+      {
+        "target": 0.0,
+        "n": 10,
+        "clear_rate": 0.0,
+        "progress": 0.07016752577319588,
+        "total_reward": -13.992499999999975
+      },
+      {
+        "target": 60.0,
+        "n": 10,
+        "clear_rate": 0.0,
+        "progress": 0.20035438144329895,
+        "total_reward": 11.28674999999987
+      },
+      {
+        "target": 120.0,
+        "n": 10,
+        "clear_rate": 0.0,
+        "progress": 0.27599871134020615,
+        "total_reward": 27.3347499999999
+      },
+      {
+        "target": 180.0,
+        "n": 10,
+        "clear_rate": 0.2,
+        "progress": 0.3759826030927835,
+        "total_reward": 68.86062499999991
+      },
+      {
+        "target": 235.0,
+        "n": 10,
+        "clear_rate": 0.1,
+        "progress": 0.2879993556701031,
+        "total_reward": 39.82787499999997
+      }
+    ]
+  },
+  "corpus/v1/lvl_031.json": {
+    "D_clear": 0.92,
+    "D_progress": 0.6119136597938144,
+    "ceiling": 0.3,
+    "curve": [
+      {
+        "target": 0.0,
+        "n": 10,
+        "clear_rate": 0.0,
+        "progress": 0.20277061855670103,
+        "total_reward": 13.29049999999998
+      },
+      {
+        "target": 60.0,
+        "n": 10,
+        "clear_rate": 0.0,
+        "progress": 0.3524484536082474,
+        "total_reward": 48.84499999999938
+      },
+      {
+        "target": 120.0,
+        "n": 10,
+        "clear_rate": 0.1,
+        "progress": 0.6435405927835052,
+        "total_reward": 112.90487500000047
+      },
+      {
+        "target": 180.0,
+        "n": 10,
+        "clear_rate": 0.0,
+        "progress": 0.3289626288659794,
+        "total_reward": 36.86574999999991
+      },
+      {
+        "target": 235.0,
+        "n": 10,
+        "clear_rate": 0.3,
+        "progress": 0.4127094072164949,
+        "total_reward": 89.40462500000007
+      }
+    ]
+  },
+  "corpus/v1/lvl_032.json": {
+    "D_clear": 0.98,
+    "D_progress": 0.9062532216494845,
+    "ceiling": 0.1,
+    "curve": [
+      {
+        "target": 0.0,
+        "n": 10,
+        "clear_rate": 0.0,
+        "progress": 0.1345360824742268,
+        "total_reward": 0.9010000000000573
+      },
+      {
+        "target": 60.0,
+        "n": 10,
+        "clear_rate": 0.0,
+        "progress": 0.05175579896907216,
+        "total_reward": -15.679375000000002
+      },
+      {
+        "target": 120.0,
+        "n": 10,
+        "clear_rate": 0.0,
+        "progress": 0.05154639175257732,
+        "total_reward": -15.720000000000002
+      },
+      {
+        "target": 180.0,
+        "n": 10,
+        "clear_rate": 0.0,
+        "progress": 0.0603576030927835,
+        "total_reward": -14.086625000000002
+      },
+      {
+        "target": 235.0,
+        "n": 10,
+        "clear_rate": 0.1,
+        "progress": 0.17053801546391756,
+        "total_reward": 18.46237500000002
+      }
+    ]
+  },
+  "corpus/v1/lvl_033.json": {
+    "D_clear": 0.78,
+    "D_progress": 0.46698131443298974,
+    "ceiling": 0.5,
+    "curve": [
+      {
+        "target": 0.0,
+        "n": 10,
+        "clear_rate": 0.0,
+        "progress": 0.2077963917525773,
+        "total_reward": 12.330499999999981
+      },
+      {
+        "target": 60.0,
+        "n": 10,
+        "clear_rate": 0.0,
+        "progress": 0.356298324742268,
+        "total_reward": 39.170874999999725
+      },
+      {
+        "target": 120.0,
+        "n": 10,
+        "clear_rate": 0.0,
+        "progress": 0.5690721649484537,
+        "total_reward": 80.2479999999999
+      },
+      {
+        "target": 180.0,
+        "n": 10,
+        "clear_rate": 0.6,
+        "progress": 0.7372100515463919,
+        "total_reward": 185.05975000000007
+      },
+      {
+        "target": 235.0,
+        "n": 10,
+        "clear_rate": 0.5,
+        "progress": 0.7947164948453608,
+        "total_reward": 183.44300000000007
+      }
+    ]
+  },
+  "corpus/v1/lvl_034.json": {
+    "D_clear": 0.72,
+    "D_progress": 0.5410373711340206,
+    "ceiling": 0.5,
+    "curve": [
+      {
+        "target": 0.0,
+        "n": 10,
+        "clear_rate": 0.0,
+        "progress": 0.22588595360824743,
+        "total_reward": 14.140875000000094
+      },
+      {
+        "target": 60.0,
+        "n": 10,
+        "clear_rate": 0.0,
+        "progress": 0.23005798969072164,
+        "total_reward": 17.089249999999964
+      },
+      {
+        "target": 120.0,
+        "n": 10,
+        "clear_rate": 0.2,
+        "progress": 0.5045586340206186,
+        "total_reward": 93.58337500000027
+      },
+      {
+        "target": 180.0,
+        "n": 10,
+        "clear_rate": 0.7,
+        "progress": 0.7123872422680412,
+        "total_reward": 192.86312500000008
+      },
+      {
+        "target": 235.0,
+        "n": 10,
+        "clear_rate": 0.5,
+        "progress": 0.6219233247422681,
+        "total_reward": 151.61312500000003
+      }
+    ]
+  },
+  "corpus/v1/lvl_035.json": {
+    "D_clear": 0.68,
+    "D_progress": 0.3502738402061857,
+    "ceiling": 0.7,
+    "curve": [
+      {
+        "target": 0.0,
+        "n": 10,
+        "clear_rate": 0.0,
+        "progress": 0.31533505154639174,
+        "total_reward": 32.411000000000044
+      },
+      {
+        "target": 60.0,
+        "n": 10,
+        "clear_rate": 0.0,
+        "progress": 0.47375966494845356,
+        "total_reward": 65.0993749999995
+      },
+      {
+        "target": 120.0,
+        "n": 10,
+        "clear_rate": 0.2,
+        "progress": 0.7753704896907216,
+        "total_reward": 145.31787500000033
+      },
+      {
+        "target": 180.0,
+        "n": 10,
+        "clear_rate": 0.7,
+        "progress": 0.8213112113402061,
+        "total_reward": 215.22137500000008
+      },
+      {
+        "target": 235.0,
+        "n": 10,
+        "clear_rate": 0.7,
+        "progress": 0.862854381443299,
+        "total_reward": 222.07675
+      }
+    ]
+  },
+  "corpus/v1/lvl_036.json": {
+    "D_clear": 0.72,
+    "D_progress": 0.43854703608247425,
+    "ceiling": 0.7,
+    "curve": [
+      {
+        "target": 0.0,
+        "n": 10,
+        "clear_rate": 0.0,
+        "progress": 0.2354381443298969,
+        "total_reward": 15.684000000000015
+      },
+      {
+        "target": 60.0,
+        "n": 10,
+        "clear_rate": 0.0,
+        "progress": 0.38236146907216495,
+        "total_reward": 44.51812499999977
+      },
+      {
+        "target": 120.0,
+        "n": 10,
+        "clear_rate": 0.0,
+        "progress": 0.6433311855670104,
+        "total_reward": 95.30624999999996
+      },
+      {
+        "target": 180.0,
+        "n": 10,
+        "clear_rate": 0.7,
+        "progress": 0.7392719072164949,
+        "total_reward": 197.58575000000013
+      },
+      {
+        "target": 235.0,
+        "n": 10,
+        "clear_rate": 0.7,
+        "progress": 0.8068621134020619,
+        "total_reward": 212.1042500000001
+      }
+    ]
+  },
+  "corpus/v1/lvl_037.json": {
+    "D_clear": 0.74,
+    "D_progress": 0.4160953608247422,
+    "ceiling": 0.4,
+    "curve": [
+      {
+        "target": 0.0,
+        "n": 10,
+        "clear_rate": 0.0,
+        "progress": 0.23848260309278352,
+        "total_reward": 24.49862499999988
+      },
+      {
+        "target": 60.0,
+        "n": 10,
+        "clear_rate": 0.0,
+        "progress": 0.6522551546391753,
+        "total_reward": 102.9214999999992
+      },
+      {
+        "target": 120.0,
+        "n": 10,
+        "clear_rate": 0.2,
+        "progress": 0.6889014175257732,
+        "total_reward": 129.38587500000017
+      },
+      {
+        "target": 180.0,
+        "n": 10,
+        "clear_rate": 0.7,
+        "progress": 0.7722293814432989,
+        "total_reward": 203.9105000000001
+      },
+      {
+        "target": 235.0,
+        "n": 10,
+        "clear_rate": 0.4,
+        "progress": 0.5676546391752577,
+        "total_reward": 129.6690000000001
+      }
+    ]
+  },
+  "corpus/v1/lvl_038.json": {
+    "D_clear": 0.54,
+    "D_progress": 0.2987403350515463,
+    "ceiling": 0.8,
+    "curve": [
+      {
+        "target": 0.0,
+        "n": 10,
+        "clear_rate": 0.0,
+        "progress": 0.26166237113402063,
+        "total_reward": 17.316500000000165
+      },
+      {
+        "target": 60.0,
+        "n": 10,
+        "clear_rate": 0.0,
+        "progress": 0.5142880154639176,
+        "total_reward": 71.33587499999922
+      },
+      {
+        "target": 120.0,
+        "n": 10,
+        "clear_rate": 0.7,
+        "progress": 0.921826675257732,
+        "total_reward": 230.33337500000067
+      },
+      {
+        "target": 180.0,
+        "n": 10,
+        "clear_rate": 0.8,
+        "progress": 0.9156894329896907,
+        "total_reward": 242.08575000000002
+      },
+      {
+        "target": 235.0,
+        "n": 10,
+        "clear_rate": 0.8,
+        "progress": 0.8928318298969072,
+        "total_reward": 237.516375
+      }
+    ]
+  },
+  "corpus/v1/lvl_039.json": {
+    "D_clear": 0.86,
+    "D_progress": 0.5393395618556701,
+    "ceiling": 0.3,
+    "curve": [
+      {
+        "target": 0.0,
+        "n": 10,
+        "clear_rate": 0.0,
+        "progress": 0.25296391752577324,
+        "total_reward": 17.978000000000087
+      },
+      {
+        "target": 60.0,
+        "n": 10,
+        "clear_rate": 0.0,
+        "progress": 0.3539626288659794,
+        "total_reward": 39.380749999999765
+      },
+      {
+        "target": 120.0,
+        "n": 10,
+        "clear_rate": 0.0,
+        "progress": 0.63840206185567,
+        "total_reward": 94.37299999999996
+      },
+      {
+        "target": 180.0,
+        "n": 10,
+        "clear_rate": 0.4,
+        "progress": 0.6048324742268042,
+        "total_reward": 143.74550000000005
+      },
+      {
+        "target": 235.0,
+        "n": 10,
+        "clear_rate": 0.3,
+        "progress": 0.45314110824742276,
+        "total_reward": 96.36137500000002
+      }
+    ]
+  },
+  "corpus/v1/lvl_040.json": {
+    "D_clear": 0.88,
+    "D_progress": 0.5963240979381443,
+    "ceiling": 0.3,
+    "curve": [
+      {
+        "target": 0.0,
+        "n": 10,
+        "clear_rate": 0.0,
+        "progress": 0.21391752577319587,
+        "total_reward": 20.294999999999995
+      },
+      {
+        "target": 60.0,
+        "n": 10,
+        "clear_rate": 0.0,
+        "progress": 0.2351159793814433,
+        "total_reward": 18.43049999999992
+      },
+      {
+        "target": 120.0,
+        "n": 10,
+        "clear_rate": 0.0,
+        "progress": 0.6363240979381443,
+        "total_reward": 98.6168750000001
+      },
+      {
+        "target": 180.0,
+        "n": 10,
+        "clear_rate": 0.3,
+        "progress": 0.4319587628865979,
+        "total_reward": 92.25700000000003
+      },
+      {
+        "target": 235.0,
+        "n": 10,
+        "clear_rate": 0.3,
+        "progress": 0.501063144329897,
+        "total_reward": 104.93525
+      }
+    ]
+  },
+  "corpus/v1/lvl_041.json": {
+    "D_clear": 0.84,
+    "D_progress": 0.393112113402062,
+    "ceiling": 0.2,
+    "curve": [
+      {
+        "target": 0.0,
+        "n": 10,
+        "clear_rate": 0.0,
+        "progress": 0.399951675257732,
+        "total_reward": 46.60262499999988
+      },
+      {
+        "target": 60.0,
+        "n": 10,
+        "clear_rate": 0.0,
+        "progress": 0.4324259020618556,
+        "total_reward": 58.151624999999456
+      },
+      {
+        "target": 120.0,
+        "n": 10,
+        "clear_rate": 0.1,
+        "progress": 0.7726159793814433,
+        "total_reward": 139.55450000000062
+      },
+      {
+        "target": 180.0,
+        "n": 10,
+        "clear_rate": 0.5,
+        "progress": 0.8429284793814433,
+        "total_reward": 202.15712500000046
+      },
+      {
+        "target": 235.0,
+        "n": 10,
+        "clear_rate": 0.2,
+        "progress": 0.5865173969072164,
+        "total_reward": 112.95837500000002
+      }
+    ]
+  },
+  "corpus/v1/lvl_042.json": {
+    "D_clear": 0.74,
+    "D_progress": 0.4453253865979382,
+    "ceiling": 0.7,
+    "curve": [
+      {
+        "target": 0.0,
+        "n": 10,
+        "clear_rate": 0.0,
+        "progress": 0.2898356958762887,
+        "total_reward": 26.017124999999993
+      },
+      {
+        "target": 60.0,
+        "n": 10,
+        "clear_rate": 0.0,
+        "progress": 0.406652706185567,
+        "total_reward": 54.53662499999914
+      },
+      {
+        "target": 120.0,
+        "n": 10,
+        "clear_rate": 0.1,
+        "progress": 0.673131443298969,
+        "total_reward": 110.22150000000038
+      },
+      {
+        "target": 180.0,
+        "n": 10,
+        "clear_rate": 0.5,
+        "progress": 0.6048002577319588,
+        "total_reward": 148.2022500000001
+      },
+      {
+        "target": 235.0,
+        "n": 10,
+        "clear_rate": 0.7,
+        "progress": 0.7989529639175258,
+        "total_reward": 207.98387500000013
+      }
+    ]
+  },
+  "corpus/v1/lvl_043.json": {
+    "D_clear": 0.76,
+    "D_progress": 0.4156088917525773,
+    "ceiling": 0.5,
+    "curve": [
+      {
+        "target": 0.0,
+        "n": 10,
+        "clear_rate": 0.0,
+        "progress": 0.1114207474226804,
+        "total_reward": -4.550374999999934
+      },
+      {
+        "target": 60.0,
+        "n": 10,
+        "clear_rate": 0.0,
+        "progress": 0.6653994845360824,
+        "total_reward": 108.25749999999846
+      },
+      {
+        "target": 120.0,
+        "n": 10,
+        "clear_rate": 0.1,
+        "progress": 0.6891591494845362,
+        "total_reward": 125.8518750000007
+      },
+      {
+        "target": 180.0,
+        "n": 10,
+        "clear_rate": 0.6,
+        "progress": 0.7953125,
+        "total_reward": 198.19762500000007
+      },
+      {
+        "target": 235.0,
+        "n": 10,
+        "clear_rate": 0.5,
+        "progress": 0.6606636597938145,
+        "total_reward": 161.37875000000003
+      }
+    ]
+  },
+  "corpus/v1/lvl_044.json": {
+    "D_clear": 0.8200000000000001,
+    "D_progress": 0.5070876288659794,
+    "ceiling": 0.2,
+    "curve": [
+      {
+        "target": 0.0,
+        "n": 10,
+        "clear_rate": 0.0,
+        "progress": 0.17686855670103094,
+        "total_reward": 3.6225000000001004
+      },
+      {
+        "target": 60.0,
+        "n": 10,
+        "clear_rate": 0.0,
+        "progress": 0.3971488402061855,
+        "total_reward": 45.55387499999959
+      },
+      {
+        "target": 120.0,
+        "n": 10,
+        "clear_rate": 0.0,
+        "progress": 0.5671391752577319,
+        "total_reward": 77.95399999999988
+      },
+      {
+        "target": 180.0,
+        "n": 10,
+        "clear_rate": 0.7,
+        "progress": 0.7861307989690722,
+        "total_reward": 206.4773750000001
+      },
+      {
+        "target": 235.0,
+        "n": 10,
+        "clear_rate": 0.2,
+        "progress": 0.5372744845360824,
+        "total_reward": 98.30425000000005
+      }
+    ]
+  },
+  "corpus/v1/lvl_045.json": {
+    "D_clear": 0.8,
+    "D_progress": 0.5246359536082474,
+    "ceiling": 0.5,
+    "curve": [
+      {
+        "target": 0.0,
+        "n": 10,
+        "clear_rate": 0.0,
+        "progress": 0.3994684278350516,
+        "total_reward": 48.752874999999364
+      },
+      {
+        "target": 60.0,
+        "n": 10,
+        "clear_rate": 0.0,
+        "progress": 0.3609697164948453,
+        "total_reward": 39.81212499999941
+      },
+      {
+        "target": 120.0,
+        "n": 10,
+        "clear_rate": 0.0,
+        "progress": 0.34574742268041236,
+        "total_reward": 40.23499999999982
+      },
+      {
+        "target": 180.0,
+        "n": 10,
+        "clear_rate": 0.5,
+        "progress": 0.612854381443299,
+        "total_reward": 151.80975000000012
+      },
+      {
+        "target": 235.0,
+        "n": 10,
+        "clear_rate": 0.5,
+        "progress": 0.6577802835051546,
+        "total_reward": 159.57237500000002
+      }
+    ]
+  },
+  "corpus/v1/lvl_046.json": {
+    "D_clear": 0.72,
+    "D_progress": 0.4249130154639176,
+    "ceiling": 0.7,
+    "curve": [
+      {
+        "target": 0.0,
+        "n": 10,
+        "clear_rate": 0.0,
+        "progress": 0.15119201030927837,
+        "total_reward": 2.304250000000057
+      },
+      {
+        "target": 60.0,
+        "n": 10,
+        "clear_rate": 0.0,
+        "progress": 0.3805251288659794,
+        "total_reward": 43.62187499999972
+      },
+      {
+        "target": 120.0,
+        "n": 10,
+        "clear_rate": 0.1,
+        "progress": 0.8063949742268042,
+        "total_reward": 142.56062500000024
+      },
+      {
+        "target": 180.0,
+        "n": 10,
+        "clear_rate": 0.6,
+        "progress": 0.7521907216494845,
+        "total_reward": 188.829
+      },
+      {
+        "target": 235.0,
+        "n": 10,
+        "clear_rate": 0.7,
+        "progress": 0.785132087628866,
+        "total_reward": 206.72762500000005
+      }
+    ]
+  },
+  "corpus/v1/lvl_047.json": {
+    "D_clear": 0.78,
+    "D_progress": 0.5893814432989691,
+    "ceiling": 0.5,
+    "curve": [
+      {
+        "target": 0.0,
+        "n": 10,
+        "clear_rate": 0.0,
+        "progress": 0.0685889175257732,
+        "total_reward": -13.297749999999988
+      },
+      {
+        "target": 60.0,
+        "n": 10,
+        "clear_rate": 0.0,
+        "progress": 0.2748389175257732,
+        "total_reward": 26.01374999999996
+      },
+      {
+        "target": 120.0,
+        "n": 10,
+        "clear_rate": 0.0,
+        "progress": 0.4573131443298969,
+        "total_reward": 58.76174999999989
+      },
+      {
+        "target": 180.0,
+        "n": 10,
+        "clear_rate": 0.6,
+        "progress": 0.6812822164948453,
+        "total_reward": 176.10175000000018
+      },
+      {
+        "target": 235.0,
+        "n": 10,
+        "clear_rate": 0.5,
+        "progress": 0.571069587628866,
+        "total_reward": 142.4135000000001
+      }
+    ]
+  },
+  "corpus/v1/lvl_048.json": {
+    "D_clear": 0.8,
+    "D_progress": 0.48777706185567005,
+    "ceiling": 0.6,
+    "curve": [
+      {
+        "target": 0.0,
+        "n": 10,
+        "clear_rate": 0.0,
+        "progress": 0.1333923969072165,
+        "total_reward": -2.6138749999999344
+      },
+      {
+        "target": 60.0,
+        "n": 10,
+        "clear_rate": 0.0,
+        "progress": 0.3951997422680413,
+        "total_reward": 47.82374999999985
+      },
+      {
+        "target": 120.0,
+        "n": 10,
+        "clear_rate": 0.0,
+        "progress": 0.5663498711340206,
+        "total_reward": 81.46687499999979
+      },
+      {
+        "target": 180.0,
+        "n": 10,
+        "clear_rate": 0.4,
+        "progress": 0.7189432989690722,
+        "total_reward": 159.4460000000001
+      },
+      {
+        "target": 235.0,
+        "n": 10,
+        "clear_rate": 0.6,
+        "progress": 0.7472293814432989,
+        "total_reward": 189.99750000000006
+      }
+    ]
+  },
+  "corpus/v1/lvl_049.json": {
+    "D_clear": 0.88,
+    "D_progress": 0.5368653350515464,
+    "ceiling": 0.4,
+    "curve": [
+      {
+        "target": 0.0,
+        "n": 10,
+        "clear_rate": 0.0,
+        "progress": 0.1232603092783505,
+        "total_reward": -2.35149999999996
+      },
+      {
+        "target": 60.0,
+        "n": 10,
+        "clear_rate": 0.0,
+        "progress": 0.5035438144329898,
+        "total_reward": 67.92349999999921
+      },
+      {
+        "target": 120.0,
+        "n": 10,
+        "clear_rate": 0.0,
+        "progress": 0.5065721649484536,
+        "total_reward": 66.67799999999993
+      },
+      {
+        "target": 180.0,
+        "n": 10,
+        "clear_rate": 0.2,
+        "progress": 0.5445715206185567,
+        "total_reward": 99.73287499999999
+      },
+      {
+        "target": 235.0,
+        "n": 10,
+        "clear_rate": 0.4,
+        "progress": 0.6377255154639175,
+        "total_reward": 140.99175
+      }
+    ]
+  },
+  "corpus/v1/lvl_050.json": {
+    "D_clear": 0.84,
+    "D_progress": 0.4449323453608247,
+    "ceiling": 0.3,
+    "curve": [
+      {
+        "target": 0.0,
+        "n": 10,
+        "clear_rate": 0.0,
+        "progress": 0.3468588917525773,
+        "total_reward": 44.53262499999969
+      },
+      {
+        "target": 60.0,
+        "n": 10,
+        "clear_rate": 0.0,
+        "progress": 0.45894007731958764,
+        "total_reward": 64.8763749999993
+      },
+      {
+        "target": 120.0,
+        "n": 10,
+        "clear_rate": 0.0,
+        "progress": 0.6749194587628866,
+        "total_reward": 102.24037499999966
+      },
+      {
+        "target": 180.0,
+        "n": 10,
+        "clear_rate": 0.5,
+        "progress": 0.7544619845360824,
+        "total_reward": 179.33362499999998
+      },
+      {
+        "target": 235.0,
+        "n": 10,
+        "clear_rate": 0.3,
+        "progress": 0.5401578608247423,
+        "total_reward": 113.95262500000004
+      }
+    ]
+  },
+  "corpus/v1/lvl_051.json": {
+    "D_clear": 0.9,
+    "D_progress": 0.6481411082474227,
+    "ceiling": 0.2,
+    "curve": [
+      {
+        "target": 0.0,
+        "n": 10,
+        "clear_rate": 0.0,
+        "progress": 0.15425257731958764,
+        "total_reward": 4.212999999999912
+      },
+      {
+        "target": 60.0,
+        "n": 10,
+        "clear_rate": 0.0,
+        "progress": 0.4522712628865979,
+        "total_reward": 68.53162499999908
+      },
+      {
+        "target": 120.0,
+        "n": 10,
+        "clear_rate": 0.0,
+        "progress": 0.34629510309278355,
+        "total_reward": 38.27824999999986
+      },
+      {
+        "target": 180.0,
+        "n": 10,
+        "clear_rate": 0.3,
+        "progress": 0.4077158505154639,
+        "total_reward": 93.76687499999983
+      },
+      {
+        "target": 235.0,
+        "n": 10,
+        "clear_rate": 0.2,
+        "progress": 0.3987596649484536,
+        "total_reward": 73.34237500000006
+      }
+    ]
+  },
+  "corpus/v1/lvl_052.json": {
+    "D_clear": 0.86,
+    "D_progress": 0.6260115979381443,
+    "ceiling": 0.4,
+    "curve": [
+      {
+        "target": 0.0,
+        "n": 10,
+        "clear_rate": 0.0,
+        "progress": 0.19658505154639175,
+        "total_reward": 9.786500000000077
+      },
+      {
+        "target": 60.0,
+        "n": 10,
+        "clear_rate": 0.0,
+        "progress": 0.28754832474226805,
+        "total_reward": 28.450374999999998
+      },
+      {
+        "target": 120.0,
+        "n": 10,
+        "clear_rate": 0.0,
+        "progress": 0.3864851804123711,
+        "total_reward": 45.33212499999978
+      },
+      {
+        "target": 180.0,
+        "n": 10,
+        "clear_rate": 0.3,
+        "progress": 0.4220038659793815,
+        "total_reward": 89.81275000000007
+      },
+      {
+        "target": 235.0,
+        "n": 10,
+        "clear_rate": 0.4,
+        "progress": 0.5773195876288659,
+        "total_reward": 130.49000000000004
+      }
+    ]
+  },
+  "corpus/v1/lvl_053.json": {
+    "D_clear": 0.86,
+    "D_progress": 0.6758923969072165,
+    "ceiling": 0.2,
+    "curve": [
+      {
+        "target": 0.0,
+        "n": 10,
+        "clear_rate": 0.0,
+        "progress": 0.059375,
+        "total_reward": -14.549249999999995
+      },
+      {
+        "target": 60.0,
+        "n": 10,
+        "clear_rate": 0.0,
+        "progress": 0.3004349226804124,
+        "total_reward": 33.17637499999946
+      },
+      {
+        "target": 120.0,
+        "n": 10,
+        "clear_rate": 0.1,
+        "progress": 0.3863240979381443,
+        "total_reward": 60.16987500000024
+      },
+      {
+        "target": 180.0,
+        "n": 10,
+        "clear_rate": 0.4,
+        "progress": 0.5250805412371135,
+        "total_reward": 121.58062500000008
+      },
+      {
+        "target": 235.0,
+        "n": 10,
+        "clear_rate": 0.2,
+        "progress": 0.34932345360824746,
+        "total_reward": 64.35675000000003
+      }
+    ]
+  },
+  "corpus/v1/lvl_054.json": {
+    "D_clear": 0.6599999999999999,
+    "D_progress": 0.38685889175257737,
+    "ceiling": 0.8,
+    "curve": [
+      {
+        "target": 0.0,
+        "n": 10,
+        "clear_rate": 0.0,
+        "progress": 0.20591172680412367,
+        "total_reward": 14.058875000000175
+      },
+      {
+        "target": 60.0,
+        "n": 10,
+        "clear_rate": 0.0,
+        "progress": 0.3435405927835052,
+        "total_reward": 37.13287499999994
+      },
+      {
+        "target": 120.0,
+        "n": 10,
+        "clear_rate": 0.0,
+        "progress": 0.5986307989690722,
+        "total_reward": 82.84137499999966
+      },
+      {
+        "target": 180.0,
+        "n": 10,
+        "clear_rate": 0.9,
+        "progress": 0.9706346649484535,
+        "total_reward": 265.3201250000001
+      },
+      {
+        "target": 235.0,
+        "n": 10,
+        "clear_rate": 0.8,
+        "progress": 0.9469877577319588,
+        "total_reward": 247.78062500000001
+      }
+    ]
+  },
+  "corpus/v1/lvl_055.json": {
+    "D_clear": 0.86,
+    "D_progress": 0.6170747422680413,
+    "ceiling": 0.1,
+    "curve": [
+      {
+        "target": 0.0,
+        "n": 10,
+        "clear_rate": 0.0,
+        "progress": 0.14405605670103092,
+        "total_reward": 0.31787500000008817
+      },
+      {
+        "target": 60.0,
+        "n": 10,
+        "clear_rate": 0.0,
+        "progress": 0.18392396907216496,
+        "total_reward": 31.28225000000013
+      },
+      {
+        "target": 120.0,
+        "n": 10,
+        "clear_rate": 0.0,
+        "progress": 0.4045747422680412,
+        "total_reward": 64.54450000000008
+      },
+      {
+        "target": 180.0,
+        "n": 10,
+        "clear_rate": 0.6,
+        "progress": 0.7783827319587628,
+        "total_reward": 207.72825000000017
+      },
+      {
+        "target": 235.0,
+        "n": 10,
+        "clear_rate": 0.1,
+        "progress": 0.40368878865979385,
+        "total_reward": 76.78062499999999
+      }
+    ]
+  },
+  "corpus/v1/lvl_056.json": {
+    "D_clear": 0.88,
+    "D_progress": 0.5135438144329896,
+    "ceiling": 0.3,
+    "curve": [
+      {
+        "target": 0.0,
+        "n": 10,
+        "clear_rate": 0.0,
+        "progress": 0.254284793814433,
+        "total_reward": 17.330250000000156
+      },
+      {
+        "target": 60.0,
+        "n": 10,
+        "clear_rate": 0.0,
+        "progress": 0.40496134020618557,
+        "total_reward": 56.587499999999594
+      },
+      {
+        "target": 120.0,
+        "n": 10,
+        "clear_rate": 0.0,
+        "progress": 0.6186372422680413,
+        "total_reward": 96.52262499999998
+      },
+      {
+        "target": 180.0,
+        "n": 10,
+        "clear_rate": 0.3,
+        "progress": 0.6165753865979382,
+        "total_reward": 126.41762499999993
+      },
+      {
+        "target": 235.0,
+        "n": 10,
+        "clear_rate": 0.3,
+        "progress": 0.5378221649484536,
+        "total_reward": 112.57950000000002
+      }
+    ]
+  },
+  "corpus/v1/lvl_057.json": {
+    "D_clear": 0.84,
+    "D_progress": 0.5113208762886597,
+    "ceiling": 0.2,
+    "curve": [
+      {
+        "target": 0.0,
+        "n": 10,
+        "clear_rate": 0.0,
+        "progress": 0.16897551546391754,
+        "total_reward": 2.6792500000001094
+      },
+      {
+        "target": 60.0,
+        "n": 10,
+        "clear_rate": 0.0,
+        "progress": 0.30138530927835044,
+        "total_reward": 29.52074999999972
+      },
+      {
+        "target": 120.0,
+        "n": 10,
+        "clear_rate": 0.1,
+        "progress": 0.5410599226804125,
+        "total_reward": 89.9496250000002
+      },
+      {
+        "target": 180.0,
+        "n": 10,
+        "clear_rate": 0.5,
+        "progress": 0.7313949742268042,
+        "total_reward": 172.8416250000001
+      },
+      {
+        "target": 235.0,
+        "n": 10,
+        "clear_rate": 0.2,
+        "progress": 0.7005798969072164,
+        "total_reward": 139.22350000000012
+      }
+    ]
+  },
+  "corpus/v1/lvl_058.json": {
+    "D_clear": 0.88,
+    "D_progress": 0.6568653350515464,
+    "ceiling": 0.3,
+    "curve": [
+      {
+        "target": 0.0,
+        "n": 10,
+        "clear_rate": 0.0,
+        "progress": 0.20926224226804124,
+        "total_reward": 13.5828750000001
+      },
+      {
+        "target": 60.0,
+        "n": 10,
+        "clear_rate": 0.0,
+        "progress": 0.2174130154639175,
+        "total_reward": 15.976125000000035
+      },
+      {
+        "target": 120.0,
+        "n": 10,
+        "clear_rate": 0.0,
+        "progress": 0.24155927835051547,
+        "total_reward": 26.078499999999828
+      },
+      {
+        "target": 180.0,
+        "n": 10,
+        "clear_rate": 0.3,
+        "progress": 0.577980025773196,
+        "total_reward": 133.27912499999965
+      },
+      {
+        "target": 235.0,
+        "n": 10,
+        "clear_rate": 0.3,
+        "progress": 0.46945876288659794,
+        "total_reward": 106.36199999999985
+      }
+    ]
+  },
+  "corpus/v1/lvl_059.json": {
+    "D_clear": 0.92,
+    "D_progress": 0.5117525773195876,
+    "ceiling": 0.3,
+    "curve": [
+      {
+        "target": 0.0,
+        "n": 10,
+        "clear_rate": 0.0,
+        "progress": 0.28451997422680414,
+        "total_reward": 26.050875000000154
+      },
+      {
+        "target": 60.0,
+        "n": 10,
+        "clear_rate": 0.0,
+        "progress": 0.41957152061855674,
+        "total_reward": 50.77387499999948
+      },
+      {
+        "target": 120.0,
+        "n": 10,
+        "clear_rate": 0.0,
+        "progress": 0.4687661082474227,
+        "total_reward": 61.6846249999997
+      },
+      {
+        "target": 180.0,
+        "n": 10,
+        "clear_rate": 0.1,
+        "progress": 0.66003543814433,
+        "total_reward": 108.45587500000002
+      },
+      {
+        "target": 235.0,
+        "n": 10,
+        "clear_rate": 0.3,
+        "progress": 0.6083440721649485,
+        "total_reward": 124.99275000000014
+      }
+    ]
+  }
+}
