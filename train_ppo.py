@@ -15,6 +15,8 @@ PPO を使用してカスタム Mario ゲーム環境で学習を行う
       再開のたびに lr が枯れて実質学習が止まるため）。
 """
 
+import json
+import time
 import os
 import argparse
 from collections import defaultdict, deque
@@ -52,7 +54,8 @@ def linear_schedule(initial_value: float):
 # ----------------------------------------------------------------------------
 # 環境生成
 # ----------------------------------------------------------------------------
-def make_env(level, rank, seed=0, max_episode_steps=8000, random_level=False, levels=None):
+def make_env(level, rank, seed=0, max_episode_steps=8000, random_level=False, levels=None,
+             level_weights_file=None):
     """並列化用の環境生成関数。
 
     以前は make_env の中で level=None / random_level=True がハードコードされており、
@@ -66,6 +69,7 @@ def make_env(level, rank, seed=0, max_episode_steps=8000, random_level=False, le
             render_mode=None,
             random_level=random_level,
             levels=levels,
+            level_weights_file=level_weights_file,
         )
         env.reset(seed=seed + rank)
         return env
@@ -105,7 +109,26 @@ class MarioStatsCallback(BaseCallback):
             self.best_progress = max(self.best_progress, progress)
         return True
 
+    def _on_training_start(self) -> None:
+        self.t0, self.s0 = time.time(), self.num_timesteps
+
+    def _print_progress(self):
+        """ロールアウトごとに1行で進み具合を出す。
+
+        stable-baselines3 の表や進み具合のバーは、ログを絞り込んで tee に流すと
+        区切り線だけが残って「止まって見える」ので、こちらで改行付きの1行を出す"""
+        el = time.time() - self.t0
+        total = getattr(self.model, "_total_timesteps", 0) or self.num_timesteps
+        done = max(self.num_timesteps - self.s0, 1)
+        rest = max(total - self.num_timesteps, 0) * el / done
+        clear = f"  クリア率 {np.mean(self.clears) * 100:3.0f}%  到達 {np.mean(self.progress) * 100:3.0f}%" if self.clears else ""
+        run_total = max(total - self.s0, 1)   # 再開した場合は、この実行で学習する分
+        print(f"[{datetime.now():%m/%d %H:%M}] {done:,} / {run_total:,} ステップ "
+              f"({done / run_total * 100:4.1f}%、通算 {self.num_timesteps:,})  経過 {el / 3600:.1f}時間  "
+              f"残り約 {rest / 3600:.1f}時間{clear}", flush=True)
+
     def _on_rollout_end(self) -> None:
+        self._print_progress()
         if not self.progress:
             return
         n = len(self.recent_reasons)
@@ -117,6 +140,55 @@ class MarioStatsCallback(BaseCallback):
             frac = sum(1 for r in self.recent_reasons if r == key) / n
             self.logger.record(f"mario/frac_{key}", frac)
         self.logger.record("mario/episodes_total", sum(self.total_reasons.values()))
+
+
+class LevelCurriculumCallback(BaseCallback):
+    """苦手なステージほど多く出す（--curriculum）。
+
+    各ステージの直近 window 回の結末を覚えておき、「苦手さ」= 1 −（クリア率の推定）を重みとして
+    JSON に書き出す。クリア率の推定は (クリア数 + 1) / (回数 + 2) で、まだ出ていないステージは 0.5。
+    環境（MarioEnv._level_probs）はエピソードの開始時にこのファイルを読み、
+        確率 = mix × 均等 + (1 − mix) × 苦手さに比例
+    でステージを選ぶ。重みはロールアウトごとに書き直すので、上達したステージは出にくくなっていく。
+    ファイルには結末の履歴も入れ、学習を再開したときに読み戻す。
+    """
+
+    def __init__(self, path, mix=0.5, window=8, verbose=0):
+        super().__init__(verbose)
+        self.path, self.mix, self.window = path, mix, window
+        self.history = {}
+        if os.path.exists(path):
+            with open(path, encoding="utf-8") as f:
+                self.history = json.load(f).get("history", {})
+            print(f"🔄 {path} から {len(self.history)} ステージ分の結末の履歴を読み込みました")
+
+    def _weights(self):
+        return {lv: 1 - (sum(h) + 1) / (len(h) + 2) for lv, h in self.history.items()}
+
+    def _write(self):
+        data = dict(mix=self.mix, default=0.5, weights=self._weights(), history=self.history)
+        tmp = self.path + ".tmp"
+        with open(tmp, "w", encoding="utf-8") as f:
+            json.dump(data, f)
+        os.replace(tmp, self.path)   # 環境が書きかけを読まないよう、置き換えで更新する
+
+    def _on_training_start(self) -> None:
+        self._write()
+
+    def _on_step(self) -> bool:
+        for info in self.locals.get("infos", []):
+            if "episode" in info and "level" in info:
+                h = self.history.setdefault(str(info["level"]), [])
+                h.append(1 if info.get("reason") == "level_complete" else 0)
+                del h[:-self.window]
+        return True
+
+    def _on_rollout_end(self) -> None:
+        self._write()
+        w = np.array(list(self._weights().values()) or [0.5])
+        self.logger.record("curriculum/levels_seen", len(self.history))
+        self.logger.record("curriculum/mean_weakness", float(w.mean()))
+        self.logger.record("curriculum/frac_weak", float((w > 0.5).mean()))
 
 
 # ----------------------------------------------------------------------------
@@ -140,6 +212,9 @@ def train_ppo(
     n_epochs=4,
     ent_coef=0.01,
     seed=0,
+    curriculum=False,
+    curriculum_mix=0.5,
+    curriculum_window=8,
 ):
     os.makedirs(log_dir, exist_ok=True)
     os.makedirs(model_dir, exist_ok=True)
@@ -178,9 +253,12 @@ def train_ppo(
     print()
 
     print("🔧 環境を初期化中...")
+    weights_file = os.path.join(model_dir, "level_weights.json") if curriculum else None
+    if curriculum:
+        print(f"   - 苦手なステージを多く出す: mix={curriculum_mix}, 直近 {curriculum_window} 回で判定 → {weights_file}")
     env_fns = [
         make_env(level, i, seed=seed, max_episode_steps=max_episode_steps,
-                 random_level=random_level, levels=levels)
+                 random_level=random_level, levels=levels, level_weights_file=weights_file)
         for i in range(num_envs)
     ]
     if num_envs > 1:
@@ -256,10 +334,13 @@ def train_ppo(
             save_replay_buffer=False,
         )
         stats_callback = MarioStatsCallback()
+        callbacks = [checkpoint_callback, stats_callback]
+        if curriculum:
+            callbacks.append(LevelCurriculumCallback(weights_file, curriculum_mix, curriculum_window))
 
         model.learn(
             total_timesteps=total_steps,
-            callback=[checkpoint_callback, stats_callback],
+            callback=callbacks,
             progress_bar=True,
             reset_num_timesteps=False if load_model_path else True,
         )
@@ -342,6 +423,12 @@ def main():
     parser.add_argument("--n-epochs", type=int, default=4)
     parser.add_argument("--ent-coef", type=float, default=0.01)
     parser.add_argument("--seed", type=int, default=0)
+    parser.add_argument("--curriculum", action="store_true",
+                        help="苦手なステージ（最近失敗した割合が高いもの）ほど多く出す。--random-level と一緒に使う")
+    parser.add_argument("--curriculum-mix", type=float, default=0.5,
+                        help="均等に選ぶ割合（残りを苦手さに比例して選ぶ）。0 だと苦手さだけで選ぶ")
+    parser.add_argument("--curriculum-window", type=int, default=8,
+                        help="苦手さを判定する、各ステージの直近の回数")
 
     args = parser.parse_args()
     levels = [l.strip() for l in args.levels.split(",")] if args.levels else []
@@ -368,6 +455,9 @@ def main():
         n_epochs=args.n_epochs,
         ent_coef=args.ent_coef,
         seed=args.seed,
+        curriculum=args.curriculum,
+        curriculum_mix=args.curriculum_mix,
+        curriculum_window=args.curriculum_window,
     )
 
 
