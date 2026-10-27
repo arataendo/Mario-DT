@@ -90,6 +90,10 @@ class Objective:
                評価器の種類を増やすと、どの目的関数にも含まれない審判（先読みプランナー）への
                伝わり方が上がるかを確かめるため
     各成分はコーパス上の分布の対応で D* の尺度（DT の全 target 版）にそろえて平均する。
+
+    --ref-dt を指定すると、D* の尺度をその結果（前の DT でのコーパスの D_progress）にする。
+    DT を差し替えても目標 D* の意味が変わらず、前の版と同じ目標・同じつまみで比べられる。
+    このとき --corpus-dt は新しい DT でのコーパスの結果を渡す。
     """
 
     def __init__(self, args, out_dir):
@@ -101,11 +105,14 @@ class Objective:
         self.dt_targets = [float(t) for t in args.dt_targets.split(",")]
         self.use_rule = args.objective in ("combo", "combo3")
         self.use_ppo = args.objective == "combo3"
-        if self.use_rule or self.use_ppo:
+        ref_dt = getattr(args, "ref_dt", None)
+        self.use_link = self.use_rule or self.use_ppo or ref_dt is not None
+        if self.use_link:
             # コーパスで各成分を D* の尺度にそろえる写像を作る
             man = json.load(open(args.corpus_manifest, encoding="utf-8"))
             cdt = json.load(open(args.corpus_dt, encoding="utf-8"))
-            ref = [cdt[m["path"]]["D_progress"] for m in man]
+            rdt = json.load(open(ref_dt, encoding="utf-8")) if ref_dt else cdt
+            ref = [rdt[m["path"]]["D_progress"] for m in man]
             self.link_dt = Linker([dt_progress_over(cdt[m["path"]], self.dt_targets) for m in man], ref)
         if self.use_rule:
             crule = json.load(open(args.corpus_rule, encoding="utf-8"))
@@ -148,7 +155,7 @@ class Objective:
         plist = list(paths.values())
         res = self.evaluator().evaluate(plist, targets=self.dt_targets, episodes=a.episodes, seed=a.seed)
         out = {}
-        if not (self.use_rule or self.use_ppo):
+        if not self.use_link:
             for label, p in paths.items():
                 out[label] = dict(D=res[p]["D_progress"], ceiling=res[p]["ceiling"])
             return out
@@ -234,7 +241,7 @@ class Search:
         else:
             gen, history = 0, []
             rng = np.random.default_rng(a.seed + 12345)
-            to_knob, (b0, b1) = knob_mapping(a.corpus_manifest, a.corpus_dt)
+            to_knob, (b0, b1) = knob_mapping(a.corpus_manifest, a.ref_dt or a.corpus_dt)
             print(f"つまみ→D_progress（コーパス）: D = {b0:.3f} + {b1:.3f}×つまみ")
             items, meta = [], {}
             for ti, t in enumerate(self.targets):
@@ -340,6 +347,8 @@ def main():
     ap.add_argument("--seed", type=int, default=0, help="評価のシード（検証では別の値を使う）")
     ap.add_argument("--corpus-manifest", default="corpus/v1/manifest.json")
     ap.add_argument("--corpus-dt", default="validity_out/v1/dt.json")
+    ap.add_argument("--ref-dt", default=None,
+                    help="D* の尺度にするコーパスの DT 結果（DT を差し替えたとき、前の DT の結果を渡す）")
     ap.add_argument("--corpus-rule", default="validity_out/v1/rule_panel.json",
                     help="combo の尺度合わせに使うコーパスのルールパネル結果")
     ap.add_argument("--objective", choices=["dt", "combo", "combo3"], default="dt",
