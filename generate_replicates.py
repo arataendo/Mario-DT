@@ -76,6 +76,9 @@ class Replicates:
                     panels_used_in_search=self.obj.panels_used())
         if a.objective == "combo3":
             meta["ppo_episodes"] = a.ppo_episodes
+        if a.ref_dt:
+            # 分析（analyze_replicates.py）で、この版の DT の値を D* の尺度に写すのに使う
+            meta.update(model=a.model, corpus_dt=a.corpus_dt, ref_dt=a.ref_dt)
         meta_path = f"{self.out}/meta.json"
         if os.path.exists(meta_path):
             if json.load(open(meta_path, encoding="utf-8")) != meta:
@@ -86,7 +89,8 @@ class Replicates:
 
         self.obj.start_pool()
         st = self.load()
-        to_knob, (b0, b1) = knob_mapping(a.corpus_manifest, a.corpus_dt)
+        # D* の尺度は --ref-dt（DT を差し替えたときの前の DT）。同じつまみ＝同じ候補になり、前の版と対にして比べられる
+        to_knob, (b0, b1) = knob_mapping(a.corpus_manifest, a.ref_dt or a.corpus_dt)
         knobs = {ti: to_knob(t) for ti, t in enumerate(self.targets)}
         print(f"目標 {self.targets} × 独立な探索 {a.replicates} 本 = {len(self.runs)} 本。"
               f"各探索の評価回数 N = μ + λG = {a.mu} + {a.lam}×{a.generations} = {self.N}")
@@ -226,7 +230,10 @@ def main():
     ap.add_argument("--seed", type=int, default=0)
     ap.add_argument("--out", default="gen_out/v3")
     ap.add_argument("--corpus-manifest", default="corpus/v1/manifest.json")
-    ap.add_argument("--corpus-dt", default="validity_out/v1/dt.json")
+    ap.add_argument("--corpus-dt", default="validity_out/v1/dt.json", help="--model の DT でのコーパスの結果")
+    ap.add_argument("--ref-dt", default=None,
+                    help="D* の尺度にするコーパスの DT 結果。DT を差し替えたとき、前の DT の結果を渡すと"
+                         "目標の意味とつまみが前の版と同じになる")
     ap.add_argument("--corpus-rule", default="validity_out/v1/rule_panel.json")
     ap.add_argument("--corpus-ppo", default="validity_out/v1/panel.json")
     args = ap.parse_args()

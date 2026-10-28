@@ -70,10 +70,17 @@ def build(g, args):
     dt = load(f"{g}/val_dt.json")
     panels = {n: load(f"{g}/{f}") for n, f in PANEL_FILES.items() if os.path.exists(f"{g}/{f}")}
 
-    cm, cdt = load(args.corpus_manifest), load(args.corpus_dt)
+    from generate_by_difficulty import Linker, dt_progress_over
+    # cdt: D* の尺度（DT のコーパスでの D_progress）。vdt: この版の DT でのコーパスの結果。
+    # DT を差し替えた版（generate_replicates.py --ref-dt）では両者が違うので、この版の DT の値を
+    # コーパス上の分布の対応で D* の尺度に写してから比べる（探索時と同じ作り方）
+    cm, cdt = load(args.corpus_manifest), load(meta.get("ref_dt", args.corpus_dt))
+    vdt = load(meta["corpus_dt"]) if "ref_dt" in meta else cdt
+    ref = [cdt[m["path"]]["D_progress"] for m in cm]
+    to_ref = Linker([vdt[m["path"]]["D_progress"] for m in cm], ref) if vdt is not cdt else float
     corpus_files = {"PPO": args.corpus_ppo, "ルール": args.corpus_rule, "プランナー": args.corpus_planner}
     cpan = {n: load(f) for n, f in corpus_files.items() if n in panels and os.path.exists(f)}
-    xs = np.array([cdt[m["path"]]["D_progress"] for m in cm])
+    xs = np.array(ref)
     maps = {}
     for name, pn in cpan.items():
         ys = np.array([pn[m["path"]]["D_panel_progress"] for m in cm])
@@ -83,10 +90,8 @@ def build(g, args):
     # 目的関数を別シードで計算し直すための写像（探索時と同じ作り方）
     links = None
     if meta.get("objective") in ("combo", "combo3"):
-        from generate_by_difficulty import Linker, dt_progress_over
         hi_t = [float(t) for t in meta["dt_targets"]]
-        ref = [cdt[m["path"]]["D_progress"] for m in cm]
-        links = {"DT": (Linker([dt_progress_over(cdt[m["path"]], hi_t) for m in cm], ref),
+        links = {"DT": (Linker([dt_progress_over(vdt[m["path"]], hi_t) for m in cm], ref),
                         lambda p: dt_progress_over(dt[p], hi_t))}
         for name in used:
             corpus = load(corpus_files[name])
@@ -96,8 +101,9 @@ def build(g, args):
     M = {}
     for v in val:
         p, t = v["path"], v["target"]
+        dt_d = to_ref(dt[p]["D_progress"])
         r = dict(target=t, path=p, obj_search_err=abs(v["D_search"] - t),
-                 DT_D=dt[p]["D_progress"], dt_err=abs(dt[p]["D_progress"] - t), unclear=dt[p]["ceiling"] <= 0)
+                 DT_D=dt_d, dt_err=abs(dt_d - t), unclear=dt[p]["ceiling"] <= 0)
         if links is not None:
             r["obj_err"] = abs(float(np.mean([lk(get(p)) for lk, get in links.values()])) - t)
         for name, pn in panels.items():
@@ -105,7 +111,7 @@ def build(g, args):
             r[f"{name}_D"] = pd_
             if name in maps:
                 r[f"{name}_err"] = abs(pd_ - maps[name](t))
-                r[f"{name}_resid"] = pd_ - maps[name](dt[p]["D_progress"])
+                r[f"{name}_resid"] = pd_ - maps[name](dt_d)
         M.setdefault(v["run"], {})[v["method"]] = r
     runs = sorted(M)
     targets = sorted({M[r]["naive"]["target"] for r in runs})
@@ -216,8 +222,9 @@ def compare(ga, A, gb, B, n_boot):
     """2つの版を、どちらの目的関数にも使っていない同じ審判から見て比べる（run ごとに対）"""
     judges = [n for n in A["panels"] if n in B["panels"] and n not in A["used"] and n not in B["used"]]
     print("\n" + "=" * 88)
-    print(f"比較: {gb}（{B['meta']['objective']}） → {ga}（{A['meta']['objective']}）")
-    print("  候補のシードが同じなので「つまみ1個」は両方で同じステージ。違いは目的関数だけ")
+    desc = lambda X: X["meta"]["objective"] + (f"、DT {os.path.basename(X['meta']['model'])}" if "model" in X["meta"] else "")
+    print(f"比較: {gb}（{desc(B)}） → {ga}（{desc(A)}）")
+    print("  候補のシードが同じなので「つまみ1個」は両方で同じステージ。違いは目的関数（またはその中の DT）だけ")
     print("=" * 88)
     if not judges:
         print("  どちらの目的関数にも使っていない共通のパネルがありません")
